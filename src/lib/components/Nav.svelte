@@ -17,6 +17,7 @@
 		{ href: '/', label: 'Today', icon: 'sun' },
 		{ href: '/grove', label: 'Grove', icon: 'leaf' },
 		{ href: '/identify', label: 'Identify', icon: 'search' },
+		{ href: '/quiz', label: 'Quiz', icon: 'quiz' },
 		{ href: '/learn', label: 'Learn', icon: 'book' }
 	];
 
@@ -35,6 +36,8 @@
 		<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 21c0-9 3-15 12-17-1 9-4 14-12 17z" /><path d="M6 21c2-5 5-9 9-12" /></svg>
 	{:else if name === 'season'}
 		<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 3v9l6 3" /></svg>
+	{:else if name === 'quiz'}
+		<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 9a3 3 0 1 1 4 2.8c-.7.3-1 .9-1 1.7v.5" /><path d="M12 17.5v.5" /><circle cx="12" cy="12" r="9.2" /></svg>
 	{:else if name === 'search'}
 		<!-- a lens over a leaf, not a camera: identifying is now looking closely at
 		     the tree in front of you, and nothing here photographs anything -->
