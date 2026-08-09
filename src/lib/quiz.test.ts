@@ -12,6 +12,7 @@ import {
 	type QuizMode
 } from './quiz';
 import { SPECIES, speciesById } from './content/species';
+import { BARK_PHOTO_MISSING } from './content/bark';
 
 const MODES: QuizMode[] = ['name', 'folklore', 'science', 'mixed'];
 const oak = speciesById('oak')!;
@@ -186,8 +187,7 @@ describe('a round', () => {
 	it('only shows a bark photograph where one exists', () => {
 		for (const { q } of everyQuestion()) {
 			if (q.image?.kind !== 'bark') continue;
-			expect(['whitebeam', 'hawthorn', 'crab-apple', 'common-lime', 'leylandii', 'lombardy-poplar'])
-				.not.toContain(q.image.id);
+			expect([...BARK_PHOTO_MISSING]).not.toContain(q.image.id);
 		}
 	});
 

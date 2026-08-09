@@ -55,19 +55,18 @@ export const barkLabel = (texture: BarkTexture): string =>
 	BARK_KEY.find((k) => k.id === texture)?.title ?? texture;
 
 /**
- * The six species whose bark photograph is deliberately absent, because every
- * candidate Commons offered was the wrong plant, a young trunk, or a duplicate
- * of another species' picture. The note still shows; the photograph waits for
- * a real one. Kept here rather than probed at runtime so a missing file is a
- * decision on the record and not a silent 404.
+ * Species whose bark photograph is deliberately absent. The note still shows;
+ * the photograph waits for a real one. Kept here rather than probed at runtime
+ * so a missing file is a decision on the record and not a silent 404.
+ *
+ * Down to one. Lombardy poplar's Commons category holds 89 files and not one is
+ * of the trunk. Reusing the black poplar photograph is refused: they are the
+ * same species — Lombardy is the cultivar 'Italica' — so the picture would be
+ * botanically defensible and wrong here, where two cards showing one photograph
+ * reads as a bug, and where the quiz would build a question nobody could answer.
+ * What separates them is the shape of the whole tree, not the bark, and the note
+ * says so.
  */
-export const BARK_PHOTO_MISSING = new Set([
-	'whitebeam',
-	'hawthorn',
-	'crab-apple',
-	'common-lime',
-	'leylandii',
-	'lombardy-poplar'
-]);
+export const BARK_PHOTO_MISSING = new Set(['lombardy-poplar']);
 
 export const hasBarkPhoto = (id: string): boolean => !BARK_PHOTO_MISSING.has(id);

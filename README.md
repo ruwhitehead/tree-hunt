@@ -38,9 +38,10 @@ everything that exists to identify something links straight to "Spotting it" or 
 
 Bark is the half of identification that works between November and April, when the leaf key cannot help.
 Every species carries a bark note and one of six textures — smooth, peeling, banded, ridged, flaking,
-fibrous — and Identify has a one-question key over them. Six species deliberately ship no bark photograph:
-every candidate on Commons was the wrong plant, a young trunk, or a duplicate of another species' picture,
-and a bark photo of the wrong tree is worse than none. The note still shows, and the page says why.
+fibrous — and Identify has a one-question key over them. 49 of the 50 carry a photograph. Lombardy poplar
+does not: its Commons category holds 89 files and not one is of the trunk, and reusing the black poplar
+picture is refused because they are the same species and two cards showing one photograph reads as a bug.
+Its note still shows, and the page says why.
 
 ## Stack
 
@@ -83,8 +84,8 @@ Every bark result is a first pass — review it and pin a replacement in `BARK_P
 
 - **ITF sign-off is outstanding.** Their name, logo and charity number are used on the strength of a family
   connection, not written permission — see [issue #8](https://github.com/ruwhitehead/meet-a-tree/issues/8).
-- **Six species have no bark photograph.** Listed in `BARK_PHOTO_MISSING` in `src/lib/content/bark.ts`,
-  with a test that keeps the list honest in both directions.
+- **One species has no bark photograph** — Lombardy poplar. Listed in `BARK_PHOTO_MISSING` in
+  `src/lib/content/bark.ts`, with a test that keeps the list honest in both directions.
 - **Old followed-tree data is cleared on load.** Following was retired; `src/lib/legacy-cleanup.ts` removes
   the records and the photo database it left behind. An export was built first and then dropped, because
   the app is unreleased and the feature was never used by anyone.

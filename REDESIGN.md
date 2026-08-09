@@ -12,8 +12,8 @@ A plan for six changes asked for after user feedback. Written to be read alongsi
 >
 > **Three things still want a human:**
 > 1. Delete `PLANTNET_API_KEY` from the Vercel project. Nothing reads it.
-> 2. Review the 44 bark photographs and pin replacements in `BARK_PINS`; find real
->    ones for the six species that have none.
+> 2. Review the 49 bark photographs and pin replacements in `BARK_PINS`. Only
+>    Lombardy poplar still has none, and Commons does not appear to hold one.
 > 3. ~~Decide when to clear the legacy stores.~~ **Done** — the owner's call was that
 >    nobody used the feature, so the export in §8 was dropped and the records and
 >    photo database are cleared on load instead.

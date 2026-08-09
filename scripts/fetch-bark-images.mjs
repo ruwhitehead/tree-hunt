@@ -25,16 +25,34 @@ const UA = 'MeetATree/0.1 (https://github.com/ruwhitehead/meet-a-tree; tree comp
 
 /** Curated by eye. Anything listed here wins over the search.
  *
- *  Six species are deliberately still without a bark photograph: whitebeam,
- *  hawthorn, crab apple, common lime, leylandii and Lombardy poplar. Commons
- *  has bark shots filed under all six, but the ones it offers are the wrong
- *  plant - Japanese whitebeam for Sorbus aria, a midland hawthorn cultivar for
- *  Crataegus monogyna, Monterey cypress for the Leyland hybrid - or a young
- *  trunk, or (for Lombardy poplar) the same Populus nigra image already used
- *  for black poplar. A bark photograph of the wrong species is worse than none
- *  at all, because the whole point of the page is that you trust it. The bark
- *  note still appears for these six; the photograph waits for a real one. */
+ *  Five of these were found only on a second, much wider pass. The first search
+ *  matched file TITLES for "<binomial> bark", which misses the very common case
+ *  of a correctly identified photograph with a useless filename. Walking the
+ *  Commons taxon categories and reading DESCRIPTIONS instead found all but one,
+ *  including under names the first pass never tried - whitebeam has been moved
+ *  out of Sorbus to Aria, and the Leyland hybrid is filed under three genera.
+ *
+ *  ONE species is still deliberately without a bark photograph: Lombardy
+ *  poplar. Its category holds 89 files and not one is of the trunk, and no
+ *  search finds one. Reusing the black poplar image is refused - they are the
+ *  same species, so the picture would be defensible botanically and wrong in
+ *  the app, where two cards showing one photograph reads as a bug and would
+ *  make an unanswerable quiz question. Its bark note still appears. */
 const BARK_PINS = {
+	// "Sorbus aria; a trunk" - the same (ms) photographer series this project
+	// already pins for several leaf shots, so it matches them in framing
+	whitebeam: 'File:(ms) Sorbus aria 10.jpg',
+	// "Hawthorn bark in Gunnersbury Triangle", a London nature reserve
+	hawthorn: 'File:GT Hawthorn.jpg',
+	// "Trunk. Taxonym: Malus sylvestris ss Fischer et al." - determined against a
+	// published flora, which rules out the domestica escapes that plague the name
+	'crab-apple': 'File:Malus sylvestris sl8.jpg',
+	// "The trunk of an old Common Lime Tilia × europaea in a park in London"
+	'common-lime': 'File:Malvales - Tilia x europaea - 1.jpg',
+	// "cultivar 'Haggerston Grey', trunk, 1.1m diameter ... Kyloe Wood,
+	// Northumberland" - and a stated diameter is a scale reference, which is the
+	// one thing bark photographs almost never carry
+	leylandii: 'File:Cupressus leylandii1.jpg',
 	// The search's own pick for oak was the one GFDL-1.2-only image in the whole
 	// app, and GFDL wants the full licence text shipped alongside, which is not a
 	// thing a caption can honestly do. This one is CC BY 4.0, the right species,

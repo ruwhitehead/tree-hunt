@@ -101,24 +101,23 @@ dated records nobody else has."*
 - **A photograph of the wrong species is worse than none.** Where Commons offers only the wrong plant or a
   misleading specimen, the slot ships empty and the page says why.
 
-## Citizen science, and where it is allowed to speak
+## What survived the citizen-science tie-in
 
-The tie-in was first built as cards that explain, which meant a paragraph of unchanging text sitting above
-someone's own records forever. The rules now:
+Submitting phenology records to Nature's Calendar went with Following, and with it a whole section of
+rules that used to live here. Three of them were never really about citizen science, and still hold:
 
-- **Explain at the moment of intent.** A record button for an event Nature's Calendar collects carries
-  **Recorded nationally** — six words where the decision is made, worth more than sixty on a card above it.
-- **An explainer must be able to finish.** Full text until the first record is sent, then it collapses to
-  *"3 records sent · 1 ready"*. A contribution count is also the only number in the app that says what
-  someone has given rather than collected.
-- **Depth lives on `/citizen-science/`**, off the tab bar, so every card that links to it can be two lines.
-- **Ask for what a submission needs before the effort, not after.** The postcode their form requires is
-  asked when you follow an eligible species; it used to appear as a blocker in the submit dialog.
-- **One remarkable fact, said once.** "Records since 1736" was in five places and is now in three.
-- **Sourced or silent.** `projects.ts` carries a `source` for every claim, and a test fails without one.
-  Verified figures only: 2.9 million records, spring advancing 2.5 days per decade, 20,000 tree-health
-  reports of which about three quarters were healthy trees. An unverifiable claim is left out entirely.
-- **Not everywhere.** Seasons has no citizen-science framing, because the hunts are not records.
+- **Explain at the moment of intent.** Six words where the decision is made beat sixty on a card above it.
+  This is why the bark key labels a texture with what you would feel rather than explaining bark first, and
+  why a wrong quiz answer teaches at the point of being wrong.
+- **An explainer must be able to finish.** Standing text that never changes becomes furniture. Anything
+  that explains should either collapse once it has been understood or be somewhere you chose to go — which
+  is why the Lens instructions are a closed `details` at the foot of the page.
+- **Sourced or silent.** Verified figures only; an unverifiable claim is left out entirely. It applied to
+  `projects.ts`, which is gone, and it still applies to every number in the guide.
+
+The rest — the "recorded nationally" tag, the contribution count, the postcode asked up front, the
+`/citizen-science/` depth page — described machinery that no longer exists, and is recorded in the git
+history rather than here.
 
 ## Things deliberately removed
 
@@ -167,9 +166,11 @@ someone's own records forever. The rules now:
   against a wall of pictures is a task people are good at; self-reporting a texture is not.
 - **Keys are ordered by certainty, not by cleverness.** Leaf questions, then bark, then where you are
   standing, then the phone. Each is cheaper and surer than the next.
-- **Nothing is deleted on a user's behalf.** Retiring Following removed the code and kept the records: the
-  old stores are read but never written, and anyone holding data sees a card offering it back as one file.
-  A feature can be withdrawn; the things someone made with it cannot.
+- **Retiring a feature is not licence to delete what people made — unless nobody made anything.** Following
+  was withdrawn with an export, on the first half of that rule. The second half then applied: the app is
+  unreleased and nobody had used it, so the export was noise on the page and the leftovers were orphaned
+  megabytes in strangers' browsers with no code left to read them. `legacy-cleanup.ts` clears them. The
+  order matters — the default is to keep, and "nobody used it" has to be established, not assumed.
 - **Empty states are designed, not described.** A new tree shows an outlined ghost timeline of what a year
   will look like; a new grove leads with six trees on every British street rather than 50 grey silhouettes.
 - **Never name an event the calendar only guessed.** A tree with no season dates recorded is asked for a
@@ -201,7 +202,7 @@ use it at all."*
 - **Bark magnification is uncontrolled.** Every bark image is centre-cropped square so nothing is made
   *worse*, but the source photographers stood where they liked, and a tight beech beside a wide beech still
   reads as two species. This is the largest remaining content debt: it wants a human pass with
-  `BARK_PINS`, and six species still need a correct photograph at all.
+  `BARK_PINS`. Only Lombardy poplar still lacks a photograph entirely.
 - **No comparison view.** The content names confusable pairs (English vs sessile oak, blackthorn vs
   hawthorn), the quiz now has a formal list of them, and the bark key puts them on one screen — but there
   is still no deliberate side-by-side, which would be the most useful reference feature left.

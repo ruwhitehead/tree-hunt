@@ -121,11 +121,16 @@ sample, and the smart crop picks an arbitrary knot and throws away the magnifica
 chose — which matters because a tight crop of beech and a wide shot of beech look like different species.
 Centre-cropping cannot fix inconsistent source magnification, but it does not make it worse.
 
-Six species ship no bark photograph at all, listed in `BARK_PHOTO_MISSING` in `src/lib/content/bark.ts`.
-Commons files exist under all six names, but they are the wrong plant (Japanese whitebeam for *Sorbus
-aria*, a midland hawthorn cultivar for *Crataegus monogyna*, Monterey cypress for the Leyland hybrid), a
-young trunk, or a duplicate of another species' picture. A wrong photograph is worse than none, because the
-whole value of the page is that it can be trusted. Tests assert the list is accurate in both directions.
+Finding bark on Commons takes two passes. Searching file TITLES for `<binomial> bark` misses the very
+common case of a correctly identified photograph with a useless filename, and it misses anything filed
+under a synonym — whitebeam has been moved out of *Sorbus* into *Aria*, and the Leyland hybrid sits under
+three different genera. Walking the taxon **categories** and reading **descriptions** finds the rest.
+
+One species still ships no bark photograph, listed in `BARK_PHOTO_MISSING` in `src/lib/content/bark.ts`:
+Lombardy poplar, whose category holds 89 files and not one of the trunk. Reusing the black poplar image is
+refused — Lombardy is the cultivar *'Italica'* of the same species, so the picture would be botanically
+defensible and wrong here, where two cards showing one photograph reads as a bug and the quiz would build
+an unanswerable question. Tests assert the list is accurate in both directions.
 
 ## The quiz generator
 
@@ -192,7 +197,7 @@ host — `page.url.origin` resolves to SvelteKit's internal prerender host and s
    risk is now rebuildable on a walk rather than irreplaceable photographs.
 2. **`PLANTNET_API_KEY` should be deleted from the Vercel project.** Nothing reads it
    ([#2](https://github.com/ruwhitehead/meet-a-tree/issues/2) is closed by removal, not by configuration).
-3. **Six species have no bark photograph**, and the rest are at uncontrolled magnification — the largest
-   remaining content debt. `BARK_PINS` in `scripts/fetch-bark-images.mjs` is where fixes go.
+3. **Bark magnification is uncontrolled** across the 49 photographs, and Lombardy poplar has none — the
+   largest remaining content debt. `BARK_PINS` in `scripts/fetch-bark-images.mjs` is where fixes go.
 4. **No push notifications**, so nothing recalls a lapsed user ([#7](https://github.com/ruwhitehead/meet-a-tree/issues/7)).
 5. **Region packs** would be the first step towards working outside Britain and Ireland ([#11](https://github.com/ruwhitehead/meet-a-tree/issues/11)).

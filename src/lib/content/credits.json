@@ -151,6 +151,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:(ms)_Crataegus_monogyna_2.jpg",
 			"file": "File:(ms) Crataegus monogyna 2.jpg"
+		},
+		"bark": {
+			"artist": "Chiswick Chap",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:GT_Hawthorn.jpg",
+			"file": "File:GT Hawthorn.jpg"
 		}
 	},
 	"chestnut": {
@@ -325,6 +331,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:(ms)_Sorbus_aria_9.jpg",
 			"file": "File:(ms) Sorbus aria 9.jpg"
+		},
+		"bark": {
+			"artist": "Hladac",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:(ms)_Sorbus_aria_10.jpg",
+			"file": "File:(ms) Sorbus aria 10.jpg"
 		}
 	},
 	"wild-service": {
@@ -499,6 +511,12 @@
 			"license": "CC BY-SA 2.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Crab_apple_(Malus_sylvestris)_fruit_and_foliage_(3830013351).jpg",
 			"file": "File:Crab apple (Malus sylvestris) fruit and foliage (3830013351).jpg"
+		},
+		"bark": {
+			"artist": "Stefan.lefnaer",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Malus_sylvestris_sl8.jpg",
+			"file": "File:Malus sylvestris sl8.jpg"
 		}
 	},
 	"sweet-chestnut": {
@@ -593,6 +611,12 @@
 			"license": "CC BY-SA 3.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Tilia_x_europea-2.JPG",
 			"file": "File:Tilia x europea-2.JPG"
+		},
+		"bark": {
+			"artist": "Emőke Dénes",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Malvales_-_Tilia_x_europaea_-_1.jpg",
+			"file": "File:Malvales - Tilia x europaea - 1.jpg"
 		}
 	},
 	"crack-willow": {
@@ -641,6 +665,12 @@
 			"license": "CC BY 3.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Cupressocyparis_leylandii_%27Castlewellan_Gold%27_green_leafs.jpg",
 			"file": "File:Cupressocyparis leylandii 'Castlewellan Gold' green leafs.jpg"
+		},
+		"bark": {
+			"artist": "MPF",
+			"license": "Public domain",
+			"page": "https://commons.wikimedia.org/wiki/File:Cupressus_leylandii1.jpg",
+			"file": "File:Cupressus leylandii1.jpg"
 		}
 	},
 	"weeping-willow": {
