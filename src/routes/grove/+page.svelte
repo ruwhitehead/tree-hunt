@@ -5,7 +5,6 @@
 	import { deckOrder, grove } from '$lib/grove.svelte';
 	import { shareGrove } from '$lib/share';
 	import Give from '$lib/components/Give.svelte';
-	import { downloadLegacyExport, legacyObservationCount, legacyTrees } from '$lib/legacy-export';
 
 	/** A wall of 50 grey cards reads as "you have failed 50 times". Until someone
 	 *  has a few species, lead with the ones they can genuinely find on any
@@ -31,21 +30,6 @@
 		grove.justFound = null;
 	});
 
-	/** Anyone who was following individual trees still has those records on this
-	 *  device. The feature is gone; the data is not, and is not deleted. */
-	const old = legacyTrees();
-	const oldNotes = legacyObservationCount(old);
-	let exporting = $state(false);
-	let exported = $state(false);
-	async function exportOld() {
-		exporting = true;
-		try {
-			await downloadLegacyExport();
-			exported = true;
-		} finally {
-			exporting = false;
-		}
-	}
 </script>
 
 <svelte:head>
@@ -96,25 +80,6 @@
 		<div class="stat"><div class="n">{grove.co2 ? `~${grove.co2}` : '0'}<span class="unit">kg</span></div><div class="l">CO₂ / yr</div></div>
 		<div class="stat"><div class="n">{SPECIES.length - grove.speciesCount}</div><div class="l">to find</div></div>
 	</div>
-
-	{#if old.length}
-		<!-- Shown only on a device that has the old records. It never deletes
-		     anything: the store stays where it is, so a reinstall or a late return
-		     still finds the photographs. -->
-		<div class="card tint">
-			<p class="label">Your followed trees</p>
-			<p class="sub" style="margin:0">
-				Following a tree through the year has been retired, and this app is now a guide and a memory
-				rather than a logbook. Your {old.length}
-				{old.length === 1 ? 'tree' : 'trees'} and {oldNotes}
-				{oldNotes === 1 ? 'note' : 'notes'} are still on this device, photographs included, and
-				nothing has been deleted. Take a copy whenever you like.
-			</p>
-			<button class="btn small" style="margin-top:10px" onclick={exportOld} disabled={exporting}>
-				{exporting ? 'Gathering…' : exported ? 'Download again' : 'Download my records'}
-			</button>
-		</div>
-	{/if}
 
 	{#if showStarters}
 		<div class="card tint">

@@ -6,6 +6,7 @@
 	import InstallPrompt from '$lib/components/InstallPrompt.svelte';
 	import Toast from '$lib/components/Toast.svelte';
 	import Overlays from '$lib/components/Overlays.svelte';
+	import { clearLegacyData } from '$lib/legacy-cleanup';
 	import { page } from '$app/state';
 	import { SPECIES } from '$lib/content/species';
 	import { SITE_URL } from '$lib/site';
@@ -17,6 +18,12 @@
 	// the photographs people had taken. There are no photographs any more: what
 	// is stored is a list of species ids and dates, which is small, cheap to
 	// rebuild, and not worth asking the browser for a favour over.
+
+	// Clear what the retired follow-a-tree feature left in storage. Cheap, silent
+	// and a no-op on any device that never had it.
+	$effect(() => {
+		clearLegacyData();
+	});
 
 	// App-like cross-fade between views (skipped for reduced-motion users)
 	onNavigate((navigation) => {

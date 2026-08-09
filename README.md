@@ -85,9 +85,9 @@ Every bark result is a first pass — review it and pin a replacement in `BARK_P
   connection, not written permission — see [issue #8](https://github.com/ruwhitehead/meet-a-tree/issues/8).
 - **Six species have no bark photograph.** Listed in `BARK_PHOTO_MISSING` in `src/lib/content/bark.ts`,
   with a test that keeps the list honest in both directions.
-- **Old followed-tree records are still on people's devices.** Following was retired but nothing was
-  deleted: anyone who has records sees a card in their Grove offering the lot back as one file. A later
-  release can clear the stores once that has been available long enough to be fair.
+- **Old followed-tree data is cleared on load.** Following was retired; `src/lib/legacy-cleanup.ts` removes
+  the records and the photo database it left behind. An export was built first and then dropped, because
+  the app is unreleased and the feature was never used by anyone.
 - **The canonical URL is a constant.** `src/lib/site.ts` holds it, for absolute Open Graph URLs. Update it if
   the app moves to a custom domain.
 - **`PLANTNET_API_KEY` should be deleted from the Vercel project.** Photo identification is gone and

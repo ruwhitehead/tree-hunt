@@ -43,24 +43,21 @@ sync — a deliberate constraint that shapes the whole design (see DESIGN.md).
 | Key | Holds |
 |---|---|
 | `grove-v1` | sightings (`{id, date}` — **repeats allowed**, one per time you see it), milestone flags, visit count |
-| `mat-trees-v1` | **legacy.** Trees people followed before that feature was retired. Read, never written; see below |
 | `mat-install-v2` | install nudging: visits, last visit, snooze-until, snooze count |
 | `mat-seen-intro` | onboarding shown |
 | `mat-install-dismissed` | legacy flag, migrated to one snooze on first read |
 
-### Legacy data, and why it is still here
+### Legacy data, and why it is gone
 
-Following a tree through the year is gone, and it held the only thing a user could genuinely lose: dated
-notes they typed and photographs they took, in `mat-trees-v1` and in IndexedDB `meet-a-tree` / `photos`.
+Following a tree through the year stored dated observations in `mat-trees-v1` and photographs as blobs in
+IndexedDB `meet-a-tree` / `photos`. Retiring it briefly shipped an export, on the principle that you do not
+delete what people made. With the app still unreleased and the feature unused, the owner's call was that
+nobody had made anything: the offer was noise, and the leftovers were orphaned megabytes in strangers'
+browsers with no code left that could read them.
 
-`src/lib/legacy-export.ts` reads both and hands the lot back as a single JSON file with the photographs
-inlined as data URLs. **It never writes and never deletes**, and a test asserts that: the stores are left
-exactly where they are so a reinstall, or a return in six months, still finds them. `/grove/` shows the
-offer only on a device that has data. A later release can clear the stores once the export has been
-available long enough to be fair.
-
-The database is opened without a version, so calling this on a device that never had the feature cannot
-create the store.
+`src/lib/legacy-cleanup.ts` removes both on load. It is unconditional and unflagged on purpose — the two
+calls are no-ops when there is nothing there, neither blocks, and skipping the flag avoids leaving a new
+key behind in place of the ones being cleared.
 
 ### Stores
 
@@ -197,6 +194,5 @@ host — `page.url.origin` resolves to SvelteKit's internal prerender host and s
    ([#2](https://github.com/ruwhitehead/meet-a-tree/issues/2) is closed by removal, not by configuration).
 3. **Six species have no bark photograph**, and the rest are at uncontrolled magnification — the largest
    remaining content debt. `BARK_PINS` in `scripts/fetch-bark-images.mjs` is where fixes go.
-4. **The legacy stores are still on devices.** Deliberate, and they need a clear-out release eventually.
-5. **No push notifications**, so nothing recalls a lapsed user ([#7](https://github.com/ruwhitehead/meet-a-tree/issues/7)).
-6. **Region packs** would be the first step towards working outside Britain and Ireland ([#11](https://github.com/ruwhitehead/meet-a-tree/issues/11)).
+4. **No push notifications**, so nothing recalls a lapsed user ([#7](https://github.com/ruwhitehead/meet-a-tree/issues/7)).
+5. **Region packs** would be the first step towards working outside Britain and Ireland ([#11](https://github.com/ruwhitehead/meet-a-tree/issues/11)).

@@ -14,8 +14,9 @@ A plan for six changes asked for after user feedback. Written to be read alongsi
 > 1. Delete `PLANTNET_API_KEY` from the Vercel project. Nothing reads it.
 > 2. Review the 44 bark photographs and pin replacements in `BARK_PINS`; find real
 >    ones for the six species that have none.
-> 3. Decide when to clear the legacy `mat-trees-v1` and IndexedDB stores. They are
->    deliberately untouched, and the export has to be available long enough to be fair.
+> 3. ~~Decide when to clear the legacy stores.~~ **Done** — the owner's call was that
+>    nobody used the feature, so the export in §8 was dropped and the records and
+>    photo database are cleared on load instead.
 
 ---
 
