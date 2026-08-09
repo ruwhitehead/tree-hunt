@@ -3,6 +3,20 @@
 A plan for six changes asked for after user feedback. Written to be read alongside
 `DESIGN.md`, whose standing rules still apply and are cited throughout.
 
+> **Status: delivered.** All five phases are built, on `redesign/tool-to-teacher`.
+> `svelte-check` and 68 unit tests pass, and Lighthouse accessibility is 1.0 on all
+> seven audited routes including the greyed deck and the new quiz. What follows is
+> the plan as written; where the build departed from it, a note says so and why.
+> The durable decisions have been folded into `DESIGN.md` and `ARCHITECTURE.md`,
+> which are the documents to trust once this one goes stale.
+>
+> **Three things still want a human:**
+> 1. Delete `PLANTNET_API_KEY` from the Vercel project. Nothing reads it.
+> 2. Review the 44 bark photographs and pin replacements in `BARK_PINS`; find real
+>    ones for the six species that have none.
+> 3. Decide when to clear the legacy `mat-trees-v1` and IndexedDB stores. They are
+>    deliberately untouched, and the export has to be available long enough to be fair.
+
 ---
 
 ## 1. What the six changes actually are
@@ -441,6 +455,7 @@ gate green.
 | Phase | Work | Why here | Rough |
 |---|---|---|---|
 | **0** | Decisions: nav shape (§2), data policy (§8), bark taxonomy (§4) | Everything downstream branches on these | — |
+
 | **1** | The grove deck (item 4) | Smallest, highest value, zero dependencies. Fixes the actual reported defect | ½ day |
 | **2** | Bark content and photos (item 3) | The long pole. Curation runs in parallel with phases 3 and 4 | 1½–2 days |
 | **3** | Camera out, Lens/Look Up in (items 1, 6) | One release, or Identify has a hole in it | ½ day |
@@ -455,3 +470,46 @@ Roughly six days of build, plus the bark curation running alongside.
 - `svelte-check` and `vitest` green
 - New pure logic is unit-tested: redaction, distractor ambiguity, platform detection
 - Docs updated in the same PR as the code, not after it
+
+---
+
+## 11. What the build changed, and why
+
+The plan survived mostly intact. Five departures are worth recording, because each
+was a decision made against something the plan asserted.
+
+**The deck's grey-to-colour moment could not work as described (§3).** Found and
+unfound are separate blocks, so a card moving between them is destroyed and
+rebuilt — a CSS transition on `filter` has nothing to transition from. Rather than
+ship dead CSS, the store now carries a transient `justFound` flag that the deck
+reads once and clears, and the card plays a one-shot animation on the visit that
+earned it. The flag is deliberately not persisted: a reload is not a new find.
+
+**"Still to find" is alphabetical, not in guide order.** The plan claimed the
+guide's own order groups confusables together and that alphabetising would scatter
+them. It does not: `species.ts` has always ended with `.sort()` by name, so guide
+order *is* alphabetical. The claim was wrong and the code is unchanged.
+
+**The bark key asks one question, not the plan's implied mirror of the leaf key.**
+Six textures leave twenty species under "ridged and furrowed", which the plan
+treated as a weakness. It is not worth fixing with a second question: the honest
+follow-ups are things nobody in a wood in February can answer. Twenty photographs
+on one screen is a better instrument than a question about fissure depth.
+
+**Six species ship no bark photograph, where the plan assumed fifty.** Commons has
+files under all six names and every one is the wrong plant, a young trunk, or a
+duplicate. The UI degrades to the note alone and says why. Oak's photograph was
+also pinned past the search's own pick, which was the only GFDL-1.2 image in the
+app; everything now ships CC or public domain.
+
+**The `/trees` redirect is a prerendered page, not a server redirect.** The old
+stub used `prerender = false`, which makes `adapter-vercel` build a serverless
+function for three lines of "go over there" — needless cost, no use offline, and
+on Windows the symlink it needs fails the local build. A static page with a meta
+refresh does the same job, and removing it left the app with no server routes at
+all, which makes the `adapter-static` move in §9 available whenever it suits.
+
+Two things the plan flagged as risks turned out to be real and are now guarded by
+tests rather than by care: folklore prose names its own species constantly, and
+the guide's near-duplicates would otherwise have produced questions with two
+defensible answers.

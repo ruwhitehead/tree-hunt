@@ -5,9 +5,24 @@ additions, so they are recorded here too.
 
 ## What the app is for
 
-One feeling: **attachment to specific, individual trees**. Not species counted, not a streak maintained —
-a particular oak at the end of a particular road, whose behaviour you come to know. Everything else exists
-to serve that, and the giving ask exists because someone who feels it may want to plant a real one.
+**Learning to name the trees you walk past.** The app teaches recognition, shows you what you have not
+learned yet, and tests you on it. The giving ask exists because someone who comes to care may want to
+plant a real one.
+
+> **This replaced an earlier answer, and the change is the reason for most of what follows.** The app was
+> once built around *attachment to a specific, individual tree* — a particular oak at the end of a
+> particular road, followed through a year. That is a lovely idea and most people did not do it. Around it
+> had accreted five jobs: identify a tree for you, follow one, submit records to a national scheme, collect
+> species, and teach. Cutting the two most expensive tools left one honest job. See
+> [REDESIGN.md](REDESIGN.md).
+
+Two consequences worth stating plainly, because they constrain everything else:
+
+- **We do not answer the question for you.** No camera, no photo matching. Keys, notes and photographs
+  that let you answer it yourself, and — when those genuinely fail — directions to the recogniser already
+  on your phone, described honestly, including what it is bad at.
+- **We are not a logbook.** What is stored is a list of species ids and dates. No accounts, no uploads,
+  no location asked for, nothing that a cleared browser makes irreplaceable.
 
 ## Brand: an ITF echo, made accessible
 
@@ -15,7 +30,7 @@ Colours were read from `internationaltreefoundation.org`'s own stylesheets rathe
 
 | Token | Value | Role |
 |---|---|---|
-| `--green` | `#167E3C` | ITF's green. Buttons, the camera control, giving surfaces |
+| `--green` | `#167E3C` | ITF's green. Buttons, the found-tick, giving surfaces |
 | `--forest` | `#1C3B23` | ITF's dark green. Depth, folklore |
 | `--stone` | `#E1DFD9` | ITF's warm stone. Calm surfaces |
 | `--ink` | `#1E1E1E` | ITF's body colour |
@@ -71,11 +86,20 @@ dated records nobody else has."*
   Their actual strongest ask — a monthly gift matched for the first 12 months — is quoted instead, in their
   words, with their real programmes named (West Pokot, Dundori, Mutaluni).
 - **One ask, not four.** Four vague donate links became one `Give` component.
-- **Ask for permissions at the point of intent.** The camera opens from a tap and needs no dialog at all
-  (`<input capture>`); location is never requested; notifications are not implemented yet and would come
-  after a week of use, never on arrival.
+- **Ask for no permissions at all.** There is nothing left that needs one: no camera, no location, no
+  storage-persistence ask. Notifications are not implemented and would come after a week of use, never on
+  arrival.
 - **Prefer removing a concept to adding one.**
 - **Lighthouse accessibility 100 is a release gate**, not an aspiration.
+- **Grey the photograph, never the text.** Unfound cards in the deck grey out via `filter: grayscale()` on
+  the image alone. Fading the whole card was tried and shipped once, and the faded label failed contrast at
+  **2.33:1** — caught by the gate above. Names stay full-contrast ink in both states, and a tick, not a
+  colour, is what tells found from unfound where filters do not apply (mono vision, forced-colours mode).
+- **Nothing that keeps score.** The streak and the badges were removed for punishing people, and the quiz
+  is the easiest place to smuggle them back: no timer, no streak, no stored history, no percentage. A
+  wrong answer's job is to teach, so it shows the line that would have given it away and links to it.
+- **A photograph of the wrong species is worse than none.** Where Commons offers only the wrong plant or a
+  misleading specimen, the slot ships empty and the page says why.
 
 ## Citizen science, and where it is allowed to speak
 
@@ -105,6 +129,11 @@ someone's own records forever. The rules now:
 | **"Near You"** | Read-once and inert. Without location it offered no insight; with location it would have shown patchy decades-old GBIF records as if they were fact. Its habitat guidance moved into Identify, where it helps at the moment you are narrowing candidates. |
 | **The My Grove tab** | Two tabs for one idea that nobody could tell apart — my error for building both. Merged into My Trees as a second view, which freed a tab for Seasons. |
 | **Four cards on Today** | Each existed only to say "there is a tab for this". Ten blocks became five: one thing to read, one tree to meet, your trees, the ask, the lockup. |
+| **Photo identification** | It worked — the Pl@ntNet key was live — which is why cutting it was a decision rather than a tidy-up. It answered the question instead of teaching anyone to answer it, and that is the opposite of what the rest of the guide is for. The three keys and an honest signpost to Google Lens and Visual Look Up replace it. |
+| **Following a tree through the year** | The observation timeline, the phenology mapping, the Nature's Calendar submissions, the citizen-science explainer, the photo store. About 1,700 lines. A good idea most people did not use, and it made the app a logbook as well as a guide. The *data* was not removed with it — see below. |
+| **The camera FAB** | The raised green button was the camera's affordance. With the camera gone the bar went flat rather than promoting something else into the hole: promoting a destination because a slot came free is how navigation rots. |
+| **Seasons as a tab** | It answers the same question as Today — what is worth doing now — and Today had just lost its own trees block. The live hunt surfaces there; the full board stays at `/missions`, off the bar, the way Learn's depth is. |
+| **Asking for storage persistence** | Only ever requested to stop the browser evicting people's photographs. There are no photographs. |
 
 ## Interaction decisions
 
@@ -120,11 +149,27 @@ someone's own records forever. The rules now:
 - **iOS honesty.** A photo taken in a browser never reaches the Photos library, so the app says so and
   offers "Save to Photos" via the share sheet — the only route in, and it cannot be automated.
 - **Point at the phone's own recogniser; never pretend to drive it.** Visual Look Up and Google Lens have no
-  web API, so Identify signposts them instead: on Android, long-press the photo for Lens; on iOS, save it and
-  use Look Up, with the Save button right there so the instruction is actionable. Shown only once a photo
-  exists, on a quieter ground than our own result, and only on the platform where it is true — a Mac gets
-  neither hint, and a test asserts that. `lens.google.com/uploadbyurl` would work but requires the photo to be
-  publicly hosted, so it is refused outright: nothing here leaves the device.
+  web API, so Identify signposts them and never offers a button. It is the last thing on the page, closed,
+  below all three keys, because it sends someone out of the app. Only the instructions true of the device in
+  hand are rendered, and a test asserts each platform gets its own — an iPhone owner is not shown Chrome's
+  right-click menu. Desktop now gets a route too, which it never used to: the old rule that a Mac gets no
+  hint existed because the photo lived in the app, and the photo no longer does, so uploading to Lens works
+  anywhere. The copy says what these tools are **bad** at — confusable natives, garden cultivars — and sends
+  the reader back to the spotting notes. An escape hatch should return you to the guide, not end the session.
+  `lens.google.com/uploadbyurl` would work but requires the photo to be publicly hosted, so it is still
+  refused outright: nothing here leaves the device.
+- **The deck names what you have not found.** It used to hide it — a generic silhouette labelled "Not yet
+  met", linking to Identify rather than to the tree, so the one thing a collection deck is for it could not
+  do. Unfound species now show the same photograph in grey with their real name, and tap through.
+- **One question for bark, not three.** The leaf key divides three times because leaves genuinely do.
+  Pushed past one question, bark starts asking things nobody standing in a wood in February can answer —
+  *is that fissure deep or shallow* — so it asks once and then shows twenty photographs. Matching a trunk
+  against a wall of pictures is a task people are good at; self-reporting a texture is not.
+- **Keys are ordered by certainty, not by cleverness.** Leaf questions, then bark, then where you are
+  standing, then the phone. Each is cheaper and surer than the next.
+- **Nothing is deleted on a user's behalf.** Retiring Following removed the code and kept the records: the
+  old stores are read but never written, and anyone holding data sees a card offering it back as one file.
+  A feature can be withdrawn; the things someone made with it cannot.
 - **Empty states are designed, not described.** A new tree shows an outlined ghost timeline of what a year
   will look like; a new grove leads with six trees on every British street rather than 50 grey silhouettes.
 - **Never name an event the calendar only guessed.** A tree with no season dates recorded is asked for a
@@ -149,10 +194,19 @@ use it at all."*
 ## Open design questions
 
 - **Photographic treatment.** Geometry is consistent and sources are curated, but there is no grade or
-  filter unifying 100 photographs from as many photographers.
+  filter unifying ~144 photographs from as many photographers. The deck's greyscale now makes the
+  inconsistency more visible, not less, because half the grid is desaturated at any time.
 - **The habit shots are the weaker half.** A few are compromises — alder is foliage rather than a whole
   tree, black poplar is bare, the lime avenue has a road sign in it.
+- **Bark magnification is uncontrolled.** Every bark image is centre-cropped square so nothing is made
+  *worse*, but the source photographers stood where they liked, and a tight beech beside a wide beech still
+  reads as two species. This is the largest remaining content debt: it wants a human pass with
+  `BARK_PINS`, and six species still need a correct photograph at all.
 - **No comparison view.** The content names confusable pairs (English vs sessile oak, blackthorn vs
-  hawthorn) but there is no side-by-side, which would be the most useful reference feature left.
-- **Seasonal chrome.** The app looks identical in February and August; the season is known and unused
-  outside the spine.
+  hawthorn), the quiz now has a formal list of them, and the bark key puts them on one screen — but there
+  is still no deliberate side-by-side, which would be the most useful reference feature left.
+- **Seasonal chrome.** The app looks identical in February and August; the season is known and used only by
+  the spine, the hunts and one quiz question type.
+- **Does the quiz need a way back in?** It has no streak by design, which also means it has no reason to
+  return. "Today's five" on the home page, seeded by the date and identical for everyone, would be a pull
+  without a punishment — but it is one step from a streak, so it is not built yet.

@@ -4,33 +4,32 @@ How Meet a Tree is put together, and why. Written to be read by someone picking 
 
 ## Shape
 
-A SvelteKit app where **every page is prerendered at build time** and one route runs as a server function.
-That combination is deliberate: the guide is static content that should be instant and available offline,
-while photo identification needs a secret that cannot live in a browser.
+A SvelteKit app where **every page is prerendered at build time and nothing runs on a server**. There used
+to be one server route, holding the Pl@ntNet key for photo identification; removing that feature removed
+the last reason for a backend. The app could move to `adapter-static` tomorrow without changing a line.
 
 ```
 Browser (PWA, offline-capable)
 ├── prerendered HTML + hashed assets           served from Vercel's CDN
 ├── service worker                             network-first pages, cache-first assets
-├── localStorage                               records: grove, trees, install state
-├── IndexedDB "meet-a-tree" / "photos"         user photographs as blobs
-└── POST /api/identify  ──►  Pl@ntNet          the only server call the app ever makes
+└── localStorage                               species ids and dates, and install state
 ```
+
+Nothing leaves the device, nothing is uploaded, and no permission is ever requested — no camera, no
+location, not even storage persistence.
 
 ## Routes
 
 | Route | Rendering | Notes |
 |---|---|---|
 | `/` | prerendered | Today |
-| `/identify/` | prerendered | camera + three-step field key + habitat guidance |
-| `/trees/` | prerendered | My Trees: Following / Species met |
-| `/trees/[id]/` | `ssr = false`, not prerendered | an individual tree exists only on the device |
+| `/identify/` | prerendered | leaf key, bark key, habitat guidance, then the phone's own recogniser |
+| `/grove/` | prerendered | the deck: found in colour, still-to-find in grey |
+| `/quiz/` | prerendered | eight generated questions |
 | `/species/[id]/` | prerendered, one page per species | the reference; `entries()` enumerates all 50 |
 | `/learn/` | prerendered | search |
-| `/missions/` | prerendered | Seasons |
-| `/citizen-science/` | prerendered | why records are worth sending, and the four projects that want them. Not a tab: the cards that link to it stay short because the depth lives here |
-| `/api/identify` | server function | Pl@ntNet proxy |
-| `/grove/`, `/near/` | client redirect (308) | retired surfaces; links and share cards still work |
+| `/missions/` | prerendered | the six seasonal hunts. Not a tab: the live one surfaces on Today |
+| `/trees/` | prerendered | retired surface. A static page that redirects to `/grove/`, so installed copies and shared cards keep working |
 
 `trailingSlash: 'always'` and `prerender = true` are set once in `src/routes/+layout.ts`.
 
@@ -44,38 +43,38 @@ sync — a deliberate constraint that shapes the whole design (see DESIGN.md).
 | Key | Holds |
 |---|---|
 | `grove-v1` | sightings (`{id, date}` — **repeats allowed**, one per time you see it), milestone flags, visit count |
-| `mat-trees-v1` | individual trees: name, typed place label, optional postcode, observations |
+| `mat-trees-v1` | **legacy.** Trees people followed before that feature was retired. Read, never written; see below |
 | `mat-install-v2` | install nudging: visits, last visit, snooze-until, snooze count |
 | `mat-seen-intro` | onboarding shown |
 | `mat-install-dismissed` | legacy flag, migrated to one snooze on first read |
 
-### IndexedDB
+### Legacy data, and why it is still here
 
-Database `meet-a-tree`, store `photos`, keyed by a generated id. Photographs are far too large for
-localStorage — one camera original would exhaust the quota. They are downscaled to 1600px on the long edge
-and re-encoded as JPEG on save (`shrinkImage`), which also converts the HEIC iOS sometimes produces.
+Following a tree through the year is gone, and it held the only thing a user could genuinely lose: dated
+notes they typed and photographs they took, in `mat-trees-v1` and in IndexedDB `meet-a-tree` / `photos`.
 
-The app calls `navigator.storage.persist()` on load, which asks the browser not to evict this data.
+`src/lib/legacy-export.ts` reads both and hands the lot back as a single JSON file with the photographs
+inlined as data URLs. **It never writes and never deletes**, and a test asserts that: the stores are left
+exactly where they are so a reinstall, or a return in six months, still finds them. `/grove/` shows the
+offer only on a device that has data. A later release can clear the stores once the export has been
+available long enough to be fair.
+
+The database is opened without a version, so calling this on a device that never had the feature cannot
+create the store.
 
 ### Stores
 
 Svelte 5 runes classes, one per concern, each loading from and saving to its own key:
 
 - `grove.svelte.ts` — species met, CO₂ tally, milestone modal, toasts
-- `trees.svelte.ts` — individual trees, observations, photo blob helpers, the `prompts()` engine that
-  works out what each tree is due to do
 - `install.svelte.ts` — install nudging; the decision is a pure `shouldPrompt()` so it can be tested
   without a phone
-- `missions.svelte.ts` — mission progress, **derived** from grove finds and tree observations rather than
-  stored, so a board can never disagree with your grove. It matches on the record's *date* falling inside
+- `missions.svelte.ts` — mission progress, **derived** from dated grove finds rather than stored, so a board can never disagree with your grove. It matches on the record's *date* falling inside
   the window, which is why `grove.finds` keeps every sighting rather than one row per species, and why
   `speciesCount` reads through a `Set`
 
-`phenology.ts` holds the Nature's Calendar mapping and the questions the UI asks of it:
-`isRecordable()` (per event, which drives the "recorded nationally" tag on a record button),
-`isRecordedSpecies()` (is this tree on their list at all), `readyToSend()` and `sentCount()`. All are pure,
-so every number the UI quotes is tested. `RECORDED_COUNT` is the size of our own overlap with their list —
-copy must say "of the trees in this guide", because their list is not 22 trees long.
+`deckOrder()` in `grove.svelte.ts` is pure and takes its lookup as an argument, so the deck's found-first
+ordering is tested without a browser. `platform.ts` is the same shape for device detection.
 
 ## Content
 
@@ -86,10 +85,10 @@ src/lib/content/
 ├── types.ts          the Species contract
 ├── species-a..g.ts   50 species, ~1,000 words of prose each
 ├── species.ts        barrel + free-text search over name, Latin, folk names, family
-├── key.ts            the field key: 4 leaf kinds → 17 branches
+├── key.ts            the leaf key: 4 leaf kinds → 17 branches
+├── bark.ts           the bark key: 6 textures, plus the list of species with no photograph
 ├── missions.ts       six seasonal hunts, windows as month/day pairs that repeat yearly
 ├── habitats.ts       where-to-look guidance, shown inside Identify
-├── projects.ts       citizen-science projects; every claim carries the `source` page it came from
 ├── facts.ts          the daily fact rotation
 └── credits.json      photographer and licence for every image, generated by the fetch script
 ```
@@ -98,37 +97,58 @@ Tests enforce content quality, not just types: every species must be reachable t
 every spotting note must exceed 120 characters, every folklore and science entry 300, and every species
 must have a habit photo, a leaf photo and a thumbnail on disk. Adding a thin species fails CI.
 
+Bark adds its own rules. Every species carries a `bark` note and one of six textures; a test asserts no
+bark note mentions leaves or blossom, because a note that sends you to the foliage is useless in the month
+the bark key exists for. Another asserts no single texture holds more than half the guide — a bucket that
+large is a list, not a key.
+
 ## Images
 
-100 photographs (250 files including variants), all from Wikimedia Commons with attribution
-recorded in `credits.json`:
+144 photographs (338 files including variants), all from Wikimedia Commons under CC or public domain,
+with attribution recorded in `credits.json`:
 
 - `<id>-tree.webp` — 900×675 habit shot
 - `<id>-tree-480.webp` — half-width variant, served via `srcset`
 - `<id>-leaf.webp` (+ `-480`) — the identification-critical close-up
+- `<id>-bark.webp` (+ `-480`) — 800×800 **square**, centre-cropped
 - `<id>-thumb.webp` — 240×240 square
 
-`scripts/fetch-species-images.mjs` holds `TREE_PINS` / `LEAF_PINS`: exact Commons file titles chosen by
-eye from contact sheets built by `scripts/curate.mjs`. Unpinned species fall back to a search that
-requires the Latin binomial in the filename — which guarantees the right species but not a good
-photograph, so all 50 are now pinned.
+`scripts/species-list.mjs` holds the fifty species and their search terms, shared by both fetchers so they
+cannot drift apart. `fetch-species-images.mjs` holds `TREE_PINS` / `LEAF_PINS`: exact Commons file titles
+chosen by eye from contact sheets built by `scripts/curate.mjs`. Unpinned species fall back to a search
+requiring the Latin binomial in the filename — which guarantees the right species but not a good
+photograph, so all 50 are pinned.
 
-## The Pl@ntNet proxy
+**Bark is square and centre-cropped, never `position: 'attention'`.** A bark photograph is a texture
+sample, and the smart crop picks an arbitrary knot and throws away the magnification the photographer
+chose — which matters because a tight crop of beech and a wide shot of beech look like different species.
+Centre-cropping cannot fix inconsistent source magnification, but it does not make it worse.
 
-`src/routes/api/identify/+server.ts` exists for one reason: the API key must not reach the browser.
+Six species ship no bark photograph at all, listed in `BARK_PHOTO_MISSING` in `src/lib/content/bark.ts`.
+Commons files exist under all six names, but they are the wrong plant (Japanese whitebeam for *Sorbus
+aria*, a midland hawthorn cultivar for *Crataegus monogyna*, Monterey cypress for the Leyland hybrid), a
+young trunk, or a duplicate of another species' picture. A wrong photograph is worse than none, because the
+whole value of the page is that it can be trusted. Tests assert the list is accurate in both directions.
 
-- `POST` multipart with `image` and `organ` (`leaf | flower | fruit | bark | auto`)
-- Validates type and size (6 MB cap), rejects non-images
-- Calls `my-api.plantnet.org/v2/identify/k-world-flora` — a KT project, because legacy projects run a
-  deprecated model
-- Maps the scientific names the guide carries onto our own species ids, with a genus-level fallback that
-  only guesses when the genus is unambiguous
-- Distinguishes not-configured, misnamed-key, bad key, quota exhausted, unreachable and no-match, so the UI
-  can say something true in each case. `misnamed-key` exists because a key set as `PLANET_API_KEY` looks
-  exactly like no key at all; the offending name goes to the function log, never the HTTP response
-- Carries a per-instance rate brake: the route is public and the free tier is ~500 a day
+## The quiz generator
 
-Parsing lives in `src/lib/plantnet.ts` as a pure function, so it is tested without a key or a network.
+`src/lib/quiz.ts` builds questions from the guide rather than from a parallel bank of hand-written ones,
+which would drift out of step with the content and be worse than no quiz. Nine kinds over the hint, bark
+note, spotting notes, folklore, science, seasonal calendar, "one to tell" and three photographs.
+
+Two parts of it are correctness, not polish, and both are tested across every mode and 240 rounds:
+
+- **Redaction.** The prose names its own species constantly — oak's folklore opens *"The oak was sacred to
+  the thunder gods"* — so a passage lifted as a prompt hands over the answer. `passageFrom()` prefers runs
+  of sentences that never name the tree, because those read as written; failing that `redact()` strips
+  every name, alias, genus and bare common noun and recapitalises, since *"this tree wassailing survives in
+  Somerset"* reads as a typo.
+- **Confusable pairs.** The guide holds near-duplicates deliberately, and its own bark note for sessile oak
+  says outright that bark will not separate it from English oak. `CONFUSABLE` groups them, and no two
+  members ever share a question — nor is any species the prompt happens to name offered as a distractor.
+
+Rounds are seeded (`rng`, `seedFrom`) rather than using `Math.random`, so a round is reproducible and
+therefore testable. The date is passed in rather than read from the clock for the same reason.
 
 ## Service worker
 
@@ -156,20 +176,27 @@ host — `page.url.origin` resolves to SvelteKit's internal prerender host and s
 
 ## Build and CI
 
-- `.github/workflows/ci.yml` — `svelte-check`, unit tests, build, then Lighthouse across six pages with
+- `.github/workflows/ci.yml` — `svelte-check`, unit tests, build, then Lighthouse across seven pages with
   **`categories:accessibility` asserted at 1.0 as a required check**. It has caught three real regressions:
-  faded cards below AA contrast, a hidden toast obscuring a link, and a sticky nav covering list rows.
+  faded cards below AA contrast, a hidden toast obscuring a link, and a sticky nav covering list rows. The
+  first of those is why the deck greys the photograph and never the label.
 - `.github/workflows/pages-tombstone.yml` — publishes a page to the retired GitHub Pages address that
   unregisters the old service worker, clears its caches and forwards here. It deliberately publishes no
   `service-worker.js`, so the browser's update check 404s and drops the old registration.
-- Deployment is `vercel deploy --prod`. Local `npm run build` fails on Windows because `adapter-vercel`
-  creates symlinks; this is a platform limitation, not a code fault.
+- Deployment is `vercel deploy --prod`. Local `npm run build` used to fail on Windows, because
+  `adapter-vercel` symlinks a serverless function per non-prerendered route and Windows refuses without
+  elevation. Nothing needs a function any more — the `/trees` redirect is a prerendered page with a meta
+  refresh — so the build works everywhere.
 
 ## Known gaps
 
-1. **No backup or export** — the single biggest risk to user data ([#1](https://github.com/ruwhitehead/meet-a-tree/issues/1)).
-2. **`PLANTNET_API_KEY` unset**, so photo identification is inert ([#2](https://github.com/ruwhitehead/meet-a-tree/issues/2)).
-3. **No push notifications**, so nothing recalls a lapsed user ([#7](https://github.com/ruwhitehead/meet-a-tree/issues/7)).
-4. **Nature's Calendar submission is manual** — there is no public API, so the app prepares the record and
-   the user submits it ([#4](https://github.com/ruwhitehead/meet-a-tree/issues/4)).
-5. **Region packs** would be the first step towards working outside Britain and Ireland ([#11](https://github.com/ruwhitehead/meet-a-tree/issues/11)).
+1. **No backup or sync** — a grove is a list of species ids in one browser, and clearing site data loses
+   it ([#1](https://github.com/ruwhitehead/meet-a-tree/issues/1)). Much smaller than it was: what is at
+   risk is now rebuildable on a walk rather than irreplaceable photographs.
+2. **`PLANTNET_API_KEY` should be deleted from the Vercel project.** Nothing reads it
+   ([#2](https://github.com/ruwhitehead/meet-a-tree/issues/2) is closed by removal, not by configuration).
+3. **Six species have no bark photograph**, and the rest are at uncontrolled magnification — the largest
+   remaining content debt. `BARK_PINS` in `scripts/fetch-bark-images.mjs` is where fixes go.
+4. **The legacy stores are still on devices.** Deliberate, and they need a clear-out release eventually.
+5. **No push notifications**, so nothing recalls a lapsed user ([#7](https://github.com/ruwhitehead/meet-a-tree/issues/7)).
+6. **Region packs** would be the first step towards working outside Britain and Ireland ([#11](https://github.com/ruwhitehead/meet-a-tree/issues/11)).

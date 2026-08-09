@@ -2,8 +2,8 @@
 
 **Learn the trees you already walk past.**
 
-A free, offline-capable progressive web app: a field guide to 50 trees of Britain and Ireland, a way of
-identifying one from its leaf, and a record of the individual trees you decide to follow through a year.
+A free, offline-capable progressive web app: a field guide to 50 trees of Britain and Ireland, three ways
+of working out which one you are standing under, and a quiz that tests whether it stuck.
 Made in support of the [International Tree Foundation](https://internationaltreefoundation.org) —
 registered charity no. 1106269.
 
@@ -12,33 +12,43 @@ registered charity no. 1106269.
 Not public yet. The old `ruwhitehead.github.io/meet-a-tree` address is retired and forwards here
 (see [issue #9](https://github.com/ruwhitehead/meet-a-tree/issues/9)).
 
+## What it is for
+
+The app teaches recognition. It does not identify trees for you and it does not keep a logbook — it shows
+you what you have not learned yet, tells you how to tell it apart, and asks you about it later.
+[REDESIGN.md](REDESIGN.md) is the reasoning behind that shape, and what was removed to get there.
+
 ## The five surfaces
 
 | Surface | What it is |
 |---|---|
-| **Today** | One tree fact, one tree to meet, and anything your own trees are due to do this week. Deliberately five blocks, not ten. |
-| **Identify** | Photograph a leaf for automatic matching (needs a Pl@ntNet key — see below), or answer three questions in an offline field key. Habitat guidance sits underneath for when both fail. |
-| **My Trees** | Two views of one idea: **Following**, the individual trees you track through the year, and **Species met**, the guide with everything you have identified. |
-| **Seasons** | Six time-boxed hunts covering the whole year — Blossom Watch, Conker Hunt, Autumn Colours, Midwinter Evergreens, Winter Twigs, Summer Shade. Boards fill themselves from what you identify. |
+| **Today** | One tree fact, one tree to meet, and the seasonal hunt that is running right now. Deliberately five blocks, not ten. |
+| **Grove** | The whole guide as a deck. Trees you have found are in colour and lead; the ones still to find are the same photographs in grey, named, so you know what you are looking for. |
+| **Identify** | Three offline keys in order of certainty: three questions about the leaf, the bark key for when there are no leaves, and narrowing by where you are standing. If all three fail, instructions for the recogniser already on your phone. |
+| **Quiz** | Eight questions generated from the guide — name a tree from its photograph or bark, or answer on its folklore and science. No timer, no streak, no score kept. |
 | **Learn** | Search all 50 trees by common, Latin or folk name. Species a running hunt is looking for are marked "findable now". |
 
-A species page leads with **folklore**, because most people arrive browsing rather than identifying;
-everything that exists to identify something links straight to its "Spotting it" section instead.
-[`/citizen-science/`](https://meet-a-tree.vercel.app/citizen-science/) explains what the dates are worth and
-lists the four projects that want them — Nature's Calendar, the Ancient Tree Inventory, TreeAlert and iRecord.
+Seasons is not on the tab bar: its live hunt appears on Today, and the full board of six is at
+[`/missions/`](https://meet-a-tree.vercel.app/missions/).
 
-The thing that makes it worth keeping: record when one tree comes into leaf two years running and it tells
-you **"first leaves 10 days earlier — 8 Apr this year against 18 Apr in 2025"**. Those are the same
-first-event dates phenology networks have collected in Britain since 1736, and the app will prepare a
-record for you to submit to Nature's Calendar.
+A species page leads with **folklore**, because most people arrive browsing rather than identifying;
+everything that exists to identify something links straight to "Spotting it" or "Bark" instead.
+
+### Bark
+
+Bark is the half of identification that works between November and April, when the leaf key cannot help.
+Every species carries a bark note and one of six textures — smooth, peeling, banded, ridged, flaking,
+fibrous — and Identify has a one-question key over them. Six species deliberately ship no bark photograph:
+every candidate on Commons was the wrong plant, a young trunk, or a duplicate of another species' picture,
+and a bark photo of the wrong tree is worse than none. The note still shows, and the page says why.
 
 ## Stack
 
 - **SvelteKit** (Svelte 5 runes) + `adapter-vercel`, runtime pinned to `nodejs22.x`
 - **TypeScript**, no runtime dependencies
 - Hand-rolled service worker via `$service-worker` — network-first for pages, cache-first for immutable assets
-- Every page prerendered; one server route (`/api/identify`) so the Pl@ntNet API key stays server-side
-- **Local-first**: records in `localStorage`, photos as blobs in IndexedDB, no accounts, nothing uploaded
+- **Every page prerendered. No server routes at all**, so the app could move to `adapter-static` whenever it suits
+- **Local-first**: a list of species ids and dates in `localStorage`. No accounts, no uploads, no location ever asked for
 
 See [ARCHITECTURE.md](ARCHITECTURE.md) for how it fits together, and [DESIGN.md](DESIGN.md) for why it
 looks and behaves as it does — including the decisions to remove things.
@@ -48,9 +58,9 @@ looks and behaves as it does — including the decisions to remove things.
 ```bash
 npm install
 npm run dev      # dev server — it has served stale bundles more than once; trust production
-npm test         # 43 unit tests (field key, content depth, missions, records, install, Pl@ntNet, photos)
+npm test         # unit tests: field key, bark, content depth, missions, quiz, install, platform
 npm run check    # svelte-check
-npm run build    # fails on Windows: adapter-vercel needs symlinks. Vercel builds on Linux, so deploy instead
+npm run build    # works on Windows again now nothing needs a serverless function
 npm run icons    # regenerate PWA icons from the SVG mark
 ```
 
@@ -58,40 +68,29 @@ Content and asset tooling, run directly with `node`:
 
 | Script | Purpose |
 |---|---|
-| `scripts/fetch-species-images.mjs` | Fetch, crop and credit every species photo from Wikimedia Commons |
+| `scripts/species-list.mjs` | The fifty species and their Commons search terms, shared by both fetchers |
+| `scripts/fetch-species-images.mjs` | Fetch, crop and credit the habit and leaf photo for every species |
+| `scripts/fetch-bark-images.mjs` | The same for bark. Square centre crops, because magnification has to match |
 | `scripts/curate.mjs` | Pull four habit and four leaf candidates per species and build contact sheets to choose from |
 | `scripts/candidates.mjs` | Earlier variant of the same idea, kept for reference |
 | `scripts/og-card.mjs` | Regenerate the 1200×630 link-preview card |
 | `scripts/icons.mjs` | PWA icons from the inline SVG mark |
 
-## To switch on photo identification
-
-`/api/identify` is deployed and returns `{"ok":false,"reason":"not-configured"}` until a key exists:
-
-1. Get a free key from [my.plantnet.org](https://my.plantnet.org) (~500 identifications a day).
-2. Add `PLANTNET_API_KEY` to the Vercel project (Production, Preview, Development).
-   **Check the spelling** — `PLANET_API_KEY` is the easy slip and it has cost a day before now.
-   Adding an environment variable does nothing until the next deployment.
-3. Redeploy, then confirm the server can see it:
-
-```bash
-curl -s -X POST -H "Origin: https://meet-a-tree.vercel.app" -F "image=@leaf.jpg" -F "organ=leaf" https://meet-a-tree.vercel.app/api/identify
-```
-
-`not-configured` means no key at all; `misnamed-key` means one is set under a name close to the right one
-(the exact name is in the function log, not the response); `bad-key` means Pl@ntNet rejected it.
-
-The three-question field key stays as the unlimited, offline fallback either way.
+Both fetchers are idempotent and skip anything already present; pass `--force` and an id to redo one.
+Every bark result is a first pass — review it and pin a replacement in `BARK_PINS` if it is wrong.
 
 ## Honest caveats
 
 - **ITF sign-off is outstanding.** Their name, logo and charity number are used on the strength of a family
   connection, not written permission — see [issue #8](https://github.com/ruwhitehead/meet-a-tree/issues/8).
-- **No backup yet.** Trees and photos live in one browser on one device; clearing site data destroys them.
-  [Issue #1](https://github.com/ruwhitehead/meet-a-tree/issues/1) is the fix, and it matters more than it sounds.
-- **iOS keeps no copy of your photos.** A photo taken inside a browser never reaches the Photos library, so
-  each one offers a "Save to Photos" button. Android's camera app usually saves one already.
+- **Six species have no bark photograph.** Listed in `BARK_PHOTO_MISSING` in `src/lib/content/bark.ts`,
+  with a test that keeps the list honest in both directions.
+- **Old followed-tree records are still on people's devices.** Following was retired but nothing was
+  deleted: anyone who has records sees a card in their Grove offering the lot back as one file. A later
+  release can clear the stores once that has been available long enough to be fair.
 - **The canonical URL is a constant.** `src/lib/site.ts` holds it, for absolute Open Graph URLs. Update it if
   the app moves to a custom domain.
+- **`PLANTNET_API_KEY` should be deleted from the Vercel project.** Photo identification is gone and
+  nothing reads it.
 - Content lives in `src/lib/content/` as typed data, so new species are reviewable pull requests.
-- "Grove" survives as the in-app noun for species you have met. The brand is Meet a Tree.
+- "Grove" is the in-app noun for species you have met, and now the name of the tab. The brand is Meet a Tree.

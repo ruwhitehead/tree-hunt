@@ -6,9 +6,9 @@
 				"http://localhost/index.html",
 				"http://localhost/identify/index.html",
 				"http://localhost/missions/index.html",
-				"http://localhost/citizen-science/index.html",
+				"http://localhost/quiz/index.html",
 				"http://localhost/learn/index.html",
-				"http://localhost/trees/index.html",
+				"http://localhost/grove/index.html",
 				"http://localhost/species/oak/index.html"
 			],
 			"numberOfRuns": 1
