@@ -1,6 +1,7 @@
 import { browser } from '$app/environment';
 import { dateStr } from './streak';
 import { speciesById } from './content/species';
+import type { Species } from './content/types';
 
 export interface Find {
 	id: string;
@@ -41,6 +42,10 @@ class Grove {
 
 	/* transient UI state */
 	pendingMilestone = $state<number | null>(null);
+	/** The species just added, for the deck to play its card coming into colour.
+	 *  Deliberately not persisted and cleared on first read: finding a tree is the
+	 *  moment worth marking, and reopening the app later is not that moment. */
+	justFound = $state<string | null>(null);
 	toastMsg = $state<string | null>(null);
 	sharePreview = $state<{
 		url: string;
@@ -90,10 +95,23 @@ class Grove {
 		return this.finds.some((f) => f.id === id);
 	}
 
+	/** The date you first met this species. Deliberately the *first* find rather
+	 *  than the latest: the deck orders found species by it, and using the latest
+	 *  would let a re-sighting shuffle a card you met years ago to the front. */
+	firstFound(id: string): string | undefined {
+		let earliest: string | undefined;
+		for (const f of this.finds) {
+			if (f.id !== id) continue;
+			if (!earliest || f.date < earliest) earliest = f.date;
+		}
+		return earliest;
+	}
+
 	addFind(id: string) {
 		const sp = speciesById(id);
 		if (!sp) return;
 		this.finds = [...this.finds, { id, date: dateStr(new Date()) }];
+		this.justFound = id;
 		const count = this.speciesCount;
 		if (MILESTONES.includes(count) && !this.milestones.includes(count)) {
 			this.milestones = [...this.milestones, count];
@@ -115,6 +133,7 @@ class Grove {
 		const seen = this.has(id);
 		this.finds = [...this.finds, { id, date: dateStr(new Date()) }];
 		if (!seen) {
+			this.justFound = id;
 			const count = this.speciesCount;
 			if (MILESTONES.includes(count) && !this.milestones.includes(count)) {
 				this.milestones = [...this.milestones, count];
@@ -141,3 +160,22 @@ class Grove {
 }
 
 export const grove = new Grove();
+
+/**
+ * The deck split into the two blocks it is drawn in: what you have found, newest
+ * meeting first so the last win leads, and what is still out there, left in the
+ * order `species.ts` sorts them (by name) so the block stays scannable.
+ *
+ * Pure, and takes the lookup as an argument, so the ordering can be tested
+ * without a browser or a populated store.
+ */
+export function deckOrder(
+	species: Species[],
+	metOn: (id: string) => string | undefined
+): { found: Species[]; unfound: Species[] } {
+	const found: Species[] = [];
+	const unfound: Species[] = [];
+	for (const s of species) (metOn(s.id) ? found : unfound).push(s);
+	found.sort((a, b) => (metOn(b.id) ?? '').localeCompare(metOn(a.id) ?? ''));
+	return { found, unfound };
+}

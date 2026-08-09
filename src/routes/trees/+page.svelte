@@ -4,9 +4,10 @@
 	import ObsPhoto from '$lib/components/ObsPhoto.svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import { SPECIES, searchSpecies, speciesById } from '$lib/content/species';
+	import type { Species } from '$lib/content/types';
 	import { EVENTS, trees } from '$lib/trees.svelte';
 	import { shareGrove } from '$lib/share';
-	import { grove } from '$lib/grove.svelte';
+	import { deckOrder, grove } from '$lib/grove.svelte';
 	import Give from '$lib/components/Give.svelte';
 	import { detectSaveCapability } from '$lib/photos';
 	import { RECORDED_COUNT, isRecordable, isRecordedSpecies, readyToSend, sentCount } from '$lib/phenology';
@@ -31,6 +32,17 @@
 		STARTERS.map((id) => speciesById(id)).filter((s): s is NonNullable<typeof s> => Boolean(s))
 	);
 	const showStarters = $derived(grove.speciesCount < 3);
+
+	const deck = $derived(deckOrder(SPECIES, (id) => grove.firstFound(id)));
+
+	/** Adding a species navigates here from its own page, so by the time the deck
+	 *  renders the card is simply already in colour and the find passes unmarked.
+	 *  Read the flag once and clear it, so the card plays its arrival exactly on
+	 *  the visit that earned it and never again on a reload. */
+	const justFound = grove.justFound;
+	$effect(() => {
+		grove.justFound = null;
+	});
 
 	/** Two halves of the same idea: the trees you follow, and the species you've
 	 *  met. They used to be separate tabs, which nobody could tell apart. */
@@ -90,6 +102,33 @@
 	/>
 </svelte:head>
 
+<!-- One card for both halves of the deck. A species you have not found yet shows
+     the same photograph in grey and its real name: the point of the deck is to
+     tell you what you are looking for, and a silhouette labelled "not yet met"
+     told you nothing and led to Identify rather than to the tree.
+
+     The grey is a CSS filter on the image alone. Fading the whole card was tried
+     and shipped once, and the faded text failed contrast at 2.33:1 — which the
+     Lighthouse accessibility gate caught. The name stays full-contrast ink in
+     both states, and the tick is the shape that distinguishes them where colour
+     cannot (mono vision, forced-colours mode, which drops filters entirely). -->
+{#snippet deckcard(sp: Species, has: boolean)}
+	<a class="spcard" class:tofind={!has} class:justfound={has && sp.id === justFound} href="{base}/species/{sp.id}/">
+		<span class="pic sq">
+			<img src="{base}/images/species/{sp.id}-thumb.webp" alt="" width="120" height="120" loading="lazy" decoding="async" />
+			{#if has}
+				<span class="tick" aria-hidden="true">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
+				</span>
+			{/if}
+		</span>
+		<span class="sn">
+			{sp.name}<span class="visually-hidden">{has ? ' — found' : ' — not found yet'}</span>
+		</span>
+		<span class="sl">{sp.latin}</span>
+	</a>
+{/snippet}
+
 <main class="view">
 	<div class="vhead">
 		<h1>My Trees</h1>
@@ -135,27 +174,21 @@
 					</li>
 				{/each}
 			</ul>
-			<p class="label" style="margin-top:6px">The rest of the guide</p>
 		{/if}
 
-		<div class="grid">
-			{#each SPECIES as sp (sp.id)}
-				{@const has = grove.has(sp.id)}
-				<a class="spcard" class:locked={!has} href={has ? `${base}/species/${sp.id}/` : `${base}/identify/`}>
-					<span class="pic sq">
-						{#if has}
-							<img src="{base}/images/species/{sp.id}-thumb.webp" alt="" width="120" height="120" loading="lazy" decoding="async" />
-						{:else}
-							<span class="silhouette" aria-hidden="true">
-								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 21c0-9 3-15 12-17-1 9-4 14-12 17z" /><path d="M6 21c2-5 5-9 9-12" /></svg>
-							</span>
-						{/if}
-					</span>
-					<span class="sn">{has ? sp.name : 'Not yet met'}</span>
-					<span class="sl">{has ? sp.latin : 'tap to identify'}</span>
-				</a>
-			{/each}
-		</div>
+		{#if deck.found.length}
+			<p class="label" style="margin-top:6px">Found · {deck.found.length}</p>
+			<div class="grid">
+				{#each deck.found as sp (sp.id)}{@render deckcard(sp, true)}{/each}
+			</div>
+		{/if}
+
+		{#if deck.unfound.length}
+			<p class="label" style="margin-top:6px">Still to find · {deck.unfound.length}</p>
+			<div class="grid">
+				{#each deck.unfound as sp (sp.id)}{@render deckcard(sp, false)}{/each}
+			</div>
+		{/if}
 
 		<Give />
 	{:else if trees.count === 0}
@@ -433,6 +466,7 @@
 		aspect-ratio: 1;
 		width: auto;
 		margin-bottom: 5px;
+		position: relative;
 	}
 	.pic.sq img {
 		width: 100%;
@@ -440,16 +474,65 @@
 		object-fit: cover;
 		display: block;
 	}
-	.silhouette {
-		width: 100%;
-		height: 100%;
+	/* colour is the reward for finding it. Only the photograph greys out — never
+	   the text, and never via opacity. */
+	.spcard.tofind .pic.sq img {
+		filter: grayscale(1);
+	}
+	/* The one moment the app still has to give, now that the camera and the tree
+	   timeline have gone: the card you just earned arrives in colour. A plain CSS
+	   transition cannot do this — found and unfound are separate blocks, so the
+	   card is rebuilt rather than restyled — hence a one-shot animation. */
+	/* No fill mode on either: once the animation ends the resting styles are
+	   already right (the card is in `found`, so nothing greys it), and a
+	   `forwards` fill would pin the transform and kill the card's press state. */
+	.spcard.justfound {
+		animation: pop 520ms ease;
+	}
+	.spcard.justfound .pic.sq img {
+		animation: intocolour 900ms ease;
+	}
+	@keyframes intocolour {
+		from {
+			filter: grayscale(1);
+		}
+		to {
+			filter: grayscale(0);
+		}
+	}
+	@keyframes pop {
+		0% {
+			transform: scale(0.94);
+		}
+		60% {
+			transform: scale(1.03);
+		}
+		100% {
+			transform: scale(1);
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.spcard.justfound,
+		.spcard.justfound .pic.sq img {
+			animation: none;
+		}
+	}
+	.tick {
+		position: absolute;
+		right: 4px;
+		bottom: 4px;
+		width: 19px;
+		height: 19px;
+		border-radius: 50%;
+		background: var(--green);
+		color: #fff;
 		display: grid;
 		place-items: center;
-		color: var(--line);
+		box-shadow: 0 1px 3px rgba(20, 30, 22, 0.4);
 	}
-	.silhouette svg {
-		width: 46%;
-		height: 46%;
+	.tick svg {
+		width: 12px;
+		height: 12px;
 	}
 	.sn {
 		font-size: 11.5px;
@@ -460,10 +543,6 @@
 		font-size: 9.5px;
 		font-style: italic;
 		color: var(--soft);
-	}
-	.spcard.locked .sn {
-		color: var(--soft);
-		font-weight: 600;
 	}
 	.starters {
 		list-style: none;
