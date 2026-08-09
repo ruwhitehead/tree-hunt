@@ -28,6 +28,10 @@ export const SPECIES_D: Species[] = [
 			'Habitat and habit: an untidy, multi-stemmed, fast-growing shrub of damp neglected ground — railway sides, ditch banks, wet scrub — rather than a stately riverside tree.',
 			'Grey willow (*Salix cinerea*) is the near-twin: narrower leaves, rustier hairs beneath, and generally wetter ground. The two hybridise constantly, so many bushes sit between them.'
 		],
+		bark: {
+			texture: 'ridged',
+			note: 'Grey, smooth when young and developing shallow diamond-shaped fissures with age. Peel a sliver and the wood beneath has fine ridges.'
+		},
 		season: [
 			['Spring', 'The first big nectar event of the year: silver catkins in March turning gold, loud with bumblebees on the first warm day.'],
 			['Summer', 'Female bushes release clouds of cottony seed; broad grey-green leaves, often galled or mined.'],
@@ -74,6 +78,10 @@ export const SPECIES_D: Species[] = [
 			'Weeping willow, the familiar garden and park tree, is a different plant (*Salix × sepulcralis*) with strongly pendulous branches sweeping the ground — white willow only leans.',
 			'The cricket-bat willow is a cultivated variety, *Salix alba* var. *caerulea*, grown in straight-trunked plantations in East Anglia and harvested at around 15 years.'
 		],
+		bark: {
+			texture: 'ridged',
+			note: 'Grey-brown with deep, coarse, criss-crossing ridges. Pollarded trees develop massive swollen boles topped with a crown of straight rods.'
+		},
 		season: [
 			['Spring', 'Slender yellow-green catkins open with the leaves in April; the crown flushes silvery.'],
 			['Summer', 'Silver-backed leaves flashing in wind over water; heavy shade on the bank.'],
@@ -124,6 +132,10 @@ export const SPECIES_D: Species[] = [
 			'Catkins appear in March on bare twigs, long and grey-furry, before the leaves; British aspen sets viable seed only rarely, which is why suckering matters so much.',
 			'Poplar look-alikes: white poplar has lobed leaves with brilliant white felted undersides; black poplar has larger triangular leaves and a massively burred, leaning trunk.'
 		],
+		bark: {
+			texture: 'smooth',
+			note: 'Smooth, pale grey-green, marked with dark diamond-shaped lenticels, and dark and ridged only at the very base of an old trunk.'
+		},
 		season: [
 			['Spring', 'Grey furry catkins on bare twigs in March; leaves emerge coppery, and the clone flushes as one.'],
 			['Summer', 'The characteristic sound — a dry, rain-like rustle from a still-looking wood.'],
@@ -170,6 +182,10 @@ export const SPECIES_D: Species[] = [
 			'The crown is often narrow and the trunk straight with regular whorls of branches; wild cherry suckers freely, so look for a ring of young stems around a parent.',
 			'Bird cherry has smaller, duller, non-glossy leaves, upright or spreading spikes of many small flowers, and bitter black fruit — quite different once you have seen both.'
 		],
+		bark: {
+			texture: 'banded',
+			note: 'Shiny reddish-brown to purple-grey, peeling in horizontal papery bands, with prominent raised horizontal lines of lenticels. Unlike anything else in a British wood.'
+		},
 		season: [
 			['Spring', 'One of the great British blossom moments in April, and a critical early nectar source.'],
 			['Summer', 'Cherries ripen in June and July and vanish fast; leaves are often marked by cherry blackfly curling the shoot tips.'],
@@ -216,6 +232,10 @@ export const SPECIES_D: Species[] = [
 			'The habit is a small, often multi-stemmed, spreading tree of damp northern woodland; in the Highlands it is a common riverside tree where wild cherry is scarce.',
 			'It frequently carries dense webs of bird-cherry ermine moth caterpillars in spring, which can strip a tree bare. It looks catastrophic and the tree almost always recovers.'
 		],
+		bark: {
+			texture: 'smooth',
+			note: 'Smooth and grey-brown, with far less of the shine and banding of the other cherries. Scratch a twig and it smells strongly and rankly of almonds, which is the reliable test.'
+		},
 		season: [
 			['Spring', 'Arching spikes of white blossom in May, later than wild cherry, with a heavy sweet-sour scent.'],
 			['Summer', 'Black fruit in hanging spikes; watch for ermine moth webbing on defoliated branches.'],
@@ -262,6 +282,10 @@ export const SPECIES_D: Species[] = [
 			'Growth habit is a suckering thicket, spreading outward from the parent to form impenetrable scrub — excellent nesting cover, and the reason it was used for stock-proof hedging and defensive barriers.',
 			'Blackthorn wounds infect readily — the thorns carry bacteria and break off under the skin — which is why hedge-layers respect it more than hawthorn.'
 		],
+		bark: {
+			texture: 'smooth',
+			note: 'Very dark, almost black, which is where the name comes from, and smooth apart from the long straight thorns growing right out of it.'
+		},
 		season: [
 			['Spring', 'A "blackthorn winter": clouds of white blossom on bare black wood in March, traditionally coinciding with a cold snap.'],
 			['Summer', 'Dense dark thicket, small dull leaves, green sloes swelling.'],
@@ -312,6 +336,10 @@ export const SPECIES_D: Species[] = [
 			'Most "crab apples" in hedges are actually feral seedlings of orchard apples (*Malus domestica*) — downy leaves, larger fruit, no thorns. The genuine article is fussier and rarer.',
 			'Ornamental crabs in gardens and streets come in many cultivars with purple leaves or scarlet fruit; the native is subtler and greener.'
 		],
+		bark: {
+			texture: 'flaking',
+			note: 'Greyish-brown, cracking into small square plates, over a trunk that is usually short, crooked and set with thorny side-shoots.'
+		},
 		season: [
 			['Spring', 'Pink-and-white blossom in May, later than cherry, and a valuable pollinator plant for orchards nearby.'],
 			['Summer', 'Small hard green fruit swelling; leaves often marked with apple scab, which is harmless to the tree.'],

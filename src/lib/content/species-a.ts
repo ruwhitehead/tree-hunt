@@ -28,6 +28,11 @@ export const SPECIES_A: Species[] = [
 			'Twigs are grey-brown with buds clustered at the tip. In winter, look for those clustered blunt buds and the persistent brown leaves on lower branches.',
 			'Beware the ringers: Turkey oak has whiskery scales on its acorn cups; red oak has pointed, bristle-tipped lobes; sessile oak has longer leaf stalks but stalkless acorns.'
 		],
+		bark: {
+			texture: 'ridged',
+			note: 'Grey-brown, and on a mature trunk deeply and irregularly fissured into hard vertical plates with deep clefts between them.',
+			young: 'Smooth and almost silvery for its first few decades, so a young oak looks nothing like the veteran down the lane.'
+		},
 		season: [
 			['Spring', 'Leaf burst is late — often early May, weeks after birch. Fresh leaves are bronze-pink before they green up, and long yellow-green catkins hang from the twigs.'],
 			['Summer', 'Acorns swell green on their stalks. Look for spangle galls on the leaf undersides and marble galls on twigs — both are wasp nurseries, not disease.'],
@@ -89,6 +94,11 @@ export const SPECIES_A: Species[] = [
 			'Downy birch (*Betula pubescens*) is the confusion. It has hairy twigs and leaf stalks, more rounded leaf bases, a duller greyer bark without the black diamonds, and it prefers wetter ground. The two hybridise, so some trees sit annoyingly in between.',
 			'Catkins appear before or with the leaves: yellow-brown male catkins 3–6 cm long hanging in pairs, and shorter, upright green female catkins that thicken and droop as seed ripens.'
 		],
+		bark: {
+			texture: 'peeling',
+			note: 'Chalk-white and papery, peeling in horizontal ribbons you can lift with a thumbnail, and breaking into rough black diamond-shaped fissures towards the base.',
+			young: 'Coppery brown for the first five years or so, before it whitens.'
+		},
 		season: [
 			['Spring', 'One of the first into leaf — a haze of acid green in April. Male catkins lengthen and shed clouds of pollen; this is a significant hay-fever tree.'],
 			['Summer', 'Deep, dappled shade that lets grass and bluebells grow beneath — quite unlike beech. Look for witch’s broom, dense twiggy growths caused by a fungus.'],
@@ -147,6 +157,10 @@ export const SPECIES_A: Species[] = [
 			'It is not an ash at all, despite "mountain ash" — the pinnate leaf is a coincidence. Rowan is in the rose family, which the flowers and pome fruits give away. Ash has black buds and winged keys; rowan has purple-brown hairy buds and berries.',
 			'Look for it high: rowan grows further up British mountains than almost any other tree, often as a single stunted specimen wedged in a crag where sheep cannot reach it.'
 		],
+		bark: {
+			texture: 'smooth',
+			note: 'Smooth, silvery grey with a faint sheen, marked with horizontal lines of small lenticels. It stays smooth into old age, unlike ash.'
+		},
 		season: [
 			['Spring', 'Fresh pinnate leaves unfold with a reddish tinge; creamy flower clusters open in May.'],
 			['Summer', 'Green berries swell and colour through July and August. Leaves stay a clean mid-green.'],
@@ -201,6 +215,10 @@ export const SPECIES_A: Species[] = [
 			'Fruit is a woody, four-lobed prickly husk holding two triangular nuts — beech mast. Good mast years are irregular, as with oak.',
 			'Hornbeam is the classic confusion: similar oval leaf, but hornbeam leaves are clearly **toothed**, its bark is fluted and sinewy rather than smooth, and its fruit hangs in leafy winged clusters.'
 		],
+		bark: {
+			texture: 'smooth',
+			note: 'Smooth, thin and pale elephant-grey, staying smooth into great age. It scars permanently, which is why old beeches carry a century of carved initials.'
+		},
 		season: [
 			['Spring', 'Translucent lime-green leaf burst in late April — the "beech green" light inside a beechwood is a distinct phenomenon worth standing in.'],
 			['Summer', 'Dense shade, dark green canopy, bare brown floor. Beech roots run shallow and wide, so the ground is often knotted with them.'],
@@ -259,6 +277,11 @@ export const SPECIES_A: Species[] = [
 			'The crown is open and airy with upswept branch ends that curve up like a candelabra, so ash woods feel light and grassy underfoot. Ash comes into leaf late and drops early, giving a short shade season.',
 			'Dieback signs to note: diamond-shaped dark lesions where a side shoot meets the trunk, blackened wilting leaves in summer, dead twig tips, and a thinning crown with bushy epicormic tufts lower down.'
 		],
+		bark: {
+			texture: 'ridged',
+			note: 'Pale grey, with a regular network of interlacing ridges and shallow furrows, more orderly and finer than an oak\'s.',
+			young: 'Smooth and pale grey when young, so a sapling ash is named by its black buds, not its bark.'
+		},
 		season: [
 			['Spring', 'Very late into leaf, often not until May. Purple-black flower clusters open before the leaves; ash can be male, female, or both, and can switch between years.'],
 			['Summer', 'Light dappled shade; green keys hang in bunches. Watch for wilting black leaf tips, the clearest dieback symptom.'],
@@ -317,6 +340,10 @@ export const SPECIES_A: Species[] = [
 			'Holly regenerates readily from seed dropped by thrushes and is a common woodland understorey shrub — a dense holly thicket under oak is one of the darkest habitats in Britain.',
 			'Look-alikes are mostly garden plants: holm oak has spiny leaves when young but grey-felted undersides and acorns; Oregon-grape (*Berberis*) has spiny compound leaves and blue-black fruit.'
 		],
+		bark: {
+			texture: 'smooth',
+			note: 'Smooth, thin and pale grey, often with scattered warty bumps. Young twigs are green and stay green for a year or two.'
+		},
 		season: [
 			['Spring', 'Fresh glossy growth in May, with clusters of small scented white flowers working hard for bees.'],
 			['Summer', 'Green berries; the holly blue butterfly’s spring generation lays on the flower buds.'],

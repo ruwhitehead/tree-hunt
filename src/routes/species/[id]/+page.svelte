@@ -2,6 +2,7 @@
 	import { base } from '$app/paths';
 	import { goto } from '$app/navigation';
 	import SpeciesPhoto from '$lib/components/SpeciesPhoto.svelte';
+	import { barkLabel, hasBarkPhoto } from '$lib/content/bark';
 	import { grove } from '$lib/grove.svelte';
 	import { shareSpecies } from '$lib/share';
 
@@ -82,6 +83,7 @@
 		<a href="#folklore">Folklore</a>
 		<a href="#science">Science</a>
 		<a href="#spotting">Spotting it</a>
+		<a href="#bark">Bark</a>
 		<a href="#year">Through the year</a>
 	</nav>
 
@@ -117,6 +119,31 @@
 					{#each parts(note) as part, j (j)}{#if part.bold}<strong>{part.text}</strong>{:else}{part.text}{/if}{/each}
 				</p>
 			{/each}
+		</div>
+	</section>
+
+	<!-- Bark sits directly after the spotting notes because it is the same job
+	     done in the half of the year when there are no leaves to look at. -->
+	<section id="bark" class="section">
+		<h2 class="shead">Bark</h2>
+		<div class="barkrow">
+			{#if hasBarkPhoto(sp.id)}
+				<SpeciesPhoto id={sp.id} kind="bark" alt="The bark of a mature {sp.name}" height={190} />
+			{/if}
+			<div class="barktext">
+				<p class="label">{barkLabel(sp.bark.texture)}</p>
+				<p class="note">{sp.bark.note}</p>
+				{#if sp.bark.young}
+					<p class="young"><strong>When young:</strong> {sp.bark.young}</p>
+				{/if}
+				{#if !hasBarkPhoto(sp.id)}
+					<!-- said plainly rather than shown as a broken frame: every bark photo
+					     Commons offers for this one is a different species or a young trunk,
+					     and a wrong photograph is worse than none -->
+					<p class="nophoto">No bark photograph yet. We would rather show none than one of the wrong tree.</p>
+				{/if}
+				<a class="barklink" href="{base}/identify/#bark">Compare every {barkLabel(sp.bark.texture).toLowerCase()} bark →</a>
+			</div>
 		</div>
 	</section>
 
@@ -263,6 +290,46 @@
 		margin: 0;
 		max-width: 60ch;
 	}
+	.barkrow {
+		display: grid;
+		gap: 12px;
+		grid-template-columns: 1fr;
+		align-items: start;
+	}
+	.barktext .note {
+		border-left: none;
+		padding-left: 0;
+		margin: 4px 0 0;
+	}
+	.young {
+		margin: 10px 0 0;
+		font-size: 14px;
+		line-height: 1.55;
+		color: var(--soft);
+		max-width: 66ch;
+	}
+	.young strong {
+		color: var(--ink);
+	}
+	.nophoto {
+		margin: 10px 0 0;
+		font-size: 13px;
+		line-height: 1.5;
+		color: var(--soft);
+		background: var(--stonewash);
+		border: 1px solid var(--line);
+		border-radius: 10px;
+		padding: 9px 12px;
+	}
+	.barklink {
+		display: inline-flex;
+		align-items: center;
+		margin-top: 12px;
+		min-height: 44px;
+		font-size: 13px;
+		font-weight: 700;
+		color: var(--deep);
+	}
 	.subhead {
 		font-family: var(--display);
 		font-weight: 400;
@@ -327,6 +394,10 @@
 		.photos,
 		.seasons {
 			grid-template-columns: 1fr 1fr;
+		}
+		.barkrow {
+			grid-template-columns: 260px 1fr;
+			gap: 18px;
 		}
 	}
 	@media (min-width: 900px) {

@@ -2,66 +2,14 @@
 // Wikimedia Commons, resizes to webp, and writes licence credits for display.
 // Run: node scripts/fetch-species-images.mjs
 import sharp from 'sharp';
+import { SPECIES_SOURCES } from './species-list.mjs';
 import { mkdirSync, writeFileSync, existsSync, readFileSync } from 'node:fs';
 
 const UA = 'MeetATree/0.1 (https://github.com/ruwhitehead/meet-a-tree; tree companion PWA)';
 
 // Habit photos come from the Wikipedia taxobox lead image (curated). Leaf
 // close-ups come from a Commons search unless pinned to an exact File: title.
-const SPECIES = [
-	{ id: 'oak', latin: 'Quercus robur' },
-	{ id: 'sessile-oak', latin: 'Quercus petraea' },
-	{ id: 'holm-oak', latin: 'Quercus ilex' },
-	{ id: 'birch', latin: 'Betula pendula' },
-	{ id: 'downy-birch', latin: 'Betula pubescens' },
-	{ id: 'rowan', latin: 'Sorbus aucuparia' },
-	{ id: 'whitebeam', latin: 'Sorbus aria' },
-	{ id: 'wild-service', latin: 'Sorbus torminalis' },
-	{ id: 'beech', latin: 'Fagus sylvatica' },
-	{ id: 'hornbeam', latin: 'Carpinus betulus' },
-	{ id: 'ash', latin: 'Fraxinus excelsior' },
-	{ id: 'holly', latin: 'Ilex aquifolium' },
-	{ id: 'yew', latin: 'Taxus baccata' },
-	{ id: 'pine', latin: 'Pinus sylvestris' },
-	{ id: 'larch', latin: 'Larix decidua' },
-	{ id: 'spruce', latin: 'Picea abies' },
-	{ id: 'douglas-fir', latin: 'Pseudotsuga menziesii' },
-	{ id: 'juniper', latin: 'Juniperus communis' },
-	{ id: 'hawthorn', latin: 'Crataegus monogyna' },
-	{ id: 'blackthorn', latin: 'Prunus spinosa' },
-	{ id: 'wild-cherry', latin: 'Prunus avium' },
-	{ id: 'bird-cherry', latin: 'Prunus padus' },
-	{ id: 'crab-apple', latin: 'Malus sylvestris' },
-	{ id: 'chestnut', latin: 'Aesculus hippocastanum' },
-	{ id: 'sweet-chestnut', latin: 'Castanea sativa' },
-	{ id: 'sycamore', latin: 'Acer pseudoplatanus' },
-	{ id: 'norway-maple', latin: 'Acer platanoides' },
-	{ id: 'field-maple', latin: 'Acer campestre' },
-	{ id: 'london-plane', latin: 'Platanus x hispanica' },
-	{ id: 'lime', latin: 'Tilia cordata' },
-	{ id: 'elder', latin: 'Sambucus nigra' },
-	{ id: 'hazel', latin: 'Corylus avellana' },
-	{ id: 'alder', latin: 'Alnus glutinosa' },
-	{ id: 'wych-elm', latin: 'Ulmus glabra' },
-	{ id: 'goat-willow', latin: 'Salix caprea' },
-	{ id: 'white-willow', latin: 'Salix alba' },
-	{ id: 'aspen', latin: 'Populus tremula' },
-	{ id: 'black-poplar', latin: 'Populus nigra' },
-	{ id: 'walnut', latin: 'Juglans regia' },
-	{ id: 'box', latin: 'Buxus sempervirens' },
-	// batch G — the planted trees, taking the guide to fifty. `search` overrides
-	// the Latin name where the cultivar has no page of its own to lead from.
-	{ id: 'sitka-spruce', latin: 'Picea sitchensis' },
-	{ id: 'common-lime', latin: 'Tilia × europaea', search: 'Tilia europaea' },
-	{ id: 'crack-willow', latin: 'Salix fragilis' },
-	{ id: 'leylandii', latin: 'Cupressus × leylandii', search: 'Cupressocyparis leylandii' },
-	{ id: 'monkey-puzzle', latin: 'Araucaria araucana' },
-	{ id: 'giant-redwood', latin: 'Sequoiadendron giganteum' },
-	{ id: 'cedar-of-lebanon', latin: 'Cedrus libani' },
-	{ id: 'weeping-willow', latin: 'Salix babylonica', search: 'Salix sepulcralis' },
-	{ id: 'lombardy-poplar', latin: 'Populus nigra', search: 'Populus nigra Italica' },
-	{ id: 'ornamental-cherry', latin: 'Prunus serrulata', search: 'Prunus Kanzan' }
-].map((s) => {
+const SPECIES = SPECIES_SOURCES.map((s) => {
 	const q = s.search ?? s.latin;
 	return {
 		...s,

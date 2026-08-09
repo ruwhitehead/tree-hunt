@@ -28,6 +28,10 @@ export const SPECIES_B: Species[] = [
 			'Look in churchyards first — a large yew beside an old church is the commonest way to meet the species in lowland Britain, and there are more ancient yews in England and Wales than in the rest of Europe combined.',
 			'Yew is usually dioecious: male trees shed clouds of pollen in early spring, female trees carry the red arils. Occasional trees change sex, or carry both.'
 		],
+		bark: {
+			texture: 'fibrous',
+			note: 'Thin, reddish-brown to purple-grey, flaking away in irregular scales to show fresh coppery colour beneath. The trunk is strongly fluted and often hollow.'
+		},
 		season: [
 			['Spring', 'Male trees release pollen in February and March — a shaken branch produces a visible cloud. New growth is a bright yellow-green against the old dark needles.'],
 			['Summer', 'Deep, dry shade beneath; almost nothing grows under an old yew. Green immature arils begin to form on female trees.'],
@@ -90,6 +94,10 @@ export const SPECIES_B: Species[] = [
 			'In the Highlands, look for "granny pines" — vast, low-branched, open-grown veterans in the Caledonian remnants at Rothiemurchus, Glen Affric and Abernethy, which are the closest thing Britain has to primeval forest.',
 			'Don’t confuse it with plantation conifers: spruce has single sharp needles on woody pegs; larch is deciduous with needles in rosettes; Douglas fir has soft single needles and a sweet grapefruit smell when crushed.'
 		],
+		bark: {
+			texture: 'flaking',
+			note: 'The top of the trunk is the giveaway: flaking away in papery orange-pink plates that glow in low sun. Lower down it is grey-brown and cracked into thick scaly slabs.'
+		},
 		season: [
 			['Spring', 'New shoots — "candles" — extend upright in May, and small red-purple female cones sit at the tips while yellow male clusters shed pollen.'],
 			['Summer', 'Second-year cones swell and turn woody. Resin scent is strongest on hot days.'],
@@ -154,6 +162,10 @@ export const SPECIES_B: Species[] = [
 			['Autumn', 'Haws turn crimson in generous quantity; leaves go dull yellow-bronze.'],
 			['Winter', 'Thorny black tracery, often still holding shrivelled haws — an important late food source for fieldfares and redwings.']
 		],
+		bark: {
+			texture: 'flaking',
+			note: 'Grey-brown, finely fissured and flaking into small oblong plates. Old hedgerow trunks are gnarled, twisted and often leaning.'
+		},
 		folklore: [
 			[
 				'The fairy tree',
@@ -210,6 +222,11 @@ export const SPECIES_B: Species[] = [
 			'Leaf scars on the twig look strikingly like a horseshoe complete with nail holes — the likeliest source of the name "horse chestnut", along with a Turkish practice of feeding ground conkers to broken-winded horses.',
 			'By August, many trees look scorched and brown, as though the summer has killed them. That is almost always the horse-chestnut leaf-miner moth, whose larvae tunnel between the leaf surfaces — disfiguring, but not usually fatal.'
 		],
+		bark: {
+			texture: 'flaking',
+			note: 'Grey-brown, flaking away in irregular scaly plates that lift and curl at their edges as the tree ages.',
+			young: 'Smooth and grey when young.'
+		},
 		season: [
 			['Spring', 'Sticky buds burst dramatically in April, and the flower candles follow in May — one of the great British street-tree moments.'],
 			['Summer', 'Deep shade, and increasingly the tell-tale brown blotching of leaf-miner damage from July onwards.'],
@@ -268,6 +285,11 @@ export const SPECIES_B: Species[] = [
 			'London plane is the other confusion in cities: it has similar-shaped leaves but bark that peels in big camouflage patches and hangs bobble-like fruit balls on strings.',
 			'Sycamore seedlings are everywhere — dense carpets of them under a parent tree are one of the reasons the species is treated as invasive in some ancient woodlands.'
 		],
+		bark: {
+			texture: 'flaking',
+			note: 'Grey, flaking irregularly into small squarish plates that show pinkish-brown beneath, a little like a jigsaw. Old trunks look scaly rather than fissured.',
+			young: 'Smooth and grey when young.'
+		},
 		season: [
 			['Spring', 'Leaves emerge bronze-pink, and drooping green-yellow flower spikes hang down in April and May, heavy with nectar for bees.'],
 			['Summer', 'Dense shade, aphid-covered leaves that drip honeydew onto anything parked beneath, and the first black tar spots.'],
@@ -326,6 +348,10 @@ export const SPECIES_B: Species[] = [
 			'Growth habit is scruffy: arching, brittle, often leaning stems, frequently growing straight out of a hedge bank, wall or farmyard muck heap where the soil is rich in nitrogen.',
 			'Both flowers and berries must be cooked. Raw berries, leaves, bark and stems contain cyanogenic glycosides and cause nausea and vomiting.'
 		],
+		bark: {
+			texture: 'ridged',
+			note: 'Grey-brown, thickly corky and deeply grooved, so an elder always looks older than it really is. Young shoots are green and full of soft white pith.'
+		},
 		season: [
 			['Spring', 'Early into leaf; the rank smell of crushed foliage is strongest now.'],
 			['Summer', 'Peak elderflower in June — the cordial and fritter season. Pick in dry sun for the best scent, and take only a fraction of the plates from each bush.'],

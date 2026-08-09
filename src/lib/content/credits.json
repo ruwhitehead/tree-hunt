@@ -11,6 +11,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Betula_pendula_leaves_TK_2021-05-15_1.jpg",
 			"file": "File:Betula pendula leaves TK 2021-05-15 1.jpg"
+		},
+		"bark": {
+			"artist": "T. Kebert",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Betula_pendula_bark_TK_2023-04-16_1.jpg",
+			"file": "File:Betula pendula bark TK 2023-04-16 1.jpg"
 		}
 	},
 	"rowan": {
@@ -25,6 +31,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Sorbus_aucuparia_kz14.jpg",
 			"file": "File:Sorbus aucuparia kz14.jpg"
+		},
+		"bark": {
+			"artist": "Rosser1954",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Sorbus_aucuparia,_transverse_section_of_trunk_showing_the_heartwood_%26_bark.jpg",
+			"file": "File:Sorbus aucuparia, transverse section of trunk showing the heartwood & bark.jpg"
 		}
 	},
 	"beech": {
@@ -39,6 +51,12 @@
 			"license": "CC BY-SA 3.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Fagus_sylvatica_leaves_bottom.jpg",
 			"file": "File:Fagus sylvatica leaves bottom.jpg"
+		},
+		"bark": {
+			"artist": "Rosser1954",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Old_tree_bark_patterns,_Beech_(Fagus_sylvatica),_Anderson%27s_Mount,_Stewarton.jpg",
+			"file": "File:Old tree bark patterns, Beech (Fagus sylvatica), Anderson's Mount, Stewarton.jpg"
 		}
 	},
 	"ash": {
@@ -53,6 +71,12 @@
 			"license": "Public domain",
 			"page": "https://commons.wikimedia.org/wiki/File:Fraxinus_excelsior_Leaves_12October2009_RioFresnedas_ValledeAlcudia.jpg",
 			"file": "File:Fraxinus excelsior Leaves 12October2009 RioFresnedas ValledeAlcudia.jpg"
+		},
+		"bark": {
+			"artist": "Rosser1954",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Warts_on_Fraxinus_excelsior_bark,_Dalgarven_Mill,_North_Ayrshire.jpg",
+			"file": "File:Warts on Fraxinus excelsior bark, Dalgarven Mill, North Ayrshire.jpg"
 		}
 	},
 	"holly": {
@@ -67,6 +91,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Ilex_aquifolium_145607515.jpg",
 			"file": "File:Ilex aquifolium 145607515.jpg"
+		},
+		"bark": {
+			"artist": "Rosser1954",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Lenticels_and_sphaeroblast_on_Ilex_aquifolium_bark._Spier%27s_School,_Beith,_North_Ayrshire.jpg",
+			"file": "File:Lenticels and sphaeroblast on Ilex aquifolium bark. Spier's School, Beith, North Ayrshire.jpg"
 		}
 	},
 	"yew": {
@@ -81,6 +111,12 @@
 			"license": "CC BY 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Taxus_baccata_in_botanical_garden_of_UKW_Bydgoszcz_(6).jpg",
 			"file": "File:Taxus baccata in botanical garden of UKW Bydgoszcz (6).jpg"
+		},
+		"bark": {
+			"artist": "Adrian Tync",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Taxus_baccata_bark_Siemianowice.jpg",
+			"file": "File:Taxus baccata bark Siemianowice.jpg"
 		}
 	},
 	"pine": {
@@ -95,6 +131,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Pinus_sylvestris_-_UK_1.jpg",
 			"file": "File:Pinus sylvestris - UK 1.jpg"
+		},
+		"bark": {
+			"artist": "Akkbula",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Pinus_sylvestris_bark_2025.jpg",
+			"file": "File:Pinus sylvestris bark 2025.jpg"
 		}
 	},
 	"hawthorn": {
@@ -123,6 +165,12 @@
 			"license": "CC BY-SA 2.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Horse_Chestnut_(Aesculus_hippocastanum)_leaf,_Halligarth_-_geograph.org.uk_-_1884676.jpg",
 			"file": "File:Horse Chestnut (Aesculus hippocastanum) leaf, Halligarth - geograph.org.uk - 1884676.jpg"
+		},
+		"bark": {
+			"artist": "Adrian Tync",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Aesculus_hippocastanum_bark_Siemianowice.jpg",
+			"file": "File:Aesculus hippocastanum bark Siemianowice.jpg"
 		}
 	},
 	"sycamore": {
@@ -137,6 +185,12 @@
 			"license": "CC BY-SA 2.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Sycamore_(Acer_pseudoplatanus)_leaves,_Halligarth_-_geograph.org.uk_-_1884638.jpg",
 			"file": "File:Sycamore (Acer pseudoplatanus) leaves, Halligarth - geograph.org.uk - 1884638.jpg"
+		},
+		"bark": {
+			"artist": "Krzysztof Golik",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Bark_of_Acer_pseudoplatanus.jpg",
+			"file": "File:Bark of Acer pseudoplatanus.jpg"
 		}
 	},
 	"elder": {
@@ -151,6 +205,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Sambucus_nigra_leaves_in_Muttental.jpg",
 			"file": "File:Sambucus nigra leaves in Muttental.jpg"
+		},
+		"bark": {
+			"artist": "Rosser1954",
+			"license": "CC BY 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Sambucus_nigra_or_elder_bark_at_Chapeltoun,_North_Ayrshire.jpg",
+			"file": "File:Sambucus nigra or elder bark at Chapeltoun, North Ayrshire.jpg"
 		}
 	},
 	"field-maple": {
@@ -165,6 +225,12 @@
 			"license": "CC BY 3.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Acer_campestre_02_by-dpc.jpg",
 			"file": "File:Acer campestre 02 by-dpc.jpg"
+		},
+		"bark": {
+			"artist": "Spiritia",
+			"license": "CC BY 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Acer_campestre_bark_1.jpg",
+			"file": "File:Acer campestre bark 1.jpg"
 		}
 	},
 	"oak": {
@@ -179,6 +245,12 @@
 			"license": "CC BY 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Quercus_robur_179727189.jpg",
 			"file": "File:Quercus robur 179727189.jpg"
+		},
+		"bark": {
+			"artist": "KaiKemmann",
+			"license": "CC BY 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Bark_of_European_oak_(Quercus_robur)_in_winter,_Woodland_south_of_Schlosspark_Belvedere,_Weimar,_Germany_01.jpg",
+			"file": "File:Bark of European oak (Quercus robur) in winter, Woodland south of Schlosspark Belvedere, Weimar, Germany 01.jpg"
 		}
 	},
 	"sessile-oak": {
@@ -193,6 +265,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Quercus_petraea._Carbayu_albar.jpg",
 			"file": "File:Quercus petraea. Carbayu albar.jpg"
+		},
+		"bark": {
+			"artist": "Nefronus",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Quercus_petraea_bark.jpg",
+			"file": "File:Quercus petraea bark.jpg"
 		}
 	},
 	"holm-oak": {
@@ -207,6 +285,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Quercus_ilex_subsp._ilex._Ardina.jpg",
 			"file": "File:Quercus ilex subsp. ilex. Ardina.jpg"
+		},
+		"bark": {
+			"artist": "Unknown",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Quercus_ilex_rotundifolia_bark.jpg",
+			"file": "File:Quercus ilex rotundifolia bark.jpg"
 		}
 	},
 	"downy-birch": {
@@ -221,6 +305,12 @@
 			"license": "CC BY-SA 3.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Betula-pubescens-downy-leaves.JPG",
 			"file": "File:Betula-pubescens-downy-leaves.JPG"
+		},
+		"bark": {
+			"artist": "Rosser1954",
+			"license": "CC BY 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Betula_pubescens_bark_and_lenticels._Spier%27s_Old_School_Grounds,_Beith,_North_Ayrshire.jpg",
+			"file": "File:Betula pubescens bark and lenticels. Spier's Old School Grounds, Beith, North Ayrshire.jpg"
 		}
 	},
 	"whitebeam": {
@@ -249,6 +339,12 @@
 			"license": "Public domain",
 			"page": "https://commons.wikimedia.org/wiki/File:Sorbus_torminalis_leaves_kz.jpg",
 			"file": "File:Sorbus torminalis leaves kz.jpg"
+		},
+		"bark": {
+			"artist": "E Wusk",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Sorbus_torminalis_bark.jpg",
+			"file": "File:Sorbus torminalis bark.jpg"
 		}
 	},
 	"hornbeam": {
@@ -263,6 +359,12 @@
 			"license": "CC BY 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Carpinus_betulus_in_Aveyron_(9).jpg",
 			"file": "File:Carpinus betulus in Aveyron (9).jpg"
+		},
+		"bark": {
+			"artist": "Nefronus",
+			"license": "CC0",
+			"page": "https://commons.wikimedia.org/wiki/File:Carpinus_betulus_bark_K%C5%99ivokl%C3%A1tsko.jpg",
+			"file": "File:Carpinus betulus bark Křivoklátsko.jpg"
 		}
 	},
 	"larch": {
@@ -277,6 +379,12 @@
 			"license": "Public domain",
 			"page": "https://commons.wikimedia.org/wiki/File:Larix_decidua_needles_and_male_cones.JPG",
 			"file": "File:Larix decidua needles and male cones.JPG"
+		},
+		"bark": {
+			"artist": "Rosser1954",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Resin_exudate_on_Larix_decidua_bark._Dalgain_Wood,_Sor,_East_Ayrshire.jpg",
+			"file": "File:Resin exudate on Larix decidua bark. Dalgain Wood, Sor, East Ayrshire.jpg"
 		}
 	},
 	"spruce": {
@@ -291,6 +399,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Picea_abies_Ahlainen_2.jpg",
 			"file": "File:Picea abies Ahlainen 2.jpg"
+		},
+		"bark": {
+			"artist": "Krzysztof Golik",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Bark_of_Picea_abies_01.jpg",
+			"file": "File:Bark of Picea abies 01.jpg"
 		}
 	},
 	"douglas-fir": {
@@ -305,6 +419,12 @@
 			"license": "CC BY-SA 3.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Pseudotsuga_menziesii_lammas_growth.JPG",
 			"file": "File:Pseudotsuga menziesii lammas growth.JPG"
+		},
+		"bark": {
+			"artist": "Crusier",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Pseudotsuga_menziesii_bark_Rog%C3%B3w.jpg",
+			"file": "File:Pseudotsuga menziesii bark Rogów.jpg"
 		}
 	},
 	"blackthorn": {
@@ -319,6 +439,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Prunus_spinosa_(Sleedoorn)_-_Noordwijk,_South_Holland,_NL_v2.jpg",
 			"file": "File:Prunus spinosa (Sleedoorn) - Noordwijk, South Holland, NL v2.jpg"
+		},
+		"bark": {
+			"artist": "Rosser1954",
+			"license": "CC BY 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Prunus_spinosa_or_Hawthorn_bark_at_Chapeltoun,_North_Ayrshire.jpg",
+			"file": "File:Prunus spinosa or Hawthorn bark at Chapeltoun, North Ayrshire.jpg"
 		}
 	},
 	"wild-cherry": {
@@ -333,6 +459,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Prunus_avium_95514156.jpg",
 			"file": "File:Prunus avium 95514156.jpg"
+		},
+		"bark": {
+			"artist": "Hartmut Schmidt Heidelberg",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Torn_wild_cherry_bark,_(Prunus_avium),_Gaisberg,_Heidelberg,_D.jpg",
+			"file": "File:Torn wild cherry bark, (Prunus avium), Gaisberg, Heidelberg, D.jpg"
 		}
 	},
 	"bird-cherry": {
@@ -347,6 +479,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Prunus_padus_190049868.jpg",
 			"file": "File:Prunus padus 190049868.jpg"
+		},
+		"bark": {
+			"artist": "Eiku",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Prunus_padus_-_bark_(detail).jpg",
+			"file": "File:Prunus padus - bark (detail).jpg"
 		}
 	},
 	"crab-apple": {
@@ -375,6 +513,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Leaf_of_Castanea_sativa.jpg",
 			"file": "File:Leaf of Castanea sativa.jpg"
+		},
+		"bark": {
+			"artist": "Lamiot",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Burghley_House_Park_Mature_Castanea_sativa_bark_d%C3%A9tail.jpg",
+			"file": "File:Burghley House Park Mature Castanea sativa bark détail.jpg"
 		}
 	},
 	"norway-maple": {
@@ -389,6 +533,12 @@
 			"license": "CC BY-SA 3.0 rs",
 			"page": "https://commons.wikimedia.org/wiki/File:Acer_platanoides_leaf.jpg",
 			"file": "File:Acer platanoides leaf.jpg"
+		},
+		"bark": {
+			"artist": "Gmihail at Serbian Wikipedia",
+			"license": "CC BY-SA 3.0 rs",
+			"page": "https://commons.wikimedia.org/wiki/File:Acer_platanoides_bark_Bgd.jpg",
+			"file": "File:Acer platanoides bark Bgd.jpg"
 		}
 	},
 	"juniper": {
@@ -403,6 +553,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Juniperus_communis_Ja%C5%82owiec_pospolity_2021-06-23_04.jpg",
 			"file": "File:Juniperus communis Jałowiec pospolity 2021-06-23 04.jpg"
+		},
+		"bark": {
+			"artist": "Iifar",
+			"license": "Public domain",
+			"page": "https://commons.wikimedia.org/wiki/File:Juniperus_communis_stem_Loigu_keerdkadakas.jpg",
+			"file": "File:Juniperus communis stem Loigu keerdkadakas.jpg"
 		}
 	},
 	"sitka-spruce": {
@@ -417,6 +573,12 @@
 			"license": "Public domain",
 			"page": "https://commons.wikimedia.org/wiki/File:Sitka_Spruce_(Picea_sitchensis)_foliage,_Sitka_National_Historical_Park_(bf83265e-1dd8-b71c-0715-310543ca4965).jpg",
 			"file": "File:Sitka Spruce (Picea sitchensis) foliage, Sitka National Historical Park (bf83265e-1dd8-b71c-0715-310543ca4965).jpg"
+		},
+		"bark": {
+			"artist": "Rosser1954",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Picea_sitchensis_(Sitka_Spruce)_bark,_Auchinleck,_East_Ayrshire,_Scotland.jpg",
+			"file": "File:Picea sitchensis (Sitka Spruce) bark, Auchinleck, East Ayrshire, Scotland.jpg"
 		}
 	},
 	"common-lime": {
@@ -445,6 +607,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Salix_fragilis_kz05.jpg",
 			"file": "File:Salix fragilis kz05.jpg"
+		},
+		"bark": {
+			"artist": "Andrey Zharkikh from Salt Lake City, USA",
+			"license": "CC BY 2.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Salix_fragilis_trunk_2015.08.22_-_andrey_zharkikh.jpg",
+			"file": "File:Salix fragilis trunk 2015.08.22 - andrey zharkikh.jpg"
 		}
 	},
 	"lombardy-poplar": {
@@ -487,6 +655,12 @@
 			"license": "CC BY-SA 2.5",
 			"page": "https://commons.wikimedia.org/wiki/File:Salix_x_sepulcralis_-_leafs_(aka).jpg",
 			"file": "File:Salix x sepulcralis - leafs (aka).jpg"
+		},
+		"bark": {
+			"artist": "Willow Coville",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Salix_babylonica_bark_close-up_1.jpg",
+			"file": "File:Salix babylonica bark close-up 1.jpg"
 		}
 	},
 	"ornamental-cherry": {
@@ -501,6 +675,12 @@
 			"license": "CC BY 2.5",
 			"page": "https://commons.wikimedia.org/wiki/File:Prunus_serrulata_Kanzan_blossom_Jardin_des_Plantes_2013-04-21.jpg",
 			"file": "File:Prunus serrulata Kanzan blossom Jardin des Plantes 2013-04-21.jpg"
+		},
+		"bark": {
+			"artist": "Stephen Craven",
+			"license": "CC BY-SA 2.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Detail_of_the_bark_of_Prunus_serrulata_-_geograph.org.uk_-_6601982.jpg",
+			"file": "File:Detail of the bark of Prunus serrulata - geograph.org.uk - 6601982.jpg"
 		}
 	},
 	"london-plane": {
@@ -515,6 +695,12 @@
 			"license": "CC BY-SA 3.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Platanus_x_hispanica_leaves_fruit_bgiu.jpg",
 			"file": "File:Platanus x hispanica leaves fruit bgiu.jpg"
+		},
+		"bark": {
+			"artist": "Krzysztof Golik",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Bark_of_Platanus_x_hispanica_(1).jpg",
+			"file": "File:Bark of Platanus x hispanica (1).jpg"
 		}
 	},
 	"lime": {
@@ -529,6 +715,12 @@
 			"license": "CC BY-SA 3.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Tilia_cordata_-_leaves_02.jpg",
 			"file": "File:Tilia cordata - leaves 02.jpg"
+		},
+		"bark": {
+			"artist": "Unknown",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Tilia_cordata_bark_2_beentree.jpg",
+			"file": "File:Tilia cordata bark 2 beentree.jpg"
 		}
 	},
 	"hazel": {
@@ -543,6 +735,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:(ms)_Corylus_avellana_9.jpg",
 			"file": "File:(ms) Corylus avellana 9.jpg"
+		},
+		"bark": {
+			"artist": "Adrian Tync",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Corylus_avellana_bark_Siemianowice.jpg",
+			"file": "File:Corylus avellana bark Siemianowice.jpg"
 		}
 	},
 	"alder": {
@@ -557,6 +755,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:(ms)_Alnus_glutinosa_2.jpg",
 			"file": "File:(ms) Alnus glutinosa 2.jpg"
+		},
+		"bark": {
+			"artist": "Sten Porse",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Alnus-glutinosa-bark.jpg",
+			"file": "File:Alnus-glutinosa-bark.jpg"
 		}
 	},
 	"wych-elm": {
@@ -571,6 +775,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Leaves_of_Ulmus_glabra_var._montana.jpg",
 			"file": "File:Leaves of Ulmus glabra var. montana.jpg"
+		},
+		"bark": {
+			"artist": "T.Voekler",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Ulmus_glabra_Wych_Elm_bark.jpg",
+			"file": "File:Ulmus glabra Wych Elm bark.jpg"
 		}
 	},
 	"goat-willow": {
@@ -585,6 +795,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:(ms)_Salix_caprea_8.jpg",
 			"file": "File:(ms) Salix caprea 8.jpg"
+		},
+		"bark": {
+			"artist": "Acabashi",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Salix_caprea_goat_pussy_willow_trunk_at_Easton_Lodge_Gardens,_Little_Easton,_Essex,_England.jpg",
+			"file": "File:Salix caprea goat pussy willow trunk at Easton Lodge Gardens, Little Easton, Essex, England.jpg"
 		}
 	},
 	"white-willow": {
@@ -599,6 +815,12 @@
 			"license": "CC BY-SA 3.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Salix_alba_leaves.jpg",
 			"file": "File:Salix alba leaves.jpg"
+		},
+		"bark": {
+			"artist": "Andreas Plank",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Salix_alba_bark_(Andreas_Plank).jpg",
+			"file": "File:Salix alba bark (Andreas Plank).jpg"
 		}
 	},
 	"aspen": {
@@ -613,6 +835,12 @@
 			"license": "CC BY-SA 3.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Summer._Leaves_-_populus_tremula._Adaxial_side.jpg",
 			"file": "File:Summer. Leaves - populus tremula. Adaxial side.jpg"
+		},
+		"bark": {
+			"artist": "Adrian Tync",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Populus_tremula_bark_Siemianowice.jpg",
+			"file": "File:Populus tremula bark Siemianowice.jpg"
 		}
 	},
 	"black-poplar": {
@@ -627,6 +855,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Populus_nigra_kz03.jpg",
 			"file": "File:Populus nigra kz03.jpg"
+		},
+		"bark": {
+			"artist": "Димитър Найденов / Dimìtar Nàydenov",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Populus_nigra_bark.jpg",
+			"file": "File:Populus nigra bark.jpg"
 		}
 	},
 	"walnut": {
@@ -641,6 +875,12 @@
 			"license": "Public domain",
 			"page": "https://commons.wikimedia.org/wiki/File:Juglans_regia-01.JPG",
 			"file": "File:Juglans regia-01.JPG"
+		},
+		"bark": {
+			"artist": "Krzysztof Golik",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Bark_of_Juglans_regia_02.jpg",
+			"file": "File:Bark of Juglans regia 02.jpg"
 		}
 	},
 	"box": {
@@ -655,6 +895,12 @@
 			"license": "CC0",
 			"page": "https://commons.wikimedia.org/wiki/File:Buxus_sempervirens_10862.JPG",
 			"file": "File:Buxus sempervirens 10862.JPG"
+		},
+		"bark": {
+			"artist": "Photo (c)2007 Derek Ramsey (Ram-Man)",
+			"license": "CC BY-SA 2.5",
+			"page": "https://commons.wikimedia.org/wiki/File:Boxwood_Buxus_sempervirens_var._arborescens_Bark_2597px.jpg",
+			"file": "File:Boxwood Buxus sempervirens var. arborescens Bark 2597px.jpg"
 		}
 	},
 	"monkey-puzzle": {
@@ -669,6 +915,12 @@
 			"license": "CC BY 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Araucaria_araucana_kz15.jpg",
 			"file": "File:Araucaria araucana kz15.jpg"
+		},
+		"bark": {
+			"artist": "Mike Shaw",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Bark_of_Araucaria_araucana_(Monkey_Puzzle)_01.jpg",
+			"file": "File:Bark of Araucaria araucana (Monkey Puzzle) 01.jpg"
 		}
 	},
 	"giant-redwood": {
@@ -683,6 +935,12 @@
 			"license": "CC BY-SA 3.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Riesenmammutbaum_Sequoiadendron_giganteum_top_08.jpg",
 			"file": "File:Riesenmammutbaum Sequoiadendron giganteum top 08.jpg"
+		},
+		"bark": {
+			"artist": "GPodkolzin",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Bark_of_Sequoiadendron_giganteum_in_Partenit.JPG",
+			"file": "File:Bark of Sequoiadendron giganteum in Partenit.JPG"
 		}
 	},
 	"cedar-of-lebanon": {
@@ -697,6 +955,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Cedrus_libani_var._stenocoma%E2%80%94cone_and_foliage.jpg",
 			"file": "File:Cedrus libani var. stenocoma—cone and foliage.jpg"
+		},
+		"bark": {
+			"artist": "Spiritia",
+			"license": "CC BY 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Cedrus_libani_bark_1.jpg",
+			"file": "File:Cedrus libani bark 1.jpg"
 		}
 	}
 }

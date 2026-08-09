@@ -28,6 +28,10 @@ export const SPECIES_E: Species[] = [
 			'The crown is conical and open with distinctly drooping branch tips and a pale, airy look — quite unlike the dense dark mass of spruce.',
 			'Japanese larch has broader, greyer needles and cones with scales turned back like a rosette; the hybrid Dunkeld larch is intermediate and very widely planted.'
 		],
+		bark: {
+			texture: 'flaking',
+			note: 'Thick, greyish-brown and fissured into scaly plates that show pinkish-brown where they break away.'
+		},
 		season: [
 			['Spring', 'Vivid fresh green needle rosettes with crimson female cones — the most cheerful thing in a conifer wood.'],
 			['Summer', 'Light, airy pale-green canopy that lets ground flora survive beneath, unlike spruce.'],
@@ -74,6 +78,10 @@ export const SPECIES_E: Species[] = [
 			'Sitka spruce, the great commercial timber tree of British forestry, has flatter, bluer, even sharper needles, smaller cones with crinkled scales, and is far more common in modern plantations.',
 			'Crush a needle: spruce smells resinous and sharp, while Douglas fir smells sweetly of grapefruit and Nordmann fir of citrus and pine.'
 		],
+		bark: {
+			texture: 'flaking',
+			note: 'Thin, coppery to greyish-brown, flaking in small rounded scales, over a straight trunk with regular whorls of branches.'
+		},
 		season: [
 			['Spring', 'Pale green new shoots at the branch tips, soft and bright against the old dark needles; red female cones stand upright before turning down.'],
 			['Summer', 'Dense dark canopy with almost bare, needle-carpeted ground beneath.'],
@@ -120,6 +128,11 @@ export const SPECIES_E: Species[] = [
 			'Bark on mature trees is thick, corky, deeply furrowed and reddish-brown, protecting against fire — very different from the smooth grey of a young tree.',
 			'It is not a true fir (*Abies*) nor a hemlock, hence *Pseudotsuga*, "false hemlock" — a genus of its own, and a Victorian introduction that transformed British forestry.'
 		],
+		bark: {
+			texture: 'ridged',
+			note: 'Thick, corky, deeply furrowed and reddish-brown, with a slight give if you press a ridge. The thickness is fire protection.',
+			young: 'Smooth, grey and blistered with resin pockets for its first decades.'
+		},
 		season: [
 			['Spring', 'Bright apple-green new needles at the shoot tips, strongly citrus-scented, with small reddish female cones.'],
 			['Summer', 'Deep green, immensely tall, casting dense shade in plantation but supporting good moss and fern flora in western glens.'],
@@ -166,6 +179,10 @@ export const SPECIES_E: Species[] = [
 			'It is dioecious, so only female plants carry berries; male plants shed pollen in spring and never fruit, which explains why half the junipers you find look barren.',
 			'Look-alikes are cultivated conifers — most garden junipers and cypresses have scale-like adpressed leaves rather than sharp needles in threes.'
 		],
+		bark: {
+			texture: 'fibrous',
+			note: 'Reddish-brown and shredding away in thin vertical strings you can pull off in a strip.'
+		},
 		season: [
 			['Spring', 'Small yellow male cones shed pollen; new growth is a softer green.'],
 			['Summer', 'Green first-year berries alongside ripening blue-black ones from previous years.'],
@@ -212,6 +229,10 @@ export const SPECIES_E: Species[] = [
 			'The trunk of a street plane is often heavily pollarded, producing knobbly, club-headed limbs — a management style adopted specifically to keep huge trees in narrow streets.',
 			'If you are in a London square, a Parisian boulevard or an Italian piazza and the tree is enormous with jigsaw bark, it is almost certainly this hybrid.'
 		],
+		bark: {
+			texture: 'flaking',
+			note: 'The signature: flaking off in irregular plates to leave a camouflage patchwork of olive, cream, grey and buff, so no two square metres look alike.'
+		},
 		season: [
 			['Spring', 'Late into leaf, with clusters of small greenish flowers and — for hay-fever sufferers — irritant fluff from the breaking fruit balls.'],
 			['Summer', 'Dense shade over pavements; leaves stay glossy in city dust because the tree sheds bark to clean itself.'],
@@ -258,6 +279,11 @@ export const SPECIES_E: Species[] = [
 			'Horse chestnut is unrelated and quite different: palmate compound leaves, stout spines on a thick case, and one big inedible conker.',
 			'In Kent and Sussex, look for chestnut coppice — dense stands of straight poles cut on a 12- to 20-year cycle, the raw material for cleft chestnut paling fence.'
 		],
+		bark: {
+			texture: 'ridged',
+			note: 'Deeply fissured, and the fissures spiral around the trunk, sometimes dramatically. On an old tree you can read the spiral from thirty paces.',
+			young: 'Smooth and grey-brown for its first thirty years or so, with no spiral at all.'
+		},
 		season: [
 			['Spring', 'Late into leaf; long glossy leaves unfold a fresh yellow-green in May.'],
 			['Summer', 'Cream catkins in July, sweetly scented and busy with insects — one of the latest-flowering trees.'],
@@ -304,6 +330,10 @@ export const SPECIES_E: Species[] = [
 			'Bark is smooth pale grey, staying smooth; the crown is neat, compact and domed, which is why it is planted so much in streets and car parks.',
 			'Swedish whitebeam, extremely common in towns, has shallowly lobed leaves — halfway between whitebeam and rowan — and is a different plant.'
 		],
+		bark: {
+			texture: 'smooth',
+			note: 'Smooth and pale grey, staying smooth all its life. There is nothing on it to catch a thumbnail.'
+		},
 		season: [
 			['Spring', 'The white candle stage in April is the best moment: upright silvery new leaves, then clusters of white flowers in May.'],
 			['Summer', 'Green above, silver-white beneath, flickering in wind.'],
@@ -350,6 +380,10 @@ export const SPECIES_E: Species[] = [
 			'It is a scarce tree of long-established woodland, spreading mostly by suckers, so finding one is a reasonable sign that the wood has been there for centuries.',
 			'Autumn colour is exceptional — deep coppery crimson and bronze — which is often how people first notice one they have walked past all year.'
 		],
+		bark: {
+			texture: 'flaking',
+			note: 'Dark grey-brown, cracking into distinctly square or oblong plates whose edges lift away from the trunk. Often described as crocodile-like.'
+		},
 		season: [
 			['Spring', 'Late into leaf; clusters of white flowers open in May and June.'],
 			['Summer', 'Glossy dark maple-like leaves; fruit developing green and speckled.'],

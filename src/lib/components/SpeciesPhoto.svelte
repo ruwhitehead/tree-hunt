@@ -8,8 +8,20 @@
 		alt,
 		height = 200,
 		priority = false
-	}: { id: string; kind: 'tree' | 'leaf'; alt: string; height?: number; priority?: boolean } =
-		$props();
+	}: {
+		id: string;
+		kind: 'tree' | 'leaf' | 'bark';
+		alt: string;
+		height?: number;
+		priority?: boolean;
+	} = $props();
+
+	/** Bark is cropped square rather than 4:3, because a bark photograph is a
+	 *  texture sample and a square keeps the same field of view across all of
+	 *  them. Comparing barks shot at different magnifications is worthless. */
+	const w = $derived(kind === 'bark' ? 800 : 900);
+	const h = $derived(kind === 'bark' ? 800 : 675);
+	const CAPTION = { tree: 'The whole tree', leaf: 'Leaf detail', bark: 'Mature bark' } as const;
 
 	const credit = $derived(
 		(credits as Record<string, Record<string, { artist: string; license: string; page: string }>>)[id]?.[
@@ -24,14 +36,14 @@
 		srcset="{base}/images/species/{id}-{kind}-480.webp 480w, {base}/images/species/{id}-{kind}.webp 900w"
 		sizes="(min-width: 700px) 440px, 100vw"
 		{alt}
-		width="900"
-		height="675"
+		width={w}
+		height={h}
 		loading={priority ? 'eager' : 'lazy'}
 		fetchpriority={priority ? 'high' : 'auto'}
 		decoding="async"
 	/>
 	<figcaption>
-		{kind === 'tree' ? 'The whole tree' : 'Leaf detail'}
+		{CAPTION[kind]}
 		{#if credit}
 			· <a href={credit.page} target="_blank" rel="noopener">{credit.artist || 'Wikimedia'}</a>,
 			{credit.license}

@@ -28,6 +28,10 @@ export const SPECIES_C: Species[] = [
 			'Habitat is a strong hint. Sessile oak dominates the steep, wet, acid, mossy Atlantic oakwoods of Wales, Cumbria and western Scotland, where it grows festooned with lichens, ferns and epiphytic mosses.',
 			'The two oaks hybridise freely, and intermediate trees are common — if the stalk lengths give a mixed answer, you have probably found a hybrid rather than made a mistake.'
 		],
+		bark: {
+			texture: 'ridged',
+			note: 'Grey-brown and vertically fissured, effectively identical to English oak. Bark will not separate the two - go to the acorns, which sit tight against the twig with no stalk.'
+		},
 		season: [
 			['Spring', 'Leaf burst is a touch earlier than English oak; catkins hang in tassels as the bronze leaves open.'],
 			['Summer', 'Rich mid-green canopy; upland sessile oakwoods are at their most atmospheric, dripping with moss and fern.'],
@@ -74,6 +78,10 @@ export const SPECIES_C: Species[] = [
 			'Bark is smooth, shiny coppery brown with distinct horizontal lines of lenticels, peeling slightly in fine papery strips on older stems.',
 			'Look for nuts opened by wildlife: a neat round hole with tooth marks means dormouse or wood mouse; a clean split in half means squirrel; a jagged hole with the nut wedged in bark means nuthatch.'
 		],
+		bark: {
+			texture: 'banded',
+			note: 'Smooth, shiny coppery brown with distinct horizontal lines of lenticels, peeling slightly in fine papery strips on older stems. Usually many stems from the ground rather than one trunk.'
+		},
 		season: [
 			['Spring', 'Catkins from January to March are one of the first signs of the year; leaves follow in April.'],
 			['Summer', 'Dense soft-leaved understorey shade; green nuts swelling in their leafy cups.'],
@@ -128,6 +136,11 @@ export const SPECIES_C: Species[] = [
 			'Buds and young twigs are purple-tinged and slightly sticky (*glutinosa*), and the buds sit on short stalks, which is unusual and useful in winter.',
 			'Roots often show as an exposed tangle at the water’s edge, holding the bank together, frequently with a chamber of air and root beneath undercut soil.'
 		],
+		bark: {
+			texture: 'ridged',
+			note: 'Dark grey-brown and cracked into small square plates on a mature trunk, with last year\'s little woody cones usually still hanging above you, which is the surer sign.',
+			young: 'Smooth, greenish-grey and glossy when young.'
+		},
 		season: [
 			['Spring', 'Purple-brown male catkins lengthen and yellow in February and March, before the leaves; tiny red female flowers sit above them.'],
 			['Summer', 'Dark green, dense, and often the last green thing along a dried-out summer stream.'],
@@ -182,6 +195,10 @@ export const SPECIES_C: Species[] = [
 			'Ancient hornbeam pollards, cut repeatedly at head height for firewood and charcoal, are a speciality of Epping and Hatfield forests; they look like squat, bulbous, many-headed monsters and are centuries old.',
 			'Hornbeam hedges, like beech, hold dead brown leaves through winter — check the toothed edge and fluted stems to tell which you are looking at.'
 		],
+		bark: {
+			texture: 'smooth',
+			note: 'Smooth and pale grey with fine silvery vertical streaks, over a trunk that is fluted and sinewy like twisted rope or a flexed muscle. The fluting is the tell, and it is what separates it from beech.'
+		},
 		season: [
 			['Spring', 'Fresh pleated leaves in April, with drooping yellow-green catkins.'],
 			['Summer', 'Dense shade; the winged fruit clusters develop and hang conspicuously.'],
@@ -228,6 +245,10 @@ export const SPECIES_C: Species[] = [
 			'Growth habit is usually shrubby and dense because it is repeatedly cut in hedges; a free-standing field maple is a modest, rounded, twiggy tree rather than a forest giant.',
 			'Norway maple is the confusion in towns: much bigger leaves with long-pointed lobes ending in a fine hair-like tip, and milky sap too — but its samaras spread almost flat and its leaves are twice the size.'
 		],
+		bark: {
+			texture: 'ridged',
+			note: 'Pale grey-brown and finely fissured into a corky network. Young twigs often grow flat corky wings along their sides, which no other British maple does.'
+		},
 		season: [
 			['Spring', 'Leaves emerge reddish-bronze; small upright yellow-green flower clusters open with them.'],
 			['Summer', 'Dense mid-green hedgerow foliage, often with black tar-spot-like blotches (a different, harmless fungus).'],
@@ -274,6 +295,11 @@ export const SPECIES_C: Species[] = [
 			'Common lime (*Tilia × europaea*), the hybrid planted in most avenues, is far more frequent in towns: bigger leaves, white hairs rather than rust in the vein angles, and huge bosses of shoots round the trunk base.',
 			'Aphids on lime produce so much honeydew that the leaves shine, drip, and coat pavements and cars beneath — sticky ground under a big avenue tree is a strong hint.'
 		],
+		bark: {
+			texture: 'ridged',
+			note: 'Grey and finely ridged, and the base of an old trunk is usually smothered in a dense mass of twiggy shoots and burrs.',
+			young: 'Smooth and grey when young.'
+		},
 		season: [
 			['Spring', 'Leaves open early, a fresh yellow-green, quickly reaching full size.'],
 			['Summer', 'Heavy sweet scent in late June and July, with bees working the flowers in numbers; honeydew drip at its worst.'],
@@ -328,6 +354,11 @@ export const SPECIES_C: Species[] = [
 			'Unlike other British elms, wych elm does not sucker from its roots — it regenerates from seed, which is one reason it has survived better than the suckering field elms.',
 			'Signs of Dutch elm disease: yellowing and wilting leaves in summer on individual branches, brown streaking in the sapwood under the bark, and the small pinhole galleries of the elm bark beetle.'
 		],
+		bark: {
+			texture: 'ridged',
+			note: 'Grey-brown with deep, coarse, interlacing ridges forming a broad criss-cross network.',
+			young: 'Smooth and grey until about twenty years old.'
+		},
 		season: [
 			['Spring', 'Purple-red flower tufts in February on bare wood, then a mass of pale green papery seed discs in April before the leaves catch up.'],
 			['Summer', 'Big rough dark green leaves; watch for a single branch wilting, the first sign of disease.'],

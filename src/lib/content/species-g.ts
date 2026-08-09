@@ -30,6 +30,10 @@ export const SPECIES_G: Species[] = [
 			'Bark is purplish grey, flaking away in thin rounded plates like scattered coins, and the whole tree gives off a sharp resinous smell that hangs over a plantation on a warm day.',
 			'Habitat is the strongest hint of all. Rank on rank of dark, even-aged conifer on a wet upland slope, with almost nothing growing beneath, is Sitka until proved otherwise.'
 		],
+		bark: {
+			texture: 'flaking',
+			note: 'Purplish grey, flaking away in thin rounded plates like scattered coins. A plantation of it smells sharply resinous on a warm day.'
+		},
 		season: [
 			['Spring', 'New shoots break in bright acid green against the near-black of last year, the one moment a plantation looks soft.'],
 			['Summer', 'Dense shade and deep needle litter; little grows below except moss where light breaks through.'],
@@ -76,6 +80,10 @@ export const SPECIES_G: Species[] = [
 			'The ground underneath tells you before the tree does. A varnish of sticky honeydew on cars, benches and pavement, often blackened with sooty mould, means a lime is overhead.',
 			'Bark is grey and shallowly ridged; twigs are reddish and zigzag between the buds, and the base of an old trunk is usually a dense thicket of sprouting shoots and burrs, which is the quickest way to name a common lime in an avenue.'
 		],
+		bark: {
+			texture: 'ridged',
+			note: 'Grey and shallowly ridged, and the base of the trunk is normally a dense thicket of sprouting shoots and burrs, which is the quickest way to name a common lime in an avenue.'
+		},
 		season: [
 			['Spring', 'Late into leaf, then very fast; the fresh growth is a pale yellow-green.'],
 			['Summer', 'Flowers in July with a heavy honey scent, and the tree roars with bees for a fortnight.'],
@@ -122,6 +130,10 @@ export const SPECIES_G: Species[] = [
 			'Look downstream. A line of similar willows spaced along one bank is frequently one tree many times over, grown from washed-up fragments.',
 			'Twigs are olive to orange-brown and shine after rain; buds are pressed flat to the shoot, and a twig snapped at the base comes away with an audible crack, which is where the name comes from.'
 		],
+		bark: {
+			texture: 'ridged',
+			note: 'Grey-brown with deep coarse ridges, on a trunk that usually leans over water and has shed whole limbs, the wood snapping cleanly off.'
+		},
 		season: [
 			['Spring', 'Catkins open with the leaves, an important early nectar and pollen source for bees.'],
 			['Summer', 'Heavy green shade over water, and the constant drift of broken twigs downstream.'],
@@ -168,6 +180,10 @@ export const SPECIES_G: Species[] = [
 			'Cones, when they appear at all, are small, round and sparse — this is a hybrid and mostly sterile, so it spreads by being planted rather than by seeding itself into the countryside.',
 			'The tell-tale planting pattern is a dead-straight line of identical trees along a boundary, because every one is a cutting.'
 		],
+		bark: {
+			texture: 'fibrous',
+			note: 'Reddish-brown, thin and shredding in fine vertical strings, though on a clipped hedge you will rarely see any of it.'
+		},
 		season: [
 			['Spring', 'A flush of brighter green at the tips; this is when the year’s metre begins.'],
 			['Summer', 'Dense, dry shade, and a hedge bottom where nothing grows.'],
@@ -214,6 +230,10 @@ export const SPECIES_G: Species[] = [
 			'Male and female cones grow on separate trees. Female cones are large and spherical, take two to three years, then break apart on the branch, dropping big edible seeds.',
 			'Nearly every British specimen is a deliberate planting on a lawn or beside a grave — this tree never turns up by accident, so finding one tells you something about whoever owned the ground.'
 		],
+		bark: {
+			texture: 'ridged',
+			note: 'Grey and deeply wrinkled into horizontal rings, exactly like elephant hide, and marked all over with the scars of fallen leaves.'
+		},
 		season: [
 			['Spring', 'New growth extends at the branch tips in a paler, softer green.'],
 			['Summer', 'Male cones shed pollen; female cones swell on trees that carry them.'],
@@ -260,6 +280,10 @@ export const SPECIES_G: Species[] = [
 			'Do not confuse it with coast redwood, whose leaves are flat, yew-like and set in two neat rows either side of the shoot; giant redwood’s are short, scale-like awls that spiral right around it.',
 			'Look for it in a line. Victorian landowners planted redwood avenues, so a row of enormous spires along a drive is the signature planting.'
 		],
+		bark: {
+			texture: 'fibrous',
+			note: 'Push a fist gently into it. Thick, fibrous, deep red-brown and genuinely spongy - it gives, and it does not hurt. No other large British tree does this.'
+		},
 		season: [
 			['Spring', 'Pollen released from the shoot tips in quantity; new growth barely alters the outline.'],
 			['Summer', 'Unchanged — the tree operates on a scale where a season is nothing.'],
@@ -306,6 +330,10 @@ export const SPECIES_G: Species[] = [
 			'Separate it from its relatives by branch direction: **Lebanon is level, Atlas ascends, Deodar droops** — including the leading shoot at the very top, which is the quickest check of the three.',
 			'Bark is dark grey-brown, cracking into short scaly ridges on old trunks, and the lower limbs are often as thick as the trunk itself because the tree spreads outwards rather than upwards once mature.'
 		],
+		bark: {
+			texture: 'flaking',
+			note: 'Dark grey-brown, cracking into short scaly ridges on an old trunk, beneath limbs often as thick as the trunk itself.'
+		},
 		season: [
 			['Spring', 'Little change; last year’s cones continue to swell.'],
 			['Summer', 'Deep, dry shade beneath the tiers, and a resinous smell on hot days.'],
@@ -352,6 +380,10 @@ export const SPECIES_G: Species[] = [
 			'It is essentially always a planting, and nearly always beside water, because that is where people put it — a weeping willow far from a pond or river is the exception rather than the rule.',
 			'The common British tree is a hybrid of white willow and the Chinese willow, so it will not match either parent exactly, and every specimen was struck from a cutting rather than grown from seed.'
 		],
+		bark: {
+			texture: 'ridged',
+			note: 'Grey-brown with coarse vertical ridges, on a short thick trunk that divides low into the limbs carrying the curtain of shoots.'
+		},
 		season: [
 			['Spring', 'Among the very first large trees to green up, in a startling pale acid yellow-green.'],
 			['Summer', 'Full curtains, deep shade on the water and a distinctive movement in any breeze.'],
@@ -398,6 +430,10 @@ export const SPECIES_G: Species[] = [
 			'It is nearly always in a straight line or a tight group, because it was planted for shelter or for show rather than for itself — most often along a boundary, a drive or a motorway embankment.',
 			'Compare it with black poplar, its own parent species — massive, leaning, broad-crowned and covered in burrs. Same species, opposite silhouette.'
 		],
+		bark: {
+			texture: 'ridged',
+			note: 'Dark grey-brown and deeply fissured, on a trunk that stays remarkably narrow for its height and often carries burrs.'
+		},
 		season: [
 			['Spring', 'Crimson male catkins appear before the leaves, then drop in quantity onto the road below.'],
 			['Summer', 'The sound is the point — a continuous dry rustle audible well before you reach the tree.'],
@@ -444,6 +480,10 @@ export const SPECIES_G: Species[] = [
 			'Bark is glossy red-brown with prominent horizontal bands of breathing pores, the family signature shared with every other cherry.',
 			'Look at the base for suckers that do not match the tree above. It is grafted onto a wild cherry rootstock, and the rootstock sometimes has other ideas.'
 		],
+		bark: {
+			texture: 'banded',
+			note: 'Glossy red-brown with prominent horizontal bands of breathing pores, the family signature shared with every other cherry.'
+		},
 		season: [
 			['Spring', 'A fortnight of extraordinary pink in April, then a pavement of fallen petals.'],
 			['Summer', 'Unremarkable green, with toothed, tapering leaves and no fruit to speak of.'],

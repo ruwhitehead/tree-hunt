@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import LeafShape from '$lib/components/LeafShape.svelte';
+	import BarkGlyph from '$lib/components/BarkGlyph.svelte';
 	import { KEY1, KEY2, keyCandidates } from '$lib/content/key';
+	import { BARK_KEY, barkCandidates, barkLabel, hasBarkPhoto } from '$lib/content/bark';
+	import type { BarkTexture } from '$lib/content/types';
 	import { SPECIES, speciesById } from '$lib/content/species';
 	import { PLACES, placeSpecies } from '$lib/content/habitats';
 	import type { LeafKind } from '$lib/content/types';
@@ -87,6 +90,9 @@
 			idState = 'unavailable';
 		}
 	}
+
+	let barkPick: BarkTexture | null = $state(null);
+	const barkList = $derived(barkPick ? barkCandidates(barkPick) : []);
 
 	const candidates = $derived(step1 && step2 ? keyCandidates(step1, step2) : []);
 	const step2Options: { id: string; title: string }[] = $derived(step1 ? KEY2[step1] : []);
@@ -328,6 +334,55 @@
 		{/if}
 	{/if}
 
+	<!-- The other half of the year. The leaf key above cannot help between
+	     November and April, when most of the guide has dropped its leaves, and
+	     until now the app simply had nothing to say for those five months. -->
+	<section id="bark" class="barkkey">
+		<p class="orline"><span>or no leaves? start with the bark</span></p>
+		{#if !barkPick}
+			<p class="label">Put a hand on the trunk at chest height. Which is it?</p>
+			{#each BARK_KEY as k (k.id)}
+				<button class="opt" onclick={() => (barkPick = k.id)}>
+					<span class="glyph" aria-hidden="true"><BarkGlyph texture={k.id} size={44} /></span>
+					<span><span class="ot">{k.title}</span><br /><span class="ob">{k.desc}</span></span>
+				</button>
+			{/each}
+		{:else}
+			<button class="backlink" onclick={() => (barkPick = null)}>
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<path d="M19 12H6" /><path d="M11.5 6.5L6 12l5.5 5.5" />
+				</svg>
+				All six barks
+			</button>
+			<p class="label">
+				{barkLabel(barkPick)} · {barkList.length}
+				{barkList.length === 1 ? 'tree' : 'trees'} — find yours by eye
+			</p>
+			<!-- No second question. Bark does not divide twice in any way someone
+			     standing in a wood in February can answer, so the key stops asking and
+			     shows the photographs: matching a trunk against a wall of pictures is a
+			     thing people are good at. -->
+			<ul class="barkgrid">
+				{#each barkList as sp (sp.id)}
+					<li>
+						<a class="barkcard" href="{base}/species/{sp.id}/#bark">
+							{#if hasBarkPhoto(sp.id)}
+								<img src="{base}/images/species/{sp.id}-bark-480.webp" alt="The bark of a {sp.name}" width="400" height="400" loading="lazy" decoding="async" />
+							{:else}
+								<span class="nopic">No photo yet</span>
+							{/if}
+							<span class="bn">{sp.name}</span>
+						</a>
+					</li>
+				{/each}
+			</ul>
+			<p class="sub">
+				Bark changes with age, and these are all mature trunks. A young tree of the same species can
+				be smooth when its parent is deeply ridged, so check the leaves or twigs before you settle.
+			</p>
+		{/if}
+	</section>
+
 	<details class="habitats">
 		<summary>Still stuck? Narrow it down by where you are</summary>
 		<p class="sub" style="margin-top:8px">
@@ -509,6 +564,57 @@
 		height: 1px;
 		background: var(--line);
 	}
+	.barkkey {
+		scroll-margin-top: 12px;
+		display: flex;
+		flex-direction: column;
+		gap: 9px;
+	}
+	.barkgrid {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 9px;
+	}
+	.barkcard {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+		background: var(--card);
+		border: 1px solid var(--line);
+		border-radius: 13px;
+		padding: 7px 7px 9px;
+		text-decoration: none;
+		color: inherit;
+		text-align: center;
+	}
+	.barkcard:hover {
+		border-color: var(--green);
+	}
+	.barkcard img,
+	.barkcard .nopic {
+		width: 100%;
+		aspect-ratio: 1;
+		object-fit: cover;
+		border-radius: 9px;
+		display: block;
+		background: var(--stonewash);
+	}
+	.barkcard .nopic {
+		display: grid;
+		place-items: center;
+		font-size: 10.5px;
+		font-weight: 700;
+		color: var(--soft);
+		padding: 4px;
+	}
+	.bn {
+		font-size: 11.5px;
+		font-weight: 700;
+		line-height: 1.25;
+	}
 	.habitats {
 		margin-top: 10px;
 		background: var(--card);
@@ -657,10 +763,19 @@
 		padding: 7px 13px;
 		min-height: 38px;
 	}
+	@media (min-width: 700px) {
+		.barkgrid {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
 	@media (min-width: 900px) {
 		.camerabtn,
 		.opt {
 			max-width: 620px;
+		}
+		.barkgrid {
+			grid-template-columns: repeat(6, 1fr);
+			max-width: 760px;
 		}
 	}
 </style>

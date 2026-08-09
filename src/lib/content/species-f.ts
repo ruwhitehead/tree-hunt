@@ -28,6 +28,10 @@ export const SPECIES_F: Species[] = [
 			'Habitat is the strongest hint — downy birch takes the wetter, colder, more acid ground: bog margins, wet moorland and the great Highland birchwoods, where silver birch prefers drier sand.',
 			'The two hybridise readily and hybrids are common, so a tree with slightly hairy twigs and slightly diamond bark is doing exactly what birches do.'
 		],
+		bark: {
+			texture: 'peeling',
+			note: 'Duller than silver birch: greyish or pinkish white, more uniform, and without the rough black diamonds at the base.'
+		},
 		season: [
 			['Spring', 'Early leaf and heavy pollen; catkins lengthen in April, later than silver birch in the far north.'],
 			['Summer', 'Light dappled shade over a rich ground flora of blaeberry, moss and fern in Highland birchwoods.'],
@@ -74,6 +78,10 @@ export const SPECIES_F: Species[] = [
 			'Bark is grey-brown with fine, shallow, regular ridges, staying tidy into old age rather than flaking off in the small squarish plates that make a mature sycamore look scaly.',
 			'Many street specimens are the cultivar "Crimson King" with deep purple-black leaves all summer — same species, same milky sap and whiskery tips.'
 		],
+		bark: {
+			texture: 'ridged',
+			note: 'Grey-brown with fine, shallow, regular ridges, staying tidy into old age rather than flaking into the small squares that make a mature sycamore look scaly.'
+		},
 		season: [
 			['Spring', 'A remarkable acid-yellow flowering before leaf burst, and an important early nectar source.'],
 			['Summer', 'Dense glossy canopy, casting shade heavy enough to suppress ground flora.'],
@@ -120,6 +128,10 @@ export const SPECIES_F: Species[] = [
 			'Habitat is diagnostic: floodplain, wet meadow, ditch and riverside on heavy soil. It needs bare wet silt to germinate, which is why it almost never regenerates naturally now.',
 			'Hybrid black poplars and Lombardy poplars are far commoner: straighter, tidier, without heavy burrs, often in rows. The native subspecies is scruffy, leaning and burred.'
 		],
+		bark: {
+			texture: 'ridged',
+			note: 'Dark grey-brown, deeply and irregularly fissured, and almost always carrying large woody burrs and bosses, which is the single most reliable feature.'
+		},
 		season: [
 			['Spring', 'Crimson male catkins on bare branches in March; leaves follow, opening with a balsam scent.'],
 			['Summer', 'Rustling glossy canopy; female trees shed drifts of white cottony seed in June.'],
@@ -166,6 +178,10 @@ export const SPECIES_F: Species[] = [
 			'Holly is the confusion for young plants: holly leaves are hairless and shiny beneath and bear red berries, while holm oak leaves are grey-felted beneath and bear acorns.',
 			'It is thoroughly naturalised on the south coast, where its seedlings can invade dune and heath — the Isle of Wight and Devon have substantial self-sown populations.'
 		],
+		bark: {
+			texture: 'flaking',
+			note: 'Very dark grey to almost black, finely cracked all over into small squarish plates. Closer in texture to an old holly than to the deep vertical clefts of a native oak.'
+		},
 		season: [
 			['Spring', 'Long yellow catkins in May and June, and a flush of paler new leaves that make the tree look two-tone.'],
 			['Summer', 'Dark, dense, dusty-looking evergreen canopy that shrugs off drought and salt wind.'],
@@ -212,6 +228,11 @@ export const SPECIES_F: Species[] = [
 			'The ground beneath is often noticeably bare or thin, and nearby tomatoes and apples sulk: walnut roots release juglone, a compound that inhibits many other plants outright.',
 			'Black walnut (*Juglans nigra*), occasionally planted, has many more leaflets (11–23), a toothed edge, and a rougher, darker, deeply ridged bark.'
 		],
+		bark: {
+			texture: 'ridged',
+			note: 'Wide, deep, dark fissures on an old trunk, in striking contrast with the pale silvery-grey of the younger limbs above.',
+			young: 'Smooth and pale silvery-grey when young.'
+		},
 		season: [
 			['Spring', 'Very late into leaf, often not until May; leaves emerge bronze-pink, with drooping green male catkins.'],
 			['Summer', 'Open airy canopy of large glossy leaflets; green fruits swelling.'],
@@ -258,6 +279,10 @@ export const SPECIES_F: Species[] = [
 			'Wild box grows on steep chalk: Box Hill in Surrey is named for it, and the ancient box wood at Chequers in Buckinghamshire is another of the few genuinely native sites.',
 			'Watch for damage: box blight strips leaves and blackens stems, while box tree moth caterpillars spin webbing and can defoliate a hedge in weeks.'
 		],
+		bark: {
+			texture: 'smooth',
+			note: 'Pale grey-buff, smooth at first and finely cracked into small squares with age, over stems rarely thicker than a wrist.'
+		},
 		season: [
 			['Spring', 'Small nectar-rich green flowers in March and April, surprisingly busy with early insects; fresh pale growth follows.'],
 			['Summer', 'Dense evergreen structure — the backbone of formal gardens; watch for webbing from box tree moth.'],
