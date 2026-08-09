@@ -11,7 +11,7 @@
 		{ href: '/missions', label: 'Seasons', icon: 'season' },
 		{ href: '/learn', label: 'Learn', icon: 'book' }
 	];
-	const railItems = [...items, { href: '/identify', label: 'Identify', icon: 'camera' }, ...items2];
+	const railItems = [...items, { href: '/identify', label: 'Identify', icon: 'search' }, ...items2];
 
 	const isActive = (href: string) =>
 		href === '/'
@@ -28,8 +28,10 @@
 		<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 21c0-9 3-15 12-17-1 9-4 14-12 17z" /><path d="M6 21c2-5 5-9 9-12" /></svg>
 	{:else if name === 'season'}
 		<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 3v9l6 3" /></svg>
-	{:else if name === 'camera'}
-		<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z" /><circle cx="12" cy="13" r="3.4" /></svg>
+	{:else if name === 'search'}
+		<!-- a lens over a leaf, not a camera: identifying is now looking closely at
+		     the tree in front of you, and nothing here photographs anything -->
+		<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="M16.5 16.5L21 21" /><path d="M8 14.5c0-4.5 1.6-7.2 6-8-.5 4.5-2 6.8-6 8z" /></svg>
 	{:else}
 		<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 5c-2-1.5-5-2-8-1.5v14C7 17 10 17.5 12 19c2-1.5 5-2 8-1.5v-14C17 3 14 3.5 12 5z" /><path d="M12 5v14" /></svg>
 	{/if}
@@ -56,7 +58,7 @@
 			aria-current={isActive('/identify') ? 'page' : undefined}
 			data-sveltekit-replacestate
 		>
-			<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z" /><circle cx="12" cy="13" r="3.4" /></svg>
+			<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="M16.5 16.5L21 21" /><path d="M8 14.5c0-4.5 1.6-7.2 6-8-.5 4.5-2 6.8-6 8z" /></svg>
 		</a>
 	</div>
 	{#each items2 as item (item.href)}

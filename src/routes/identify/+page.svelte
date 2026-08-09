@@ -8,88 +8,10 @@
 	import { SPECIES, speciesById } from '$lib/content/species';
 	import { PLACES, placeSpecies } from '$lib/content/habitats';
 	import type { LeafKind } from '$lib/content/types';
-	import { grove } from '$lib/grove.svelte';
-	import { shrinkImage } from '$lib/trees.svelte';
-	import { detectSaveCapability, saveToPhotos } from '$lib/photos';
-
-	type Match = { latin: string; common: string; score: number; id: string | null };
+	import { detectPlatform } from '$lib/platform';
 
 	let step1: LeafKind | null = $state(null);
 	let step2: string | null = $state(null);
-	let photo: string | null = $state(null);
-	/** kept so the phone's own recogniser can be handed the same file */
-	let photoFile: File | null = $state(null);
-	let camInput: HTMLInputElement | undefined = $state();
-	const phone = detectSaveCapability();
-
-	/** Straight from the click with the file already in hand — WebKit revokes the
-	 *  gesture if anything slow is awaited first. */
-	async function toPhotos() {
-		if (!photoFile) return;
-		const outcome = await saveToPhotos(photoFile, 'leaf.jpg');
-		if (outcome === 'shared') grove.toast('Choose “Save Image”, then look it up in Photos');
-		else if (outcome === 'unsupported')
-			grove.toast('Press and hold the photo, then “Add to Photos”');
-	}
-
-	/** Photo identification. Runs against /api/identify, which proxies Pl@ntNet
-	 *  with the key held server-side. On a static host the endpoint isn't there,
-	 *  so we fall through to the field key rather than pretending. */
-	let idState:
-		| 'idle'
-		| 'working'
-		| 'done'
-		| 'unavailable'
-		| 'failed'
-		| 'quota'
-		| 'slow-down'
-		| 'badformat' = $state('idle');
-	let matches: Match[] = $state([]);
-	let remaining: number | null = $state(null);
-	let organ: 'leaf' | 'bark' | 'flower' | 'fruit' = $state('leaf');
-
-	async function identify(file: File) {
-		idState = 'working';
-		matches = [];
-		try {
-			// Normalise before upload: shrinks a 4 MB camera original to a few
-			// hundred KB and re-encodes HEIC or WebP as the JPEG Pl@ntNet needs.
-			const upload = await shrinkImage(file, 1280, 0.85);
-			const body = new FormData();
-			body.append('image', new File([upload], 'photo.jpg', { type: upload.type || 'image/jpeg' }));
-			body.append('organ', organ);
-			const res = await fetch(`${base}/api/identify`, { method: 'POST', body });
-
-			if (res.status === 503 || res.status === 404) {
-				idState = 'unavailable';
-				return;
-			}
-			if (res.status === 415) {
-				idState = 'badformat';
-				return;
-			}
-			if (res.status === 429) {
-				const why = (await res.json().catch(() => ({}))) as { reason?: string };
-				idState = why?.reason === 'slow-down' ? 'slow-down' : 'quota';
-				return;
-			}
-			if (!res.ok) {
-				idState = 'failed';
-				return;
-			}
-			const data = (await res.json()) as {
-				ok: boolean;
-				matches?: Match[];
-				remaining?: number | null;
-			};
-			matches = data.matches ?? [];
-			remaining = data.remaining ?? null;
-			idState = 'done';
-			if (matches.length) grove.toast(`Best guess: ${matches[0].common || matches[0].latin}`);
-		} catch {
-			idState = 'unavailable';
-		}
-	}
 
 	let barkPick: BarkTexture | null = $state(null);
 	const barkList = $derived(barkPick ? barkCandidates(barkPick) : []);
@@ -97,26 +19,8 @@
 	const candidates = $derived(step1 && step2 ? keyCandidates(step1, step2) : []);
 	const step2Options: { id: string; title: string }[] = $derived(step1 ? KEY2[step1] : []);
 
-	function onPhoto(e: Event) {
-		const input = e.currentTarget as HTMLInputElement;
-		const f = input.files?.[0];
-		if (!f) return;
-		if (photo) URL.revokeObjectURL(photo);
-		photo = URL.createObjectURL(f);
-		photoFile = f;
-		step1 = null;
-		step2 = null;
-		input.value = '';
-		identify(f);
-	}
-	function removePhoto() {
-		if (photo) URL.revokeObjectURL(photo);
-		photo = null;
-		photoFile = null;
-		idState = 'idle';
-		matches = [];
-		remaining = null;
-	}
+	/** Only the instructions that are true of the thing in your hand. */
+	const platform = detectPlatform();
 </script>
 
 <svelte:head>
@@ -128,161 +32,11 @@
 
 	<div class="card stonebg">
 		<p class="how">
-			<strong>Two ways in.</strong> Photograph the leaf and we'll ask Pl@ntNet what it thinks — or
-			answer three questions and the guide narrows {SPECIES.length} British trees down to a shortlist. The
-			questions work with no signal at all.
+			<strong>Three ways in.</strong> Answer three questions about the leaf, or start from the bark if
+			there are no leaves on it, or narrow things down by where you are standing. All three work with
+			no signal at all, and none of them needs a photograph.
 		</p>
 	</div>
-
-	<fieldset class="organs">
-		<legend class="label">What are you photographing?</legend>
-		{#each [['leaf', 'Leaf'], ['bark', 'Bark'], ['flower', 'Flower'], ['fruit', 'Fruit']] as [value, title] (value)}
-			<label class="organ" class:on={organ === value}>
-				<input type="radio" name="organ" value={value} bind:group={organ} />
-				<span>{title}</span>
-			</label>
-		{/each}
-	</fieldset>
-
-	{#if photo}
-		<div class="card photocard">
-			<img alt="The {organ} you photographed" src={photo} />
-			<button class="rm" onclick={removePhoto}>✕ Remove</button>
-		</div>
-		<button class="btn camerabtn" onclick={() => camInput?.click()}>
-			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z" /><circle cx="12" cy="13" r="3.4" /></svg>
-			Take another photo
-		</button>
-	{:else}
-		<button class="btn camerabtn" onclick={() => camInput?.click()}>
-			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z" /><circle cx="12" cy="13" r="3.4" /></svg>
-			Photograph the {organ}
-		</button>
-	{/if}
-
-	{#if idState === 'working'}
-		<div class="card tint" aria-live="polite">
-			<p class="label">Identifying</p>
-			<p class="serif" style="font-size:15px">Comparing your photo against Pl@ntNet’s flora…</p>
-		</div>
-	{:else if idState === 'done'}
-		<div class="card tint" aria-live="polite">
-			<p class="label">{matches.length ? 'Best matches' : 'No confident match'}</p>
-			{#if matches.length === 0}
-				<p class="serif" style="font-size:15px">
-					Pl@ntNet couldn’t place that one. Try a flatter, closer shot of a single leaf against a
-					plain background — or use the questions below.
-				</p>
-			{:else}
-				<ul class="matches">
-					{#each matches as m (m.latin)}
-						{@const sp = m.id ? speciesById(m.id) : undefined}
-						<li>
-							{#if sp}
-								<a class="match" href="{base}/species/{sp.id}/#spotting">
-									<span class="thumb">
-										<img src="{base}/images/species/{sp.id}-leaf.webp" alt="" width="120" height="120" loading="lazy" />
-									</span>
-									<span class="mtext">
-										<span class="ot">{sp.name}</span><br />
-										<span class="ob" style="font-style:italic">{sp.latin}</span>
-									</span>
-									<span class="score">{m.score}%</span>
-								</a>
-							{:else}
-								<div class="match notinguide">
-									<span class="mtext">
-										<span class="ot">{m.common || m.latin}</span><br />
-										<span class="ob" style="font-style:italic">{m.latin} · not in this guide</span>
-									</span>
-									<span class="score muted">{m.score}%</span>
-								</div>
-							{/if}
-						</li>
-					{/each}
-				</ul>
-				<p class="sub">
-					Percentages are Pl@ntNet’s confidence, not certainty. Check the spotting notes before you
-					trust one.
-					{#if remaining !== null && remaining < 50}
-						<br /><strong>{remaining} identifications left today</strong> — the field key below always
-						works.
-					{/if}
-				</p>
-			{/if}
-		</div>
-	{:else if idState === 'unavailable'}
-		<div class="card stonebg" aria-live="polite">
-			<p class="how">
-				<strong>Photo matching isn’t available here.</strong> This copy of the app is running without
-				its identification server, so use the questions below — they need no signal and no server.
-			</p>
-		</div>
-	{:else if idState === 'quota'}
-		<div class="card stonebg" aria-live="polite">
-			<p class="how">
-				<strong>Today’s identifications are used up.</strong> The service allows a fixed number a day
-				and we’ve hit it. The questions below don’t use it at all.
-			</p>
-		</div>
-	{:else if idState === 'slow-down'}
-		<div class="card stonebg" aria-live="polite">
-			<p class="how"><strong>One moment.</strong> That’s a lot of photos very quickly — try again in a minute.</p>
-		</div>
-	{:else if idState === 'badformat'}
-		<div class="card stonebg" aria-live="polite">
-			<p class="how">
-				<strong>That image format didn’t work.</strong> A photo straight from the camera normally does;
-				try taking a new one.
-			</p>
-		</div>
-	{:else if idState === 'failed'}
-		<div class="card stonebg" aria-live="polite">
-			<p class="how">
-				<strong>That didn’t get through.</strong> Could be a patchy signal or a busy service. Try
-				again, or use the questions below.
-			</p>
-		</div>
-	{/if}
-
-	<!-- The recogniser already on the phone. There is no web API for Visual Look Up
-	     or Lens, so this is a signpost rather than a button: on Android a long press
-	     on the image offers Lens, and on iOS Look Up needs the photo in the library
-	     first. Shown only once a photo exists and only where it is actually true. -->
-	{#if photo && idState !== 'working' && (phone.ios || phone.android)}
-		<div class="card handoff">
-			<p class="label">Ask your phone as well</p>
-			{#if phone.android}
-				<p class="how">
-					Press and hold the photo above and choose <strong>Search image with Google</strong>. Lens
-					will give its own answer, from a far bigger range of plants than this guide carries — then
-					come back and check it against the spotting notes.
-				</p>
-			{:else}
-				<p class="how">
-					iPhone can identify plants itself, but only from your library. Save the photo, then press and
-					hold the leaf in the Photos app and choose <strong>Look Up</strong>.
-				</p>
-				{#if phone.offer}
-					<button class="btn ghost small" style="margin-top:10px" onclick={toPhotos}>
-						Save to Photos
-					</button>
-				{/if}
-			{/if}
-		</div>
-	{/if}
-
-	<p class="orline"><span>or answer three questions</span></p>
-	<input
-		bind:this={camInput}
-		type="file"
-		accept="image/*"
-		capture="environment"
-		class="visually-hidden"
-		aria-hidden="true"
-		tabindex="-1"
-		onchange={onPhoto}
-	/>
 
 	{#if !step1}
 		<p class="label">Step 1 of 3 · What kind of leaf is it?</p>
@@ -407,15 +161,70 @@
 		{/each}
 	</details>
 
-	<!-- Their access policy asks free users to acknowledge the service in these
-	     words, so they are theirs, not a paraphrase. The remaining requirement is
-	     their logo, which is not shipped yet. -->
-	<p class="credit">
-		The image-based plant species identification service used, is based on the Pl@ntNet recognition
-		API, regularly updated and accessible through the site
-		<a href="https://my.plantnet.org/" target="_blank" rel="noopener">my.plantnet.org</a>.
-		<a href="https://my.plantnet.org/terms_of_use" target="_blank" rel="noopener">Access policy ↗</a>
-	</p>
+	<!-- Last, and deliberately last: this sends someone out of the app. It sits
+	     below all three keys, closed, styled like the habitat block rather than
+	     like one of our own answers.
+
+	     Visual Look Up and Google Lens are OS features with no web API, so this
+	     is a signpost and never a button - the app cannot drive either of them.
+	     Only the instructions true of the device in hand are rendered; there is
+	     no point showing an iPhone owner where Chrome keeps its right-click
+	     menu. -->
+	<details class="lastresort">
+		<summary>Still no idea? Ask your phone</summary>
+		<p class="sub" style="margin-top:8px">
+			Take a photo with your normal camera, then hand it to the recogniser already built into your
+			{platform === 'desktop' ? 'browser' : 'phone'}. It searches a far larger range of plants than
+			this guide's {SPECIES.length} trees.
+		</p>
+
+		{#if platform === 'ios'}
+			<ol class="steps">
+				<li>Photograph the leaf, or the bark, against a plain background.</li>
+				<li>Open the picture in <strong>Photos</strong>.</li>
+				<li>
+					Tap the <strong>info button</strong> (ⓘ) below it, or swipe up. If Apple has recognised a
+					plant, the button carries a small leaf symbol.
+				</li>
+				<li>Tap <strong>Look Up – Plant</strong>.</li>
+			</ol>
+			<p class="caveat">
+				This is Apple's Visual Look Up. It needs iOS 15 or later and is not offered in every country
+				or language, so the leaf symbol simply will not appear on some phones.
+			</p>
+		{:else if platform === 'android'}
+			<ol class="steps">
+				<li>Photograph the leaf, or the bark, against a plain background.</li>
+				<li>
+					Open it in <strong>Google Photos</strong> and tap the <strong>Lens</strong> button, or open
+					the Google app and tap the camera icon.
+				</li>
+				<li>Lens names its best guess and shows you what it matched against.</li>
+			</ol>
+			<p class="caveat">
+				Some camera apps have a Lens or Google Lens mode built straight in, which saves a step.
+			</p>
+		{:else}
+			<ol class="steps">
+				<li>Get the photo onto this computer.</li>
+				<li>
+					In Chrome or Edge, right-click it and choose <strong>Search image with Google</strong>.
+				</li>
+				<li>
+					In Safari or Firefox there is no equivalent, so go to
+					<a href="https://images.google.com" target="_blank" rel="noopener">images.google.com</a>
+					and use the camera icon in the search box to upload it.
+				</li>
+			</ol>
+		{/if}
+
+		<p class="caveat">
+			<strong>Then come back and check it.</strong> These tools are confident even when they are
+			wrong, and they are worst at exactly the pairs this guide cares about — sessile against English
+			oak, blackthorn against hawthorn. They will also happily name a garden cultivar that grows in no
+			British wood. Read the spotting notes and the bark before you believe an answer.
+		</p>
+	</details>
 </main>
 
 <style>
@@ -424,127 +233,6 @@
 		font-size: 13.5px;
 		line-height: 1.55;
 		color: var(--soft);
-	}
-	/* a quieter ground than the result cards: this is a suggestion, not our answer */
-	.handoff {
-		background: var(--stonewash);
-		border-color: var(--line);
-	}
-	/* required attribution, deliberately the quietest thing on the page — but still
-	   AA, because small print that cannot be read is not an acknowledgement */
-	.credit {
-		margin: 4px 0 0;
-		font-size: 11.5px;
-		line-height: 1.5;
-		color: var(--soft);
-		max-width: 62ch;
-	}
-	.credit a {
-		color: var(--deep);
-		font-weight: 600;
-	}
-	.how strong {
-		color: var(--ink);
-	}
-	.camerabtn {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		gap: 9px;
-		font-size: 14.5px;
-		padding: 12px 18px;
-		min-height: 50px;
-	}
-	.camerabtn svg {
-		width: 20px;
-		height: 20px;
-	}
-	.organs {
-		border: none;
-		margin: 0;
-		padding: 0;
-		display: flex;
-		flex-wrap: wrap;
-		gap: 8px;
-		align-items: center;
-	}
-	.organs legend {
-		width: 100%;
-		margin-bottom: 6px;
-	}
-	.organ {
-		display: inline-flex;
-		align-items: center;
-		min-height: 44px;
-		padding: 8px 16px;
-		border-radius: 999px;
-		border: 1.5px solid var(--line);
-		background: var(--card);
-		font-size: 13.5px;
-		font-weight: 600;
-		color: var(--ink);
-		cursor: pointer;
-	}
-	.organ.on {
-		border-color: var(--green);
-		background: var(--wash);
-		color: var(--deep);
-		font-weight: 700;
-	}
-	.organ input {
-		position: absolute;
-		opacity: 0;
-		width: 1px;
-		height: 1px;
-	}
-	.organ:focus-within {
-		outline: 3px solid var(--deep);
-		outline-offset: 2px;
-	}
-	.matches {
-		list-style: none;
-		margin: 8px 0 0;
-		padding: 0;
-		display: grid;
-		gap: 8px;
-	}
-	.match {
-		display: flex;
-		align-items: center;
-		gap: 12px;
-		background: var(--card);
-		border: 1px solid var(--line);
-		border-radius: 13px;
-		padding: 9px 12px;
-		min-height: 60px;
-		text-decoration: none;
-		color: inherit;
-	}
-	.match:hover {
-		border-color: var(--green);
-	}
-	.match.notinguide {
-		background: transparent;
-		border-style: dashed;
-	}
-	.mtext {
-		flex: 1;
-		min-width: 0;
-	}
-	.score {
-		font-family: var(--body);
-		font-weight: 700;
-		font-size: 13px;
-		color: var(--deep);
-		background: var(--wash);
-		border-radius: 8px;
-		padding: 5px 9px;
-		font-variant-numeric: tabular-nums;
-		flex: none;
-	}
-	.score.muted {
-		color: var(--soft);
-		background: var(--stonewash);
 	}
 	.orline {
 		display: flex;
@@ -615,14 +303,40 @@
 		font-weight: 700;
 		line-height: 1.25;
 	}
-	.habitats {
+	.steps {
+		margin: 10px 0 0;
+		padding-left: 20px;
+		display: grid;
+		gap: 7px;
+		font-size: 14px;
+		line-height: 1.55;
+		color: var(--ink);
+		max-width: 62ch;
+	}
+	.steps a {
+		color: var(--deep);
+		font-weight: 600;
+	}
+	.caveat {
+		margin: 12px 0 0;
+		font-size: 13px;
+		line-height: 1.55;
+		color: var(--soft);
+		max-width: 62ch;
+	}
+	.caveat strong {
+		color: var(--ink);
+	}
+	.habitats,
+	.lastresort {
 		margin-top: 10px;
 		background: var(--card);
 		border: 1px solid var(--line);
 		border-radius: 15px;
 		padding: 12px 15px;
 	}
-	.habitats summary {
+	.habitats summary,
+	.lastresort summary {
 		font-weight: 700;
 		font-size: 14px;
 		color: var(--deep);
@@ -740,36 +454,12 @@
 		height: 15px;
 		flex: none;
 	}
-	.photocard {
-		position: relative;
-		padding: 6px;
-	}
-	.photocard img {
-		width: 100%;
-		max-height: 220px;
-		object-fit: cover;
-		border-radius: 12px;
-		display: block;
-	}
-	.photocard .rm {
-		position: absolute;
-		top: 12px;
-		right: 12px;
-		background: rgba(18, 27, 20, 0.78);
-		color: #fff;
-		font-size: 12px;
-		font-weight: 700;
-		border-radius: 999px;
-		padding: 7px 13px;
-		min-height: 38px;
-	}
 	@media (min-width: 700px) {
 		.barkgrid {
 			grid-template-columns: repeat(4, 1fr);
 		}
 	}
 	@media (min-width: 900px) {
-		.camerabtn,
 		.opt {
 			max-width: 620px;
 		}
