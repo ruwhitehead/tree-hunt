@@ -6,7 +6,6 @@
 	import InstallPrompt from '$lib/components/InstallPrompt.svelte';
 	import Toast from '$lib/components/Toast.svelte';
 	import Overlays from '$lib/components/Overlays.svelte';
-	import { requestPersistence } from '$lib/photos';
 	import { page } from '$app/state';
 	import { SPECIES } from '$lib/content/species';
 	import { SITE_URL } from '$lib/site';
@@ -14,12 +13,10 @@
 
 	let { children } = $props();
 
-	// Ask the browser not to evict this site's storage. Chrome grants it quietly
-	// for installed or well-used sites; it only ever helps, and photos are the
-	// thing worth protecting.
-	$effect(() => {
-		void requestPersistence();
-	});
+	// Storage persistence used to be requested here, to stop the browser evicting
+	// the photographs people had taken. There are no photographs any more: what
+	// is stored is a list of species ids and dates, which is small, cheap to
+	// rebuild, and not worth asking the browser for a favour over.
 
 	// App-like cross-fade between views (skipped for reduced-motion users)
 	onNavigate((navigation) => {

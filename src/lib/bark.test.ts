@@ -76,3 +76,9 @@ describe('bark photographs', () => {
 		}
 	});
 });
+
+describe('species ids', () => {
+	it('are stable slugs — every image filename and share link is built from one', () => {
+		for (const s of SPECIES) expect(s.id).toMatch(/^[a-z][a-z-]*[a-z]$/);
+	});
+});

@@ -1,9 +1,7 @@
 import { base } from '$app/paths';
 import type { Species } from './content/types';
-import { EVENTS, type MyTree } from './trees.svelte';
 import { grove } from './grove.svelte';
 import { SPECIES } from './content/species';
-import { isRecordedSpecies } from './phenology';
 
 function roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
 	ctx.beginPath();
@@ -219,109 +217,6 @@ export async function shareGrove() {
 	);
 }
 
-/** A tree's own year: the dates it did things, on one card. This is the artefact
- *  that only exists because someone followed one tree for months. */
-export async function shareTreeYear(tree: MyTree, sp: Species) {
-	const link = absolute('/');
-	const byYear = new Map<string, string[]>();
-	for (const o of [...tree.observations].sort((a, b) => a.date.localeCompare(b.date))) {
-		const label = EVENTS.find((e) => e.id === o.event)?.label ?? o.event;
-		const when = new Date(o.date + 'T12:00:00').toLocaleDateString('en-GB', {
-			day: 'numeric',
-			month: 'short'
-		});
-		const y = o.date.slice(0, 4);
-		if (!byYear.has(y)) byYear.set(y, []);
-		byYear.get(y)!.push(`${when} — ${label}`);
-	}
-	const lines = [...byYear.entries()].flatMap(([y, rows]) => [`${y}`, ...rows.slice(0, 6)]);
-	// a year of first dates from one tree is a phenology record, which is worth
-	// saying on the artefact someone actually shows to other people
-	const note = isRecordedSpecies(sp.id)
-		? "Dates like these go to Nature's Calendar, Britain's phenology record."
-		: undefined;
-	const c = await drawList(tree.name, `${sp.name} · ${sp.latin}`, lines.slice(0, 12), link, note);
-	present(
-		c,
-		`${tree.name} · Meet a Tree`,
-		`I've been following one ${sp.name.toLowerCase()} through the year — here's what it did.`,
-		link
-	);
-}
-
-/** Card variant that lists dated events rather than one headline. */
-async function drawList(head: string, sub: string, lines: string[], link: string, note?: string) {
-	await Promise.all([
-		document.fonts.load('64px "Libre Caslon Text"'),
-		document.fonts.load('700 30px "Inter Tight"'),
-		document.fonts.load('400 30px "Inter Tight"')
-	]).catch(() => {});
-	const c = document.createElement('canvas');
-	c.width = 1080;
-	c.height = 1080;
-	const ctx = c.getContext('2d')!;
-	ctx.fillStyle = '#FBFAF7';
-	ctx.fillRect(0, 0, 1080, 1080);
-
-	const g = ctx.createLinearGradient(820, 0, 1080, 260);
-	g.addColorStop(0, '#4FA372');
-	g.addColorStop(1, '#167E3C');
-	ctx.save();
-	ctx.translate(950, 130);
-	ctx.rotate(-0.26);
-	ctx.fillStyle = g;
-	ctx.beginPath();
-	ctx.moveTo(-110, -110);
-	ctx.quadraticCurveTo(110, -110, 110, 110);
-	ctx.quadraticCurveTo(-110, 110, -110, -110);
-	ctx.closePath();
-	ctx.fill();
-	ctx.restore();
-
-	ctx.fillStyle = '#0E5C2B';
-	ctx.font = '700 28px "Inter Tight", Arial';
-	ctx.fillText('A YEAR WITH ONE TREE', 80, 150);
-
-	ctx.fillStyle = '#1E1E1E';
-	ctx.font = '64px "Libre Caslon Text", Georgia, serif';
-	wrapText(ctx, head, 80, 240, 700, 76);
-
-	ctx.fillStyle = '#5E684F';
-	ctx.font = 'italic 30px "Libre Caslon Text", Georgia, serif';
-	ctx.fillText(sub, 80, 320);
-
-	let y = 400;
-	for (const line of lines) {
-		const isYear = /^\d{4}$/.test(line);
-		ctx.font = isYear ? '700 30px "Inter Tight", Arial' : '400 30px "Inter Tight", Arial';
-		ctx.fillStyle = isYear ? '#0E5C2B' : '#1E1E1E';
-		if (isYear) y += 14;
-		ctx.fillText(line, isYear ? 80 : 104, y);
-		y += 46;
-		if (y > (note ? 800 : 880)) break;
-	}
-
-	if (note) {
-		ctx.fillStyle = '#5E684F';
-		ctx.font = 'italic 26px "Libre Caslon Text", Georgia, serif';
-		wrapText(ctx, note, 80, 872, 900, 32);
-	}
-
-	ctx.fillStyle = '#1E1E1E';
-	ctx.font = '700 30px "Inter Tight", Arial';
-	ctx.fillText('Meet a Tree', 80, 950);
-	ctx.fillStyle = '#5E684F';
-	ctx.font = '400 23px "Inter Tight", Arial';
-	ctx.fillText(link.replace(/^https?:\/\//, ''), 80, 980);
-
-	const logo2 = await loadItfLogo();
-	if (logo2) {
-		const h = 48;
-		const w = (logo2.width / logo2.height) * h;
-		ctx.drawImage(logo2, 1000 - w, 946, w, h);
-	}
-	return c;
-}
 
 /** A finished seasonal board. Shareable mid-game too — a part-filled board is
  *  an invitation, which is the whole point of the missions. */

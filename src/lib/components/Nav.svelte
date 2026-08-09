@@ -3,15 +3,22 @@
 	import { base } from '$app/paths';
 	import TreeMark from '$lib/components/TreeMark.svelte';
 
+	/** One flat row, no raised action.
+	 *
+	 *  The centre used to be a green camera button, and removing the camera left
+	 *  a hole in the middle of the primary navigation. Nothing else here deserves
+	 *  to be raised above the rest - promoting a destination just because a slot
+	 *  came free is how navigation rots - so the bar went flat.
+	 *
+	 *  Seasons came off the bar in the same pass: it answers the same question as
+	 *  Today, and Today is where its live hunt now appears. The full board is
+	 *  still at /missions, one tap away, the way Learn's depth is. */
 	const items = [
 		{ href: '/', label: 'Today', icon: 'sun' },
-		{ href: '/trees', label: 'My Trees', icon: 'leaf' }
-	];
-	const items2 = [
-		{ href: '/missions', label: 'Seasons', icon: 'season' },
+		{ href: '/grove', label: 'Grove', icon: 'leaf' },
+		{ href: '/identify', label: 'Identify', icon: 'search' },
 		{ href: '/learn', label: 'Learn', icon: 'book' }
 	];
-	const railItems = [...items, { href: '/identify', label: 'Identify', icon: 'search' }, ...items2];
 
 	const isActive = (href: string) =>
 		href === '/'
@@ -50,34 +57,13 @@
 			{@render icon(item.icon)}{item.label}
 		</a>
 	{/each}
-	<div class="fabwrap">
-		<a
-			class="fab"
-			href="{base}/identify"
-			aria-label="Identify a tree"
-			aria-current={isActive('/identify') ? 'page' : undefined}
-			data-sveltekit-replacestate
-		>
-			<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="M16.5 16.5L21 21" /><path d="M8 14.5c0-4.5 1.6-7.2 6-8-.5 4.5-2 6.8-6 8z" /></svg>
-		</a>
-	</div>
-	{#each items2 as item (item.href)}
-		<a
-			class="nav-btn"
-			href="{base}{item.href}"
-			aria-current={isActive(item.href) ? 'page' : undefined}
-			data-sveltekit-replacestate
-		>
-			{@render icon(item.icon)}{item.label}
-		</a>
-	{/each}
 </nav>
 
 <!-- desktop: persistent side rail -->
 <div class="rail">
 	<p class="railmark"><TreeMark size={28} />Meet a Tree</p>
 	<nav aria-label="Sections">
-		{#each railItems as item (item.href)}
+		{#each items as item (item.href)}
 			<a
 				class="rail-btn"
 				href="{base}{item.href}"
@@ -127,26 +113,6 @@
 		width: 22px;
 		height: 22px;
 		margin: 0 auto 3px;
-	}
-	.fabwrap {
-		width: 64px;
-		display: grid;
-		place-items: center;
-	}
-	.fab {
-		width: 56px;
-		height: 56px;
-		border-radius: 50%;
-		background: var(--green);
-		margin-top: -34px;
-		display: grid;
-		place-items: center;
-		box-shadow: 0 6px 14px rgba(22, 126, 60, 0.45);
-		border: 3px solid var(--card);
-	}
-	.fab svg {
-		width: 26px;
-		height: 26px;
 	}
 
 	.rail {

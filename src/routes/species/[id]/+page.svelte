@@ -13,7 +13,7 @@
 
 	async function add() {
 		grove.addFind(sp.id);
-		await goto(`${base}/trees/`);
+		await goto(`${base}/grove/`);
 	}
 
 	/** Splits **bold** spans so reference notes can emphasise the key feature. */

@@ -1,5 +1,4 @@
 import { grove } from './grove.svelte';
-import { trees } from './trees.svelte';
 import { inWindow, type Mission } from './content/missions';
 import { speciesById } from './content/species';
 import type { Species } from './content/types';
@@ -16,8 +15,8 @@ export interface MissionProgress {
 }
 
 /** Was this species recorded during the mission's window in the current cycle?
- *  Counts a grove find or a tree observation — noticing the tree is the point,
- *  and both routes prove you were out looking. */
+ *  A dated grove find is now the only way to say so — observations on a
+ *  followed tree used to count as well, and there are no followed trees. */
 function foundInWindow(id: string, m: Mission, now: Date): boolean {
 	const cycleOk = (iso: string) => {
 		const d = new Date(iso + 'T12:00:00');
@@ -30,10 +29,7 @@ function foundInWindow(id: string, m: Mission, now: Date): boolean {
 		return y === nowY || y === nowY - 1 || y === nowY + 1;
 	};
 
-	if (grove.finds.some((f) => f.id === id && cycleOk(f.date))) return true;
-	return trees.items.some(
-		(t) => t.speciesId === id && t.observations.some((o) => cycleOk(o.date))
-	);
+	return grove.finds.some((f) => f.id === id && cycleOk(f.date));
 }
 
 export function progressFor(m: Mission, now = new Date()): MissionProgress {

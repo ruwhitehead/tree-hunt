@@ -5,7 +5,8 @@
 	import { factForDate, SEASONS } from '$lib/content/facts';
 	import { SPECIES } from '$lib/content/species';
 	import { grove } from '$lib/grove.svelte';
-	import { trees } from '$lib/trees.svelte';
+	import { missionsFor, windowLabel } from '$lib/content/missions';
+	import { progressFor } from '$lib/missions.svelte';
 
 	const now = new Date();
 	const dateLine = `${now.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' })} · ${SEASONS[now.getMonth()]}`;
@@ -23,7 +24,13 @@
 		})()
 	);
 
-	const treePrompts = $derived(trees.prompts(now));
+	/** Hunts running today, least finished first, so the card leads with the one
+	 *  there is most still to do on. */
+	const hunts = $derived(
+		missionsFor(now)
+			.current.map((m) => progressFor(m, now))
+			.sort((a, b) => a.fraction - b.fraction)
+	);
 
 </script>
 
@@ -71,30 +78,28 @@
 		</span>
 	</a>
 
-	{#if treePrompts.length}
-		<div class="card tint">
-			<p class="label">Your trees, this week</p>
-			{#each treePrompts.slice(0, 2) as p (p.tree.id + p.event.id)}
-				<p class="seasonline">
-					<a href="{base}/trees/{p.tree.id}/">{p.tree.name}</a>
-					{#if p.first}
-						— {p.tree.observations.length === 0
-							? 'add a note. Anything you can see today becomes its baseline.'
-							: 'add a note on what it is doing now.'}
-					{:else}
-						— {p.event.label.toLowerCase()}
-						{#if p.lastYear}(last year {new Date(p.lastYear + 'T12:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}){/if}
-					{/if}
-				</p>
-			{/each}
-			<a class="btn small ghost" style="margin-top:8px" href="{base}/trees/">Open My Trees</a>
-		</div>
+	<!-- Seasons used to be its own tab. It is the same question as Today - what is
+	     worth doing now - and Today had just lost the "your trees this week" block
+	     to a thin fact-and-a-photo, so the hunts moved up here. The full board
+	     still lives at /missions, off the tab bar, the way /learn's depth does. -->
+	{#if hunts.length}
+		{@const h = hunts[0]}
+		<a class="card tint linkcard" href="{base}/missions/">
+			<p class="label">On now · {windowLabel(h.mission)}</p>
+			<p class="serif small">{h.mission.title} — {h.mission.blurb}</p>
+			<p class="huntbar">
+				<span class="hn">{h.done.length} of {h.mission.target}</span>
+				found, looking for {h.mission.looking}{hunts.length > 1
+					? `. ${hunts.length - 1} other hunt${hunts.length > 2 ? 's' : ''} running too.`
+					: '.'} →
+			</p>
+		</a>
 	{:else}
-		<a class="card linkcard" href="{base}/trees/">
-			<p class="label">Follow one tree</p>
+		<a class="card linkcard" href="{base}/missions/">
+			<p class="label">Seasonal hunts</p>
 			<p class="serif small">
-				Pick a tree you walk past often and note when it leafs, flowers and turns. In a year it tells
-				you whether spring came early. →
+				Time-boxed hunts that give the calendar teeth — blossom in spring, conkers in autumn. Nothing
+				is running today, but the next one is listed. →
 			</p>
 		</a>
 	{/if}
@@ -234,8 +239,16 @@
 		color: var(--forest);
 		margin-top: 8px;
 	}
-	.seasonline:last-child {
-		margin-bottom: 0;
+	.huntbar {
+		margin: 8px 0 0;
+		font-size: 13px;
+		line-height: 1.5;
+		color: var(--soft);
+	}
+	.hn {
+		font-weight: 700;
+		color: var(--deep);
+		font-variant-numeric: tabular-nums;
 	}
 	@media (min-width: 900px) {
 		.featured {
