@@ -3,9 +3,16 @@
 	import { browser } from '$app/environment';
 	import { SPECIES } from '$lib/content/species';
 
-	/** Three screens, then the camera. Without this a new arrival faces a fact, a
+	/** Three screens, then the key. Without this a new arrival faces a fact, a
 	 *  featured tree, four cards and an install bar with no idea what the app is
-	 *  for — everything else only pays off after the first success. */
+	 *  for — everything else only pays off after the first success.
+	 *
+	 *  Screen two used to sell following one tree through a year, which was the
+	 *  best thing here until it was removed (see REDESIGN.md). It kept selling it
+	 *  for some time afterwards: the one screen a new arrival reads most closely
+	 *  promised a feature the app no longer had, and said nothing about the loop
+	 *  it does have. It now describes that loop, and names the Grove, which is
+	 *  otherwise a charming but opaque word on the tab bar. */
 	const KEY = 'mat-seen-intro';
 	let step = $state(0);
 	let open = $state(browser ? localStorage.getItem(KEY) !== '1' : false);
@@ -22,9 +29,9 @@
 			body: `A field guide to ${SPECIES.length} British and Irish trees — how to spot each one, the stories people told about it, and the science underneath. Free, no ads, works with no signal.`
 		},
 		{
-			eyebrow: 'The useful bit',
-			title: 'Follow one tree through a year',
-			body: 'Pick a tree on your route and note when it comes into leaf, flowers and turns. Next spring it tells you whether it is early or late — the same measurement Britain has recorded since 1736.'
+			eyebrow: 'How it works',
+			title: 'Six trees cover most British streets',
+			body: `Work a tree out yourself from its leaf, its bark or its fruit — no photograph, no signal, no server. Each one you name joins your Grove, the deck of all ${SPECIES.length} that shows what you have learned, what is still out there, and quizzes you on it.`
 		},
 		{
 			eyebrow: 'Why it is free',

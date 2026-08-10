@@ -20,6 +20,16 @@ export const SPECIES: Species[] = [
 
 export const speciesById = (id: string): Species | undefined => SPECIES.find((s) => s.id === id);
 
+/** The six the app teaches first: on almost every British street and in almost
+ *  every hedge, so they are the shortest route from knowing no trees to naming
+ *  most of what an ordinary walk puts in front of you. Shared, because both the
+ *  grove's starter block and the strip on Today lead with the same six, and two
+ *  copies of this list would eventually disagree. */
+export const STARTER_IDS = ['oak', 'sycamore', 'birch', 'holly', 'hawthorn', 'ash'];
+
+export const starterSpecies = (): Species[] =>
+	STARTER_IDS.map(speciesById).filter((s): s is Species => Boolean(s));
+
 /** Free-text search over name, Latin name, other names, family and hint. */
 export function searchSpecies(q: string): Species[] {
 	const needle = q.trim().toLowerCase();

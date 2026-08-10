@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import { SPECIES, speciesById } from '$lib/content/species';
+	import { SPECIES, starterSpecies } from '$lib/content/species';
 	import type { Species } from '$lib/content/types';
 	import { deckOrder, grove } from '$lib/grove.svelte';
 	import { shareGrove } from '$lib/share';
@@ -9,11 +9,9 @@
 
 	/** A wall of 50 grey cards reads as "you have failed 50 times". Until someone
 	 *  has a few species, lead with the ones they can genuinely find on any
-	 *  street, and keep the full list below. */
-	const STARTERS = ['oak', 'sycamore', 'birch', 'holly', 'hawthorn', 'ash'];
-	const starters = $derived(
-		STARTERS.map((id) => speciesById(id)).filter((s): s is NonNullable<typeof s> => Boolean(s))
-	);
+	 *  street, and keep the full list below. The six live in `species.ts` because
+	 *  the strip on Today opens with the same ones. */
+	const starters = starterSpecies();
 	const showStarters = $derived(grove.speciesCount < 3);
 
 	/** The deck in two blocks. Found first, newest meeting at the front, so the
