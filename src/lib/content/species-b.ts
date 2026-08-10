@@ -12,6 +12,7 @@ export const SPECIES_B: Species[] = [
 		colors: ['#3E5C3E', '#26402A'],
 		key: 'needle',
 		key2: 'flat',
+		crown: 'domed',
 		hint: 'Flat dark needles in two rows; red arils',
 		quick: [
 			['Height', '10–20 m, broad and often multi-stemmed'],
@@ -31,6 +32,11 @@ export const SPECIES_B: Species[] = [
 		bark: {
 			texture: 'fibrous',
 			note: 'Thin, reddish-brown to purple-grey, flaking away in irregular scales to show fresh coppery colour beneath. The trunk is strongly fluted and often hollow.'
+		},
+		fruit: {
+			kind: 'berry',
+			note: 'Not a berry at all but an aril: a soft scarlet cup, open at the end, with one seed inside. The flesh is harmless, the seed is deadly.',
+			months: [7, 8, 9, 10]
 		},
 		season: [
 			['Spring', 'Male trees release pollen in February and March — a shaken branch produces a visible cloud. New growth is a bright yellow-green against the old dark needles.'],
@@ -78,6 +84,7 @@ export const SPECIES_B: Species[] = [
 		colors: ['#6E9B6B', '#3E6B4A'],
 		key: 'needle',
 		key2: 'paired',
+		crown: 'flat-topped',
 		hint: 'Long blue-green needles in pairs; orange upper bark',
 		quick: [
 			['Height', 'Up to 35 m'],
@@ -97,6 +104,11 @@ export const SPECIES_B: Species[] = [
 		bark: {
 			texture: 'flaking',
 			note: 'The top of the trunk is the giveaway: flaking away in papery orange-pink plates that glow in low sun. Lower down it is grey-brown and cracked into thick scaly slabs.'
+		},
+		fruit: {
+			kind: 'cone',
+			note: 'Small pointed grey-brown cones, 3-7 cm, taking two years to ripen, so a twig usually carries more than one age at once.',
+			months: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 		},
 		season: [
 			['Spring', 'New shoots — "candles" — extend upright in May, and small red-purple female cones sit at the tips while yellow male clusters shed pollen.'],
@@ -140,6 +152,7 @@ export const SPECIES_B: Species[] = [
 		colors: ['#A4B85C', '#6B8A34'],
 		key: 'lobed',
 		key2: 'cut',
+		crown: 'shrubby',
 		hint: 'Small, deeply cut leaves; May blossom; thorns',
 		quick: [
 			['Height', '5–14 m; usually kept as hedge'],
@@ -165,6 +178,16 @@ export const SPECIES_B: Species[] = [
 		bark: {
 			texture: 'flaking',
 			note: 'Grey-brown, finely fissured and flaking into small oblong plates. Old hedgerow trunks are gnarled, twisted and often leaning.'
+		},
+		fruit: {
+			kind: 'berry',
+			note: 'Deep red haws in bunches, each with a single stone, hanging on well into winter.',
+			months: [8, 9, 10, 11]
+		},
+		flower: {
+			kind: 'blossom',
+			note: 'Sheets of white five-petalled blossom smothering the whole bush in May, with one style at the centre of each flower - the single style is the species name.',
+			months: [4, 5]
 		},
 		folklore: [
 			[
@@ -206,6 +229,7 @@ export const SPECIES_B: Species[] = [
 		colors: ['#8FAF52', '#567F2E'],
 		key: 'compound',
 		key2: 'fan',
+		crown: 'spreading',
 		hint: 'Fan of 5–7 big leaflets; conkers in autumn',
 		quick: [
 			['Height', 'Up to 39 m; commonly 20–30 m'],
@@ -226,6 +250,16 @@ export const SPECIES_B: Species[] = [
 			texture: 'flaking',
 			note: 'Grey-brown, flaking away in irregular scaly plates that lift and curl at their edges as the tree ages.',
 			young: 'Smooth and grey when young.'
+		},
+		fruit: {
+			kind: 'nut',
+			note: 'Conkers: one or two glossy red-brown nuts inside a thick green case with short blunt spikes.',
+			months: [8, 9]
+		},
+		flower: {
+			kind: 'candle',
+			note: 'Upright white candles held above the leaves, each flower blotched yellow, turning red once it has been pollinated.',
+			months: [3, 4]
 		},
 		season: [
 			['Spring', 'Sticky buds burst dramatically in April, and the flower candles follow in May — one of the great British street-tree moments.'],
@@ -269,6 +303,7 @@ export const SPECIES_B: Species[] = [
 		colors: ['#7FA85A', '#4E7A36'],
 		key: 'lobed',
 		key2: 'hand',
+		crown: 'spreading',
 		hint: 'Hand-shaped five-pointed leaves; helicopter seeds',
 		quick: [
 			['Height', 'Up to 35 m'],
@@ -289,6 +324,16 @@ export const SPECIES_B: Species[] = [
 			texture: 'flaking',
 			note: 'Grey, flaking irregularly into small squarish plates that show pinkish-brown beneath, a little like a jigsaw. Old trunks look scaly rather than fissured.',
 			young: 'Smooth and grey when young.'
+		},
+		fruit: {
+			kind: 'wing',
+			note: 'Paired winged keys set at about a right angle to each other, spinning as they fall.',
+			months: [7, 8, 9]
+		},
+		flower: {
+			kind: 'small',
+			note: 'Yellow-green flowers in narrow hanging spikes, appearing with the leaves.',
+			months: [3, 4]
 		},
 		season: [
 			['Spring', 'Leaves emerge bronze-pink, and drooping green-yellow flower spikes hang down in April and May, heavy with nectar for bees.'],
@@ -332,6 +377,7 @@ export const SPECIES_B: Species[] = [
 		colors: ['#93A85E', '#5E7A3A'],
 		key: 'compound',
 		key2: 'ladder',
+		crown: 'shrubby',
 		hint: 'Ladder leaflets with a strong smell; flat cream flower plates',
 		quick: [
 			['Height', '3–10 m; shrubby and often multi-stemmed'],
@@ -351,6 +397,16 @@ export const SPECIES_B: Species[] = [
 		bark: {
 			texture: 'ridged',
 			note: 'Grey-brown, thickly corky and deeply grooved, so an elder always looks older than it really is. Young shoots are green and full of soft white pith.'
+		},
+		fruit: {
+			kind: 'berry',
+			note: 'Heavy drooping heads of small purple-black berries on red stalks, bending the whole branch down.',
+			months: [7, 8, 9]
+		},
+		flower: {
+			kind: 'froth',
+			note: 'Flat creamy plates up to 20 cm across, of tiny five-petalled flowers, heavily and sweetly scented.',
+			months: [4, 5]
 		},
 		season: [
 			['Spring', 'Early into leaf; the rank smell of crushed foliage is strongest now.'],

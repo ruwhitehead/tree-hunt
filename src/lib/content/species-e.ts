@@ -12,6 +12,7 @@ export const SPECIES_E: Species[] = [
 		colors: ['#C6CE72', '#8A9B3E'],
 		key: 'needle',
 		key2: 'rosette',
+		crown: 'conical',
 		hint: 'Soft needles in rosettes; a conifer that turns gold and drops',
 		quick: [
 			['Height', 'Up to 45 m'],
@@ -31,6 +32,11 @@ export const SPECIES_E: Species[] = [
 		bark: {
 			texture: 'flaking',
 			note: 'Thick, greyish-brown and fissured into scaly plates that show pinkish-brown where they break away.'
+		},
+		fruit: {
+			kind: 'cone',
+			note: 'Small upright egg-shaped cones about 3 cm, held on the twigs for years after they have opened, on the one conifer here that drops its needles.',
+			months: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 		},
 		season: [
 			['Spring', 'Vivid fresh green needle rosettes with crimson female cones — the most cheerful thing in a conifer wood.'],
@@ -62,6 +68,7 @@ export const SPECIES_E: Species[] = [
 		colors: ['#6E9464', '#3A5F38'],
 		key: 'needle',
 		key2: 'spiky',
+		crown: 'conical',
 		hint: 'Sharp single needles all round the twig; hanging cones',
 		quick: [
 			['Height', 'Up to 40 m'],
@@ -81,6 +88,11 @@ export const SPECIES_E: Species[] = [
 		bark: {
 			texture: 'flaking',
 			note: 'Thin, coppery to greyish-brown, flaking in small rounded scales, over a straight trunk with regular whorls of branches.'
+		},
+		fruit: {
+			kind: 'cone',
+			note: 'Long cylindrical cones 10-18 cm, hanging downwards, with smooth diamond-shaped scales. The classic Christmas-tree cone.',
+			months: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 		},
 		season: [
 			['Spring', 'Pale green new shoots at the branch tips, soft and bright against the old dark needles; red female cones stand upright before turning down.'],
@@ -112,6 +124,7 @@ export const SPECIES_E: Species[] = [
 		colors: ['#77A06E', '#3F6640'],
 		key: 'needle',
 		key2: 'flat',
+		crown: 'conical',
 		hint: 'Soft flat needles smelling of grapefruit; three-pronged cones',
 		quick: [
 			['Height', 'Over 60 m in Britain — our tallest trees'],
@@ -132,6 +145,11 @@ export const SPECIES_E: Species[] = [
 			texture: 'ridged',
 			note: 'Thick, corky, deeply furrowed and reddish-brown, with a slight give if you press a ridge. The thickness is fire protection.',
 			young: 'Smooth, grey and blistered with resin pockets for its first decades.'
+		},
+		fruit: {
+			kind: 'cone',
+			note: 'Hanging cones with three-pointed bracts poking out between every scale, like the back legs and tail of a mouse diving in. Nothing else has them.',
+			months: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 		},
 		season: [
 			['Spring', 'Bright apple-green new needles at the shoot tips, strongly citrus-scented, with small reddish female cones.'],
@@ -163,6 +181,7 @@ export const SPECIES_E: Species[] = [
 		colors: ['#7E9C8E', '#41604F'],
 		key: 'needle',
 		key2: 'prickly-three',
+		crown: 'shrubby',
 		hint: 'Prickly needles in threes; blue-black berries',
 		quick: [
 			['Height', '1–10 m; often a sprawling shrub'],
@@ -182,6 +201,11 @@ export const SPECIES_E: Species[] = [
 		bark: {
 			texture: 'fibrous',
 			note: 'Reddish-brown and shredding away in thin vertical strings you can pull off in a strip.'
+		},
+		fruit: {
+			kind: 'berry',
+			note: 'Berry-like cones, green in the first year and blue-black with a waxy bloom in the second, so both sit on the bush together. These are the gin ones.',
+			months: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 		},
 		season: [
 			['Spring', 'Small yellow male cones shed pollen; new growth is a softer green.'],
@@ -213,6 +237,7 @@ export const SPECIES_E: Species[] = [
 		colors: ['#A9BC66', '#6E8A3A'],
 		key: 'lobed',
 		key2: 'hand',
+		crown: 'spreading',
 		hint: 'Camouflage flaking bark; bobble fruit on strings',
 		quick: [
 			['Height', 'Up to 44 m'],
@@ -232,6 +257,16 @@ export const SPECIES_E: Species[] = [
 		bark: {
 			texture: 'flaking',
 			note: 'The signature: flaking off in irregular plates to leave a camouflage patchwork of olive, cream, grey and buff, so no two square metres look alike.'
+		},
+		fruit: {
+			kind: 'cone',
+			note: 'Bristly spherical bobbles about 3 cm across, hanging on long strings usually two to a stalk, and staying on the bare tree all winter.',
+			months: [9, 10, 11, 0, 1, 2, 3]
+		},
+		flower: {
+			kind: 'small',
+			note: 'Tiny flowers packed into small round heads that later become the bobbles.',
+			months: [3, 4]
 		},
 		season: [
 			['Spring', 'Late into leaf, with clusters of small greenish flowers and — for hay-fever sufferers — irritant fluff from the breaking fruit balls.'],
@@ -263,6 +298,7 @@ export const SPECIES_E: Species[] = [
 		colors: ['#B5B858', '#7F8A2E'],
 		key: 'simple',
 		key2: 'toothed',
+		crown: 'spreading',
 		hint: 'Long saw-toothed leaves; spiny burrs of edible nuts',
 		quick: [
 			['Height', 'Up to 35 m'],
@@ -283,6 +319,16 @@ export const SPECIES_E: Species[] = [
 			texture: 'ridged',
 			note: 'Deeply fissured, and the fissures spiral around the trunk, sometimes dramatically. On an old tree you can read the spiral from thirty paces.',
 			young: 'Smooth and grey-brown for its first thirty years or so, with no spiral at all.'
+		},
+		fruit: {
+			kind: 'nut',
+			note: 'Two or three flattened brown nuts inside a case of dense fine needle-sharp spines - far spinier than a conker case, and these are the ones you can roast.',
+			months: [8, 9, 10]
+		},
+		flower: {
+			kind: 'catkin',
+			note: 'Long creamy-yellow catkins in high summer, weeks after most trees have finished, with a strong heavy scent.',
+			months: [5, 6]
 		},
 		season: [
 			['Spring', 'Late into leaf; long glossy leaves unfold a fresh yellow-green in May.'],
@@ -314,6 +360,7 @@ export const SPECIES_E: Species[] = [
 		colors: ['#B9C293', '#7E8C5A'],
 		key: 'simple',
 		key2: 'toothed',
+		crown: 'domed',
 		hint: 'Leaves brilliant white beneath; red berries',
 		quick: [
 			['Height', '10–15 m'],
@@ -333,6 +380,16 @@ export const SPECIES_E: Species[] = [
 		bark: {
 			texture: 'smooth',
 			note: 'Smooth and pale grey, staying smooth all its life. There is nothing on it to catch a thumbnail.'
+		},
+		fruit: {
+			kind: 'berry',
+			note: 'Clusters of oval scarlet berries, larger and fewer than a rowan\'s, on a tree whose leaves flash white underneath.',
+			months: [8, 9, 10]
+		},
+		flower: {
+			kind: 'froth',
+			note: 'Loose creamy-white heads of five-petalled flowers against leaves still silvery with down.',
+			months: [4, 5]
 		},
 		season: [
 			['Spring', 'The white candle stage in April is the best moment: upright silvery new leaves, then clusters of white flowers in May.'],
@@ -364,6 +421,7 @@ export const SPECIES_E: Species[] = [
 		colors: ['#AFBE6A', '#75893C'],
 		key: 'lobed',
 		key2: 'cut',
+		crown: 'domed',
 		hint: 'Maple-like lobed leaves; brown speckled fruit',
 		quick: [
 			['Height', '15–25 m'],
@@ -383,6 +441,16 @@ export const SPECIES_E: Species[] = [
 		bark: {
 			texture: 'flaking',
 			note: 'Dark grey-brown, cracking into distinctly square or oblong plates whose edges lift away from the trunk. Often described as crocodile-like.'
+		},
+		fruit: {
+			kind: 'berry',
+			note: 'Brown speckled berries the size of a small olive, called chequers, edible only once bletted soft by frost.',
+			months: [8, 9, 10]
+		},
+		flower: {
+			kind: 'froth',
+			note: 'White five-petalled flowers in loose branching heads, appearing with the leaves.',
+			months: [4, 5]
 		},
 		season: [
 			['Spring', 'Late into leaf; clusters of white flowers open in May and June.'],

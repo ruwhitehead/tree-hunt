@@ -12,6 +12,7 @@ export const SPECIES_F: Species[] = [
 		colors: ['#B9C87E', '#7E9448'],
 		key: 'simple',
 		key2: 'toothed',
+		crown: 'arching',
 		hint: 'Hairy twigs, duller bark, wetter ground than silver birch',
 		quick: [
 			['Height', 'Up to 25 m; often smaller and scrubbier'],
@@ -31,6 +32,16 @@ export const SPECIES_F: Species[] = [
 		bark: {
 			texture: 'peeling',
 			note: 'Duller than silver birch: greyish or pinkish white, more uniform, and without the rough black diamonds at the base.'
+		},
+		fruit: {
+			kind: 'fluff',
+			note: 'The same crumbling seed catkins as silver birch, on a tree with hairy twigs and no black diamonds at the base.',
+			months: [7, 8, 9]
+		},
+		flower: {
+			kind: 'catkin',
+			note: 'Yellow-brown catkins, as silver birch, but on downy rather than warty twigs.',
+			months: [3, 4]
 		},
 		season: [
 			['Spring', 'Early leaf and heavy pollen; catkins lengthen in April, later than silver birch in the far north.'],
@@ -62,6 +73,7 @@ export const SPECIES_F: Species[] = [
 		colors: ['#C6C860', '#8A9330'],
 		key: 'lobed',
 		key2: 'hand',
+		crown: 'domed',
 		hint: 'Big five-lobed leaves with hair-fine tips; flat wings',
 		quick: [
 			['Height', 'Up to 30 m'],
@@ -81,6 +93,16 @@ export const SPECIES_F: Species[] = [
 		bark: {
 			texture: 'ridged',
 			note: 'Grey-brown with fine, shallow, regular ridges, staying tidy into old age rather than flaking into the small squares that make a mature sycamore look scaly.'
+		},
+		fruit: {
+			kind: 'wing',
+			note: 'Paired keys spread almost flat in a wide horizontal line, quite unlike a sycamore\'s narrow angle.',
+			months: [7, 8, 9]
+		},
+		flower: {
+			kind: 'small',
+			note: 'Upright clusters of acid yellow-green flowers on bare twigs before the leaves - the brightest thing in a March street.',
+			months: [2, 3]
 		},
 		season: [
 			['Spring', 'A remarkable acid-yellow flowering before leaf burst, and an important early nectar source.'],
@@ -112,6 +134,7 @@ export const SPECIES_F: Species[] = [
 		colors: ['#A8BE6E', '#6B8236'],
 		key: 'simple',
 		key2: 'heart',
+		crown: 'spreading',
 		hint: 'Leaning burred trunk; triangular leaves; crimson catkins',
 		quick: [
 			['Height', 'Up to 30 m'],
@@ -131,6 +154,16 @@ export const SPECIES_F: Species[] = [
 		bark: {
 			texture: 'ridged',
 			note: 'Dark grey-brown, deeply and irregularly fissured, and almost always carrying large woody burrs and bosses, which is the single most reliable feature.'
+		},
+		fruit: {
+			kind: 'fluff',
+			note: 'Female trees release so much white cottony seed it drifts like snow and gathers in the gutters.',
+			months: [4, 5]
+		},
+		flower: {
+			kind: 'catkin',
+			note: 'Crimson male catkins on bare twigs in March, dropping whole onto the pavement below.',
+			months: [2, 3]
 		},
 		season: [
 			['Spring', 'Crimson male catkins on bare branches in March; leaves follow, opening with a balsam scent.'],
@@ -162,6 +195,7 @@ export const SPECIES_F: Species[] = [
 		colors: ['#6E8A5E', '#3E5A38'],
 		key: 'simple',
 		key2: 'spiny',
+		crown: 'domed',
 		hint: 'Evergreen oak; grey-felted leaf undersides; acorns',
 		quick: [
 			['Height', 'Up to 28 m'],
@@ -181,6 +215,16 @@ export const SPECIES_F: Species[] = [
 		bark: {
 			texture: 'flaking',
 			note: 'Very dark grey to almost black, finely cracked all over into small squarish plates. Closer in texture to an old holly than to the deep vertical clefts of a native oak.'
+		},
+		fruit: {
+			kind: 'nut',
+			note: 'Small pointed acorns in a cup of fine grey down, often in twos, on an evergreen tree - which no other British oak is.',
+			months: [8, 9, 10]
+		},
+		flower: {
+			kind: 'catkin',
+			note: 'Dense golden catkins in early summer, several weeks later than the native oaks.',
+			months: [4, 5]
 		},
 		season: [
 			['Spring', 'Long yellow catkins in May and June, and a flush of paler new leaves that make the tree look two-tone.'],
@@ -212,6 +256,7 @@ export const SPECIES_F: Species[] = [
 		colors: ['#B5AE62', '#847F32'],
 		key: 'compound',
 		key2: 'ladder',
+		crown: 'spreading',
 		hint: 'Big smooth leaflets smelling of polish; green fruit husks',
 		quick: [
 			['Height', 'Up to 35 m'],
@@ -232,6 +277,16 @@ export const SPECIES_F: Species[] = [
 			texture: 'ridged',
 			note: 'Wide, deep, dark fissures on an old trunk, in striking contrast with the pale silvery-grey of the younger limbs above.',
 			young: 'Smooth and pale silvery-grey when young.'
+		},
+		fruit: {
+			kind: 'nut',
+			note: 'Green plum-like husks that blacken and split to reveal the familiar wrinkled shell. The husk stains hands brown for days.',
+			months: [8, 9]
+		},
+		flower: {
+			kind: 'catkin',
+			note: 'Thick green-yellow male catkins hanging from last year\'s wood as the leaves emerge bronze.',
+			months: [4, 5]
 		},
 		season: [
 			['Spring', 'Very late into leaf, often not until May; leaves emerge bronze-pink, with drooping green male catkins.'],
@@ -263,6 +318,7 @@ export const SPECIES_F: Species[] = [
 		colors: ['#8CA36E', '#4E6440'],
 		key: 'simple',
 		key2: 'wavy',
+		crown: 'shrubby',
 		hint: 'Tiny paired evergreen leaves; the densest wood in Europe',
 		quick: [
 			['Height', '2–9 m; slow-growing shrub or small tree'],
@@ -282,6 +338,16 @@ export const SPECIES_F: Species[] = [
 		bark: {
 			texture: 'smooth',
 			note: 'Pale grey-buff, smooth at first and finely cracked into small squares with age, over stems rarely thicker than a wrist.'
+		},
+		fruit: {
+			kind: 'nut',
+			note: 'Tiny three-horned green capsules that dry pale brown and snap open to fling out black seed. Easily missed and often clipped off entirely.',
+			months: [6, 7, 8]
+		},
+		flower: {
+			kind: 'small',
+			note: 'Clusters of minute green-yellow flowers with no petals at all, noticed by smell and by the sound of bees before the eye finds them.',
+			months: [2, 3]
 		},
 		season: [
 			['Spring', 'Small nectar-rich green flowers in March and April, surprisingly busy with early insects; fresh pale growth follows.'],

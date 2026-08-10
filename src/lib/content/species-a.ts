@@ -12,6 +12,7 @@ export const SPECIES_A: Species[] = [
 		colors: ['#4FA372', '#167E3C'],
 		key: 'lobed',
 		key2: 'rounded',
+		crown: 'spreading',
 		hint: 'Rounded, wavy lobes; acorns on stalks',
 		quick: [
 			['Height', 'Up to 40 m, usually 20–30 m'],
@@ -32,6 +33,16 @@ export const SPECIES_A: Species[] = [
 			texture: 'ridged',
 			note: 'Grey-brown, and on a mature trunk deeply and irregularly fissured into hard vertical plates with deep clefts between them.',
 			young: 'Smooth and almost silvery for its first few decades, so a young oak looks nothing like the veteran down the lane.'
+		},
+		fruit: {
+			kind: 'nut',
+			note: 'Acorns in a shallow cup, sitting two or three together on a long stalk 2-8 cm long. The stalk is the whole point: it is what separates this from sessile oak.',
+			months: [8, 9, 10]
+		},
+		flower: {
+			kind: 'catkin',
+			note: 'Long yellow-green catkins hanging loose among the opening bronze-pink leaves.',
+			months: [3, 4]
 		},
 		season: [
 			['Spring', 'Leaf burst is late — often early May, weeks after birch. Fresh leaves are bronze-pink before they green up, and long yellow-green catkins hang from the twigs.'],
@@ -79,6 +90,7 @@ export const SPECIES_A: Species[] = [
 		colors: ['#C9D96A', '#8FA83C'],
 		key: 'simple',
 		key2: 'toothed',
+		crown: 'arching',
 		hint: 'Small triangular leaves, doubly toothed; white bark',
 		quick: [
 			['Height', 'Up to 30 m, often 15–20 m'],
@@ -98,6 +110,16 @@ export const SPECIES_A: Species[] = [
 			texture: 'peeling',
 			note: 'Chalk-white and papery, peeling in horizontal ribbons you can lift with a thumbnail, and breaking into rough black diamond-shaped fissures towards the base.',
 			young: 'Coppery brown for the first five years or so, before it whitens.'
+		},
+		fruit: {
+			kind: 'fluff',
+			note: 'Drooping cylindrical catkins that crumble into thousands of tiny winged seeds, leaving a bare central stalk.',
+			months: [7, 8, 9]
+		},
+		flower: {
+			kind: 'catkin',
+			note: 'Yellow-brown male catkins hanging in twos and threes, with short upright green female ones on the same twig.',
+			months: [3, 4]
 		},
 		season: [
 			['Spring', 'One of the first into leaf — a haze of acid green in April. Male catkins lengthen and shed clouds of pollen; this is a significant hay-fever tree.'],
@@ -141,6 +163,7 @@ export const SPECIES_A: Species[] = [
 		colors: ['#D97B4A', '#B9502A'],
 		key: 'compound',
 		key2: 'ladder',
+		crown: 'domed',
 		hint: 'Ladder-like leaflets, toothed; scarlet berries',
 		quick: [
 			['Height', '8–15 m; often much smaller on mountains'],
@@ -160,6 +183,16 @@ export const SPECIES_A: Species[] = [
 		bark: {
 			texture: 'smooth',
 			note: 'Smooth, silvery grey with a faint sheen, marked with horizontal lines of small lenticels. It stays smooth into old age, unlike ash.'
+		},
+		fruit: {
+			kind: 'berry',
+			note: 'Dense flat-topped bunches of scarlet berries, heavy enough to bow the branch, usually stripped by birds by October.',
+			months: [7, 8, 9]
+		},
+		flower: {
+			kind: 'froth',
+			note: 'Flat creamy-white plates of tiny flowers, five petals each, with a sharp slightly unpleasant smell.',
+			months: [4, 5]
 		},
 		season: [
 			['Spring', 'Fresh pinnate leaves unfold with a reddish tinge; creamy flower clusters open in May.'],
@@ -199,6 +232,7 @@ export const SPECIES_A: Species[] = [
 		colors: ['#8CBB5E', '#4E8534'],
 		key: 'simple',
 		key2: 'wavy',
+		crown: 'spreading',
 		hint: 'Silky oval leaves with wavy edges; smooth grey bark',
 		quick: [
 			['Height', 'Up to 45 m; commonly 25–35 m'],
@@ -218,6 +252,16 @@ export const SPECIES_A: Species[] = [
 		bark: {
 			texture: 'smooth',
 			note: 'Smooth, thin and pale elephant-grey, staying smooth into great age. It scars permanently, which is why old beeches carry a century of carved initials.'
+		},
+		fruit: {
+			kind: 'nut',
+			note: 'Three-sided nuts in pairs inside a soft bristly case that splits into four. Most years the nuts are empty husks; every few years the tree masts and the floor is covered.',
+			months: [8, 9, 10]
+		},
+		flower: {
+			kind: 'catkin',
+			note: 'Small tassels of male flowers dangling on slender stalks as the leaves unfold, easy to miss.',
+			months: [3, 4]
 		},
 		season: [
 			['Spring', 'Translucent lime-green leaf burst in late April — the "beech green" light inside a beechwood is a distinct phenomenon worth standing in.'],
@@ -261,6 +305,7 @@ export const SPECIES_A: Species[] = [
 		colors: ['#9BC08A', '#5E8A4E'],
 		key: 'compound',
 		key2: 'ladder',
+		crown: 'vase',
 		hint: 'Smooth-edged leaflets; jet-black velvet buds',
 		quick: [
 			['Height', 'Up to 35 m'],
@@ -281,6 +326,16 @@ export const SPECIES_A: Species[] = [
 			texture: 'ridged',
 			note: 'Pale grey, with a regular network of interlacing ridges and shallow furrows, more orderly and finer than an oak\'s.',
 			young: 'Smooth and pale grey when young, so a sapling ash is named by its black buds, not its bark.'
+		},
+		fruit: {
+			kind: 'wing',
+			note: 'Bunches of single-winged keys, green then brown, hanging on in dense bundles right through the winter after the leaves have gone.',
+			months: [7, 8, 9, 10, 11, 0, 1]
+		},
+		flower: {
+			kind: 'small',
+			note: 'Tight purple-black tufts on bare twigs before any leaf appears. Nothing else in a British hedge does this.',
+			months: [2, 3]
 		},
 		season: [
 			['Spring', 'Very late into leaf, often not until May. Purple-black flower clusters open before the leaves; ash can be male, female, or both, and can switch between years.'],
@@ -324,6 +379,7 @@ export const SPECIES_A: Species[] = [
 		colors: ['#2E6B3A', '#1C4A26'],
 		key: 'simple',
 		key2: 'spiny',
+		crown: 'conical',
 		hint: 'Glossy evergreen, spiny below, smooth up high',
 		quick: [
 			['Height', 'Usually 5–15 m; occasionally 25 m'],
@@ -343,6 +399,16 @@ export const SPECIES_A: Species[] = [
 		bark: {
 			texture: 'smooth',
 			note: 'Smooth, thin and pale grey, often with scattered warty bumps. Young twigs are green and stay green for a year or two.'
+		},
+		fruit: {
+			kind: 'berry',
+			note: 'Hard scarlet berries close against the twig, on female trees only - a hollly with no berries is not barren, it is male.',
+			months: [8, 9, 10, 11, 0]
+		},
+		flower: {
+			kind: 'small',
+			note: 'Tiny waxy white four-petalled flowers tucked in the leaf axils, sweetly scented and easily missed.',
+			months: [4, 5]
 		},
 		season: [
 			['Spring', 'Fresh glossy growth in May, with clusters of small scented white flowers working hard for bees.'],

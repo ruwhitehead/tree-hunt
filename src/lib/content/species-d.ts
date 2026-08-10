@@ -12,6 +12,7 @@ export const SPECIES_D: Species[] = [
 		colors: ['#B6C97A', '#6E8C44'],
 		key: 'simple',
 		key2: 'wavy',
+		crown: 'shrubby',
 		hint: 'Broad grey-woolly leaves; silver catkins in March',
 		quick: [
 			['Height', '8–10 m; often a large shrub'],
@@ -31,6 +32,16 @@ export const SPECIES_D: Species[] = [
 		bark: {
 			texture: 'ridged',
 			note: 'Grey, smooth when young and developing shallow diamond-shaped fissures with age. Peel a sliver and the wood beneath has fine ridges.'
+		},
+		fruit: {
+			kind: 'fluff',
+			note: 'Catkins breaking open into masses of white cottony down that drifts across the ground in early summer.',
+			months: [4, 5]
+		},
+		flower: {
+			kind: 'catkin',
+			note: 'Pussy willow: fat silver-grey buds opening into upright oval catkins, the male ones turning gold with pollen.',
+			months: [2, 3]
 		},
 		season: [
 			['Spring', 'The first big nectar event of the year: silver catkins in March turning gold, loud with bumblebees on the first warm day.'],
@@ -62,6 +73,7 @@ export const SPECIES_D: Species[] = [
 		colors: ['#C3D18A', '#7E9B4E'],
 		key: 'simple',
 		key2: 'narrow',
+		crown: 'spreading',
 		hint: 'Long narrow silvery leaves; riverside tree',
 		quick: [
 			['Height', 'Up to 25 m'],
@@ -81,6 +93,16 @@ export const SPECIES_D: Species[] = [
 		bark: {
 			texture: 'ridged',
 			note: 'Grey-brown with deep, coarse, criss-crossing ridges. Pollarded trees develop massive swollen boles topped with a crown of straight rods.'
+		},
+		fruit: {
+			kind: 'fluff',
+			note: 'Slender catkins releasing fine white cottony seed, on a tree whose leaves flash silver in the wind.',
+			months: [4, 5]
+		},
+		flower: {
+			kind: 'catkin',
+			note: 'Narrow yellow-green catkins appearing with the leaves, more slender than a goat willow\'s.',
+			months: [3, 4]
 		},
 		season: [
 			['Spring', 'Slender yellow-green catkins open with the leaves in April; the crown flushes silvery.'],
@@ -116,6 +138,7 @@ export const SPECIES_D: Species[] = [
 		colors: ['#BFCB72', '#7A9440'],
 		key: 'simple',
 		key2: 'toothed',
+		crown: 'domed',
 		hint: 'Round leaves on flattened stalks — never still',
 		quick: [
 			['Height', 'Up to 25 m'],
@@ -135,6 +158,16 @@ export const SPECIES_D: Species[] = [
 		bark: {
 			texture: 'smooth',
 			note: 'Smooth, pale grey-green, marked with dark diamond-shaped lenticels, and dark and ridged only at the very base of an old trunk.'
+		},
+		fruit: {
+			kind: 'fluff',
+			note: 'Catkins breaking into white cottony seed in early summer, though many stands are one clone and never fruit at all.',
+			months: [4, 5]
+		},
+		flower: {
+			kind: 'catkin',
+			note: 'Long greyish caterpillar-like catkins on bare twigs, well before the trembling leaves appear.',
+			months: [2, 3]
 		},
 		season: [
 			['Spring', 'Grey furry catkins on bare twigs in March; leaves emerge coppery, and the clone flushes as one.'],
@@ -166,6 +199,7 @@ export const SPECIES_D: Species[] = [
 		colors: ['#C88C6A', '#9E5236'],
 		key: 'simple',
 		key2: 'toothed',
+		crown: 'domed',
 		hint: 'Glossy toothed leaves; banded shiny bark; white blossom',
 		quick: [
 			['Height', 'Up to 30 m'],
@@ -185,6 +219,16 @@ export const SPECIES_D: Species[] = [
 		bark: {
 			texture: 'banded',
 			note: 'Shiny reddish-brown to purple-grey, peeling in horizontal papery bands, with prominent raised horizontal lines of lenticels. Unlike anything else in a British wood.'
+		},
+		fruit: {
+			kind: 'stone',
+			note: 'Small round cherries on long stalks, red to almost black, hanging in twos and threes. Usually gone to the birds within days.',
+			months: [5, 6, 7]
+		},
+		flower: {
+			kind: 'blossom',
+			note: 'White cup-shaped flowers in loose clusters on long stalks, opening with or just before the leaves.',
+			months: [3, 4]
 		},
 		season: [
 			['Spring', 'One of the great British blossom moments in April, and a critical early nectar source.'],
@@ -216,6 +260,7 @@ export const SPECIES_D: Species[] = [
 		colors: ['#A5B67A', '#647F44'],
 		key: 'simple',
 		key2: 'toothed',
+		crown: 'domed',
 		hint: 'Spikes of many small flowers; bitter black fruit',
 		quick: [
 			['Height', '8–15 m'],
@@ -235,6 +280,16 @@ export const SPECIES_D: Species[] = [
 		bark: {
 			texture: 'smooth',
 			note: 'Smooth and grey-brown, with far less of the shine and banding of the other cherries. Scratch a twig and it smells strongly and rankly of almonds, which is the reliable test.'
+		},
+		fruit: {
+			kind: 'stone',
+			note: 'Small shiny black cherries strung along a hanging spike, bitter and left alone by most people.',
+			months: [6, 7, 8]
+		},
+		flower: {
+			kind: 'candle',
+			note: 'Long hanging spikes of white flowers, 10-15 cm, strongly almond-scented - quite unlike the loose clusters of the other cherries.',
+			months: [4, 5]
 		},
 		season: [
 			['Spring', 'Arching spikes of white blossom in May, later than wild cherry, with a heavy sweet-sour scent.'],
@@ -266,6 +321,7 @@ export const SPECIES_D: Species[] = [
 		colors: ['#8FA57E', '#4A6340'],
 		key: 'simple',
 		key2: 'toothed',
+		crown: 'shrubby',
 		hint: 'Blossom on black bare twigs; savage thorns; sloes',
 		quick: [
 			['Height', '3–7 m; dense thicket-forming shrub'],
@@ -285,6 +341,16 @@ export const SPECIES_D: Species[] = [
 		bark: {
 			texture: 'smooth',
 			note: 'Very dark, almost black, which is where the name comes from, and smooth apart from the long straight thorns growing right out of it.'
+		},
+		fruit: {
+			kind: 'stone',
+			note: 'Sloes: round blue-black plums with a heavy waxy bloom, fiercely sour until frosted.',
+			months: [8, 9, 10]
+		},
+		flower: {
+			kind: 'blossom',
+			note: 'White blossom on bare black twigs, before a single leaf. That order is the test: blackthorn flowers then leafs, hawthorn leafs then flowers.',
+			months: [2, 3]
 		},
 		season: [
 			['Spring', 'A "blackthorn winter": clouds of white blossom on bare black wood in March, traditionally coinciding with a cold snap.'],
@@ -320,6 +386,7 @@ export const SPECIES_D: Species[] = [
 		colors: ['#C0C46A', '#87963A'],
 		key: 'simple',
 		key2: 'toothed',
+		crown: 'domed',
 		hint: 'Pink-white blossom; small hard sour apples',
 		quick: [
 			['Height', '5–10 m'],
@@ -339,6 +406,16 @@ export const SPECIES_D: Species[] = [
 		bark: {
 			texture: 'flaking',
 			note: 'Greyish-brown, cracking into small square plates, over a trunk that is usually short, crooked and set with thorny side-shoots.'
+		},
+		fruit: {
+			kind: 'stone',
+			note: 'Small hard yellow-green apples, 2-3 cm, sour enough to make your face fold, often lying in the grass long after they fall.',
+			months: [8, 9, 10]
+		},
+		flower: {
+			kind: 'blossom',
+			note: 'Pink-flushed white blossom, deeper pink in bud, five petals, opening with the leaves.',
+			months: [3, 4]
 		},
 		season: [
 			['Spring', 'Pink-and-white blossom in May, later than cherry, and a valuable pollinator plant for orchards nearby.'],

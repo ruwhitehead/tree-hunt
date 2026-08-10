@@ -91,10 +91,14 @@ dated records nobody else has."*
   arrival.
 - **Prefer removing a concept to adding one.**
 - **Lighthouse accessibility 100 is a release gate**, not an aspiration.
-- **Grey the photograph, never the text.** Unfound cards in the deck grey out via `filter: grayscale()` on
-  the image alone. Fading the whole card was tried and shipped once, and the faded label failed contrast at
-  **2.33:1** — caught by the gate above. Names stay full-contrast ink in both states, and a tick, not a
-  colour, is what tells found from unfound where filters do not apply (mono vision, forced-colours mode).
+- **Never carry meaning in colour, including in the absence of colour.** Unfound cards in the deck first
+  hid the name entirely, then showed a greyed-out photograph. Grey passed the gate — the tick, the names and
+  the counted headings all carried the state — but it was still a colour signal, and forced-colours mode
+  drops CSS filters outright, so in that mode the two states were identical. They now show a **silhouette of
+  the tree's profile**, drawn in `currentColor`, which cannot fail that way and is the better picture
+  besides: crown shape is how you name a tree across a field, where a desaturated thumbnail tells you
+  nothing. Names stay full-contrast ink in both states. Fading the whole card, the first attempt, failed
+  contrast at **2.33:1** and is what taught us the rule.
 - **Nothing that keeps score.** The streak and the badges were removed for punishing people, and the quiz
   is the easiest place to smuggle them back: no timer, no streak, no stored history, no percentage. A
   wrong answer's job is to teach, so it shows the line that would have given it away and links to it.
@@ -164,8 +168,16 @@ history rather than here.
   Pushed past one question, bark starts asking things nobody standing in a wood in February can answer —
   *is that fissure deep or shallow* — so it asks once and then shows twenty photographs. Matching a trunk
   against a wall of pictures is a task people are good at; self-reporting a texture is not.
-- **Keys are ordered by certainty, not by cleverness.** Leaf questions, then bark, then where you are
-  standing, then the phone. Each is cheaper and surer than the next.
+- **Keys are ordered by what works today.** Fruit and flowers are only on the tree for part of the year and
+  half the guide is bare all winter, so Identify sorts its five keys by reach × decisiveness for the current
+  month: bark leads from November to March, leaves from April to October, fruit climbs through the autumn,
+  and the flower key vanishes entirely for the half-year it would waste. Reach alone is not enough — bark and
+  place reach all fifty every day, so on reach they would always lead. Place is pinned last regardless,
+  because narrowing to three or four candidates is not the same as answering the question.
+- **A key stops asking when the next question is unanswerable.** The leaf key divides three times because
+  leaves genuinely do. Bark, fruit and flower ask once and then show photographs, because the second
+  question would be *is that fissure deep* or *is that berry a drupe*, which nobody standing under the tree
+  can answer. Matching against a wall of pictures is a thing people are good at.
 - **Retiring a feature is not licence to delete what people made — unless nobody made anything.** Following
   was withdrawn with an export, on the first half of that rule. The second half then applied: the app is
   unreleased and nobody had used it, so the export was noise on the page and the leftovers were orphaned

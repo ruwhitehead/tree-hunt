@@ -5,6 +5,7 @@
 	import { deckOrder, grove } from '$lib/grove.svelte';
 	import { shareGrove } from '$lib/share';
 	import Give from '$lib/components/Give.svelte';
+	import CrownShape from '$lib/components/CrownShape.svelte';
 
 	/** A wall of 50 grey cards reads as "you have failed 50 times". Until someone
 	 *  has a few species, lead with the ones they can genuinely find on any
@@ -41,23 +42,30 @@
 </svelte:head>
 
 <!-- One card for both halves of the deck. A species you have not found yet shows
-     the same photograph in grey and its real name: the point of the deck is to
-     tell you what you are looking for, and a silhouette labelled "not yet met"
-     told you nothing and led to Identify rather than to the tree.
+     its crown silhouette and its real name; found, it shows the photograph.
+     Either way the NAME is there, which is the thing the deck exists for and
+     the thing the old "Not yet met" card withheld.
 
-     The grey is a CSS filter on the image alone. Fading the whole card was tried
-     and shipped once, and the faded text failed contrast at 2.33:1 — which the
-     Lighthouse accessibility gate caught. The name stays full-contrast ink in
-     both states, and the tick is the shape that distinguishes them where colour
-     cannot (mono vision, forced-colours mode, which drops filters entirely). -->
+     The silhouette replaced a greyed-out photograph. Grey was not a contrast
+     failure — the tick, the names and the counted headings all carried the
+     distinction, and the gate passed — but it was still a colour signal, and
+     forced-colours mode drops CSS filters outright, so in that mode the two
+     states were identical. An SVG in `currentColor` cannot fail that way.
+
+     It is also the better picture. A desaturated thumbnail of a crown tells you
+     almost nothing; the profile of the tree is how you name one across a field,
+     and it is readable in winter. And the unfound half of the deck — usually
+     most of it — now costs no image requests at all. -->
 {#snippet deckcard(sp: Species, has: boolean)}
 	<a class="spcard" class:tofind={!has} class:justfound={has && sp.id === justFound} href="{base}/species/{sp.id}/">
 		<span class="pic sq">
-			<img src="{base}/images/species/{sp.id}-thumb.webp" alt="" width="120" height="120" loading="lazy" decoding="async" />
 			{#if has}
+				<img src="{base}/images/species/{sp.id}-thumb.webp" alt="" width="120" height="120" loading="lazy" decoding="async" />
 				<span class="tick" aria-hidden="true">
 					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
 				</span>
+			{:else}
+				<CrownShape shape={sp.crown} />
 			{/if}
 		</span>
 		<span class="sn">
@@ -189,18 +197,20 @@
 		object-fit: cover;
 		display: block;
 	}
-	/* colour is the reward for finding it. Only the photograph greys out — never
-	   the text, and never via opacity. */
-	.spcard.tofind .pic.sq img {
-		filter: grayscale(1);
+	/* the silhouette sits on the same wash the photo would, drawn in a tone that
+	   is legible without competing with the found half of the deck */
+	.spcard.tofind .pic.sq {
+		background: var(--wash);
+		color: var(--deep);
+		display: grid;
+		place-items: center;
 	}
 	/* The one moment the app still has to give, now that the camera and the tree
-	   timeline have gone: the card you just earned arrives in colour. A plain CSS
+	   timeline have gone: the card you just earned arrives as a photograph. A CSS
 	   transition cannot do this — found and unfound are separate blocks, so the
 	   card is rebuilt rather than restyled — hence a one-shot animation.
 
-	   No fill mode on either: once the animation ends the resting styles are
-	   already right (the card is in `found`, so nothing greys it), and a
+	   No fill mode: once it ends the resting styles are already right, and a
 	   `forwards` fill would pin the transform and kill the card's press state. */
 	.spcard.justfound {
 		animation: pop 520ms ease;
@@ -210,10 +220,12 @@
 	}
 	@keyframes intocolour {
 		from {
-			filter: grayscale(1);
+			opacity: 0;
+			transform: scale(1.06);
 		}
 		to {
-			filter: grayscale(0);
+			opacity: 1;
+			transform: scale(1);
 		}
 	}
 	@keyframes pop {

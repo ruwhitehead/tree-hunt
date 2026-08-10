@@ -12,6 +12,7 @@ export const SPECIES_C: Species[] = [
 		colors: ['#5FA55A', '#2F6B2A'],
 		key: 'lobed',
 		key2: 'rounded',
+		crown: 'spreading',
 		hint: 'Lobed leaves on a long stalk; acorns with no stalk',
 		quick: [
 			['Height', 'Up to 40 m'],
@@ -31,6 +32,16 @@ export const SPECIES_C: Species[] = [
 		bark: {
 			texture: 'ridged',
 			note: 'Grey-brown and vertically fissured, effectively identical to English oak. Bark will not separate the two - go to the acorns, which sit tight against the twig with no stalk.'
+		},
+		fruit: {
+			kind: 'nut',
+			note: 'Acorns sitting tight against the twig with no stalk at all. This is the reliable difference from English oak, and it works even off the ground.',
+			months: [8, 9, 10]
+		},
+		flower: {
+			kind: 'catkin',
+			note: 'Yellow-green catkins with the new leaves, indistinguishable from English oak\'s.',
+			months: [3, 4]
 		},
 		season: [
 			['Spring', 'Leaf burst is a touch earlier than English oak; catkins hang in tassels as the bronze leaves open.'],
@@ -62,6 +73,7 @@ export const SPECIES_C: Species[] = [
 		colors: ['#A8C46A', '#6E9033'],
 		key: 'simple',
 		key2: 'toothed',
+		crown: 'shrubby',
 		hint: 'Round, soft, hairy leaves; catkins in February',
 		quick: [
 			['Height', '6–12 m; usually a multi-stemmed shrub'],
@@ -81,6 +93,16 @@ export const SPECIES_C: Species[] = [
 		bark: {
 			texture: 'banded',
 			note: 'Smooth, shiny coppery brown with distinct horizontal lines of lenticels, peeling slightly in fine papery strips on older stems. Usually many stems from the ground rather than one trunk.'
+		},
+		fruit: {
+			kind: 'nut',
+			note: 'Hazelnuts in clusters of one to four, each held in a ragged leafy husk that does not quite cover the nut.',
+			months: [7, 8, 9]
+		},
+		flower: {
+			kind: 'catkin',
+			note: 'Lambs-tails: pale yellow catkins loosening on bare twigs in the depth of winter, with tiny crimson female tufts on the same branch.',
+			months: [0, 1, 2]
 		},
 		season: [
 			['Spring', 'Catkins from January to March are one of the first signs of the year; leaves follow in April.'],
@@ -120,6 +142,7 @@ export const SPECIES_C: Species[] = [
 		colors: ['#7FA86E', '#3E6B3A'],
 		key: 'simple',
 		key2: 'toothed',
+		crown: 'conical',
 		hint: 'Round leaves with a notched tip; little woody cones',
 		quick: [
 			['Height', 'Up to 28 m'],
@@ -140,6 +163,16 @@ export const SPECIES_C: Species[] = [
 			texture: 'ridged',
 			note: 'Dark grey-brown and cracked into small square plates on a mature trunk, with last year\'s little woody cones usually still hanging above you, which is the surer sign.',
 			young: 'Smooth, greenish-grey and glossy when young.'
+		},
+		fruit: {
+			kind: 'cone',
+			note: 'Small hard woody cones about 1.5 cm, green then black, staying on the twigs all year. No other British broadleaf carries cones.',
+			months: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+		},
+		flower: {
+			kind: 'catkin',
+			note: 'Purple-brown male catkins lengthening in late winter, with tiny red-purple female ones that become the cones.',
+			months: [1, 2, 3]
 		},
 		season: [
 			['Spring', 'Purple-brown male catkins lengthen and yellow in February and March, before the leaves; tiny red female flowers sit above them.'],
@@ -179,6 +212,7 @@ export const SPECIES_C: Species[] = [
 		colors: ['#94B96A', '#4E7A36'],
 		key: 'simple',
 		key2: 'toothed',
+		crown: 'domed',
 		hint: 'Toothed oval leaves; fluted sinewy trunk; winged nuts',
 		quick: [
 			['Height', 'Up to 30 m'],
@@ -198,6 +232,16 @@ export const SPECIES_C: Species[] = [
 		bark: {
 			texture: 'smooth',
 			note: 'Smooth and pale grey with fine silvery vertical streaks, over a trunk that is fluted and sinewy like twisted rope or a flexed muscle. The fluting is the tell, and it is what separates it from beech.'
+		},
+		fruit: {
+			kind: 'wing',
+			note: 'Hanging clusters of small nutlets, each held by a three-lobed papery wing like a little green leaf. Unmistakable once seen.',
+			months: [7, 8, 9]
+		},
+		flower: {
+			kind: 'catkin',
+			note: 'Green-yellow catkins with the new leaves, the female ones eventually becoming the winged clusters.',
+			months: [3, 4]
 		},
 		season: [
 			['Spring', 'Fresh pleated leaves in April, with drooping yellow-green catkins.'],
@@ -229,6 +273,7 @@ export const SPECIES_C: Species[] = [
 		colors: ['#BCC85E', '#7E9B36'],
 		key: 'lobed',
 		key2: 'hand',
+		crown: 'domed',
 		hint: 'Small five-lobed leaves with blunt tips; corky twigs',
 		quick: [
 			['Height', '15–20 m; usually much smaller in hedges'],
@@ -248,6 +293,16 @@ export const SPECIES_C: Species[] = [
 		bark: {
 			texture: 'ridged',
 			note: 'Pale grey-brown and finely fissured into a corky network. Young twigs often grow flat corky wings along their sides, which no other British maple does.'
+		},
+		fruit: {
+			kind: 'wing',
+			note: 'Small paired keys spread in a straight line, often flushed crimson, on a tree whose twigs may carry corky wings.',
+			months: [7, 8, 9]
+		},
+		flower: {
+			kind: 'small',
+			note: 'Small upright green-yellow clusters with the opening leaves.',
+			months: [3, 4]
 		},
 		season: [
 			['Spring', 'Leaves emerge reddish-bronze; small upright yellow-green flower clusters open with them.'],
@@ -279,6 +334,7 @@ export const SPECIES_C: Species[] = [
 		colors: ['#A9C86A', '#5E8A36'],
 		key: 'simple',
 		key2: 'heart',
+		crown: 'domed',
 		hint: 'Heart-shaped leaves with rusty tufts beneath',
 		quick: [
 			['Height', 'Up to 32 m'],
@@ -299,6 +355,16 @@ export const SPECIES_C: Species[] = [
 			texture: 'ridged',
 			note: 'Grey and finely ridged, and the base of an old trunk is usually smothered in a dense mass of twiggy shoots and burrs.',
 			young: 'Smooth and grey when young.'
+		},
+		fruit: {
+			kind: 'nut',
+			note: 'Small hard round nutlets hanging under a narrow pale bract like a single propeller blade, which carries them off on the wind.',
+			months: [7, 8, 9]
+		},
+		flower: {
+			kind: 'small',
+			note: 'Clusters of yellow-white flowers hanging beneath that same pale bract, powerfully sweet-scented and loud with bees.',
+			months: [5, 6]
 		},
 		season: [
 			['Spring', 'Leaves open early, a fresh yellow-green, quickly reaching full size.'],
@@ -338,6 +404,7 @@ export const SPECIES_C: Species[] = [
 		colors: ['#9DBA5E', '#5E7F30'],
 		key: 'simple',
 		key2: 'toothed',
+		crown: 'vase',
 		hint: 'Big rough asymmetric leaves; papery seed discs',
 		quick: [
 			['Height', 'Up to 40 m'],
@@ -358,6 +425,16 @@ export const SPECIES_C: Species[] = [
 			texture: 'ridged',
 			note: 'Grey-brown with deep, coarse, interlacing ridges forming a broad criss-cross network.',
 			young: 'Smooth and grey until about twenty years old.'
+		},
+		fruit: {
+			kind: 'wing',
+			note: 'Bunches of papery discs about 2 cm across with the seed dead centre, green then straw-brown, and gone by midsummer.',
+			months: [4, 5, 6]
+		},
+		flower: {
+			kind: 'small',
+			note: 'Dense red-purple tufts crowding the bare twigs in February, before anything else is moving.',
+			months: [1, 2]
 		},
 		season: [
 			['Spring', 'Purple-red flower tufts in February on bare wood, then a mass of pale green papery seed discs in April before the leaves catch up.'],

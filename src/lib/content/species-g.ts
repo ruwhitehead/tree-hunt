@@ -14,6 +14,7 @@ export const SPECIES_G: Species[] = [
 		colors: ['#9FB6AC', '#4A6A5C'],
 		key: 'needle',
 		key2: 'spiky',
+		crown: 'conical',
 		hint: 'Needles sharp enough to hurt, with two chalky-blue bands beneath',
 		quick: [
 			['Height', 'To 55 m in Britain — among the tallest trees here'],
@@ -33,6 +34,11 @@ export const SPECIES_G: Species[] = [
 		bark: {
 			texture: 'flaking',
 			note: 'Purplish grey, flaking away in thin rounded plates like scattered coins. A plantation of it smells sharply resinous on a warm day.'
+		},
+		fruit: {
+			kind: 'cone',
+			note: 'Pale papery cones 5-10 cm with crinkled, irregularly toothed scales, much thinner and more brittle than a Norway spruce\'s.',
+			months: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 		},
 		season: [
 			['Spring', 'New shoots break in bright acid green against the near-black of last year, the one moment a plantation looks soft.'],
@@ -64,6 +70,7 @@ export const SPECIES_G: Species[] = [
 		colors: ['#CFD98A', '#7C9440'],
 		key: 'simple',
 		key2: 'heart',
+		crown: 'domed',
 		hint: 'Shaggy burrs of sprouts round the base; sticky honeydew beneath',
 		quick: [
 			['Height', 'To 40 m — often the tallest broadleaf in a British town'],
@@ -83,6 +90,16 @@ export const SPECIES_G: Species[] = [
 		bark: {
 			texture: 'ridged',
 			note: 'Grey and shallowly ridged, and the base of the trunk is normally a dense thicket of sprouting shoots and burrs, which is the quickest way to name a common lime in an avenue.'
+		},
+		fruit: {
+			kind: 'nut',
+			note: 'Faintly ribbed round nutlets under a pale narrow bract, on a tree whose trunk is usually smothered in sprouting shoots.',
+			months: [7, 8, 9]
+		},
+		flower: {
+			kind: 'small',
+			note: 'Hanging clusters of yellow-white scented flowers beneath a pale bract, dripping honeydew onto everything parked below.',
+			months: [5, 6]
 		},
 		season: [
 			['Spring', 'Late into leaf, then very fast; the fresh growth is a pale yellow-green.'],
@@ -114,6 +131,7 @@ export const SPECIES_G: Species[] = [
 		colors: ['#A8BF7E', '#5C7B3A'],
 		key: 'simple',
 		key2: 'narrow',
+		crown: 'spreading',
 		hint: 'Twigs snap off with an audible crack, then root where they land',
 		quick: [
 			['Height', 'To 25 m, usually broader and more collapsed than tall'],
@@ -133,6 +151,16 @@ export const SPECIES_G: Species[] = [
 		bark: {
 			texture: 'ridged',
 			note: 'Grey-brown with deep coarse ridges, on a trunk that usually leans over water and has shed whole limbs, the wood snapping cleanly off.'
+		},
+		fruit: {
+			kind: 'fluff',
+			note: 'Catkins shedding fine cottony seed, on a tree usually leaning over water with limbs snapped clean off.',
+			months: [4, 5]
+		},
+		flower: {
+			kind: 'catkin',
+			note: 'Slender yellow-green catkins with the leaves, on brittle twigs that snap audibly at the base.',
+			months: [3, 4]
 		},
 		season: [
 			['Spring', 'Catkins open with the leaves, an important early nectar and pollen source for bees.'],
@@ -164,6 +192,7 @@ export const SPECIES_G: Species[] = [
 		colors: ['#93B189', '#3D5C3A'],
 		key: 'needle',
 		key2: 'scale',
+		crown: 'columnar',
 		hint: 'Flat sprays of tiny scales; a hedge that grows a metre a year',
 		quick: [
 			['Height', 'To 35 m if nobody stops it'],
@@ -183,6 +212,11 @@ export const SPECIES_G: Species[] = [
 		bark: {
 			texture: 'fibrous',
 			note: 'Reddish-brown, thin and shredding in fine vertical strings, though on a clipped hedge you will rarely see any of it.'
+		},
+		fruit: {
+			kind: 'cone',
+			note: 'Small round cones about 2 cm, and often none at all - a clipped hedge rarely gets the chance to make any.',
+			months: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 		},
 		season: [
 			['Spring', 'A flush of brighter green at the tips; this is when the year’s metre begins.'],
@@ -214,6 +248,7 @@ export const SPECIES_G: Species[] = [
 		colors: ['#84A47E', '#31502D'],
 		key: 'needle',
 		key2: 'plates',
+		crown: 'flat-topped',
 		hint: 'Broad, spine-tipped leaves overlapping like armour plate',
 		quick: [
 			['Height', 'To 30 m here, 50 m in Chile'],
@@ -233,6 +268,11 @@ export const SPECIES_G: Species[] = [
 		bark: {
 			texture: 'ridged',
 			note: 'Grey and deeply wrinkled into horizontal rings, exactly like elephant hide, and marked all over with the scars of fallen leaves.'
+		},
+		fruit: {
+			kind: 'cone',
+			note: 'Huge brown globe cones the size of a grapefruit, high in the crown of female trees, breaking apart to drop large edible seeds.',
+			months: [7, 8, 9, 10]
 		},
 		season: [
 			['Spring', 'New growth extends at the branch tips in a paler, softer green.'],
@@ -264,6 +304,7 @@ export const SPECIES_G: Species[] = [
 		colors: ['#A5B584', '#5D6E40'],
 		key: 'needle',
 		key2: 'scale',
+		crown: 'conical',
 		hint: 'Thick spongy red bark you can press your fist into; a spire above everything',
 		quick: [
 			['Height', 'Over 50 m in Britain already; to 95 m in California'],
@@ -283,6 +324,11 @@ export const SPECIES_G: Species[] = [
 		bark: {
 			texture: 'fibrous',
 			note: 'Push a fist gently into it. Thick, fibrous, deep red-brown and genuinely spongy - it gives, and it does not hurt. No other large British tree does this.'
+		},
+		fruit: {
+			kind: 'cone',
+			note: 'Egg-shaped cones about 5 cm that stay green and closed on the tree for years, waiting for fire or drought to open them.',
+			months: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 		},
 		season: [
 			['Spring', 'Pollen released from the shoot tips in quantity; new growth barely alters the outline.'],
@@ -314,6 +360,7 @@ export const SPECIES_G: Species[] = [
 		colors: ['#96AB8E', '#425A44'],
 		key: 'needle',
 		key2: 'rosette',
+		crown: 'flat-topped',
 		hint: 'Massive level limbs holding flat tiers of foliage; needles in tufts',
 		quick: [
 			['Height', 'To 35 m, and often as wide as it is tall'],
@@ -333,6 +380,11 @@ export const SPECIES_G: Species[] = [
 		bark: {
 			texture: 'flaking',
 			note: 'Dark grey-brown, cracking into short scaly ridges on an old trunk, beneath limbs often as thick as the trunk itself.'
+		},
+		fruit: {
+			kind: 'cone',
+			note: 'Barrel-shaped cones sitting upright on the branch like eggs in a nest, breaking apart on the tree rather than falling whole.',
+			months: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 		},
 		season: [
 			['Spring', 'Little change; last year’s cones continue to swell.'],
@@ -364,6 +416,7 @@ export const SPECIES_G: Species[] = [
 		colors: ['#CBD884', '#7A9440'],
 		key: 'simple',
 		key2: 'narrow',
+		crown: 'weeping',
 		hint: 'Curtains of yellow shoots hanging to the water; always planted',
 		quick: [
 			['Height', 'To 20 m, usually wider than it is tall'],
@@ -383,6 +436,16 @@ export const SPECIES_G: Species[] = [
 		bark: {
 			texture: 'ridged',
 			note: 'Grey-brown with coarse vertical ridges, on a short thick trunk that divides low into the limbs carrying the curtain of shoots.'
+		},
+		fruit: {
+			kind: 'fluff',
+			note: 'Catkins shedding cottony seed among the hanging curtain, though most planted trees are a single sex and set nothing.',
+			months: [4, 5]
+		},
+		flower: {
+			kind: 'catkin',
+			note: 'Slim yellow-green catkins appearing with the first leaves, early enough that the tree greens before its neighbours.',
+			months: [2, 3]
 		},
 		season: [
 			['Spring', 'Among the very first large trees to green up, in a startling pale acid yellow-green.'],
@@ -414,6 +477,7 @@ export const SPECIES_G: Species[] = [
 		colors: ['#BACB7E', '#6B8740'],
 		key: 'simple',
 		key2: 'heart',
+		crown: 'columnar',
 		hint: 'A green exclamation mark — every branch held vertically against the trunk',
 		quick: [
 			['Height', 'To 30 m, but only 3–5 m across'],
@@ -433,6 +497,16 @@ export const SPECIES_G: Species[] = [
 		bark: {
 			texture: 'ridged',
 			note: 'Dark grey-brown and deeply fissured, on a trunk that stays remarkably narrow for its height and often carries burrs.'
+		},
+		fruit: {
+			kind: 'fluff',
+			note: 'Almost never any: nearly every Lombardy poplar in Britain is a male clone, so the cottony seed of a black poplar simply does not come.',
+			months: [4, 5]
+		},
+		flower: {
+			kind: 'catkin',
+			note: 'Crimson male catkins in early spring, on a tree so narrow the whole column flushes red at once.',
+			months: [2, 3]
 		},
 		season: [
 			['Spring', 'Crimson male catkins appear before the leaves, then drop in quantity onto the road below.'],
@@ -464,6 +538,7 @@ export const SPECIES_G: Species[] = [
 		colors: ['#EDB9C6', '#B76A86'],
 		key: 'simple',
 		key2: 'toothed',
+		crown: 'vase',
 		hint: 'Fat double pink pom-poms in April, with bronze young leaves',
 		quick: [
 			['Height', '8–12 m'],
@@ -483,6 +558,16 @@ export const SPECIES_G: Species[] = [
 		bark: {
 			texture: 'banded',
 			note: 'Glossy red-brown with prominent horizontal bands of breathing pores, the family signature shared with every other cherry.'
+		},
+		fruit: {
+			kind: 'stone',
+			note: 'Usually nothing at all. The double flowers are built out of the reproductive organs themselves, so the tree sets almost no fruit and must be grafted.',
+			months: [6, 7]
+		},
+		flower: {
+			kind: 'blossom',
+			note: 'Dense pompoms of deep pink double flowers, 20-30 petals each, weighing the branches down. Nothing native looks remotely like it.',
+			months: [3, 4]
 		},
 		season: [
 			['Spring', 'A fortnight of extraordinary pink in April, then a pavement of fallen petals.'],

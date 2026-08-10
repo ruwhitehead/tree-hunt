@@ -17,6 +17,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Betula_pendula_bark_TK_2023-04-16_1.jpg",
 			"file": "File:Betula pendula bark TK 2023-04-16 1.jpg"
+		},
+		"fruit": {
+			"artist": "Nefronus",
+			"license": "CC0",
+			"page": "https://commons.wikimedia.org/wiki/File:Betula_pendula_fruits.jpg",
+			"file": "File:Betula pendula fruits.jpg"
+		},
+		"flower": {
+			"artist": "Korinna",
+			"license": "CC BY 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Microscope_view_of_Betula_pendula_flowers_01.jpg",
+			"file": "File:Microscope view of Betula pendula flowers 01.jpg"
 		}
 	},
 	"rowan": {
@@ -37,6 +49,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Sorbus_aucuparia,_transverse_section_of_trunk_showing_the_heartwood_%26_bark.jpg",
 			"file": "File:Sorbus aucuparia, transverse section of trunk showing the heartwood & bark.jpg"
+		},
+		"fruit": {
+			"artist": "Jonathan Billinger",
+			"license": "CC BY-SA 2.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Rowan_fruit,_Sorbus_aucuparia._-_geograph.org.uk_-_896191.jpg",
+			"file": "File:Rowan fruit, Sorbus aucuparia. - geograph.org.uk - 896191.jpg"
+		},
+		"flower": {
+			"artist": "Borealis55",
+			"license": "Public domain",
+			"page": "https://commons.wikimedia.org/wiki/File:Sorbus_aucuparia_-_flower.JPG",
+			"file": "File:Sorbus aucuparia - flower.JPG"
 		}
 	},
 	"beech": {
@@ -57,6 +81,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Old_tree_bark_patterns,_Beech_(Fagus_sylvatica),_Anderson%27s_Mount,_Stewarton.jpg",
 			"file": "File:Old tree bark patterns, Beech (Fagus sylvatica), Anderson's Mount, Stewarton.jpg"
+		},
+		"fruit": {
+			"artist": "W. Bulach",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:00_5171_Fagus_sylvatica_(fruit)_-_Rotbuche.jpg",
+			"file": "File:00 5171 Fagus sylvatica (fruit) - Rotbuche.jpg"
+		},
+		"flower": {
+			"artist": "Krzysztof Ziarnek, Kenraiz",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Fagus_sylvatica_%27Purpurea%27_flowers_kz01.jpg",
+			"file": "File:Fagus sylvatica 'Purpurea' flowers kz01.jpg"
 		}
 	},
 	"ash": {
@@ -77,6 +113,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Warts_on_Fraxinus_excelsior_bark,_Dalgarven_Mill,_North_Ayrshire.jpg",
 			"file": "File:Warts on Fraxinus excelsior bark, Dalgarven Mill, North Ayrshire.jpg"
+		},
+		"fruit": {
+			"artist": "Gmihail at Serbian Wikipedia",
+			"license": "CC BY-SA 3.0 rs",
+			"page": "https://commons.wikimedia.org/wiki/File:Longitudinal_cut_of_Fraxinus_excelsior_seed.jpg",
+			"file": "File:Longitudinal cut of Fraxinus excelsior seed.jpg"
+		},
+		"flower": {
+			"artist": "Didier Descouens",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:(MHNT)_Fraxinus_Excelsior_-_inflorescences_immatures.jpg",
+			"file": "File:(MHNT) Fraxinus Excelsior - inflorescences immatures.jpg"
 		}
 	},
 	"holly": {
@@ -97,6 +145,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Lenticels_and_sphaeroblast_on_Ilex_aquifolium_bark._Spier%27s_School,_Beith,_North_Ayrshire.jpg",
 			"file": "File:Lenticels and sphaeroblast on Ilex aquifolium bark. Spier's School, Beith, North Ayrshire.jpg"
+		},
+		"fruit": {
+			"artist": "Dominicus Johannes Bergsma",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Fruits_of_holly_(Ilex_aquifolium)._Locatie,_Jonkersvallei.jpg",
+			"file": "File:Fruits of holly (Ilex aquifolium). Locatie, Jonkersvallei.jpg"
+		},
+		"flower": {
+			"artist": "Hans Hillewaert",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Ilex_aquifolium_(flowers).jpg",
+			"file": "File:Ilex aquifolium (flowers).jpg"
 		}
 	},
 	"yew": {
@@ -117,6 +177,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Taxus_baccata_bark_Siemianowice.jpg",
 			"file": "File:Taxus baccata bark Siemianowice.jpg"
+		},
+		"fruit": {
+			"artist": "hedera.baltica",
+			"license": "CC BY-SA 2.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Fruit_of_common_yew_(Taxus_baccata).jpg",
+			"file": "File:Fruit of common yew (Taxus baccata).jpg"
 		}
 	},
 	"pine": {
@@ -137,6 +203,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Pinus_sylvestris_bark_2025.jpg",
 			"file": "File:Pinus sylvestris bark 2025.jpg"
+		},
+		"fruit": {
+			"artist": "Beentree",
+			"license": "CC BY-SA 2.5",
+			"page": "https://commons.wikimedia.org/wiki/File:Seed_pinus_sylvestris_1_beentree_B.jpg",
+			"file": "File:Seed pinus sylvestris 1 beentree B.jpg"
 		}
 	},
 	"hawthorn": {
@@ -157,6 +229,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:GT_Hawthorn.jpg",
 			"file": "File:GT Hawthorn.jpg"
+		},
+		"fruit": {
+			"artist": "Didier Descouens",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:(MHNT)_Crataegus_monogyna_-_Fruits.jpg",
+			"file": "File:(MHNT) Crataegus monogyna - Fruits.jpg"
+		},
+		"flower": {
+			"artist": "Didier Descouens",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:(MHNT)_Crataegus_monogyna_-_flowers_and_buds.jpg",
+			"file": "File:(MHNT) Crataegus monogyna - flowers and buds.jpg"
 		}
 	},
 	"chestnut": {
@@ -177,6 +261,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Aesculus_hippocastanum_bark_Siemianowice.jpg",
 			"file": "File:Aesculus hippocastanum bark Siemianowice.jpg"
+		},
+		"fruit": {
+			"artist": "Solipsist",
+			"license": "CC BY-SA 2.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Aesculus_hippocastanum_fruit.jpg",
+			"file": "File:Aesculus hippocastanum fruit.jpg"
+		},
+		"flower": {
+			"artist": "Krzysztof Golik",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Flowers_of_Aesculus_hippocastanum.jpg",
+			"file": "File:Flowers of Aesculus hippocastanum.jpg"
 		}
 	},
 	"sycamore": {
@@ -197,6 +293,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Bark_of_Acer_pseudoplatanus.jpg",
 			"file": "File:Bark of Acer pseudoplatanus.jpg"
+		},
+		"fruit": {
+			"artist": "T. Kebert",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Acer_pseudoplatanus_fruit_TK_2023-09-28_1.jpg",
+			"file": "File:Acer pseudoplatanus fruit TK 2023-09-28 1.jpg"
+		},
+		"flower": {
+			"artist": "Mike Pennington",
+			"license": "CC BY-SA 2.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Sycamore_flower_(Acer_pseudoplatanus),_Halligarth_-_geograph.org.uk_-_1884667.jpg",
+			"file": "File:Sycamore flower (Acer pseudoplatanus), Halligarth - geograph.org.uk - 1884667.jpg"
 		}
 	},
 	"elder": {
@@ -217,6 +325,18 @@
 			"license": "CC BY 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Sambucus_nigra_or_elder_bark_at_Chapeltoun,_North_Ayrshire.jpg",
 			"file": "File:Sambucus nigra or elder bark at Chapeltoun, North Ayrshire.jpg"
+		},
+		"fruit": {
+			"artist": "Andrikkos",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Sambucus_nigra_fruit_3.JPG",
+			"file": "File:Sambucus nigra fruit 3.JPG"
+		},
+		"flower": {
+			"artist": "Jonathan Billinger",
+			"license": "CC BY-SA 2.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Elder_flowers,_Sambucus_nigra_-_geograph.org.uk_-_5006459.jpg",
+			"file": "File:Elder flowers, Sambucus nigra - geograph.org.uk - 5006459.jpg"
 		}
 	},
 	"field-maple": {
@@ -237,6 +357,18 @@
 			"license": "CC BY 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Acer_campestre_bark_1.jpg",
 			"file": "File:Acer campestre bark 1.jpg"
+		},
+		"fruit": {
+			"artist": "Dendrofil",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Odeslat02380.JPG",
+			"file": "File:Odeslat02380.JPG"
+		},
+		"flower": {
+			"artist": "Sten Porse",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Acer-campestre-flowers.JPG",
+			"file": "File:Acer-campestre-flowers.JPG"
 		}
 	},
 	"oak": {
@@ -257,6 +389,18 @@
 			"license": "CC BY 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Bark_of_European_oak_(Quercus_robur)_in_winter,_Woodland_south_of_Schlosspark_Belvedere,_Weimar,_Germany_01.jpg",
 			"file": "File:Bark of European oak (Quercus robur) in winter, Woodland south of Schlosspark Belvedere, Weimar, Germany 01.jpg"
+		},
+		"fruit": {
+			"artist": "W.carter",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Quercus_robur_acorns_in_Tuntorp_1.jpg",
+			"file": "File:Quercus robur acorns in Tuntorp 1.jpg"
+		},
+		"flower": {
+			"artist": "Krzysztof Ziarnek, Kenraiz",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Quercus_robur_flowers_kz02.jpg",
+			"file": "File:Quercus robur flowers kz02.jpg"
 		}
 	},
 	"sessile-oak": {
@@ -277,6 +421,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Quercus_petraea_bark.jpg",
 			"file": "File:Quercus petraea bark.jpg"
+		},
+		"fruit": {
+			"artist": "E Wusk",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Quercus_petraea_twigs_with_immature_acorns.jpg",
+			"file": "File:Quercus petraea twigs with immature acorns.jpg"
+		},
+		"flower": {
+			"artist": "Willow",
+			"license": "CC BY-SA 2.5",
+			"page": "https://commons.wikimedia.org/wiki/File:Quercus_petraea_04.jpg",
+			"file": "File:Quercus petraea 04.jpg"
 		}
 	},
 	"holm-oak": {
@@ -297,6 +453,18 @@
 			"license": "CC BY-SA 3.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Quercus_ilex_rotundifolia_bark.jpg",
 			"file": "File:Quercus ilex rotundifolia bark.jpg"
+		},
+		"fruit": {
+			"artist": "Meneerke bloem",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Quercus_ilex_acorns_RHU_001.JPG",
+			"file": "File:Quercus ilex acorns RHU 001.JPG"
+		},
+		"flower": {
+			"artist": "Miguel Gómez de Aranda",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Quercus_ilex_Male_catkins.JPG",
+			"file": "File:Quercus ilex Male catkins.JPG"
 		}
 	},
 	"downy-birch": {
@@ -317,6 +485,18 @@
 			"license": "CC BY 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Betula_pubescens_bark_and_lenticels._Spier%27s_Old_School_Grounds,_Beith,_North_Ayrshire.jpg",
 			"file": "File:Betula pubescens bark and lenticels. Spier's Old School Grounds, Beith, North Ayrshire.jpg"
+		},
+		"fruit": {
+			"artist": "Rosser1954",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Betula_pubescens_(Downy_Birch)_seeds_-_extensive_wings.jpg",
+			"file": "File:Betula pubescens (Downy Birch) seeds - extensive wings.jpg"
+		},
+		"flower": {
+			"artist": "Robert Flogaus-Faust",
+			"license": "CC BY 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Betula_pubescens_RF.jpg",
+			"file": "File:Betula pubescens RF.jpg"
 		}
 	},
 	"whitebeam": {
@@ -337,6 +517,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:(ms)_Sorbus_aria_10.jpg",
 			"file": "File:(ms) Sorbus aria 10.jpg"
+		},
+		"fruit": {
+			"artist": "Mike Pennington",
+			"license": "CC BY-SA 2.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Self-seeded_Whitebeam_Sorbus_%27aria%27,_Baltasound_-_geograph.org.uk_-_4041969.jpg",
+			"file": "File:Self-seeded Whitebeam Sorbus 'aria', Baltasound - geograph.org.uk - 4041969.jpg"
+		},
+		"flower": {
+			"artist": "MurielBendel",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Sorbus_aria_flowers.JPG",
+			"file": "File:Sorbus aria flowers.JPG"
 		}
 	},
 	"wild-service": {
@@ -357,6 +549,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Sorbus_torminalis_bark.jpg",
 			"file": "File:Sorbus torminalis bark.jpg"
+		},
+		"fruit": {
+			"artist": "Amada44",
+			"license": "Public domain",
+			"page": "https://commons.wikimedia.org/wiki/File:Sorbus_torminalis_fruits-001.jpg",
+			"file": "File:Sorbus torminalis fruits-001.jpg"
+		},
+		"flower": {
+			"artist": "Bärbel Miemietz",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:2021-05-23_NSG_Herter_See_04.JPG",
+			"file": "File:2021-05-23 NSG Herter See 04.JPG"
 		}
 	},
 	"hornbeam": {
@@ -377,6 +581,18 @@
 			"license": "CC0",
 			"page": "https://commons.wikimedia.org/wiki/File:Carpinus_betulus_bark_K%C5%99ivokl%C3%A1tsko.jpg",
 			"file": "File:Carpinus betulus bark Křivoklátsko.jpg"
+		},
+		"fruit": {
+			"artist": "Hubi47",
+			"license": "CC BY 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Carpinus_betulus_fruits_Gr%C3%BCtweg.jpg",
+			"file": "File:Carpinus betulus fruits Grütweg.jpg"
+		},
+		"flower": {
+			"artist": "User:Amada44",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Carpinus_betulus_flower-002.jpg",
+			"file": "File:Carpinus betulus flower-002.jpg"
 		}
 	},
 	"larch": {
@@ -397,6 +613,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Resin_exudate_on_Larix_decidua_bark._Dalgain_Wood,_Sor,_East_Ayrshire.jpg",
 			"file": "File:Resin exudate on Larix decidua bark. Dalgain Wood, Sor, East Ayrshire.jpg"
+		},
+		"fruit": {
+			"artist": "pleple2000",
+			"license": "CC BY-SA 2.5",
+			"page": "https://commons.wikimedia.org/wiki/File:Larix_decidua_cones_pl.jpg",
+			"file": "File:Larix decidua cones pl.jpg"
 		}
 	},
 	"spruce": {
@@ -417,6 +639,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Bark_of_Picea_abies_01.jpg",
 			"file": "File:Bark of Picea abies 01.jpg"
+		},
+		"fruit": {
+			"artist": "MrPanyGoff",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Norway_Spruce_cones_(Picea_abies).jpg",
+			"file": "File:Norway Spruce cones (Picea abies).jpg"
 		}
 	},
 	"douglas-fir": {
@@ -437,6 +665,12 @@
 			"license": "CC BY-SA 3.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Pseudotsuga_menziesii_bark_Rog%C3%B3w.jpg",
 			"file": "File:Pseudotsuga menziesii bark Rogów.jpg"
+		},
+		"fruit": {
+			"artist": "Ivar Leidus",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Pseudotsuga_menziesii_var._glauca_young_female_cone_-_Keila.jpg",
+			"file": "File:Pseudotsuga menziesii var. glauca young female cone - Keila.jpg"
 		}
 	},
 	"blackthorn": {
@@ -457,6 +691,18 @@
 			"license": "CC BY 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Prunus_spinosa_or_Hawthorn_bark_at_Chapeltoun,_North_Ayrshire.jpg",
 			"file": "File:Prunus spinosa or Hawthorn bark at Chapeltoun, North Ayrshire.jpg"
+		},
+		"fruit": {
+			"artist": "Glyn Baker",
+			"license": "CC BY-SA 2.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Sloe,_Fruit_of_the_Blackthorn_(Prunus_spinosa)_-_geograph.org.uk_-_551715.jpg",
+			"file": "File:Sloe, Fruit of the Blackthorn (Prunus spinosa) - geograph.org.uk - 551715.jpg"
+		},
+		"flower": {
+			"artist": "Gilles San Martin",
+			"license": "CC BY-SA 2.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Prunus_spinosa_blossoms.jpg",
+			"file": "File:Prunus spinosa blossoms.jpg"
 		}
 	},
 	"wild-cherry": {
@@ -477,6 +723,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Torn_wild_cherry_bark,_(Prunus_avium),_Gaisberg,_Heidelberg,_D.jpg",
 			"file": "File:Torn wild cherry bark, (Prunus avium), Gaisberg, Heidelberg, D.jpg"
+		},
+		"fruit": {
+			"artist": "MPF",
+			"license": "CC BY 2.5",
+			"page": "https://commons.wikimedia.org/wiki/File:Prunus_avium_fruit.jpg",
+			"file": "File:Prunus avium fruit.jpg"
+		},
+		"flower": {
+			"artist": "H. Zell",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Prunus_avium_duracina_-_flowers_-_Sasbach.jpg",
+			"file": "File:Prunus avium duracina - flowers - Sasbach.jpg"
 		}
 	},
 	"bird-cherry": {
@@ -497,6 +755,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Prunus_padus_-_bark_(detail).jpg",
 			"file": "File:Prunus padus - bark (detail).jpg"
+		},
+		"fruit": {
+			"artist": "Eiku",
+			"license": "CC BY 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Prunus_padus_-_fruit_vert_pel%C3%A9,_chair_visible.jpg",
+			"file": "File:Prunus padus - fruit vert pelé, chair visible.jpg"
+		},
+		"flower": {
+			"artist": "Tiia Monto",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Prunus_padus_-_flowers.jpg",
+			"file": "File:Prunus padus - flowers.jpg"
 		}
 	},
 	"crab-apple": {
@@ -517,6 +787,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Malus_sylvestris_sl8.jpg",
 			"file": "File:Malus sylvestris sl8.jpg"
+		},
+		"fruit": {
+			"artist": "(Hans Hillewaert)",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Malus_sylvestris_fruit,_Vosseslag.jpg",
+			"file": "File:Malus sylvestris fruit, Vosseslag.jpg"
+		},
+		"flower": {
+			"artist": "Watercrate",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Flower_from_a_Malus_sylvestris_(Crab_apple)_tree.jpg",
+			"file": "File:Flower from a Malus sylvestris (Crab apple) tree.jpg"
 		}
 	},
 	"sweet-chestnut": {
@@ -537,6 +819,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Burghley_House_Park_Mature_Castanea_sativa_bark_d%C3%A9tail.jpg",
 			"file": "File:Burghley House Park Mature Castanea sativa bark détail.jpg"
+		},
+		"fruit": {
+			"artist": "Wouter Hagens",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Castanea_sativa_fruit_A.jpg",
+			"file": "File:Castanea sativa fruit A.jpg"
+		},
+		"flower": {
+			"artist": "Abrahami",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Castanea_sativa_flowers.jpg",
+			"file": "File:Castanea sativa flowers.jpg"
 		}
 	},
 	"norway-maple": {
@@ -557,6 +851,18 @@
 			"license": "CC BY-SA 3.0 rs",
 			"page": "https://commons.wikimedia.org/wiki/File:Acer_platanoides_bark_Bgd.jpg",
 			"file": "File:Acer platanoides bark Bgd.jpg"
+		},
+		"fruit": {
+			"artist": "Andrey Butko",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Acer_platanoides_fruit_(Ab_plant_146).jpg",
+			"file": "File:Acer platanoides fruit (Ab plant 146).jpg"
+		},
+		"flower": {
+			"artist": "Gmihail at Serbian Wikipedia",
+			"license": "CC BY-SA 3.0 rs",
+			"page": "https://commons.wikimedia.org/wiki/File:Acer_platanoides_inflorescence.jpg",
+			"file": "File:Acer platanoides inflorescence.jpg"
 		}
 	},
 	"juniper": {
@@ -577,6 +883,12 @@
 			"license": "Public domain",
 			"page": "https://commons.wikimedia.org/wiki/File:Juniperus_communis_stem_Loigu_keerdkadakas.jpg",
 			"file": "File:Juniperus communis stem Loigu keerdkadakas.jpg"
+		},
+		"fruit": {
+			"artist": "Ivar Leidus",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Juniperus_communis_fruits_-_Keila.jpg",
+			"file": "File:Juniperus communis fruits - Keila.jpg"
 		}
 	},
 	"sitka-spruce": {
@@ -597,6 +909,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Picea_sitchensis_(Sitka_Spruce)_bark,_Auchinleck,_East_Ayrshire,_Scotland.jpg",
 			"file": "File:Picea sitchensis (Sitka Spruce) bark, Auchinleck, East Ayrshire, Scotland.jpg"
+		},
+		"fruit": {
+			"artist": "Anne Burgess",
+			"license": "CC BY-SA 2.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Picea_sitchensis_cones_-_geograph.org.uk_-_343398.jpg",
+			"file": "File:Picea sitchensis cones - geograph.org.uk - 343398.jpg"
 		}
 	},
 	"common-lime": {
@@ -617,6 +935,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Malvales_-_Tilia_x_europaea_-_1.jpg",
 			"file": "File:Malvales - Tilia x europaea - 1.jpg"
+		},
+		"fruit": {
+			"artist": "Rasbak",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Tilia_x_europea_seeds,_Hollandse_linde_zaden.jpg",
+			"file": "File:Tilia x europea seeds, Hollandse linde zaden.jpg"
+		},
+		"flower": {
+			"artist": "Rasbak",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Tilia_x_europea_flowers,_Hollandse_linde_bloemen_(1).jpg",
+			"file": "File:Tilia x europea flowers, Hollandse linde bloemen (1).jpg"
 		}
 	},
 	"crack-willow": {
@@ -637,6 +967,18 @@
 			"license": "CC BY 2.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Salix_fragilis_trunk_2015.08.22_-_andrey_zharkikh.jpg",
 			"file": "File:Salix fragilis trunk 2015.08.22 - andrey zharkikh.jpg"
+		},
+		"fruit": {
+			"artist": "Dr Mary Gillham Archive Project",
+			"license": "CC BY 2.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Crack_willow_in_Taff,_below_Radyr_Weir,_1990_(22843922748).jpg",
+			"file": "File:Crack willow in Taff, below Radyr Weir, 1990 (22843922748).jpg"
+		},
+		"flower": {
+			"artist": "Dr Mary Gillham Archive Project",
+			"license": "CC BY 2.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Crack_willow_in_Taff,_below_Radyr_Weir,_1990_(22843922748).jpg",
+			"file": "File:Crack willow in Taff, below Radyr Weir, 1990 (22843922748).jpg"
 		}
 	},
 	"lombardy-poplar": {
@@ -691,6 +1033,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Salix_babylonica_bark_close-up_1.jpg",
 			"file": "File:Salix babylonica bark close-up 1.jpg"
+		},
+		"fruit": {
+			"artist": "Georg Slickers",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Salix_x_20050523_894.jpg",
+			"file": "File:Salix x 20050523 894.jpg"
+		},
+		"flower": {
+			"artist": "Emőke Dénes",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Malpighiales_-_Salix_babylonica_-_9.jpg",
+			"file": "File:Malpighiales - Salix babylonica - 9.jpg"
 		}
 	},
 	"ornamental-cherry": {
@@ -711,6 +1065,12 @@
 			"license": "CC BY-SA 2.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Detail_of_the_bark_of_Prunus_serrulata_-_geograph.org.uk_-_6601982.jpg",
 			"file": "File:Detail of the bark of Prunus serrulata - geograph.org.uk - 6601982.jpg"
+		},
+		"flower": {
+			"artist": "Marie-Lan Nguyen",
+			"license": "CC BY 2.5",
+			"page": "https://commons.wikimedia.org/wiki/File:Prunus_serrulata_Kanzan_blossom_Jardin_des_Plantes_2013-04-21.jpg",
+			"file": "File:Prunus serrulata Kanzan blossom Jardin des Plantes 2013-04-21.jpg"
 		}
 	},
 	"london-plane": {
@@ -731,6 +1091,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Bark_of_Platanus_x_hispanica_(1).jpg",
 			"file": "File:Bark of Platanus x hispanica (1).jpg"
+		},
+		"fruit": {
+			"artist": "Virtual-Pano",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:0257_Platanus_x_hispanica_fruit_s.jpg",
+			"file": "File:0257 Platanus x hispanica fruit s.jpg"
+		},
+		"flower": {
+			"artist": "Yurakuna",
+			"license": "CC0",
+			"page": "https://commons.wikimedia.org/wiki/File:Platanus_hispanica_inflorescences.JPG",
+			"file": "File:Platanus hispanica inflorescences.JPG"
 		}
 	},
 	"lime": {
@@ -751,6 +1123,18 @@
 			"license": "CC BY-SA 3.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Tilia_cordata_bark_2_beentree.jpg",
 			"file": "File:Tilia cordata bark 2 beentree.jpg"
+		},
+		"fruit": {
+			"artist": "Gmihail at Serbian Wikipedia",
+			"license": "CC BY-SA 3.0 rs",
+			"page": "https://commons.wikimedia.org/wiki/File:Tilia_cordata_fruits.jpg",
+			"file": "File:Tilia cordata fruits.jpg"
+		},
+		"flower": {
+			"artist": "Gmihail at Serbian Wikipedia",
+			"license": "CC BY-SA 3.0 rs",
+			"page": "https://commons.wikimedia.org/wiki/File:Tilia_cordata_flowers.jpg",
+			"file": "File:Tilia cordata flowers.jpg"
 		}
 	},
 	"hazel": {
@@ -771,6 +1155,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Corylus_avellana_bark_Siemianowice.jpg",
 			"file": "File:Corylus avellana bark Siemianowice.jpg"
+		},
+		"fruit": {
+			"artist": "Ivar Leidus",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Hazelnuts_(Corylus_avellana)_-_whole_with_kernels.jpg",
+			"file": "File:Hazelnuts (Corylus avellana) - whole with kernels.jpg"
+		},
+		"flower": {
+			"artist": "Ermell",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Corylus_avellana_flower_hoarfrost_02-20200102-RM-112558.jpg",
+			"file": "File:Corylus avellana flower hoarfrost 02-20200102-RM-112558.jpg"
 		}
 	},
 	"alder": {
@@ -791,6 +1187,18 @@
 			"license": "CC BY-SA 3.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Alnus-glutinosa-bark.jpg",
 			"file": "File:Alnus-glutinosa-bark.jpg"
+		},
+		"fruit": {
+			"artist": "Nefronus",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Alnus_glutinosa_fruit_%26_catkins.jpg",
+			"file": "File:Alnus glutinosa fruit & catkins.jpg"
+		},
+		"flower": {
+			"artist": "Alvaroizuzquiza",
+			"license": "Public domain",
+			"page": "https://commons.wikimedia.org/wiki/File:Alnus_glutinosa_flowers_male_and_female.JPG",
+			"file": "File:Alnus glutinosa flowers male and female.JPG"
 		}
 	},
 	"wych-elm": {
@@ -811,6 +1219,18 @@
 			"license": "CC BY-SA 3.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Ulmus_glabra_Wych_Elm_bark.jpg",
 			"file": "File:Ulmus glabra Wych Elm bark.jpg"
+		},
+		"fruit": {
+			"artist": "Ydigresse",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Ulmus_glabra_fruit.JPG",
+			"file": "File:Ulmus glabra fruit.JPG"
+		},
+		"flower": {
+			"artist": "Ivar Leidus",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Ulmus_glabra_flowers_-_Keila.jpg",
+			"file": "File:Ulmus glabra flowers - Keila.jpg"
 		}
 	},
 	"goat-willow": {
@@ -831,6 +1251,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Salix_caprea_goat_pussy_willow_trunk_at_Easton_Lodge_Gardens,_Little_Easton,_Essex,_England.jpg",
 			"file": "File:Salix caprea goat pussy willow trunk at Easton Lodge Gardens, Little Easton, Essex, England.jpg"
+		},
+		"fruit": {
+			"artist": "Kenraiz - Krzysztof Ziarnek",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Salix_caprea_seed_kz.jpg",
+			"file": "File:Salix caprea seed kz.jpg"
+		},
+		"flower": {
+			"artist": "Nefronus",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Salix_caprea_catkins_TK.jpg",
+			"file": "File:Salix caprea catkins TK.jpg"
 		}
 	},
 	"white-willow": {
@@ -851,6 +1283,18 @@
 			"license": "CC BY-SA 3.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Salix_alba_bark_(Andreas_Plank).jpg",
 			"file": "File:Salix alba bark (Andreas Plank).jpg"
+		},
+		"fruit": {
+			"artist": "cultivar413 from Fallbrook, California",
+			"license": "CC BY 2.0",
+			"page": "https://commons.wikimedia.org/wiki/File:CBG_Fruit_Veg_Island_-_Yellow-Silver_Ledge,_Salix_alba_var_sericea,_Picea_pungens,_Thalictrum_flavum_ssp_glaucum_%27Illuminator%27_150627_(19708670533).jpg",
+			"file": "File:CBG Fruit Veg Island - Yellow-Silver Ledge, Salix alba var sericea, Picea pungens, Thalictrum flavum ssp glaucum 'Illuminator' 150627 (19708670533).jpg"
+		},
+		"flower": {
+			"artist": "Kruczy89",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Salix_alba_-_female_inflorescences.jpg",
+			"file": "File:Salix alba - female inflorescences.jpg"
 		}
 	},
 	"aspen": {
@@ -871,6 +1315,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Populus_tremula_bark_Siemianowice.jpg",
 			"file": "File:Populus tremula bark Siemianowice.jpg"
+		},
+		"fruit": {
+			"artist": "Wolfmann",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Aspen_(Populus_tremula)_wind-pollinated_catkins_pollination_shedding_pollen_tiny_seeds_embedded_in_downy_fluff_in_spring_(pappus)_(osp_rakler_fr%C3%B8spredning_med_vind_fra_hunnrakler_om_v%C3%A5ren)_Tj%C3%B8me,_Norway_2019-05-16_DSC02237.jpg",
+			"file": "File:Aspen (Populus tremula) wind-pollinated catkins pollination shedding pollen tiny seeds embedded in downy fluff in spring (pappus) (osp rakler frøspredning med vind fra hunnrakler om våren) Tjøme, Norway 2019-05-16 DSC02237.jpg"
+		},
+		"flower": {
+			"artist": "Szilas",
+			"license": "Public domain",
+			"page": "https://commons.wikimedia.org/wiki/File:Blossoming_populus_tremula_in_Visegr%C3%A1d,_2012-03-20.jpg",
+			"file": "File:Blossoming populus tremula in Visegrád, 2012-03-20.jpg"
 		}
 	},
 	"black-poplar": {
@@ -891,6 +1347,18 @@
 			"license": "CC BY-SA 3.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Populus_nigra_bark.jpg",
 			"file": "File:Populus nigra bark.jpg"
+		},
+		"fruit": {
+			"artist": "David Perez",
+			"license": "CC BY 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Populus_nigra_01_by-dpc.jpg",
+			"file": "File:Populus nigra 01 by-dpc.jpg"
+		},
+		"flower": {
+			"artist": "Stefan.lefnaer",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Populus_nigra_sl19.jpg",
+			"file": "File:Populus nigra sl19.jpg"
 		}
 	},
 	"walnut": {
@@ -911,6 +1379,18 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Bark_of_Juglans_regia_02.jpg",
 			"file": "File:Bark of Juglans regia 02.jpg"
+		},
+		"fruit": {
+			"artist": "Lesless",
+			"license": "CC BY-SA 4.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Juglans_regia_(fruit)_20220715_125421.jpg",
+			"file": "File:Juglans regia (fruit) 20220715 125421.jpg"
+		},
+		"flower": {
+			"artist": "Martin Ehrensberger",
+			"license": "CC0",
+			"page": "https://commons.wikimedia.org/wiki/File:Juglans_regia_(flowers).jpg",
+			"file": "File:Juglans regia (flowers).jpg"
 		}
 	},
 	"box": {
@@ -931,6 +1411,18 @@
 			"license": "CC BY-SA 2.5",
 			"page": "https://commons.wikimedia.org/wiki/File:Boxwood_Buxus_sempervirens_var._arborescens_Bark_2597px.jpg",
 			"file": "File:Boxwood Buxus sempervirens var. arborescens Bark 2597px.jpg"
+		},
+		"flower": {
+			"artist": "Patrick Roper",
+			"license": "CC BY-SA 2.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Flowers_of_box_(Buxus_sempervirens),_Churchland_Lane_-_geograph.org.uk_-_7142055.jpg",
+			"file": "File:Flowers of box (Buxus sempervirens), Churchland Lane - geograph.org.uk - 7142055.jpg"
+		},
+		"fruit": {
+			"artist": "Losch",
+			"license": "CC BY-SA 3.0",
+			"page": "https://commons.wikimedia.org/wiki/File:Samen_des_Buchsbaum_IMG_9569.jpg",
+			"file": "File:Samen des Buchsbaum IMG 9569.jpg"
 		}
 	},
 	"monkey-puzzle": {
@@ -951,6 +1443,12 @@
 			"license": "CC BY-SA 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Bark_of_Araucaria_araucana_(Monkey_Puzzle)_01.jpg",
 			"file": "File:Bark of Araucaria araucana (Monkey Puzzle) 01.jpg"
+		},
+		"fruit": {
+			"artist": "Dcoetzee",
+			"license": "CC0",
+			"page": "https://commons.wikimedia.org/wiki/File:Araucaria_araucana_cones_at_Hulda_Klager_Lilac_Gardens.jpg",
+			"file": "File:Araucaria araucana cones at Hulda Klager Lilac Gardens.jpg"
 		}
 	},
 	"giant-redwood": {
@@ -971,6 +1469,12 @@
 			"license": "CC BY-SA 3.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Bark_of_Sequoiadendron_giganteum_in_Partenit.JPG",
 			"file": "File:Bark of Sequoiadendron giganteum in Partenit.JPG"
+		},
+		"fruit": {
+			"artist": "5snake5",
+			"license": "CC0",
+			"page": "https://commons.wikimedia.org/wiki/File:Sequoiadendron_giganteum_cone_%26_seed.jpg",
+			"file": "File:Sequoiadendron giganteum cone & seed.jpg"
 		}
 	},
 	"cedar-of-lebanon": {
@@ -991,6 +1495,12 @@
 			"license": "CC BY 4.0",
 			"page": "https://commons.wikimedia.org/wiki/File:Cedrus_libani_bark_1.jpg",
 			"file": "File:Cedrus libani bark 1.jpg"
+		},
+		"fruit": {
+			"artist": "Jebulon",
+			"license": "Public domain",
+			"page": "https://commons.wikimedia.org/wiki/File:Cedrus_libani_fruit.jpg",
+			"file": "File:Cedrus libani fruit.jpg"
 		}
 	}
 }

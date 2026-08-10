@@ -23,8 +23,8 @@ you what you have not learned yet, tells you how to tell it apart, and asks you 
 | Surface | What it is |
 |---|---|
 | **Today** | One tree fact, one tree to meet, and the seasonal hunt that is running right now. Deliberately five blocks, not ten. |
-| **Grove** | The whole guide as a deck. Trees you have found are in colour and lead; the ones still to find are the same photographs in grey, named, so you know what you are looking for. |
-| **Identify** | Three offline keys in order of certainty: three questions about the leaf, the bark key for when there are no leaves, and narrowing by where you are standing. If all three fail, instructions for the recogniser already on your phone. |
+| **Grove** | The whole guide as a deck. Trees you have found show their photograph and lead; the ones still to find show a silhouette of the tree's profile with its name, so you know what you are looking for. |
+| **Identify** | Five offline keys — leaf, bark, fruit, flower, and where you are standing — reordered every month so the one that can name the most trees today comes first. If they all fail, instructions for the recogniser already on your phone. |
 | **Quiz** | Eight questions generated from the guide — name a tree from its photograph or bark, or answer on its folklore and science. No timer, no streak, no score kept. |
 | **Learn** | Search all 50 trees by common, Latin or folk name. Species a running hunt is looking for are marked "findable now". |
 
@@ -34,7 +34,13 @@ Seasons is not on the tab bar: its live hunt appears on Today, and the full boar
 A species page leads with **folklore**, because most people arrive browsing rather than identifying;
 everything that exists to identify something links straight to "Spotting it" or "Bark" instead.
 
-### Bark
+### The keys, and the season
+
+The leaf key is useless from November to April, a flower key is dead weight from July to February, and
+bark is there every day of the year. So each species records the months its fruit and flowers can actually
+be found, and Identify sorts its keys by how much of the guide each can reach today, weighted by how
+decisive each is. Bark leads in midwinter, leaves from April to October, fruit rises through the autumn,
+and the flower key simply disappears for the half of the year it would waste your time.
 
 Bark is the half of identification that works between November and April, when the leaf key cannot help.
 Every species carries a bark note and one of six textures — smooth, peeling, banded, ridged, flaking,
@@ -84,8 +90,9 @@ Every bark result is a first pass — review it and pin a replacement in `BARK_P
 
 - **ITF sign-off is outstanding.** Their name, logo and charity number are used on the strength of a family
   connection, not written permission — see [issue #8](https://github.com/ruwhitehead/meet-a-tree/issues/8).
-- **One species has no bark photograph** — Lombardy poplar. Listed in `BARK_PHOTO_MISSING` in
-  `src/lib/content/bark.ts`, with a test that keeps the list honest in both directions.
+- **Lombardy poplar has no bark and no flower photograph**, and never fruits in Britain (it is a male
+  clone). Listed in `BARK_PHOTO_MISSING` and `FLOWER_PHOTO_MISSING`; leylandii and ornamental cherry are in
+  `FRUIT_PHOTO_MISSING` because they genuinely barely fruit. Tests keep all three honest both ways.
 - **Old followed-tree data is cleared on load.** Following was retired; `src/lib/legacy-cleanup.ts` removes
   the records and the photo database it left behind. An export was built first and then dropped, because
   the app is unreleased and the feature was never used by anyone.
