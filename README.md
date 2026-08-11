@@ -7,15 +7,20 @@ of working out which one you are standing under, and a quiz that tests whether i
 Made in support of the [International Tree Foundation](https://internationaltreefoundation.org) —
 registered charity no. 1106269.
 
-**Live:** https://meet-a-tree.vercel.app — the hostname still carries the old name. Renaming the
-Vercel project would change it, and would break the forwarding tombstone and every shared link, so
-it is a separate decision from renaming the app.
+**Live:** https://tree-hunt.vercel.app
 
-Not public yet. The app was called **Meet a Tree** until August 2026; the GitHub Pages address it
-first shipped from, `ruwhitehead.github.io/meet-a-tree`, is retired and forwards here
-(see [issue #9](https://github.com/ruwhitehead/tree-hunt/issues/9)). Renaming the repository moves
-the tombstone that does that forwarding to `/tree-hunt`, so the original address now 404s rather
-than redirecting — acceptable only because nothing public ever pointed at it.
+Not public yet. The app was called **Meet a Tree** until August 2026, and the rename was done before
+launch precisely so that none of the following would cost anything:
+
+- `ruwhitehead.github.io/meet-a-tree` — the GitHub Pages address it first shipped from, which served
+  a tombstone forwarding here (see [issue #9](https://github.com/ruwhitehead/tree-hunt/issues/9)).
+  Renaming the repository moved that tombstone to `/tree-hunt`, so the original address now 404s
+  rather than redirecting.
+- `meet-a-tree.vercel.app` — the old production host. Vercel releases a freed `.vercel.app`
+  subdomain back to the pool and will not redirect it, and a `vercel.app` subdomain cannot be
+  re-attached to a project as a redirect, so this address is simply gone.
+
+Neither was ever public. If the app had launched first, both would have needed to keep working.
 
 ## What it is for
 
@@ -34,7 +39,7 @@ you what you have not learned yet, tells you how to tell it apart, and asks you 
 | **Learn** | Search all 50 trees by common, Latin or folk name. Species a running hunt is looking for are marked "findable now". |
 
 Seasons is not on the tab bar: its live hunt appears on Today, and the full board of six is at
-[`/missions/`](https://meet-a-tree.vercel.app/missions/).
+[`/missions/`](https://tree-hunt.vercel.app/missions/).
 
 A species page leads with **folklore**, because most people arrive browsing rather than identifying;
 everything that exists to identify something links straight to "Spotting it" or "Bark" instead.
