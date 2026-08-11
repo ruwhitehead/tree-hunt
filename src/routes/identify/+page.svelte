@@ -83,12 +83,26 @@
      question a key would have to ask - is that fissure deep, is that berry a
      drupe - is one nobody standing under the tree can answer. -->
 {#snippet photoGrid(list: Species[], organ: 'bark' | 'fruit' | 'flower')}
+	<!-- The width/height attributes must match the FILE, not the box we happen to
+	     want. Bark is exported 400x400 square; fruit and flower are 480x360. They
+	     were all declared 400x400, and because an html height attribute is a
+	     presentational hint that `width: 100%` alone does not override, height
+	     stayed definite at 400px, `aspect-ratio` was ignored, and every card
+	     rendered a 94x400 sliver — a thin vertical crop of the one thing you were
+	     trying to look at. -->
 	<ul class="pgrid">
 		{#each list as sp (sp.id)}
 			<li>
-				<a class="pcard" href="{base}/species/{sp.id}/#{organ}">
+				<a class="pcard" class:wide={organ !== 'bark'} href="{base}/species/{sp.id}/#{organ}">
 					{#if hasPhoto(sp.id, organ)}
-						<img src="{base}/images/species/{sp.id}-{organ}-480.webp" alt="The {organ} of a {sp.name}" width="400" height="400" loading="lazy" decoding="async" />
+						<img
+							src="{base}/images/species/{sp.id}-{organ}-480.webp"
+							alt="The {organ} of a {sp.name}"
+							width={organ === 'bark' ? 400 : 480}
+							height={organ === 'bark' ? 400 : 360}
+							loading="lazy"
+							decoding="async"
+						/>
 					{:else}
 						<span class="nopic">No photo yet</span>
 					{/if}
@@ -335,14 +349,27 @@
 	.pcard:hover {
 		border-color: var(--green);
 	}
+	/* `height: auto` is what makes aspect-ratio govern at all: without it the html
+	   height attribute stays definite and the ratio is silently ignored. */
 	.pcard img,
 	.pcard .nopic {
 		width: 100%;
+		height: auto;
 		aspect-ratio: 1;
 		object-fit: cover;
 		border-radius: 9px;
 		display: block;
 		background: var(--stonewash);
+	}
+	/* Bark stays square because it is a texture sample and the crop costs nothing
+	   (see ARCHITECTURE.md). Fruit and flower are shown at their native 4:3: these
+	   are whole objects with a diagnostic SHAPE — a winged key, a spiny case, a
+	   drooping catkin — and squaring them off cropped a quarter of the width away,
+	   sometimes the end of the very thing being identified. Matching the box to the
+	   file also means cover has nothing left to cut. */
+	.pcard.wide img,
+	.pcard.wide .nopic {
+		aspect-ratio: 4 / 3;
 	}
 	.pcard .nopic {
 		display: grid;

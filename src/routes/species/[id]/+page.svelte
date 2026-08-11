@@ -3,8 +3,22 @@
 	import { goto } from '$app/navigation';
 	import SpeciesPhoto from '$lib/components/SpeciesPhoto.svelte';
 	import { barkLabel, hasBarkPhoto } from '$lib/content/bark';
+	import { fruitLabel, hasOrganPhoto } from '$lib/content/organs';
 	import { grove } from '$lib/grove.svelte';
 	import { shareSpecies } from '$lib/share';
+
+	/** Months the fruit is actually findable, said in words. `months` is 0-11 and
+	 *  may wrap the new year, so this reads the run rather than sorting it. */
+	const MONTHS = [
+		'January', 'February', 'March', 'April', 'May', 'June',
+		'July', 'August', 'September', 'October', 'November', 'December'
+	];
+	const fruitWhen = $derived.by(() => {
+		const m = sp.fruit.months;
+		if (!m?.length) return '';
+		if (m.length >= 12) return 'All year';
+		return m.length === 1 ? MONTHS[m[0]] : `${MONTHS[m[0]]} to ${MONTHS[m[m.length - 1]]}`;
+	});
 
 	let { data } = $props();
 	const sp = $derived(data.species);
@@ -84,6 +98,7 @@
 		<a href="#science">Science</a>
 		<a href="#spotting">Spotting it</a>
 		<a href="#bark">Bark</a>
+		<a href="#fruit">Fruit</a>
 		<a href="#year">Through the year</a>
 	</nav>
 
@@ -143,6 +158,37 @@
 					<p class="nophoto">No bark photograph yet. We would rather show none than one of the wrong tree.</p>
 				{/if}
 				<a class="barklink" href="{base}/identify/#bark">Compare every {barkLabel(sp.bark.texture).toLowerCase()} bark →</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Fruit follows bark for the same reason bark follows the spotting notes: it
+	     is the same question asked of whatever the tree is carrying today. Identify
+	     has had a fruit key with photographs for a while, but the species page —
+	     where you land when you want to be sure — carried the note and no picture,
+	     so the one organ you can pick up and turn over was the one you could not
+	     see. Reuses the bark section's layout, because it is the same shape of
+	     thing: one photograph, a label, a note, a way to compare. -->
+	<section id="fruit" class="section">
+		<h2 class="shead">Fruit, nuts or cones</h2>
+		<div class="barkrow">
+			{#if hasOrganPhoto(sp.id, 'fruit')}
+				<SpeciesPhoto id={sp.id} kind="fruit" alt="The fruit of a {sp.name}" height={190} />
+			{/if}
+			<div class="barktext">
+				<p class="label">{fruitLabel(sp.fruit.kind)}{fruitWhen ? ` · ${fruitWhen}` : ''}</p>
+				<p class="note">{sp.fruit.note}</p>
+				{#if !hasOrganPhoto(sp.id, 'fruit')}
+					<!-- Three species genuinely barely fruit in Britain. That is a fact about
+					     the tree, not a gap in the library, so it is said rather than shown as
+					     an empty frame. -->
+					<p class="nophoto">
+						No fruit photograph — this one barely fruits in Britain, so there is little to show.
+					</p>
+				{/if}
+				<a class="barklink" href="{base}/identify/#fruit">
+					Compare every tree carrying {fruitLabel(sp.fruit.kind).toLowerCase()} →
+				</a>
 			</div>
 		</div>
 	</section>
