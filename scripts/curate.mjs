@@ -4,7 +4,7 @@ import sharp from 'sharp';
 import { mkdirSync, writeFileSync } from 'node:fs';
 const OUT = process.argv[2];
 const IDS = process.argv.slice(3);
-const UA = 'MeetATree/0.1 (https://github.com/ruwhitehead/meet-a-tree)';
+const UA = 'TreeHunt/0.1 (https://github.com/ruwhitehead/tree-hunt)';
 const BAD = /herbarium|map|distribution|range|illustration|drawing|plate|cyclopedia|engraving|damage|miner|disease|dieback|pest|logo|sign|stamp|coin|cross-section|timber|furniture|bonsai|variegat|acronicta|moth|larva|caterpillar|insect|beetle|gall|fungus|seedling|microscop|scale|ruler|bud\b/i;
 const LATIN = {
   'sessile-oak':'Quercus petraea','holm-oak':'Quercus ilex','downy-birch':'Betula pubescens',

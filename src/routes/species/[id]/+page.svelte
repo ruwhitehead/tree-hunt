@@ -27,12 +27,12 @@
 </script>
 
 <svelte:head>
-	<title>{sp.name} ({sp.latin}) · Meet a Tree</title>
+	<title>{sp.name} ({sp.latin}) · Tree Hunt</title>
 	<meta
 		name="description"
 		content="{sp.name} ({sp.latin}) — how to spot it, its folklore and its science. {sp.tell}"
 	/>
-	<meta property="og:title" content="{sp.name} · Meet a Tree" />
+	<meta property="og:title" content="{sp.name} · Tree Hunt" />
 	<meta property="og:description" content={sp.tell} />
 </svelte:head>
 

@@ -1,4 +1,4 @@
-# Meet a Tree 🌿
+# Tree Hunt 🌿
 
 **Learn the trees you already walk past.**
 
@@ -7,10 +7,15 @@ of working out which one you are standing under, and a quiz that tests whether i
 Made in support of the [International Tree Foundation](https://internationaltreefoundation.org) —
 registered charity no. 1106269.
 
-**Live:** https://meet-a-tree.vercel.app
+**Live:** https://meet-a-tree.vercel.app — the hostname still carries the old name. Renaming the
+Vercel project would change it, and would break the forwarding tombstone and every shared link, so
+it is a separate decision from renaming the app.
 
-Not public yet. The old `ruwhitehead.github.io/meet-a-tree` address is retired and forwards here
-(see [issue #9](https://github.com/ruwhitehead/meet-a-tree/issues/9)).
+Not public yet. The app was called **Meet a Tree** until August 2026; the GitHub Pages address it
+first shipped from, `ruwhitehead.github.io/meet-a-tree`, is retired and forwards here
+(see [issue #9](https://github.com/ruwhitehead/tree-hunt/issues/9)). Renaming the repository moves
+the tombstone that does that forwarding to `/tree-hunt`, so the original address now 404s rather
+than redirecting — acceptable only because nothing public ever pointed at it.
 
 ## What it is for
 
@@ -89,7 +94,7 @@ Every bark result is a first pass — review it and pin a replacement in `BARK_P
 ## Honest caveats
 
 - **ITF sign-off is outstanding.** Their name, logo and charity number are used on the strength of a family
-  connection, not written permission — see [issue #8](https://github.com/ruwhitehead/meet-a-tree/issues/8).
+  connection, not written permission — see [issue #8](https://github.com/ruwhitehead/tree-hunt/issues/8).
 - **Lombardy poplar has no bark and no flower photograph**, and never fruits in Britain (it is a male
   clone). Listed in `BARK_PHOTO_MISSING` and `FLOWER_PHOTO_MISSING`; leylandii and ornamental cherry are in
   `FRUIT_PHOTO_MISSING` because they genuinely barely fruit. Tests keep all three honest both ways.
@@ -101,4 +106,4 @@ Every bark result is a first pass — review it and pin a replacement in `BARK_P
 - **`PLANTNET_API_KEY` should be deleted from the Vercel project.** Photo identification is gone and
   nothing reads it.
 - Content lives in `src/lib/content/` as typed data, so new species are reviewable pull requests.
-- "Grove" is the in-app noun for species you have met, and now the name of the tab. The brand is Meet a Tree.
+- "Grove" is the in-app noun for species you have met, and now the name of the tab. The brand is Tree Hunt.

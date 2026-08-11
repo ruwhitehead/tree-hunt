@@ -103,7 +103,7 @@ async function drawCard(head: string, sub: string, eyebrow: string, link: string
 
 	ctx.fillStyle = '#1E1E1E';
 	ctx.font = '700 34px "Inter Tight", Arial';
-	ctx.fillText('Meet a Tree', 80, 928);
+	ctx.fillText('Tree Hunt', 80, 928);
 	ctx.fillStyle = '#5E684F';
 	ctx.font = '400 25px "Inter Tight", Arial';
 	ctx.fillText('in support of', 80, 962);
@@ -140,7 +140,7 @@ async function drawCard(head: string, sub: string, eyebrow: string, link: string
 function present(canvas: HTMLCanvasElement, title: string, text: string, url: string) {
 	canvas.toBlob(async (blob) => {
 		if (!blob) return;
-		const file = new File([blob], 'meet-a-tree.png', { type: 'image/png' });
+		const file = new File([blob], 'tree-hunt.png', { type: 'image/png' });
 		if (navigator.share) {
 			try {
 				if (navigator.canShare?.({ files: [file] })) {
@@ -155,7 +155,7 @@ function present(canvas: HTMLCanvasElement, title: string, text: string, url: st
 		}
 		grove.sharePreview = {
 			url: URL.createObjectURL(blob),
-			filename: 'meet-a-tree.png',
+			filename: 'tree-hunt.png',
 			link: url,
 			text
 		};
@@ -174,7 +174,7 @@ export async function shareSpecies(sp: Species) {
 	);
 	present(
 		c,
-		`${sp.name} · Meet a Tree`,
+		`${sp.name} · Tree Hunt`,
 		`I just met ${article} ${sp.name.toLowerCase()} (${sp.latin}). ${sp.tell}`,
 		link
 	);
@@ -187,12 +187,12 @@ export async function shareApp() {
 	const c = await drawCard(
 		'Can you name the trees on your street?',
 		`A free pocket field guide to ${SPECIES.length} British and Irish trees — folklore, science and how to spot them.`,
-		'Meet a Tree',
+		'Tree Hunt',
 		link
 	);
 	present(
 		c,
-		'Meet a Tree',
+		'Tree Hunt',
 		n
 			? `I can name ${n} ${n === 1 ? 'tree' : 'trees'} now, thanks to this free field guide to British trees.`
 			: 'A free pocket field guide to British and Irish trees — how to spot them, their folklore and their science.',
@@ -211,8 +211,8 @@ export async function shareGrove() {
 	);
 	present(
 		c,
-		'My grove · Meet a Tree',
-		`I can name ${n} ${n === 1 ? 'tree' : 'trees'} now. How many can you? Meet a Tree is a free field guide to British trees.`,
+		'My grove · Tree Hunt',
+		`I can name ${n} ${n === 1 ? 'tree' : 'trees'} now. How many can you? Tree Hunt is a free field guide to British trees.`,
 		link
 	);
 }
@@ -233,7 +233,7 @@ export async function shareMission(title: string, found: number, target: number)
 	);
 	present(
 		c,
-		`${title} · Meet a Tree`,
+		`${title} · Tree Hunt`,
 		done
 			? `I finished ${title} — ${found} species this season. Free field guide to British trees:`
 			: `I'm ${found} of ${target} through ${title}. Free field guide to British trees:`,

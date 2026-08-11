@@ -64,7 +64,7 @@
 
 <!-- desktop: persistent side rail -->
 <div class="rail">
-	<p class="railmark"><TreeMark size={28} />Meet a Tree</p>
+	<p class="railmark"><TreeMark size={28} />Tree Hunt</p>
 	<nav aria-label="Sections">
 		{#each items as item (item.href)}
 			<a
@@ -145,6 +145,9 @@
 			gap: 4px;
 		}
 		/* the same lockup as the top bar, one step up in size for the rail */
+		/* matches the mobile wordmark's treatment one step up, since the rail has
+		   232px to play with and this is the only place the brand appears on
+		   desktop. Tracking eases off with the size, as in TopBar. */
 		.railmark {
 			display: flex;
 			align-items: center;
@@ -152,9 +155,9 @@
 			margin: 0;
 			font-family: var(--display);
 			font-weight: 700;
-			font-size: 13.5px;
+			font-size: 15px;
 			text-transform: uppercase;
-			letter-spacing: 0.14em;
+			letter-spacing: 0.12em;
 			color: var(--deep);
 		}
 		.rail-btn {

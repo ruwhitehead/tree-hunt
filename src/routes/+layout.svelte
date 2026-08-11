@@ -42,9 +42,9 @@
 	<!-- Link previews had no Open Graph data at all, so a shared link unfurled
 	     with no picture and whatever text the platform guessed. Page-level tags
 	     override these where they say something more specific. -->
-	<meta property="og:site_name" content="Meet a Tree" />
+	<meta property="og:site_name" content="Tree Hunt" />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Meet a Tree" />
+	<meta property="og:title" content="Tree Hunt" />
 	<meta
 		property="og:description"
 		content="A free pocket field guide to {SPECIES.length} trees of Britain and Ireland — how to spot them, their folklore and their science. In support of the International Tree Foundation."

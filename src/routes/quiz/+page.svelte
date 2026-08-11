@@ -64,7 +64,7 @@
 </script>
 
 <svelte:head>
-	<title>Quiz · Meet a Tree</title>
+	<title>Quiz · Tree Hunt</title>
 	<meta
 		name="description"
 		content="Test yourself on {SPECIES.length} British and Irish trees — name them from photographs and bark, or on their folklore and science."

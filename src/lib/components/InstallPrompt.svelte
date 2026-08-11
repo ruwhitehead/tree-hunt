@@ -56,7 +56,7 @@
 			     of what lands on the home screen, so it must not be able to drift -->
 			<img class="icon" src="{base}/icons/icon-192.png" alt="" width="40" height="40" />
 			<div class="copy">
-				<p class="t" id="install-title">Add Meet a Tree to your home screen</p>
+				<p class="t" id="install-title">Add Tree Hunt to your home screen</p>
 				<p class="b">{reason}</p>
 			</div>
 		</div>

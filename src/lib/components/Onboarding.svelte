@@ -24,7 +24,7 @@
 
 	const screens = [
 		{
-			eyebrow: 'Meet a Tree',
+			eyebrow: 'Tree Hunt',
 			title: 'Learn the trees you already walk past',
 			body: `A field guide to ${SPECIES.length} British and Irish trees — how to spot each one, the stories people told about it, and the science underneath. Free, no ads, works with no signal.`
 		},

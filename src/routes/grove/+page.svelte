@@ -32,7 +32,7 @@
 </script>
 
 <svelte:head>
-	<title>My Grove · Meet a Tree</title>
+	<title>My Grove · Tree Hunt</title>
 	<meta
 		name="description"
 		content="The trees you have met, and the ones still to find — a field guide to {SPECIES.length} British and Irish trees that keeps track of what you know."

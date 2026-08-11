@@ -21,7 +21,7 @@ import sharp from 'sharp';
 import { SPECIES_SOURCES } from './species-list.mjs';
 import { mkdirSync, writeFileSync, existsSync, readFileSync } from 'node:fs';
 
-const UA = 'MeetATree/0.1 (https://github.com/ruwhitehead/meet-a-tree; tree companion PWA)';
+const UA = 'TreeHunt/0.1 (https://github.com/ruwhitehead/tree-hunt; tree companion PWA)';
 
 /** Curated by eye. Anything listed here wins over the search.
  *

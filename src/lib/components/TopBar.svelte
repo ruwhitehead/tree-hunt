@@ -21,9 +21,9 @@
 <div class="topbar">
 	<a class="brand" href="{base}/">
 		<TreeMark size={26} />
-		<span class="name">Meet a Tree</span>
+		<span class="name">Tree Hunt</span>
 	</a>
-	<button class="sharebtn" onclick={share} aria-label="Share Meet a Tree">
+	<button class="sharebtn" onclick={share} aria-label="Share Tree Hunt">
 		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
 			<circle cx="18" cy="5" r="2.6" /><circle cx="6" cy="12" r="2.6" /><circle cx="18" cy="19" r="2.6" />
 			<path d="M8.3 10.7l7.4-4.3M8.3 13.3l7.4 4.3" />
@@ -56,13 +56,18 @@
 	}
 	/* Tracked capitals rather than the page title's face at a smaller size: set
 	   the same way, the wordmark reads as a lesser heading and the app name goes
-	   unnoticed. Caslon also takes a bold cut far better in caps than lowercase. */
+	   unnoticed. Caslon also takes a bold cut far better in caps than lowercase.
+	   TREE HUNT is two characters shorter than MEET A TREE was, which bought the
+	   room to set it at 14px: at 12px it measured ~100px wide, at 14px it is
+	   still narrower than that, so the lockup grew in size without growing in
+	   width. Tracking eases off as the size goes up — 0.14em is generous for
+	   14px caps, where the counters are already open enough to separate. */
 	.name {
 		font-family: var(--display);
 		font-weight: 700;
-		font-size: 12px;
+		font-size: 14px;
 		text-transform: uppercase;
-		letter-spacing: 0.14em;
+		letter-spacing: 0.12em;
 	}
 	.sharebtn {
 		display: inline-flex;

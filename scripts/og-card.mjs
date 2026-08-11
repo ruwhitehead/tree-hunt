@@ -21,7 +21,7 @@ const svg = `<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
   </defs>
   <rect width="${W}" height="${H}" fill="url(#fade)"/>
   <rect x="0" y="${H - 8}" width="${W}" height="8" fill="#167E3C"/>
-  <text x="72" y="330" font-family="Georgia, serif" font-size="76" fill="#FBFAF7">Meet a Tree</text>
+  <text x="72" y="330" font-family="Georgia, serif" font-size="76" fill="#FBFAF7">Tree Hunt</text>
   <text x="72" y="392" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#DDE6D6">
     A free field guide to the trees of Britain and Ireland
   </text>

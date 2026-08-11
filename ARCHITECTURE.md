@@ -1,6 +1,6 @@
 # Architecture
 
-How Meet a Tree is put together, and why. Written to be read by someone picking the project up cold.
+How Tree Hunt is put together, and why. Written to be read by someone picking the project up cold.
 
 ## Shape
 
@@ -47,10 +47,15 @@ sync — a deliberate constraint that shapes the whole design (see DESIGN.md).
 | `mat-seen-intro` | onboarding shown |
 | `mat-install-dismissed` | legacy flag, migrated to one snooze on first read |
 
+The `mat-` prefix is short for the app's first name, Meet a Tree. It survives the rename to Tree Hunt
+deliberately: renaming these keys would silently reset every existing install's grove, intro state and
+install nudging, which is a real cost for no user-visible gain.
+
 ### Legacy data, and why it is gone
 
 Following a tree through the year stored dated observations in `mat-trees-v1` and photographs as blobs in
-IndexedDB `meet-a-tree` / `photos`. Retiring it briefly shipped an export, on the principle that you do not
+IndexedDB `meet-a-tree` / `photos` (the database keeps the old app name, because that is the name it was
+created under and the cleanup has to find it). Retiring it briefly shipped an export, on the principle that you do not
 delete what people made. With the app still unreleased and the feature unused, the owner's call was that
 nobody had made anything: the offer was noise, and the leftovers were orphaned megabytes in strangers'
 browsers with no code left that could read them.
@@ -154,7 +159,7 @@ therefore testable. The date is passed in rather than read from the clock for th
 
 ## Service worker
 
-`src/service-worker.ts`, one cache per build (`meet-a-tree-${version}`), precaching the shell, every
+`src/service-worker.ts`, one cache per build (`tree-hunt-${version}`), precaching the shell, every
 prerendered page and every image — the whole guide works in a wood with no signal.
 
 **Navigations are network-first**, falling back to cache only when the network fails. This is not
@@ -193,11 +198,11 @@ host — `page.url.origin` resolves to SvelteKit's internal prerender host and s
 ## Known gaps
 
 1. **No backup or sync** — a grove is a list of species ids in one browser, and clearing site data loses
-   it ([#1](https://github.com/ruwhitehead/meet-a-tree/issues/1)). Much smaller than it was: what is at
+   it ([#1](https://github.com/ruwhitehead/tree-hunt/issues/1)). Much smaller than it was: what is at
    risk is now rebuildable on a walk rather than irreplaceable photographs.
 2. **`PLANTNET_API_KEY` should be deleted from the Vercel project.** Nothing reads it
-   ([#2](https://github.com/ruwhitehead/meet-a-tree/issues/2) is closed by removal, not by configuration).
+   ([#2](https://github.com/ruwhitehead/tree-hunt/issues/2) is closed by removal, not by configuration).
 3. **Bark magnification is uncontrolled** across the 49 photographs, and Lombardy poplar has none — the
    largest remaining content debt. `BARK_PINS` in `scripts/fetch-bark-images.mjs` is where fixes go.
-4. **No push notifications**, so nothing recalls a lapsed user ([#7](https://github.com/ruwhitehead/meet-a-tree/issues/7)).
-5. **Region packs** would be the first step towards working outside Britain and Ireland ([#11](https://github.com/ruwhitehead/meet-a-tree/issues/11)).
+4. **No push notifications**, so nothing recalls a lapsed user ([#7](https://github.com/ruwhitehead/tree-hunt/issues/7)).
+5. **Region packs** would be the first step towards working outside Britain and Ireland ([#11](https://github.com/ruwhitehead/tree-hunt/issues/11)).

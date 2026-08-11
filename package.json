@@ -1,9 +1,9 @@
 {
-  "name": "meet-a-tree",
+  "name": "tree-hunt",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Meet a Tree — a free tree companion PWA in support of the International Tree Foundation",
+  "description": "Tree Hunt — a free tree companion PWA in support of the International Tree Foundation",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",

@@ -1,7 +1,7 @@
 {
-	"name": "Meet a Tree \u2014 the trees near you, by name",
-	"short_name": "Meet a Tree",
-	"description": "A free pocket field guide to 40 trees of Britain and Ireland \u2014 how to spot them, their folklore and their science. In support of the International Tree Foundation.",
+	"name": "Tree Hunt \u2014 the trees near you, by name",
+	"short_name": "Tree Hunt",
+	"description": "A free pocket field guide to 50 trees of Britain and Ireland \u2014 how to spot them, their folklore and their science. In support of the International Tree Foundation.",
 	"start_url": "./",
 	"scope": "./",
 	"display": "standalone",

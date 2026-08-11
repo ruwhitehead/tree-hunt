@@ -37,7 +37,7 @@
 	</h2>
 
 	<p class="body">
-		Meet a Tree costs nothing and never will. The International Tree Foundation has been planting
+		Tree Hunt costs nothing and never will. The International Tree Foundation has been planting
 		with communities since 1922 — in West Pokot, Dundori and Mutaluni, and here in Britain and
 		Ireland.
 	</p>

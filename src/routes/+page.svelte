@@ -43,7 +43,7 @@
 </script>
 
 <svelte:head>
-	<title>Meet a Tree — the trees near you, by name</title>
+	<title>Tree Hunt — the trees near you, by name</title>
 	<meta
 		name="description"
 		content="A free pocket field guide to {SPECIES.length} British and Irish trees — how to spot them, their folklore and their science. In support of the International Tree Foundation."
@@ -147,7 +147,7 @@
 			loading="lazy"
 		/>
 		<span class="itftext">
-			<strong>Meet a Tree is made in support of the International Tree Foundation</strong>
+			<strong>Tree Hunt is made in support of the International Tree Foundation</strong>
 			Registered charity no. 1106269. Free forever · no ads · your trees stay on your phone. Tap the
 			logo to visit them ↗
 		</span>

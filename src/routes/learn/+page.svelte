@@ -15,7 +15,7 @@
 </script>
 
 <svelte:head>
-	<title>Learn · Meet a Tree</title>
+	<title>Learn · Tree Hunt</title>
 	<meta name="description" content="Search the field guide: {SPECIES.length} trees of Britain and Ireland, each with how to spot it, its folklore and its science." />
 </svelte:head>
 

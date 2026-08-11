@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<title>My Grove · Meet a Tree</title>
+	<title>My Grove · Tree Hunt</title>
 	<!-- the no-JS fallback, and a note to search engines that this is not the page -->
 	<meta http-equiv="refresh" content="0; url={to}" />
 	<meta name="robots" content="noindex" />

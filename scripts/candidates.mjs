@@ -3,7 +3,7 @@
 import sharp from 'sharp';
 import { mkdirSync, writeFileSync } from 'node:fs';
 
-const UA = 'MeetATree/0.1 (https://github.com/ruwhitehead/meet-a-tree)';
+const UA = 'TreeHunt/0.1 (https://github.com/ruwhitehead/tree-hunt)';
 const OUT = process.argv[2] || 'C:/temp/cand';
 const BAD =
 	/herbarium|map|distribution|range|illustration|drawing|plate|cyclopedia|engraving|damage|miner|disease|dieback|pest|logo|sign|stamp|coin|cross-section|timber|furniture|bonsai|asplenifolia|fastigiata|purpurea|weeping|variegat|aurea|briot|nisbet|gold|seedling|sapling|bud|winter/i;

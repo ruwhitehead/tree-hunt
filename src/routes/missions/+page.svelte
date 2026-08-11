@@ -27,7 +27,7 @@
 </script>
 
 <svelte:head>
-	<title>Seasons · Meet a Tree</title>
+	<title>Seasons · Tree Hunt</title>
 	<meta
 		name="description"
 		content="Time-boxed seasonal hunts — Blossom Watch, Conker Hunt, Autumn Colours, Midwinter Evergreens — using the trees you meet."

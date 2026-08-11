@@ -15,6 +15,9 @@ import { browser } from '$app/environment';
  * behind in place of the ones being cleared. `deleteDatabase` only stalls on an
  * open connection, and nothing opens this one any more.
  */
+// Both names predate the rename to Tree Hunt and must keep the old spelling:
+// these identify what is already sitting in a browser, and the cleanup can only
+// delete what it can name.
 const RECORDS_KEY = 'mat-trees-v1';
 const PHOTO_DB = 'meet-a-tree';
 

@@ -66,7 +66,7 @@
 </script>
 
 <svelte:head>
-	<title>Identify a tree · Meet a Tree</title>
+	<title>Identify a tree · Tree Hunt</title>
 </svelte:head>
 
 {#snippet backTo(label: string, reset: () => void)}

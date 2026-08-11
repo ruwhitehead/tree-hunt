@@ -3,7 +3,7 @@
 import { build, files, prerendered, version } from '$service-worker';
 
 const sw = self as unknown as ServiceWorkerGlobalScope;
-const CACHE = `meet-a-tree-${version}`;
+const CACHE = `tree-hunt-${version}`;
 // the entire app shell + every prerendered page (the whole field guide) works offline
 const ASSETS = [...build, ...files, ...prerendered];
 
