@@ -18,6 +18,20 @@
 		<link rel="preload" href="%sveltekit.assets%/fonts/libre-caslon-text-400-italic.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="icon" href="%sveltekit.assets%/icons/icon-192.png" />
 		<link rel="apple-touch-icon" href="%sveltekit.assets%/icons/apple-touch-icon.png" />
+		<!-- Catch `beforeinstallprompt` before the app exists.
+		     Chrome fires it as soon as it decides the page is installable, which can
+		     be before SvelteKit has hydrated and attached its own listener. Miss it
+		     and there is no way to ask for it again: the event is not replayed, so
+		     Android quietly falls back to "open the three-dot menu" instructions
+		     when a one-tap system install was available the whole time. Stash it
+		     here and let the store adopt it on init. -->
+		<script>
+			window.__installEvent = null;
+			window.addEventListener('beforeinstallprompt', function (e) {
+				e.preventDefault();
+				window.__installEvent = e;
+			});
+		</script>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

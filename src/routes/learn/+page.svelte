@@ -3,6 +3,18 @@
 	import { SPECIES, searchSpecies } from '$lib/content/species';
 	import { missionsFor } from '$lib/content/missions';
 	import { seasonOfMonth } from '$lib/season';
+	import { install } from '$lib/install.svelte';
+	import HowToInstall from '$lib/components/HowToInstall.svelte';
+
+	/** The permanent route to the how-to.
+	 *
+	 *  Everywhere else it is offered, it can be snoozed away — three refusals and
+	 *  the install bar never returns, by design. That left no way at all to find
+	 *  out how to add the app afterwards, including for someone who said "not now"
+	 *  three times in March and wants it in October. This asks nothing and is
+	 *  simply always here, hidden only once the app is actually installed. */
+	let howToOpen = $state(false);
+	const showHowTo = $derived(!install.installed && !install.platform.standalone);
 
 	let q = $state('');
 	const results = $derived(searchSpecies(q));
@@ -27,6 +39,22 @@
 	<p class="scope">The trees of <strong>Britain and Ireland</strong> — natives, long-established introductions, and the ones you actually meet on a street or a hillside.</p>
 
 	<a class="seasonlink" href="{base}/missions/">Seasonal hunts — what to look for right now →</a>
+
+	{#if showHowTo}
+		<div class="card stonebg homescreen">
+			<button class="hstoggle" onclick={() => (howToOpen = !howToOpen)} aria-expanded={howToOpen}>
+				<img src="{base}/icons/icon-192.png" alt="" width="32" height="32" />
+				<span class="hscopy">
+					<span class="hst">Put Tree Hunt on your home screen</span>
+					<span class="hsb">Opens like an app, works with no signal</span>
+				</span>
+				<span class="chev" aria-hidden="true">{howToOpen ? '−' : '+'}</span>
+			</button>
+			{#if howToOpen}
+				<div class="hssteps"><HowToInstall /></div>
+			{/if}
+		</div>
+	{/if}
 
 	<search>
 		<label class="searchbox">
@@ -84,6 +112,48 @@
 </main>
 
 <style>
+	.homescreen {
+		padding: 0;
+		overflow: hidden;
+	}
+	.hstoggle {
+		display: flex;
+		align-items: center;
+		gap: 11px;
+		width: 100%;
+		padding: 12px 14px;
+		min-height: 44px;
+	}
+	.hstoggle img {
+		width: 32px;
+		height: 32px;
+		display: block;
+		flex: none;
+	}
+	.hscopy {
+		min-width: 0;
+		flex: 1;
+	}
+	.hst {
+		display: block;
+		font-size: var(--text-md);
+		font-weight: 700;
+		color: var(--ink);
+	}
+	.hsb {
+		display: block;
+		font-size: var(--text-sm);
+		color: var(--soft);
+	}
+	.hstoggle .chev {
+		font-size: var(--text-2xl);
+		color: var(--deep);
+		line-height: 1;
+		flex: none;
+	}
+	.hssteps {
+		padding: 0 14px 14px 4px;
+	}
 	.seasonlink {
 		font-size: var(--text-md);
 		font-weight: 700;

@@ -54,6 +54,26 @@ function load(): Persisted {
 	}
 }
 
+/** The shape of the browser's own install event, as much of it as we use. */
+interface BeforeInstallPromptLike {
+	prompt: () => Promise<void>;
+	userChoice: Promise<{ outcome: string }>;
+}
+
+/** Normalise whatever app.html stashed into the store's own shape.
+ *
+ *  Pure, and takes the window as an argument, for the same reason shouldPrompt
+ *  is pure: it can then be tested without a browser. Returns null for anything
+ *  that is not a usable install event, so a stale or half-set global cannot make
+ *  the UI offer a one-tap install that does nothing. */
+export function adoptPrompt(
+	win: { __installEvent?: unknown } | undefined
+): { prompt: () => Promise<void>; userChoice: Promise<{ outcome: string }> } | null {
+	const e = win?.__installEvent as BeforeInstallPromptLike | undefined | null;
+	if (!e || typeof e.prompt !== 'function' || !e.userChoice) return null;
+	return { prompt: () => e.prompt(), userChoice: e.userChoice };
+}
+
 export interface Platform {
 	standalone: boolean;
 	ios: boolean;
@@ -118,6 +138,20 @@ class Install {
 		this.installed = p.installed || this.platform.standalone;
 		this.visits = p.lastVisit === today() ? p.visits : p.visits + 1;
 		this.save(p.lastVisit === today() ? p.lastVisit : today());
+		this.adoptEarlyPrompt();
+	}
+
+	/** Adopt an install event caught by the inline script in app.html.
+	 *
+	 *  Chrome can fire `beforeinstallprompt` before hydration, and it is never
+	 *  replayed — so a listener attached by a component is a race the component
+	 *  can lose, silently costing Android the one-tap install. app.html catches it
+	 *  on `window.__installEvent`; this picks it up. The component listener stays
+	 *  as well, for the ordinary case where the event arrives later. */
+	private adoptEarlyPrompt() {
+		if (!browser) return;
+		const adopted = adoptPrompt(window as unknown as { __installEvent?: unknown });
+		if (adopted) this.prompt = adopted;
 	}
 
 	save(lastVisit = today()) {

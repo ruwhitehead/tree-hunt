@@ -308,6 +308,10 @@ main.view {
 	outline: 3px solid var(--ink);
 	outline-offset: 3px;
 }
+.btn:disabled {
+	opacity: 0.65;
+	cursor: default;
+}
 .pill {
 	transition: transform 0.12s ease;
 }

@@ -70,13 +70,37 @@ Svelte 5 runes classes, one per concern, each loading from and saving to its own
 
 - `grove.svelte.ts` — species met, CO₂ tally, milestone modal, toasts
 - `install.svelte.ts` — install nudging; the decision is a pure `shouldPrompt()` so it can be tested
-  without a phone
+  without a phone, and `adoptPrompt()` is pure for the same reason
 - `missions.svelte.ts` — mission progress, **derived** from dated grove finds rather than stored, so a board can never disagree with your grove. It matches on the record's *date* falling inside
   the window, which is why `grove.finds` keeps every sighting rather than one row per species, and why
   `speciesCount` reads through a `Set`
 
 `deckOrder()` in `grove.svelte.ts` is pure and takes its lookup as an argument, so the deck's found-first
 ordering is tested without a browser. `platform.ts` is the same shape for device detection.
+
+## Getting onto the home screen
+
+The app is only worth installing, and a field guide you cannot find is no use. Three surfaces share one
+component, `HowToInstall.svelte`, so the instructions cannot drift apart:
+
+| Surface | When | Asks? |
+|---|---|---|
+| Onboarding, final screen | first run, unless already installed | teaches; only offers the native tap where one exists |
+| `InstallPrompt.svelte` bar | first species added, or second visit | yes — this is the real ask |
+| Learn, collapsible row | always, until installed | no |
+
+Two constraints shape all of it. **iOS has no programmatic install** — `beforeinstallprompt` is
+Chromium-only, so on iPhone instructions are the only mechanism that exists, and in a non-Safari iOS
+browser it cannot be done at all (`iosOtherBrowser`). **A refused Chrome prompt costs about three
+months**, since Chrome then suppresses it and the deferred event is single-use. So the onboarding step
+deliberately does *not* call `prompt()` or record a snooze: spending either on someone who has not yet
+named a tree trades a cheap well-timed yes for an expensive no. The real ask waits for
+`install.celebrate()`, fired by `grove.addFind()`.
+
+`beforeinstallprompt` can fire before hydration and is never replayed, so an inline script in
+`app.html` stashes it on `window.__installEvent` and `adoptPrompt()` picks it up. Without that, Android
+silently loses the one-tap install and falls back to reading menu instructions — a failure with no
+error message, which is why it is pinned by a test.
 
 ## Content
 

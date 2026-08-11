@@ -3,12 +3,17 @@
 	import { install } from '$lib/install.svelte';
 	import { grove } from '$lib/grove.svelte';
 	import { SPECIES } from '$lib/content/species';
+	import HowToInstall from '$lib/components/HowToInstall.svelte';
 
 	/** Sits in the page flow directly under the top bar, on every screen — a
-	 *  floating bar would cover content and fail the touch-target audit. */
-	let steps = $state(false);
-
-	const p = install.platform;
+	 *  floating bar would cover content and fail the touch-target audit.
+	 *
+	 *  The steps used to hide behind a "How to add it" tap. On iPhone that tap was
+	 *  the only route to the only method that exists, which made the instructions
+	 *  a secret: two taps to learn something we could simply have said. Where the
+	 *  browser gives us no install event, the steps now show immediately and the
+	 *  button is just "it's added". */
+	const canPromptNatively = $derived(install.prompt !== null);
 
 	// Copy earns its keep by naming what the user already has to lose.
 	const reason = $derived(
@@ -18,15 +23,12 @@
 	);
 
 	async function act() {
-		if (install.prompt) {
-			await install.prompt.prompt();
-			const choice = await install.prompt.userChoice.catch(() => null);
-			install.prompt = null;
-			if (choice?.outcome === 'accepted') install.markInstalled();
-			else install.snooze();
-			return;
-		}
-		steps = true;
+		if (!install.prompt) return;
+		await install.prompt.prompt();
+		const choice = await install.prompt.userChoice.catch(() => null);
+		install.prompt = null;
+		if (choice?.outcome === 'accepted') install.markInstalled();
+		else install.snooze();
 	}
 
 	interface BeforeInstallPromptEvent extends Event {
@@ -61,38 +63,16 @@
 			</div>
 		</div>
 
-		{#if steps}
-			{#if p.ios}
-				<ol class="steps">
-					{#if p.iosOtherBrowser}
-						<li>Open this page in <strong>Safari</strong> — on iPhone only Safari can do this.</li>
-					{/if}
-					<li>
-						Tap
-						<span class="glyph" aria-hidden="true">
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 16V4" /><path d="M8 8l4-4 4 4" /><rect x="4" y="12" width="16" height="9" rx="2" /></svg>
-						</span>
-						<strong>Share</strong>, in the bar at the bottom of Safari.
-					</li>
-					<li>Scroll the list and tap <strong>Add to Home Screen</strong>.</li>
-					<li>Tap <strong>Add</strong>. Look for the green tree.</li>
-				</ol>
-			{:else}
-				<ol class="steps">
-					<li>Tap the <strong>⋮</strong> menu, top right of Chrome.</li>
-					<li>Tap <strong>Add to Home screen</strong> (or <strong>Install app</strong>).</li>
-					<li>Confirm <strong>Install</strong>. Look for the green tree.</li>
-				</ol>
-			{/if}
+		{#if canPromptNatively}
+			<!-- One tap to the real system sheet: instructions would be noise. -->
 			<div class="row">
-				<button class="btn small" onclick={() => install.markInstalled()}>Done — it's added</button>
-				<button class="btn ghost small" onclick={() => install.snooze()}>Close</button>
+				<button class="btn small" onclick={act}>Install</button>
+				<button class="btn ghost small" onclick={() => install.snooze()}>Not now</button>
 			</div>
 		{:else}
+			<HowToInstall />
 			<div class="row">
-				<button class="btn small" onclick={act}>
-					{install.prompt ? 'Install' : p.ios ? 'How to add it' : 'Add it'}
-				</button>
+				<button class="btn small" onclick={() => install.markInstalled()}>Done — it's added</button>
 				<button class="btn ghost small" onclick={() => install.snooze()}>Not now</button>
 			</div>
 		{/if}
@@ -136,32 +116,6 @@
 		margin: 3px 0 0;
 		font-size: var(--text-sm);
 		color: var(--soft);
-	}
-	.steps {
-		margin: 0;
-		padding-left: 20px;
-		font-size: var(--text-md);
-		color: var(--soft);
-		display: flex;
-		flex-direction: column;
-		gap: 7px;
-	}
-	.steps strong {
-		color: var(--ink);
-	}
-	.glyph {
-		display: inline-grid;
-		place-items: center;
-		width: 22px;
-		height: 22px;
-		border-radius: 5px;
-		background: var(--wash);
-		color: var(--deep);
-		vertical-align: -5px;
-	}
-	.glyph svg {
-		width: 14px;
-		height: 14px;
 	}
 	@media (min-width: 900px) {
 		.bar {
