@@ -47,6 +47,14 @@ class Grove {
 	 *  moment worth marking, and reopening the app later is not that moment. */
 	justFound = $state<string | null>(null);
 	toastMsg = $state<string | null>(null);
+	/** The richer form of the toast, for the one message that is a WIN rather than a
+	 *  notification. The deck's card coming into colour is the better celebration,
+	 *  but it is 280px below the fold when you arrive and can be missed entirely —
+	 *  measured. The toast is the only surface guaranteed to be seen on every find,
+	 *  so the find itself rides on it: the tree's own photograph, its name, and the
+	 *  only number that is an achievement rather than a chore. No denominator: "12
+	 *  trees you can name" is a fact about you, "12 of 50" is a to-do list. */
+	toastFind = $state<{ id: string; name: string; count: number } | null>(null);
 	sharePreview = $state<{
 		url: string;
 		filename: string;
@@ -118,7 +126,7 @@ class Grove {
 			this.pendingMilestone = count;
 		}
 		this.save();
-		this.toast(`${sp.name} added to your Grove 🌿`);
+		this.toast(`${sp.name} added to your Grove 🌿`, { id: sp.id, name: sp.name, count });
 		install.celebrate();
 	}
 
@@ -141,7 +149,13 @@ class Grove {
 			}
 		}
 		this.save();
-		this.toast(seen ? `${sp.name} — seen again today 🌿` : `${sp.name} added to your Grove 🌿`);
+		// Only a NEW species is a win. Seeing one again is worth recording — a hunt
+		// counts dated sightings — but it is not a discovery, and dressing it up as
+		// one would cheapen the moment that is.
+		this.toast(
+			seen ? `${sp.name} — seen again today 🌿` : `${sp.name} added to your Grove 🌿`,
+			seen ? undefined : { id: sp.id, name: sp.name, count: this.speciesCount }
+		);
 		install.celebrate();
 	}
 
@@ -152,10 +166,17 @@ class Grove {
 		this.toast(`${sp?.name ?? 'Tree'} removed from your grove`);
 	}
 
-	toast(msg: string) {
+	/** `find` promotes this from a notification to a celebration. It also earns a
+	 *  longer dwell: there is more to read, and a win read at notification speed is
+	 *  not a win. */
+	toast(msg: string, find?: { id: string; name: string; count: number }) {
 		this.toastMsg = msg;
+		this.toastFind = find ?? null;
 		clearTimeout(this.#toastTimer);
-		this.#toastTimer = setTimeout(() => (this.toastMsg = null), 2600);
+		this.#toastTimer = setTimeout(() => {
+			this.toastMsg = null;
+			this.toastFind = null;
+		}, find ? 3600 : 2600);
 	}
 }
 

@@ -29,6 +29,64 @@
 		grove.justFound = null;
 	});
 
+	/** Bring the earned card to the reader, then let it come into colour.
+	 *
+	 *  Measured before this existed: the card lands 280px BELOW the fold on arrival,
+	 *  and its animation was firing at 0ms while off-screen — so the one celebration
+	 *  the app had was played to nobody, every single time, and finding a tree felt
+	 *  like filing a form.
+	 *
+	 *  Two steps, deliberately separate. Scroll the card into the middle of the
+	 *  view; then start the animation only once it is genuinely on screen, via an
+	 *  observer rather than a guessed delay, because smooth-scroll duration is not
+	 *  knowable and a timer would sometimes lose the race again. If the observer is
+	 *  unavailable we simply play immediately: a celebration seen slightly early
+	 *  beats one never seen. */
+	let playing = $state(false);
+
+	$effect(() => {
+		if (!justFound || typeof window === 'undefined') return;
+		const el = document.querySelector('.spcard.justfound');
+		if (!el) return;
+
+		const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
+
+		// The observer is the good path: it starts the animation the moment the card
+		// is genuinely on screen, however long the scroll took. The timer is the
+		// honest one. IntersectionObserver and smooth scrolling both ride the
+		// rendering pipeline, and there are real conditions where neither runs — a
+		// backgrounded tab, a browser that never animates the scroll. Without a
+		// fallback the celebration would then never play at all, which is worse than
+		// the bug being fixed. Whichever wins, it plays exactly once.
+		let done = false;
+		const start = () => {
+			if (done) return;
+			done = true;
+			playing = true;
+		};
+
+		const io =
+			typeof IntersectionObserver === 'undefined'
+				? null
+				: new IntersectionObserver(
+						(entries) => {
+							if (entries.some((e) => e.isIntersecting)) {
+								start();
+								io?.disconnect();
+							}
+						},
+						{ threshold: 0.6 }
+					);
+		io?.observe(el);
+		// long enough for a smooth scroll to land, short enough not to feel detached
+		const fallback = setTimeout(start, 900);
+
+		return () => {
+			clearTimeout(fallback);
+			io?.disconnect();
+		};
+	});
 </script>
 
 <svelte:head>
@@ -55,13 +113,32 @@
      and it is readable in winter. And the unfound half of the deck — usually
      most of it — now costs no image requests at all. -->
 {#snippet deckcard(sp: Species, has: boolean)}
-	<a class="spcard" class:tofind={!has} class:justfound={has && sp.id === justFound} href="{base}/species/{sp.id}/">
+	<a
+		class="spcard"
+		class:tofind={!has}
+		class:justfound={has && sp.id === justFound}
+		class:playing={playing && has && sp.id === justFound}
+		href="{base}/species/{sp.id}/"
+	>
 		<span class="pic sq">
 			{#if has}
 				<img src="{base}/images/species/{sp.id}-thumb.webp" alt="" width="120" height="120" loading="lazy" decoding="async" />
 				<span class="tick" aria-hidden="true">
 					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
 				</span>
+				{#if sp.id === justFound}
+					<!-- The card's own previous state, held on top until it dissolves. This is
+					     what makes it a transformation rather than a fade-in: a second ago this
+					     species WAS this silhouette, and the photograph arrives out of its own
+					     outline. Found and unfound are separate branches, so without keeping
+					     the shape here the card is simply rebuilt with nothing to morph from.
+
+					     Rendered LAST so it covers the tick as well as the photo. The tick
+					     means "found", so it belongs to the after state and should be revealed
+					     with the photograph, not sitting on the silhouette announcing the
+					     answer early. -->
+					<span class="ghost" aria-hidden="true"><CrownShape shape={sp.crown} /></span>
+				{/if}
 			{:else}
 				<CrownShape shape={sp.crown} />
 			{/if}
@@ -204,24 +281,64 @@
 		place-items: center;
 	}
 	/* The one moment the app still has to give, now that the camera and the tree
-	   timeline have gone: the card you just earned arrives as a photograph. A CSS
-	   transition cannot do this — found and unfound are separate blocks, so the
-	   card is rebuilt rather than restyled — hence a one-shot animation.
+	   timeline have gone: the card you just earned arrives as a photograph.
+
+	   Everything below is gated on `.playing`, not `.justfound`, because the card
+	   starts life 280px below the fold. It used to animate on render, off-screen,
+	   finishing before anyone could scroll to it — the celebration existed and was
+	   never once seen. The page now scrolls the card into view and an observer
+	   starts this when it is actually being looked at.
 
 	   No fill mode: once it ends the resting styles are already right, and a
 	   `forwards` fill would pin the transform and kill the card's press state. */
-	.spcard.justfound {
+	.spcard.playing {
 		animation: pop 520ms ease;
 	}
-	.spcard.justfound .pic.sq img {
-		animation: intocolour 900ms ease;
+	/* The silhouette holds the frame, then gives way. Opaque by DEFAULT, not
+	   transparent: the card has to look unfound until the moment it is revealed, and
+	   starting at zero made the silhouette flash into view before dissolving, which
+	   read as a glitch rather than a reveal. `forwards` keeps it gone afterwards.
+
+	   It only ever renders for the one just-found card, and only when JS is running
+	   — `justFound` is client state set by a tap — so there is no no-JS path where
+	   this could strand a photograph behind a permanent slab. */
+	.ghost {
+		position: absolute;
+		inset: 0;
+		display: grid;
+		place-items: center;
+		background: var(--wash);
+		color: var(--deep);
+		opacity: 1;
 	}
-	@keyframes intocolour {
-		from {
-			opacity: 0;
-			transform: scale(1.06);
+	.spcard.playing .ghost {
+		animation: dissolve 620ms ease forwards;
+	}
+	.spcard.playing .pic.sq img {
+		animation: intocolour 900ms cubic-bezier(0.22, 0.9, 0.3, 1);
+	}
+	@keyframes dissolve {
+		0%,
+		18% {
+			opacity: 1;
 		}
-		to {
+		100% {
+			opacity: 0;
+		}
+	}
+	/* Zoom in, then settle back out. The push to 1.07 is what reads as "found it";
+	   returning to 1 is what stops it reading as a game show. Kept under 8% because
+	   the thumbnail is 120px and any more turns a photograph into mush. */
+	@keyframes intocolour {
+		0% {
+			opacity: 0;
+			transform: scale(1);
+		}
+		45% {
+			opacity: 1;
+			transform: scale(1.07);
+		}
+		100% {
 			opacity: 1;
 			transform: scale(1);
 		}
@@ -238,9 +355,26 @@
 		}
 	}
 	@media (prefers-reduced-motion: reduce) {
-		.spcard.justfound,
-		.spcard.justfound .pic.sq img {
+		.spcard.playing,
+		.spcard.playing .pic.sq img {
 			animation: none;
+		}
+		/* Not merely `animation: none` — the silhouette is opaque by default and the
+		   dissolve is the only thing that clears it, so switching the animation off
+		   would leave it covering the photograph for good. Someone who asked for less
+		   motion should get the finished card, not a permanent grey square. */
+		.ghost {
+			display: none;
+		}
+	}
+	/* Forced colours strips backgrounds and can leave the silhouette overlay as an
+	   opaque slab sitting on the photograph, since its dissolve is the only thing
+	   that removes it. Keep it out of the way entirely — this is the same trap the
+	   deck hit when the unfound half was greyscale: filters and backgrounds are the
+	   first things forced-colours takes away. */
+	@media (forced-colors: active) {
+		.ghost {
+			display: none;
 		}
 	}
 	.tick {
