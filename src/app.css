@@ -248,11 +248,24 @@ main.view {
 	margin: 0;
 }
 
+/* `flex: none` is load-bearing, not tidiness. Cards are direct children of
+   main.view, which is a height-constrained flex column, so by default they are
+   flex ITEMS with flex-shrink: 1 — and when the content is taller than the
+   viewport the browser shrinks them instead of letting the column scroll. A card
+   then collapses to the 2px of its own borders while its contents spill out and
+   overlap whatever follows.
+
+   Every other direct child of main.view already sets this defensively, in about
+   thirty places; .card was the one that did not, which is why the symptom looked
+   random. It cost an accessibility gate failure: a collapsed card left the Learn
+   page's home-screen button overlapped by the search field, and axe correctly
+   reported the touch target as obscured. */
 .card {
 	background: var(--card);
 	border: 1px solid var(--line);
 	border-radius: 16px;
 	padding: 14px 15px;
+	flex: none;
 }
 .card.tint {
 	background: var(--wash);

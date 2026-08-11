@@ -112,9 +112,12 @@
 </main>
 
 <style>
+	/* The toggle fills the card, so the card carries no padding of its own. No
+	   `overflow: hidden` — it was there to clip the row to the rounded corners,
+	   but the button has no background of its own to clip, and all it actually did
+	   was turn a collapsed card into a clipped one and hide the real problem. */
 	.homescreen {
 		padding: 0;
-		overflow: hidden;
 	}
 	.hstoggle {
 		display: flex;
