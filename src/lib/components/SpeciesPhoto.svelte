@@ -64,7 +64,7 @@
 		background: var(--stonewash);
 	}
 	figcaption {
-		font-size: 10.5px;
+		font-size: var(--text-2xs);
 		color: var(--soft);
 		margin-top: 5px;
 		line-height: 1.4;

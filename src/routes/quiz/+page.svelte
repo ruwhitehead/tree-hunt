@@ -200,7 +200,7 @@
 			     of getting one wrong. -->
 			<div class="card tint" aria-live="polite">
 				<p class="label">{picked === q.answer ? 'Yes' : `It was the ${sp?.name.toLowerCase()}`}</p>
-				<p class="serif" style="font-size:15px">{q.because}</p>
+				<p class="serif" style="font-size:var(--text-base)">{q.because}</p>
 				<a class="more" href="{base}/species/{q.answer}/{q.where}">Read more about the {sp?.name.toLowerCase()} →</a>
 			</div>
 			<button class="btn" onclick={() => (at += 1)}>
@@ -213,7 +213,7 @@
 <style>
 	.how {
 		margin: 0;
-		font-size: 13.5px;
+		font-size: var(--text-md);
 		line-height: 1.55;
 		color: var(--soft);
 	}
@@ -237,10 +237,10 @@
 	}
 	.ot {
 		font-weight: 700;
-		font-size: 14.5px;
+		font-size: var(--text-md);
 	}
 	.ob {
-		font-size: 12.5px;
+		font-size: var(--text-sm);
 		color: var(--soft);
 	}
 	.check {
@@ -260,7 +260,7 @@
 		border-radius: 12px;
 		border: 1.5px solid var(--line);
 		background: var(--card);
-		font-size: 13.5px;
+		font-size: var(--text-md);
 		font-weight: 700;
 		color: var(--ink);
 		padding: 10px 14px;
@@ -275,7 +275,7 @@
 	}
 	.progress {
 		margin: 0;
-		font-size: 11px;
+		font-size: var(--text-xs);
 		font-weight: 700;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
@@ -290,7 +290,7 @@
 	.ask {
 		margin: 0;
 		font-family: var(--display);
-		font-size: 19px;
+		font-size: var(--text-xl);
 		line-height: 1.25;
 	}
 	.qpic {
@@ -307,7 +307,7 @@
 	.passage {
 		margin: 0;
 		font-family: var(--display);
-		font-size: 16px;
+		font-size: var(--text-base);
 		line-height: 1.6;
 		color: var(--ink);
 		max-width: 62ch;
@@ -327,7 +327,7 @@
 		border-radius: 13px;
 		border: 1.5px solid var(--line);
 		background: var(--card);
-		font-size: 15px;
+		font-size: var(--text-base);
 		font-weight: 600;
 		color: var(--ink);
 		text-align: left;
@@ -367,10 +367,10 @@
 	.score {
 		margin: 2px 0 0;
 		font-family: var(--display);
-		font-size: 15px;
+		font-size: var(--text-base);
 	}
 	.score strong {
-		font-size: 30px;
+		font-size: var(--text-5xl);
 		color: var(--deep);
 		font-variant-numeric: tabular-nums;
 	}
@@ -403,18 +403,18 @@
 	.mn {
 		display: block;
 		font-weight: 700;
-		font-size: 14.5px;
+		font-size: var(--text-md);
 	}
 	.mb {
 		display: block;
-		font-size: 12.5px;
+		font-size: var(--text-sm);
 		line-height: 1.45;
 		color: var(--soft);
 		margin-top: 2px;
 	}
 	.chev {
 		color: var(--soft);
-		font-size: 20px;
+		font-size: var(--text-2xl);
 		flex: none;
 	}
 	.more {
@@ -422,7 +422,7 @@
 		align-items: center;
 		min-height: 44px;
 		margin-top: 6px;
-		font-size: 13px;
+		font-size: var(--text-md);
 		font-weight: 700;
 		color: var(--deep);
 	}

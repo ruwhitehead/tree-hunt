@@ -55,7 +55,7 @@
 
 	{#if results.length === 0}
 		<div class="card tint">
-			<p class="serif" style="font-size:15.5px">No tree by that name — yet.</p>
+			<p class="serif" style="font-size:var(--text-base)">No tree by that name — yet.</p>
 			<p class="sub">
 				The guide covers {SPECIES.length} common British trees. Try a shorter word, a Latin name, or
 				browse the full list by clearing the search.
@@ -85,7 +85,7 @@
 
 <style>
 	.seasonlink {
-		font-size: 13.5px;
+		font-size: var(--text-md);
 		font-weight: 700;
 		color: var(--deep);
 		text-decoration: none;
@@ -99,7 +99,7 @@
 	}
 	.scope {
 		margin: -4px 0 0;
-		font-size: 13px;
+		font-size: var(--text-md);
 		color: var(--soft);
 	}
 	.scope strong {
@@ -129,7 +129,7 @@
 		border: none;
 		background: none;
 		font: inherit;
-		font-size: 15px;
+		font-size: var(--text-base);
 		color: var(--ink);
 		min-height: 46px;
 		outline: none;
@@ -138,7 +138,7 @@
 		color: var(--soft);
 	}
 	.clear {
-		font-size: 15px;
+		font-size: var(--text-base);
 		color: var(--soft);
 		width: 34px;
 		height: 34px;
@@ -194,17 +194,19 @@
 	.n {
 		display: block;
 		font-weight: 700;
-		font-size: 14.5px;
+		font-size: var(--text-md);
 	}
+	/* Caslon italic — Inter Tight has no italic face to give. */
 	.l {
 		display: block;
-		font-size: 12px;
+		font-family: var(--display);
+		font-size: var(--text-sm);
 		font-style: italic;
 		color: var(--soft);
 	}
 	.h {
 		display: block;
-		font-size: 12px;
+		font-size: var(--text-sm);
 		color: var(--soft);
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -228,7 +230,7 @@
 	.now {
 		display: inline-block;
 		margin-top: 3px;
-		font-size: 10px;
+		font-size: var(--text-2xs);
 		font-weight: 700;
 		letter-spacing: 0.06em;
 		text-transform: uppercase;
@@ -236,7 +238,7 @@
 	}
 	.chev {
 		color: var(--soft);
-		font-size: 20px;
+		font-size: var(--text-2xl);
 		flex: none;
 	}
 	@media (min-width: 700px) {

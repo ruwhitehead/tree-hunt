@@ -184,19 +184,22 @@
 			padding: 6px 8px;
 		}
 	}
+	/* 23 words of real copy, not a caption — the charity attribution is the one
+	   thing on Today someone might actually need to read carefully, and it was
+	   set at 11.5px. --soft and the block below it carry the demotion instead. */
 	.itftext {
-		font-size: 11.5px;
-		line-height: 1.45;
+		font-size: var(--text-sm);
+		line-height: 1.5;
 		color: var(--soft);
 	}
 	.itftext strong {
 		display: block;
 		color: var(--ink);
-		font-size: 12.5px;
+		font-size: var(--text-sm);
 		margin-bottom: 2px;
 	}
 	.vhead h1 {
-		font-size: 27px;
+		font-size: var(--text-4xl);
 		line-height: 1.15;
 		text-wrap: balance;
 	}
@@ -276,7 +279,7 @@
 		border-color: var(--green);
 	}
 	.serif.small {
-		font-size: 15px;
+		font-size: var(--text-base);
 	}
 	.featured {
 		display: flex;
@@ -309,18 +312,22 @@
 	.fname {
 		display: block;
 		font-family: var(--display);
-		font-size: 20px;
+		font-size: var(--text-2xl);
 		line-height: 1.2;
 	}
+	/* The binomial sits directly under a Caslon species name, and it is italic by
+	   botanical convention — so it takes the Caslon italic, the only real italic
+	   the app ships. Inter Tight has no italic face and was being sheared. */
 	.flatin {
 		display: block;
-		font-size: 12.5px;
+		font-family: var(--display);
+		font-size: var(--text-sm);
 		font-style: italic;
 		color: var(--soft);
 	}
 	.fhint {
 		display: block;
-		font-size: 13px;
+		font-size: var(--text-md);
 		color: var(--soft);
 		margin-top: 6px;
 	}
@@ -328,13 +335,13 @@
 		display: block;
 		font-family: var(--display);
 		font-style: italic;
-		font-size: 13.5px;
+		font-size: var(--text-md);
 		color: var(--forest);
 		margin-top: 8px;
 	}
 	.huntbar {
 		margin: 8px 0 0;
-		font-size: 13px;
+		font-size: var(--text-md);
 		line-height: 1.5;
 		color: var(--soft);
 	}

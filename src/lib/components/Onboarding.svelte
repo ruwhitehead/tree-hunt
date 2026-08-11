@@ -124,7 +124,7 @@
 	}
 	.eyebrow {
 		margin: 0;
-		font-size: 11px;
+		font-size: var(--text-xs);
 		font-weight: 700;
 		letter-spacing: 0.12em;
 		text-transform: uppercase;
@@ -133,14 +133,14 @@
 	h2 {
 		font-family: var(--display);
 		font-weight: 400;
-		font-size: 25px;
+		font-size: var(--text-3xl);
 		line-height: 1.15;
 		margin: 6px 0 10px;
 		text-wrap: balance;
 	}
 	.body {
 		margin: 0;
-		font-size: 14.5px;
+		font-size: var(--text-md);
 		line-height: 1.6;
 		color: var(--soft);
 	}

@@ -66,12 +66,12 @@
 	}
 	.msg {
 		margin-top: 12px;
-		font-size: 14px;
+		font-size: var(--text-md);
 		color: var(--ink);
 	}
 	.linkrow {
 		margin: 6px 0 0;
-		font-size: 13px;
+		font-size: var(--text-md);
 		word-break: break-all;
 	}
 	.linkrow a {
@@ -80,6 +80,6 @@
 	}
 	.hint {
 		margin-top: 10px;
-		font-size: 12px;
+		font-size: var(--text-sm);
 	}
 </style>

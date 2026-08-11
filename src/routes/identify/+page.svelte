@@ -308,7 +308,7 @@
 <style>
 	.how {
 		margin: 0;
-		font-size: 13.5px;
+		font-size: var(--text-md);
 		line-height: 1.55;
 		color: var(--soft);
 	}
@@ -347,13 +347,13 @@
 	.pcard .nopic {
 		display: grid;
 		place-items: center;
-		font-size: 10.5px;
+		font-size: var(--text-2xs);
 		font-weight: 700;
 		color: var(--soft);
 		padding: 4px;
 	}
 	.bn {
-		font-size: 11.5px;
+		font-size: var(--text-xs);
 		font-weight: 700;
 		line-height: 1.25;
 	}
@@ -362,7 +362,7 @@
 		padding-left: 20px;
 		display: grid;
 		gap: 7px;
-		font-size: 14px;
+		font-size: var(--text-md);
 		line-height: 1.55;
 		color: var(--ink);
 		max-width: 62ch;
@@ -373,7 +373,7 @@
 	}
 	.caveat {
 		margin: 12px 0 0;
-		font-size: 13px;
+		font-size: var(--text-md);
 		line-height: 1.55;
 		color: var(--soft);
 		max-width: 62ch;
@@ -400,7 +400,7 @@
 	}
 	.keyblock.alt summary {
 		font-weight: 700;
-		font-size: 14px;
+		font-size: var(--text-md);
 		color: var(--deep);
 		cursor: pointer;
 		min-height: 44px;
@@ -411,7 +411,7 @@
 	}
 	/* how many of the fifty this key can reach today — the reason for the order */
 	.reach {
-		font-size: 11px;
+		font-size: var(--text-xs);
 		font-weight: 700;
 		letter-spacing: 0.04em;
 		text-transform: uppercase;
@@ -427,12 +427,12 @@
 	.place h2 {
 		font-family: var(--display);
 		font-weight: 400;
-		font-size: 17px;
+		font-size: var(--text-lg);
 		margin: 0 0 4px;
 	}
 	.blurb {
 		margin: 0 0 10px;
-		font-size: 13px;
+		font-size: var(--text-md);
 		line-height: 1.55;
 		color: var(--soft);
 		max-width: 62ch;
@@ -456,7 +456,7 @@
 		text-decoration: none;
 		color: var(--deep);
 		font-weight: 700;
-		font-size: 12.5px;
+		font-size: var(--text-sm);
 		min-height: 44px;
 	}
 	.chip img {
@@ -508,14 +508,14 @@
 	}
 	.ot {
 		font-weight: 700;
-		font-size: 14.5px;
+		font-size: var(--text-md);
 	}
 	.ob {
-		font-size: 12.5px;
+		font-size: var(--text-sm);
 		color: var(--soft);
 	}
 	.backlink {
-		font-size: 13.5px;
+		font-size: var(--text-md);
 		font-weight: 700;
 		color: var(--deep);
 		min-height: 44px;

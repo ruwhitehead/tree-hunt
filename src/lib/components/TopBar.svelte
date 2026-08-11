@@ -57,15 +57,16 @@
 	/* Tracked capitals rather than the page title's face at a smaller size: set
 	   the same way, the wordmark reads as a lesser heading and the app name goes
 	   unnoticed. Caslon also takes a bold cut far better in caps than lowercase.
-	   TREE HUNT is two characters shorter than MEET A TREE was, which bought the
-	   room to set it at 14px: at 12px it measured ~100px wide, at 14px it is
-	   still narrower than that, so the lockup grew in size without growing in
-	   width. Tracking eases off as the size goes up — 0.14em is generous for
-	   14px caps, where the counters are already open enough to separate. */
+	   TREE HUNT is two characters shorter than MEET A TREE was, which is what
+	   makes a larger setting affordable: the old wordmark ran ~110px at 12px, and
+	   nine tracked caps stay inside that even at --text-md. Tracking eases off as
+	   the size goes up — 0.14em was generous once the counters opened up. There
+	   is 95px of slack beside the share button, so this has room to grow with a
+	   reader's font-size preference rather than colliding. */
 	.name {
 		font-family: var(--display);
 		font-weight: 700;
-		font-size: 14px;
+		font-size: var(--text-md);
 		text-transform: uppercase;
 		letter-spacing: 0.12em;
 	}
@@ -73,7 +74,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 7px;
-		font-size: 13px;
+		font-size: var(--text-md);
 		font-weight: 700;
 		color: var(--deep);
 		background: var(--wash);

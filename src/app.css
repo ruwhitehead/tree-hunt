@@ -20,10 +20,16 @@
 	font-display: swap;
 	src: url('/fonts/libre-caslon-text-400-italic.woff2') format('woff2');
 }
+/* The file carries the full 100-900 axis; declaring 400-700 threw away the rest,
+   which matters because weight is how this app is supposed to signal hierarchy
+   now that it no longer does it by shrinking type (see the scale below).
+   There is no italic axis and no italic file, so anything italic MUST be set in
+   Caslon — ask Inter Tight for an italic and the browser shears the uprights,
+   which is what every Latin binomial in the app used to get. */
 @font-face {
 	font-family: 'Inter Tight';
 	font-style: normal;
-	font-weight: 400 700;
+	font-weight: 100 900;
 	font-display: swap;
 	src: url('/fonts/inter-tight-var.woff2') format('woff2');
 }
@@ -47,6 +53,39 @@
 	--shadow: 0 8px 26px rgba(28, 59, 35, 0.14);
 	--display: 'Libre Caslon Text', Georgia, serif;
 	--body: 'Inter Tight', 'Helvetica Neue', Arial, sans-serif;
+
+	/* ---- type scale ----
+	   rem, deliberately, and `html` is never given a font-size: that is the only
+	   way a reader who has set a larger default in their browser gets anything
+	   from it. The app was 134 hardcoded px values across 27 distinct sizes, so
+	   a person browsing at 20px saw exactly the same 9.5px species names as
+	   everyone else.
+
+	   The floor moved up, and the bands mean something now:
+	     --text-2xs  tracked all-caps labels and numeric units ONLY. Caps and
+	                 tracking carry it; never put a sentence here.
+	     --text-xs   metadata and incidental fine print (footers, disclaimers).
+	     --text-sm   short secondary copy that is still meant to be read.
+	     --text-md   the floor for body copy — anything a reader works through.
+	   The top of the scale is roughly where it was: the problem was never the
+	   headings, it was 82 declarations below 15px.
+
+	   Signal hierarchy with WEIGHT, COLOUR and SPACE, not by going smaller.
+	   Demoting a line to 11px is how this app ended up with sentences below the
+	   iOS and Material legibility floors; --soft at the same size does the same
+	   job and stays readable. */
+	--text-2xs: 0.75rem; /* 12px  tracked all-caps labels, numeric units */
+	--text-xs: 0.8125rem; /* 13px  tight metadata */
+	--text-sm: 0.875rem; /* 14px  chips, pills, secondary UI */
+	--text-md: 0.9375rem; /* 15px  secondary text; the floor for a sentence */
+	--text-base: 1rem; /* 16px  body copy, card titles, buttons */
+	--text-lg: 1.09375rem; /* 17.5px serif prose */
+	--text-xl: 1.1875rem; /* 19px  small headings */
+	--text-2xl: 1.3125rem; /* 21px  card headings */
+	--text-3xl: 1.5625rem; /* 25px  section headings */
+	--text-4xl: 1.75rem; /* 28px  page headings */
+	--text-5xl: 2.125rem; /* 34px  desktop hero */
+	--text-6xl: 2.25rem; /* 36px  species hero, desktop */
 }
 @media (prefers-color-scheme: dark) {
 	:root {
@@ -78,10 +117,34 @@ body {
 	background: var(--stone);
 	font-family: var(--body);
 	color: var(--ink);
-	font-size: 16px;
+	font-size: var(--text-base);
 	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
 	-webkit-tap-highlight-color: transparent;
+	/* iOS inflates text in some orientations and web-view contexts, on its own
+	   judgement of what a page needs. The scale above is deliberate, so opt out
+	   and keep it. This does NOT defeat pinch-zoom or the reader's own font-size
+	   preference — those still work, which is the point of the rem scale. */
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	/* `pretty` is inherited, so every paragraph in the app gets orphan control
+	   from here. The handful of headings that ask for `balance` still win on
+	   specificity — which is the right split: balance is for short headings
+	   (browsers give up after a few lines), pretty is for body copy. */
+	text-wrap: pretty;
+	/* A Latin binomial is one long unbreakable word in a narrow card — "Aesculus
+	   hippocastanum" is 22 characters against a 38ch measure. Let one break
+	   rather than push the card wider than the 430px frame. */
+	overflow-wrap: break-word;
+}
+
+/* Hyphenation is applied to prose only, never to headings or labels: a
+   hyphenated heading looks like a mistake, and at these measures a heading has
+   room anyway. It needs `lang` to pick a dictionary, which is why app.html now
+   says en-GB rather than en. */
+.serif,
+.prose {
+	hyphens: auto;
 }
 ::selection {
 	background: var(--wash-line);
@@ -154,7 +217,7 @@ main.view {
 		grid-row: 2;
 	}
 	.vhead h1 {
-		font-size: 34px;
+		font-size: var(--text-5xl);
 	}
 	/* two-column reading layout for card stacks that suit it */
 	main.view.split {
@@ -175,12 +238,12 @@ main.view {
 .vhead h1 {
 	font-family: var(--display);
 	font-weight: 400;
-	font-size: 24px;
+	font-size: var(--text-3xl);
 	margin: 0;
 	line-height: 1.2;
 }
 .vsub {
-	font-size: 13px;
+	font-size: var(--text-md);
 	color: var(--soft);
 	margin: 0;
 }
@@ -200,7 +263,7 @@ main.view {
 	border-color: var(--line);
 }
 .label {
-	font-size: 10.5px;
+	font-size: var(--text-2xs);
 	font-weight: 700;
 	letter-spacing: 0.12em;
 	text-transform: uppercase;
@@ -213,12 +276,12 @@ main.view {
 .serif {
 	font-family: var(--display);
 	font-weight: 400;
-	font-size: 17px;
+	font-size: var(--text-lg);
 	line-height: 1.35;
 	margin: 0;
 }
 .sub {
-	font-size: 13px;
+	font-size: var(--text-md);
 	color: var(--soft);
 	margin: 4px 0 0;
 }
@@ -227,7 +290,7 @@ main.view {
 	background: var(--green);
 	color: #fff;
 	font-weight: 600;
-	font-size: 14px;
+	font-size: var(--text-md);
 	padding: 11px 18px;
 	border-radius: 999px;
 	min-height: 44px;
@@ -257,7 +320,7 @@ main.view {
 	border: 1.5px solid var(--green);
 }
 .btn.small {
-	font-size: 13px;
+	font-size: var(--text-md);
 	padding: 8px 14px;
 	min-height: 40px;
 }
@@ -270,7 +333,7 @@ main.view {
 	justify-content: space-between;
 }
 .pill {
-	font-size: 12px;
+	font-size: var(--text-sm);
 	font-weight: 700;
 	color: var(--deep);
 	background: var(--wash);
@@ -284,8 +347,11 @@ main.view {
 	border-radius: 0 55% 0 55%;
 	transform: rotate(-10deg);
 }
+/* Caslon, because it is italic. Inter Tight ships no italic face, so asking for
+   one here got a synthetic slant — the browser shearing the uprights. */
 .samplenote {
-	font-size: 11.5px;
+	font-family: var(--display);
+	font-size: var(--text-xs);
 	color: var(--soft);
 	font-style: italic;
 	margin: 0;
@@ -307,12 +373,12 @@ main.view {
 }
 .give .gt {
 	font-weight: 700;
-	font-size: 13.5px;
+	font-size: var(--text-md);
 	color: var(--deep);
 	margin: 0;
 }
 .give .gb {
-	font-size: 12px;
+	font-size: var(--text-sm);
 	color: var(--soft);
 	margin: 2px 0 0;
 }
@@ -330,7 +396,7 @@ main.view {
 	color: var(--deep);
 }
 .lockup .lt {
-	font-size: 12px;
+	font-size: var(--text-sm);
 	line-height: 1.35;
 	color: var(--soft);
 	margin: 0;
@@ -339,7 +405,7 @@ main.view {
 	color: var(--ink);
 	font-weight: 700;
 	display: block;
-	font-size: 12.5px;
+	font-size: var(--text-sm);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -95,7 +95,7 @@
 		z-index: 20;
 	}
 	.nav-btn {
-		font-size: 10.5px;
+		font-size: var(--text-2xs);
 		font-weight: 700;
 		color: var(--soft);
 		text-align: center;
@@ -155,7 +155,7 @@
 			margin: 0;
 			font-family: var(--display);
 			font-weight: 700;
-			font-size: 15px;
+			font-size: var(--text-base);
 			text-transform: uppercase;
 			letter-spacing: 0.12em;
 			color: var(--deep);
@@ -166,7 +166,7 @@
 			gap: 12px;
 			padding: 11px 13px;
 			border-radius: 11px;
-			font-size: 15px;
+			font-size: var(--text-base);
 			font-weight: 600;
 			color: var(--ink);
 			text-decoration: none;
@@ -189,7 +189,7 @@
 		}
 		.railfoot {
 			margin: auto 0 0;
-			font-size: 11.5px;
+			font-size: var(--text-xs);
 			line-height: 1.45;
 			color: var(--soft);
 		}

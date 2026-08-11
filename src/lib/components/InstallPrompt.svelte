@@ -129,18 +129,18 @@
 	.t {
 		margin: 0;
 		font-weight: 700;
-		font-size: 14.5px;
+		font-size: var(--text-md);
 		line-height: 1.3;
 	}
 	.b {
 		margin: 3px 0 0;
-		font-size: 12.5px;
+		font-size: var(--text-sm);
 		color: var(--soft);
 	}
 	.steps {
 		margin: 0;
 		padding-left: 20px;
-		font-size: 13px;
+		font-size: var(--text-md);
 		color: var(--soft);
 		display: flex;
 		flex-direction: column;

@@ -8,7 +8,7 @@
 </svelte:head>
 
 <main class="view" style="justify-content:center; text-align:center">
-	<h1 style="font-family:var(--display); font-weight:400; font-size:28px; margin:0">
+	<h1 style="font-family:var(--display); font-weight:400; font-size:var(--text-4xl); margin:0">
 		Lost among the trees
 	</h1>
 	<p class="sub">

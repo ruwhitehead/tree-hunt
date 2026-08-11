@@ -90,7 +90,7 @@
 	{#if showStarters}
 		<div class="card tint">
 			<p class="label">Six to start with</p>
-			<p class="serif" style="font-size:15px">
+			<p class="serif" style="font-size:var(--text-base)">
 				These six are on almost every British street and in almost every hedge. Learn them and you
 				have most of what you will meet on an ordinary walk.
 			</p>
@@ -142,15 +142,15 @@
 	}
 	.stat .n {
 		font-family: var(--display);
-		font-size: 20px;
+		font-size: var(--text-2xl);
 		color: var(--deep);
 		font-variant-numeric: tabular-nums;
 	}
 	.stat .unit {
-		font-size: 11px;
+		font-size: var(--text-xs);
 	}
 	.stat .l {
-		font-size: 9.5px;
+		font-size: var(--text-2xs);
 		font-weight: 700;
 		letter-spacing: 0.04em;
 		text-transform: uppercase;
@@ -261,12 +261,16 @@
 		height: 12px;
 	}
 	.sn {
-		font-size: 11.5px;
+		font-size: var(--text-xs);
 		font-weight: 700;
 		line-height: 1.25;
 	}
+	/* Caslon italic: the only real italic in the app. This was the worst case of
+	   the synthetic one — a sheared sans at 9.5px, on the deck card, which is
+	   where a binomial is read most often. */
 	.sl {
-		font-size: 9.5px;
+		font-family: var(--display);
+		font-size: var(--text-2xs);
 		font-style: italic;
 		color: var(--soft);
 	}
@@ -309,11 +313,11 @@
 	.sname {
 		display: block;
 		font-weight: 700;
-		font-size: 14px;
+		font-size: var(--text-md);
 	}
 	.shint {
 		display: block;
-		font-size: 12px;
+		font-size: var(--text-sm);
 		color: var(--soft);
 	}
 	@media (min-width: 700px) {

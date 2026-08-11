@@ -166,15 +166,18 @@
 	h1 {
 		font-family: var(--display);
 		font-weight: 400;
-		font-size: 27px;
+		font-size: var(--text-4xl);
 		margin: 0;
 		line-height: 1.15;
 	}
+	/* Caslon italic. `.sub` is a sans utility class, so inheriting it here handed
+	   the binomial a synthetic slant on the one page devoted to that species. */
 	.latin {
+		font-family: var(--display);
 		font-style: italic;
 	}
 	.backlink {
-		font-size: 13.5px;
+		font-size: var(--text-md);
 		font-weight: 700;
 		color: var(--deep);
 		min-height: 44px;
@@ -211,7 +214,7 @@
 		border-bottom: none;
 	}
 	.quick dt {
-		font-size: 11px;
+		font-size: var(--text-xs);
 		font-weight: 700;
 		letter-spacing: 0.06em;
 		text-transform: uppercase;
@@ -220,7 +223,7 @@
 	}
 	.quick dd {
 		margin: 0;
-		font-size: 13.5px;
+		font-size: var(--text-md);
 	}
 	.contents {
 		display: flex;
@@ -228,7 +231,7 @@
 		gap: 7px;
 	}
 	.contents a {
-		font-size: 12.5px;
+		font-size: var(--text-sm);
 		font-weight: 700;
 		color: var(--deep);
 		background: var(--wash);
@@ -246,7 +249,7 @@
 	.shead {
 		font-family: var(--display);
 		font-weight: 400;
-		font-size: 22px;
+		font-size: var(--text-2xl);
 		margin: 6px 0 10px;
 		padding-bottom: 7px;
 		border-bottom: 1px solid var(--line);
@@ -259,7 +262,7 @@
 	/* spotting notes are instructions read standing under a tree: sans, larger,
 	   full-contrast ink rather than soft grey */
 	.note {
-		font-size: 16px;
+		font-size: var(--text-base);
 		line-height: 1.6;
 		color: var(--ink);
 		border-left: 3px solid var(--wash-line);
@@ -270,25 +273,30 @@
 	.story h3 {
 		font-family: var(--display);
 		font-weight: 700;
-		font-size: 17px;
+		font-size: var(--text-lg);
 		margin: 0 0 6px;
 	}
+	/* The two long-form blocks on the page, and the only place in the app where
+	   someone reads 80+ words at a stretch. Hyphenated because the mobile measure
+	   is ~44ch, where an unhyphenated rag on prose this dense gets visibly ragged. */
 	.entry p {
-		font-size: 15.5px;
+		font-size: var(--text-base);
 		line-height: 1.65;
 		color: var(--ink);
 		margin: 0;
 		max-width: 66ch;
+		hyphens: auto;
 	}
 	/* the folklore is the reason someone falls for a tree rather than merely
 	   naming it, so it reads as prose, not as a caption */
 	.story p {
 		font-family: var(--display);
-		font-size: 17px;
+		font-size: var(--text-lg);
 		line-height: 1.62;
 		color: var(--ink);
 		margin: 0;
 		max-width: 60ch;
+		hyphens: auto;
 	}
 	.barkrow {
 		display: grid;
@@ -303,7 +311,7 @@
 	}
 	.young {
 		margin: 10px 0 0;
-		font-size: 14px;
+		font-size: var(--text-md);
 		line-height: 1.55;
 		color: var(--soft);
 		max-width: 66ch;
@@ -313,7 +321,7 @@
 	}
 	.nophoto {
 		margin: 10px 0 0;
-		font-size: 13px;
+		font-size: var(--text-md);
 		line-height: 1.5;
 		color: var(--soft);
 		background: var(--stonewash);
@@ -326,14 +334,14 @@
 		align-items: center;
 		margin-top: 12px;
 		min-height: 44px;
-		font-size: 13px;
+		font-size: var(--text-md);
 		font-weight: 700;
 		color: var(--deep);
 	}
 	.subhead {
 		font-family: var(--display);
 		font-weight: 400;
-		font-size: 19px;
+		font-size: var(--text-xl);
 		margin: 8px 0 0;
 	}
 	.seasons {
@@ -362,12 +370,12 @@
 	}
 	.sn {
 		margin: 0;
-		font-size: 14.5px;
+		font-size: var(--text-md);
 		line-height: 1.55;
 		color: var(--ink);
 	}
 	.removebtn {
-		font-size: 13px;
+		font-size: var(--text-md);
 		font-weight: 600;
 		color: var(--soft);
 		text-decoration: underline;
@@ -386,7 +394,7 @@
 		padding: 13px 15px;
 		font-family: var(--display);
 		font-style: italic;
-		font-size: 14.5px;
+		font-size: var(--text-md);
 		color: var(--forest);
 		margin: 4px 0 0;
 	}
@@ -402,7 +410,7 @@
 	}
 	@media (min-width: 900px) {
 		h1 {
-			font-size: 36px;
+			font-size: var(--text-6xl);
 		}
 		.quick > div {
 			grid-template-columns: 120px 1fr;

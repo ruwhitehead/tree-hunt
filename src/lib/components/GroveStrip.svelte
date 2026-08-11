@@ -90,7 +90,7 @@
 		padding: 14px 15px;
 	}
 	.blurb {
-		font-size: 15px;
+		font-size: var(--text-base);
 		margin: 0 0 12px;
 		color: var(--ink);
 	}
@@ -137,7 +137,7 @@
 	}
 	.nm {
 		display: block;
-		font-size: 9.5px;
+		font-size: var(--text-2xs);
 		font-weight: 700;
 		line-height: 1.2;
 		text-align: center;
@@ -150,7 +150,7 @@
 	.more {
 		display: block;
 		margin-top: 12px;
-		font-size: 13px;
+		font-size: var(--text-md);
 		color: var(--soft);
 		text-decoration: none;
 	}
@@ -168,7 +168,7 @@
 	}
 	@media (min-width: 700px) {
 		.nm {
-			font-size: 11.5px;
+			font-size: var(--text-xs);
 		}
 	}
 </style>

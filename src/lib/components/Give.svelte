@@ -66,7 +66,7 @@
 	}
 	.eyebrow {
 		margin: 0;
-		font-size: 10.5px;
+		font-size: var(--text-2xs);
 		font-weight: 700;
 		letter-spacing: 0.12em;
 		text-transform: uppercase;
@@ -75,7 +75,7 @@
 	h2 {
 		font-family: var(--display);
 		font-weight: 400;
-		font-size: 20px;
+		font-size: var(--text-2xl);
 		line-height: 1.2;
 		margin: 7px 0 9px;
 		text-wrap: balance;
@@ -83,13 +83,13 @@
 	}
 	.body {
 		margin: 0;
-		font-size: 14px;
+		font-size: var(--text-md);
 		line-height: 1.55;
 		color: var(--soft);
 	}
 	.match {
 		margin: 11px 0 0;
-		font-size: 13.5px;
+		font-size: var(--text-md);
 		line-height: 1.5;
 		color: var(--soft);
 		background: var(--card);
@@ -108,7 +108,7 @@
 	}
 	.small {
 		margin: 11px 0 0;
-		font-size: 11.5px;
+		font-size: var(--text-xs);
 		color: var(--soft);
 	}
 </style>

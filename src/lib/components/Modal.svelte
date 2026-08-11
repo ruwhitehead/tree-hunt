@@ -67,16 +67,16 @@
 	.mbox :global(h2) {
 		font-family: var(--display);
 		font-weight: 400;
-		font-size: 22px;
+		font-size: var(--text-2xl);
 		margin: 0 0 8px;
 	}
 	.mbox :global(p) {
 		margin: 0 0 8px;
-		font-size: 14.5px;
+		font-size: var(--text-md);
 		color: var(--soft);
 	}
 	.mbox :global(.itf) {
-		font-size: 12px;
+		font-size: var(--text-sm);
 		margin-top: 10px;
 	}
 	.mbox :global(.actions) {

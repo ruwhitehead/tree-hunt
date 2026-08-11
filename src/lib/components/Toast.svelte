@@ -15,7 +15,7 @@
 		z-index: 60;
 		background: var(--forest);
 		color: #f2f1ea;
-		font-size: 13.5px;
+		font-size: var(--text-md);
 		font-weight: 600;
 		padding: 10px 18px;
 		border-radius: 999px;

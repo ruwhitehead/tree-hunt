@@ -39,7 +39,7 @@
 
 	{#if running.length === 0}
 		<div class="card tint">
-			<p class="serif" style="font-size:15.5px">Nothing running this week — the next one is below.</p>
+			<p class="serif" style="font-size:var(--text-base)">Nothing running this week — the next one is below.</p>
 		</div>
 	{/if}
 
@@ -207,18 +207,18 @@
 	.mission h2 {
 		font-family: var(--display);
 		font-weight: 400;
-		font-size: 21px;
+		font-size: var(--text-2xl);
 		margin: 0;
 		line-height: 1.15;
 	}
 	.soonhead {
 		font-family: var(--display);
-		font-size: 18px;
+		font-size: var(--text-xl);
 		margin: 0;
 	}
 	.when {
 		margin: 3px 0 0;
-		font-size: 12px;
+		font-size: var(--text-sm);
 		font-weight: 700;
 		letter-spacing: 0.04em;
 		text-transform: uppercase;
@@ -226,7 +226,7 @@
 	}
 	.count {
 		font-family: var(--display);
-		font-size: 20px;
+		font-size: var(--text-2xl);
 		color: var(--deep);
 		background: var(--wash);
 		border: 1px solid var(--wash-line);
@@ -236,7 +236,7 @@
 	}
 	.blurb {
 		margin: 10px 0 12px;
-		font-size: 14px;
+		font-size: var(--text-md);
 		line-height: 1.55;
 		color: var(--soft);
 		max-width: 62ch;
@@ -264,12 +264,12 @@
 	.ft {
 		margin: 0;
 		font-weight: 700;
-		font-size: 14px;
+		font-size: var(--text-md);
 		color: var(--deep);
 	}
 	.fb {
 		margin: 3px 0 0;
-		font-size: 12.5px;
+		font-size: var(--text-sm);
 		color: var(--soft);
 	}
 	.pick {
@@ -297,11 +297,11 @@
 	.pn {
 		display: block;
 		font-weight: 700;
-		font-size: 14px;
+		font-size: var(--text-md);
 	}
 	.pd {
 		display: block;
-		font-size: 12.5px;
+		font-size: var(--text-sm);
 		line-height: 1.5;
 		color: var(--soft);
 	}
@@ -324,7 +324,7 @@
 		text-decoration: none;
 		color: var(--ink);
 		font-weight: 600;
-		font-size: 12.5px;
+		font-size: var(--text-sm);
 		min-height: 44px;
 	}
 	.chip.found {
@@ -342,7 +342,7 @@
 	}
 	.how {
 		margin: 10px 0 0;
-		font-size: 12.5px;
+		font-size: var(--text-sm);
 		line-height: 1.55;
 		color: var(--ink);
 		background: var(--stonewash);
@@ -352,7 +352,7 @@
 	}
 	.more {
 		margin: 8px 0 0;
-		font-size: 12.5px;
+		font-size: var(--text-sm);
 		color: var(--soft);
 	}
 	.more a {
@@ -401,11 +401,11 @@
 	.hn {
 		display: block;
 		font-weight: 700;
-		font-size: 13.5px;
+		font-size: var(--text-md);
 	}
 	.hh {
 		display: block;
-		font-size: 12px;
+		font-size: var(--text-sm);
 		line-height: 1.45;
 		color: var(--soft);
 	}
@@ -420,7 +420,7 @@
 		border: 1.5px solid var(--deep);
 		color: var(--deep);
 		font-weight: 700;
-		font-size: 12.5px;
+		font-size: var(--text-sm);
 	}
 	.seen:hover {
 		background: var(--wash);
