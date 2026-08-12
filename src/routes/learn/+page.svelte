@@ -315,8 +315,13 @@
 		flex: none;
 	}
 	@media (min-width: 700px) {
+		/* minmax(0, 1fr), not bare 1fr: a 1fr track cannot shrink below its
+		   content's min-content width, and the nowrap .h hint makes that the
+		   longest hint in the column — wide enough to push the second column
+		   clean out of the frame on desktop. Capping the minimum at 0 keeps the
+		   columns equal and lets the ellipsis do its job. */
 		.list {
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 		.searchbox {
 			max-width: 520px;
