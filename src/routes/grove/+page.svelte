@@ -90,7 +90,7 @@
 </script>
 
 <svelte:head>
-	<title>My Grove · Tree Hunt</title>
+	<title>My Trees · Tree Hunt</title>
 	<meta
 		name="description"
 		content="The trees you have met, and the ones still to find — a field guide to {SPECIES.length} British and Irish trees that keeps track of what you know."
@@ -152,7 +152,7 @@
 
 <main class="view">
 	<div class="vhead">
-		<h1>My Grove</h1>
+		<h1>My Trees</h1>
 		{#if grove.speciesCount}
 			<button class="pill" onclick={shareGrove}>Share</button>
 		{/if}

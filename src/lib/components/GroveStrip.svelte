@@ -40,7 +40,7 @@
 </script>
 
 <section class="strip" aria-labelledby="strip-title">
-	<p class="label" id="strip-title">{empty ? 'Start here' : 'Your grove'}</p>
+	<p class="label" id="strip-title">{empty ? 'Start here' : 'My trees'}</p>
 
 	{#if empty}
 		<p class="serif blurb">

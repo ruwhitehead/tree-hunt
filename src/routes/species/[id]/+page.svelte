@@ -68,7 +68,7 @@
 
 	<div>
 		<h1>{sp.name}</h1>
-		<p class="sub latin">{sp.latin} · {sp.family}{inGrove ? ' · in your grove' : ''}</p>
+		<p class="sub latin">{sp.latin} · {sp.family}{inGrove ? ' · in My Trees' : ''}</p>
 		{#if sp.aka?.length}
 			<p class="sub">Also called {sp.aka.join(', ')}.</p>
 		{/if}
@@ -76,10 +76,10 @@
 
 	<div class="row" style="flex-wrap:wrap">
 		{#if inGrove}
-			<span class="pill">✓ In your grove</span>
-			<button class="removebtn" onclick={() => grove.removeFind(sp.id)}>Remove from grove</button>
+			<span class="pill">✓ In My Trees</span>
+			<button class="removebtn" onclick={() => grove.removeFind(sp.id)}>Remove from My Trees</button>
 		{:else}
-			<button class="btn" onclick={add}>Add to my grove</button>
+			<button class="btn" onclick={add}>Add to My Trees</button>
 		{/if}
 	</div>
 

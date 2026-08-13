@@ -126,7 +126,7 @@ class Grove {
 			this.pendingMilestone = count;
 		}
 		this.save();
-		this.toast(`${sp.name} added to your Grove 🌿`, { id: sp.id, name: sp.name, count });
+		this.toast(`${sp.name} added to My Trees 🌿`, { id: sp.id, name: sp.name, count });
 		install.celebrate();
 	}
 
@@ -153,7 +153,7 @@ class Grove {
 		// counts dated sightings — but it is not a discovery, and dressing it up as
 		// one would cheapen the moment that is.
 		this.toast(
-			seen ? `${sp.name} — seen again today 🌿` : `${sp.name} added to your Grove 🌿`,
+			seen ? `${sp.name} — seen again today 🌿` : `${sp.name} added to My Trees 🌿`,
 			seen ? undefined : { id: sp.id, name: sp.name, count: this.speciesCount }
 		);
 		install.celebrate();
@@ -163,7 +163,7 @@ class Grove {
 		const sp = speciesById(id);
 		this.finds = this.finds.filter((f) => f.id !== id);
 		this.save();
-		this.toast(`${sp?.name ?? 'Tree'} removed from your grove`);
+		this.toast(`${sp?.name ?? 'Tree'} removed from My Trees`);
 	}
 
 	/** `find` promotes this from a notification to a celebration. It also earns a

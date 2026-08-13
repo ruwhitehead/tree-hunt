@@ -15,7 +15,7 @@
 	 *  still at /missions, one tap away, the way Learn's depth is. */
 	const items = [
 		{ href: '/', label: 'Today', icon: 'sun' },
-		{ href: '/grove', label: 'Grove', icon: 'leaf' },
+		{ href: '/grove', label: 'My Trees', icon: 'leaf' },
 		{ href: '/identify', label: 'Identify', icon: 'search' },
 		{ href: '/quiz', label: 'Quiz', icon: 'quiz' },
 		{ href: '/learn', label: 'Learn', icon: 'book' }

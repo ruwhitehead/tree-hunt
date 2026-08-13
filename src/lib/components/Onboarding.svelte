@@ -67,7 +67,7 @@
 		{
 			eyebrow: 'How it works',
 			title: 'Six trees cover most British streets',
-			body: `Work a tree out yourself from its leaf, its bark or its fruit — no photograph, no signal, no server. Each one you name joins your Grove, the deck of all ${SPECIES.length} that shows what you have learned, what is still out there, and quizzes you on it.`,
+			body: `Work a tree out yourself from its leaf, its bark or its fruit — no photograph, no signal, no server. Each one you name joins My Trees, the deck of all ${SPECIES.length} that shows what you have learned, what is still out there, and quizzes you on it.`,
 			howTo: false
 		},
 		{

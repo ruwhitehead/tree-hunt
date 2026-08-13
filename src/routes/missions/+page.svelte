@@ -115,7 +115,7 @@
 								<span class="hn">{sp.name}</span>
 								<span class="hh">
 									{grove.has(sp.id)
-										? 'Already in your grove — find it again to count it here'
+										? 'Already in My Trees — find it again to count it here'
 										: sp.hint}
 								</span>
 							</span>

@@ -102,12 +102,12 @@
 				aria-pressed={scope === 'grove'}
 				disabled={!enoughFound}
 			>
-				Just my grove · {found.length}
+				Just my trees · {found.length}
 			</button>
 		</div>
 		{#if !enoughFound}
 			<p class="sub" style="margin-top:0">
-				Revising only what you have found needs at least eight in your grove — you have {found.length}.
+				Revising only what you have found needs at least eight in My Trees — you have {found.length}.
 			</p>
 		{/if}
 
@@ -150,7 +150,7 @@
 		<p class="progress">Question {at + 1} of {round.questions.length}</p>
 		{#if round.widened}
 			<p class="sub" style="margin-top:0">
-				Not enough in your grove yet, so this round is drawn from the whole guide.
+				Not enough in My Trees yet, so this round is drawn from the whole guide.
 			</p>
 		{/if}
 

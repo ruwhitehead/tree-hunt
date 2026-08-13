@@ -18,7 +18,7 @@
 	// Copy earns its keep by naming what the user already has to lose.
 	const reason = $derived(
 		grove.speciesCount > 0
-			? `Your grove holds ${grove.speciesCount} ${grove.speciesCount === 1 ? 'species' : 'species'}. Keep it in your pocket.`
+			? `My Trees holds ${grove.speciesCount} ${grove.speciesCount === 1 ? 'species' : 'species'}. Keep it in your pocket.`
 			: `All ${SPECIES.length} trees, pictures included, work with no signal once it’s on your home screen.`
 	);
 

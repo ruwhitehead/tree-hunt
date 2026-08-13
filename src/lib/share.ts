@@ -168,7 +168,7 @@ export async function shareSpecies(sp: Species) {
 	const link = absolute(`/species/${sp.id}/`);
 	const c = await drawCard(
 		`I just met ${article} ${sp.name.toLowerCase()}.`,
-		sp.latin + (n ? ` · one of ${n} species in my grove` : ''),
+		sp.latin + (n ? ` · one of ${n} species in My Trees` : ''),
 		'A find worth sharing',
 		link
 	);
@@ -204,14 +204,14 @@ export async function shareGrove() {
 	const n = grove.speciesCount;
 	const link = absolute('/');
 	const c = await drawCard(
-		`My grove holds ${n} ${n === 1 ? 'species' : 'species'}.`,
+		`My trees: ${n} ${n === 1 ? 'species' : 'species'} so far.`,
 		`Together they absorb ~${grove.co2} kg of CO₂ a year — how many trees can you name?`,
-		'My grove so far',
+		'My trees so far',
 		link
 	);
 	present(
 		c,
-		'My grove · Tree Hunt',
+		'My Trees · Tree Hunt',
 		`I can name ${n} ${n === 1 ? 'tree' : 'trees'} now. How many can you? Tree Hunt is a free field guide to British trees.`,
 		link
 	);
