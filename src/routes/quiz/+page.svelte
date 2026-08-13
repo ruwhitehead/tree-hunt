@@ -67,7 +67,7 @@
 	<title>Quiz · Tree Hunt</title>
 	<meta
 		name="description"
-		content="Test yourself on {SPECIES.length} British and Irish trees — name them from photographs and bark, or on their folklore and science."
+		content="Test yourself on {SPECIES.length} British and Irish trees: name them from photographs and bark, or on their folklore and science."
 	/>
 </svelte:head>
 
@@ -77,8 +77,8 @@
 	{#if !round}
 		<div class="card stonebg">
 			<p class="how">
-				Eight questions, drawn from the guide itself. No timer, no score kept, nothing to keep up —
-				get one wrong and it tells you what would have given it away.
+				Eight questions, drawn from the guide itself. No timer, no score kept, nothing to keep up.
+				Get one wrong and it tells you what would have given it away.
 			</p>
 		</div>
 
@@ -107,7 +107,7 @@
 		</div>
 		{#if !enoughFound}
 			<p class="sub" style="margin-top:0">
-				Revising only what you have found needs at least eight in My Trees — you have {found.length}.
+				Revising only what you have found needs at least eight in My Trees; you have {found.length}.
 			</p>
 		{/if}
 

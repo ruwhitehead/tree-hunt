@@ -44,7 +44,7 @@
 	<title>{sp.name} ({sp.latin}) · Tree Hunt</title>
 	<meta
 		name="description"
-		content="{sp.name} ({sp.latin}) — how to spot it, its folklore and its science. {sp.tell}"
+		content="{sp.name} ({sp.latin}): how to spot it, its folklore and its science. {sp.tell}"
 	/>
 	<meta property="og:title" content="{sp.name} · Tree Hunt" />
 	<meta property="og:description" content={sp.tell} />
@@ -183,7 +183,7 @@
 					     the tree, not a gap in the library, so it is said rather than shown as
 					     an empty frame. -->
 					<p class="nophoto">
-						No fruit photograph — this one barely fruits in Britain, so there is little to show.
+						No fruit photograph. This one barely fruits in Britain, so there is little to show.
 					</p>
 				{/if}
 				<a class="barklink" href="{base}/identify/#fruit">

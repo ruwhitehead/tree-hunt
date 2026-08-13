@@ -20,7 +20,7 @@
 	<ol class="steps">
 		{#if p.iosOtherBrowser}
 			<li>
-				Open this page in <strong>Safari</strong> — on iPhone only Safari can add to the home screen.
+				Open this page in <strong>Safari</strong>; on iPhone only Safari can add to the home screen.
 			</li>
 		{/if}
 		<li>

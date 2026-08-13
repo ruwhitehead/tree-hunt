@@ -136,7 +136,7 @@
 			{@render backTo('Back', () => (step2 = null))}
 			<p class="label">
 				Step 3 of 3 · {candidates.length}
-				{candidates.length === 1 ? 'candidate' : 'candidates'} — compare with your leaf
+				{candidates.length === 1 ? 'candidate' : 'candidates'} · compare with your leaf
 			</p>
 			{#each candidates as sp (sp.id)}
 				<a class="opt" href="{base}/species/{sp.id}/#spotting">
@@ -151,7 +151,7 @@
 				</a>
 			{/each}
 			{#if candidates.length === 0}
-				<p class="sub">Nothing in the guide matches that combination — try stepping back.</p>
+				<p class="sub">Nothing in the guide matches that combination. Try stepping back.</p>
 			{/if}
 		{/if}
 	{:else if k === 'bark'}
@@ -165,7 +165,7 @@
 			{/each}
 		{:else}
 			{@render backTo('All six barks', () => (barkPick = null))}
-			<p class="label">{barkLabel(barkPick)} · {barkList.length} trees — find yours by eye</p>
+			<p class="label">{barkLabel(barkPick)} · {barkList.length} trees · find yours by eye</p>
 			{@render photoGrid(barkList, 'bark')}
 			<p class="sub">
 				Bark changes with age, and these are all mature trunks. A young tree of the same species can be
@@ -198,7 +198,7 @@
 				</button>
 			{/each}
 			<p class="sub">
-				Only {FLOWERING_COUNT} of the {SPECIES.length} flower at all. The conifers never do — if yours
+				Only {FLOWERING_COUNT} of the {SPECIES.length} flower at all. The conifers never do. If yours
 				is a needled tree, its cones are what you want, not this.
 			</p>
 		{:else}
@@ -312,7 +312,7 @@
 
 		<p class="caveat">
 			<strong>Then come back and check it.</strong> These tools are confident even when they are
-			wrong, and they are worst at exactly the pairs this guide cares about — sessile against English
+			wrong, and they are worst at exactly the pairs this guide cares about: sessile against English
 			oak, blackthorn against hawthorn. They will also happily name a garden cultivar that grows in no
 			British wood. Read the spotting notes and the bark before you believe an answer.
 		</p>

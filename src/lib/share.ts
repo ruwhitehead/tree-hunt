@@ -186,7 +186,7 @@ export async function shareApp() {
 	const link = absolute('/');
 	const c = await drawCard(
 		'Can you name the trees on your street?',
-		`A free pocket field guide to ${SPECIES.length} British and Irish trees — folklore, science and how to spot them.`,
+		`A free pocket field guide to ${SPECIES.length} British and Irish trees: folklore, science and how to spot them.`,
 		'Tree Hunt',
 		link
 	);
@@ -195,7 +195,7 @@ export async function shareApp() {
 		'Tree Hunt',
 		n
 			? `I can name ${n} ${n === 1 ? 'tree' : 'trees'} now, thanks to this free field guide to British trees.`
-			: 'A free pocket field guide to British and Irish trees — how to spot them, their folklore and their science.',
+			: 'A free pocket field guide to British and Irish trees: how to spot them, their folklore and their science.',
 		link
 	);
 }
@@ -205,7 +205,7 @@ export async function shareGrove() {
 	const link = absolute('/');
 	const c = await drawCard(
 		`My trees: ${n} ${n === 1 ? 'species' : 'species'} so far.`,
-		`Together they absorb ~${grove.co2} kg of CO₂ a year — how many trees can you name?`,
+		`Together they absorb ~${grove.co2} kg of CO₂ a year. How many trees can you name?`,
 		'My trees so far',
 		link
 	);
@@ -226,7 +226,7 @@ export async function shareMission(title: string, found: number, target: number)
 	const c = await drawCard(
 		done ? `${title}: finished.` : `${title}: ${found} of ${target}.`,
 		done
-			? `${found} species found this season. Your turn — how many can you name?`
+			? `${found} species found this season. Your turn: how many can you name?`
 			: `${target - found} to go before the season closes. Care to join in?`,
 		'Seasonal hunt',
 		link
@@ -235,7 +235,7 @@ export async function shareMission(title: string, found: number, target: number)
 		c,
 		`${title} · Tree Hunt`,
 		done
-			? `I finished ${title} — ${found} species this season. Free field guide to British trees:`
+			? `I finished ${title}: ${found} species this season. Free field guide to British trees:`
 			: `I'm ${found} of ${target} through ${title}. Free field guide to British trees:`,
 		link
 	);

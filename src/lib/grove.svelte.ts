@@ -153,7 +153,7 @@ class Grove {
 		// counts dated sightings — but it is not a discovery, and dressing it up as
 		// one would cheapen the moment that is.
 		this.toast(
-			seen ? `${sp.name} — seen again today 🌿` : `${sp.name} added to My Trees 🌿`,
+			seen ? `${sp.name} · seen again today 🌿` : `${sp.name} added to My Trees 🌿`,
 			seen ? undefined : { id: sp.id, name: sp.name, count: this.speciesCount }
 		);
 		install.celebrate();

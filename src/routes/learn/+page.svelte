@@ -36,9 +36,9 @@
 		<h1>Learn</h1>
 		<span class="pill">{SPECIES.length} trees</span>
 	</div>
-	<p class="scope">The trees of <strong>Britain and Ireland</strong> — natives, long-established introductions, and the ones you actually meet on a street or a hillside.</p>
+	<p class="scope">The trees of <strong>Britain and Ireland</strong>: natives, long-established introductions, and the ones you actually meet on a street or a hillside.</p>
 
-	<a class="seasonlink" href="{base}/missions/">Seasonal hunts — what to look for right now →</a>
+	<a class="seasonlink" href="{base}/missions/">Seasonal hunts: what to look for right now →</a>
 
 	{#if showHowTo}
 		<div class="card stonebg homescreen">
@@ -63,7 +63,7 @@
 			<input
 				type="search"
 				bind:value={q}
-				placeholder="Search a tree — oak, rowan, Quercus…"
+				placeholder="Search a tree: oak, rowan, Quercus…"
 				autocomplete="off"
 				enterkeyhint="search"
 			/>
@@ -83,7 +83,7 @@
 
 	{#if results.length === 0}
 		<div class="card tint">
-			<p class="serif" style="font-size:var(--text-base)">No tree by that name — yet.</p>
+			<p class="serif" style="font-size:var(--text-base)">No tree by that name, yet.</p>
 			<p class="sub">
 				The guide covers {SPECIES.length} common British trees. Try a shorter word, a Latin name, or
 				browse the full list by clearing the search.

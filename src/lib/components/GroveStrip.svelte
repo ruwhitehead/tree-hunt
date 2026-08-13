@@ -69,7 +69,7 @@
 						{/if}
 					</span>
 					<span class="nm"
-						>{sp.name}<span class="visually-hidden">{has ? ' — found' : ' — not found yet'}</span
+						>{sp.name}<span class="visually-hidden">{has ? ', found' : ', not found yet'}</span
 						></span
 					>
 				</a>
@@ -78,7 +78,7 @@
 	</ul>
 
 	<a class="more" href="{base}/grove/">
-		<strong>{grove.speciesCount} of {SPECIES.length}</strong> met — see the whole deck →
+		<strong>{grove.speciesCount} of {SPECIES.length}</strong> met · see the whole deck →
 	</a>
 </section>
 

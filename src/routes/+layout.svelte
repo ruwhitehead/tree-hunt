@@ -47,7 +47,7 @@
 	<meta property="og:title" content="Tree Hunt" />
 	<meta
 		property="og:description"
-		content="A free pocket field guide to {SPECIES.length} trees of Britain and Ireland — how to spot them, their folklore and their science. In support of the International Tree Foundation."
+		content="A free pocket field guide to {SPECIES.length} trees of Britain and Ireland: how to spot them, their folklore and their science. In support of the International Tree Foundation."
 	/>
 	<!-- ?v= busts platform unfurl caches: Slack and friends cache the preview
 	     by image URL, so a regenerated card is invisible until the URL changes. -->

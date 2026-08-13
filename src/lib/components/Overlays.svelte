@@ -22,7 +22,7 @@
 			copied = true;
 			setTimeout(() => (copied = false), 2200);
 		} catch {
-			grove.toast('Couldn’t copy — select the link and copy it by hand');
+			grove.toast('Couldn’t copy. Select the link and copy it by hand');
 		}
 	}
 </script>

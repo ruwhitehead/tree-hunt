@@ -61,7 +61,7 @@ export const MISSIONS: Mission[] = [
 		id: 'evergreens',
 		title: 'Midwinter Evergreens',
 		blurb:
-			'In the dead of winter, the trees still in leaf are the easiest identification of the year — and the oldest midwinter tradition there is.',
+			'In the dead of winter, the trees still in leaf are the easiest identification of the year, and the oldest midwinter tradition there is.',
 		looking: 'trees still in leaf',
 		from: [11, 1],
 		to: [0, 31],
@@ -72,7 +72,7 @@ export const MISSIONS: Mission[] = [
 		id: 'winter-twigs',
 		title: 'Winter Twigs',
 		blurb:
-			'No leaves, no excuses. Name four trees from bark, buds and outline alone — the skill that separates the curious from the confident.',
+			'No leaves, no excuses. Name four trees from bark, buds and outline alone: the skill that separates the curious from the confident.',
 		looking: 'buds, bark and shape',
 		from: [0, 1],
 		to: [1, 28],
@@ -83,7 +83,7 @@ export const MISSIONS: Mission[] = [
 		id: 'summer-shade',
 		title: 'Summer Shade',
 		blurb:
-			'High summer is the hardest season for identification — everything is green. Work out five by leaf shape alone.',
+			'High summer is the hardest season for identification: everything is green. Work out five by leaf shape alone.',
 		looking: 'leaf shapes in full green',
 		from: [5, 1],
 		to: [7, 31],

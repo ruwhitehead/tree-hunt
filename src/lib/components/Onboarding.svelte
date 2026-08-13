@@ -61,13 +61,13 @@
 		{
 			eyebrow: 'Tree Hunt',
 			title: 'Learn the trees you already walk past',
-			body: `A field guide to ${SPECIES.length} British and Irish trees — how to spot each one, the stories people told about it, and the science underneath. Free, no ads, works with no signal.`,
+			body: `A field guide to ${SPECIES.length} British and Irish trees: how to spot each one, the stories people told about it, and the science underneath. Free, no ads, works with no signal.`,
 			howTo: false
 		},
 		{
 			eyebrow: 'How it works',
 			title: 'Six trees cover most British streets',
-			body: `Work a tree out yourself from its leaf, its bark or its fruit — no photograph, no signal, no server. Each one you name joins My Trees, the deck of all ${SPECIES.length} that shows what you have learned, what is still out there, and quizzes you on it.`,
+			body: `Work a tree out yourself from its leaf, its bark or its fruit: no photograph, no signal, no server. Each one you name joins My Trees, the deck of all ${SPECIES.length} that shows what you have learned, what is still out there, and quizzes you on it.`,
 			howTo: false
 		},
 		{

@@ -30,7 +30,7 @@
 	<title>Seasons · Tree Hunt</title>
 	<meta
 		name="description"
-		content="Time-boxed seasonal hunts — Blossom Watch, Conker Hunt, Autumn Colours, Midwinter Evergreens — using the trees you meet."
+		content="Time-boxed seasonal hunts (Blossom Watch, Conker Hunt, Autumn Colours, Midwinter Evergreens) using the trees you meet."
 	/>
 </svelte:head>
 
@@ -39,7 +39,7 @@
 
 	{#if running.length === 0}
 		<div class="card tint">
-			<p class="serif" style="font-size:var(--text-base)">Nothing running this week — the next one is below.</p>
+			<p class="serif" style="font-size:var(--text-base)">Nothing running this week. The next one is below.</p>
 		</div>
 	{/if}
 
@@ -72,7 +72,7 @@
 				<div class="finished">
 					<p class="ft">Finished 🌿</p>
 					<p class="fb">
-						{p.done.length} species this season. Worth marking — the International Tree Foundation
+						{p.done.length} species this season. Worth marking: the International Tree Foundation
 						plants real ones.
 					</p>
 					<div class="row" style="gap:8px; flex-wrap:wrap; margin-top:8px">
@@ -115,14 +115,14 @@
 								<span class="hn">{sp.name}</span>
 								<span class="hh">
 									{grove.has(sp.id)
-										? 'Already in My Trees — find it again to count it here'
+										? 'Already in My Trees; find it again to count it here'
 										: sp.hint}
 								</span>
 							</span>
 						</a>
 						<button
 							class="seen"
-							aria-label="Seen it today — {sp.name}"
+							aria-label="Seen it today: {sp.name}"
 							onclick={() => grove.logSighting(sp.id)}
 						>
 							Seen it
@@ -132,7 +132,7 @@
 			</ul>
 			{#if p.todo.length > 6}
 				<p class="more">
-					and {p.todo.length - 6} more count towards it —
+					and {p.todo.length - 6} more count towards it;
 					<a href="{base}/identify/">identify anything</a> and it lands here.
 				</p>
 			{/if}
@@ -164,7 +164,7 @@
 	{/if}
 
 	<p class="samplenote">
-		Anything you identify lands on the right board by itself. Miss a hunt and nothing happens — it
+		Anything you identify lands on the right board by itself. Miss a hunt and nothing happens: it
 		closes quietly and comes round again next year.
 	</p>
 </main>

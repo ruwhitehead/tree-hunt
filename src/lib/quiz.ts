@@ -226,12 +226,12 @@ function build(kind: QuestionKind, sp: Species, rand: () => number, now: Date): 
 		case 'folklore': {
 			const [title, body] = sp.folklore[Math.floor(rand() * sp.folklore.length)] ?? [];
 			if (!body) return null;
-			return { ...base, ask: 'Which tree is this story about?', passage: passageFrom(body, sp), because: `“${title}” — ${sp.hint}`, where: '#folklore' };
+			return { ...base, ask: 'Which tree is this story about?', passage: passageFrom(body, sp), because: `“${title}”: ${sp.hint}`, where: '#folklore' };
 		}
 		case 'science': {
 			const [title, body] = sp.science[Math.floor(rand() * sp.science.length)] ?? [];
 			if (!body) return null;
-			return { ...base, ask: 'Which tree does this describe?', passage: passageFrom(body, sp), because: `“${title}” — ${sp.hint}`, where: '#science' };
+			return { ...base, ask: 'Which tree does this describe?', passage: passageFrom(body, sp), because: `“${title}”: ${sp.hint}`, where: '#science' };
 		}
 		case 'season': {
 			// seasonOfMonth, not the twelve-month labels in facts.ts: those read

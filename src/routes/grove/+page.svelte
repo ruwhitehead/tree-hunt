@@ -93,7 +93,7 @@
 	<title>My Trees · Tree Hunt</title>
 	<meta
 		name="description"
-		content="The trees you have met, and the ones still to find — a field guide to {SPECIES.length} British and Irish trees that keeps track of what you know."
+		content="The trees you have met, and the ones still to find. A field guide to {SPECIES.length} British and Irish trees that keeps track of what you know."
 	/>
 </svelte:head>
 
@@ -144,7 +144,7 @@
 			{/if}
 		</span>
 		<span class="sn">
-			{sp.name}<span class="visually-hidden">{has ? ' — found' : ' — not found yet'}</span>
+			{sp.name}<span class="visually-hidden">{has ? ', found' : ', not found yet'}</span>
 		</span>
 		<span class="sl">{sp.latin}</span>
 	</a>

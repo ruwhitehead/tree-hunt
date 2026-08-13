@@ -72,7 +72,7 @@
 		{:else}
 			<HowToInstall />
 			<div class="row">
-				<button class="btn small" onclick={() => install.markInstalled()}>Done — it's added</button>
+				<button class="btn small" onclick={() => install.markInstalled()}>Done, it's added</button>
 				<button class="btn ghost small" onclick={() => install.snooze()}>Not now</button>
 			</div>
 		{/if}

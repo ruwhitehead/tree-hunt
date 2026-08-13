@@ -43,10 +43,10 @@
 </script>
 
 <svelte:head>
-	<title>Tree Hunt — the trees near you, by name</title>
+	<title>Tree Hunt: the trees near you, by name</title>
 	<meta
 		name="description"
-		content="A free pocket field guide to {SPECIES.length} British and Irish trees — how to spot them, their folklore and their science. In support of the International Tree Foundation."
+		content="A free pocket field guide to {SPECIES.length} British and Irish trees: how to spot them, their folklore and their science. In support of the International Tree Foundation."
 	/>
 </svelte:head>
 
@@ -104,7 +104,7 @@
 		{@const h = hunts[0]}
 		<a class="card tint linkcard spine {seasonOfMonth(h.mission.from[0])}" href="{base}/missions/">
 			<p class="label">On now · {windowLabel(h.mission)}</p>
-			<p class="serif small">{h.mission.title} — {h.mission.blurb}</p>
+			<p class="serif small">{h.mission.title}: {h.mission.blurb}</p>
 			<!-- the count was a sentence doing a graphic's job. The segments are
 			     aria-hidden because the line under them says the same thing, which
 			     is also what keeps this off the wrong side of "never information
@@ -125,7 +125,7 @@
 		<a class="card linkcard" href="{base}/missions/">
 			<p class="label">Seasonal hunts</p>
 			<p class="serif small">
-				Time-boxed hunts that give the calendar teeth — blossom in spring, conkers in autumn. Nothing
+				Time-boxed hunts that give the calendar teeth: blossom in spring, conkers in autumn. Nothing
 				is running today, but the next one is listed. →
 			</p>
 		</a>

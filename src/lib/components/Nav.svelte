@@ -78,7 +78,7 @@
 		{/each}
 	</nav>
 	<p class="railfoot">
-		Free forever, in support of the <strong>International Tree Foundation</strong> — registered
+		Free forever, in support of the <strong>International Tree Foundation</strong>, registered
 		charity no. 1106269
 	</p>
 </div>

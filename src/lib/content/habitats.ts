@@ -6,7 +6,7 @@ import type { Species } from './types';
 export const PLACES: { place: string; blurb: string; ids: string[] }[] = [
 		{
 			place: 'A street or town park',
-			blurb: 'Planted for shade and toughness. Look up at the crown shape first — street trees are usually pruned, so leaves and bark tell you more than outline.',
+			blurb: 'Planted for shade and toughness. Look up at the crown shape first: street trees are usually pruned, so leaves and bark tell you more than outline.',
 			ids: ['chestnut', 'sycamore', 'birch', 'rowan']
 		},
 		{
@@ -16,7 +16,7 @@ export const PLACES: { place: string; blurb: string; ids: string[] }[] = [
 		},
 		{
 			place: 'A hedgerow or field edge',
-			blurb: 'Hedges were planted to be stock-proof, so expect thorns. Count woody species along thirty paces — roughly one per century of hedge age.',
+			blurb: 'Hedges were planted to be stock-proof, so expect thorns. Count woody species along thirty paces: roughly one per century of hedge age.',
 			ids: ['hawthorn', 'elder', 'ash', 'oak']
 		},
 		{
@@ -31,7 +31,7 @@ export const PLACES: { place: string; blurb: string; ids: string[] }[] = [
 		},
 		{
 			place: 'Ancient or damp woodland',
-			blurb: 'Look at the ground flora as well as the canopy — bluebells, dog’s mercury and ramsons all say the wood is old.',
+			blurb: 'Look at the ground flora as well as the canopy: bluebells, dog’s mercury and ramsons all say the wood is old.',
 			ids: ['oak', 'beech', 'ash', 'holly']
 		},
 		{
